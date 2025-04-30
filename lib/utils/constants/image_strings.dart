@@ -6,7 +6,8 @@ class TImages {
 
 
   // -- App Logos
-  static const String appLogo = "assets/logos/tandala.svg";
+  static const String appLogo = "assets/logos/tandala.png";
+  static const String appLogoSvg = "assets/logos/tandala.svg";
   static const String taglineImage = "assets/images/banners/3_4x.png";
   static const String brandLogo = "assets/logos/mylogo.svg";
   static const String darkAppLogo = "assets/logos/tandala.png";
@@ -155,7 +156,7 @@ class TImages {
 
   /// Authentication Screens
   static const String authImage = "assets/images/authentication/rafiki.svg";
-  static const String google = "assets/icons/custom_icons/devicon_google.svg";
+  static const String google = "assets/logos/devicon_google.svg";
   // -- Products
   static const String productImage1 = "assets/images/products/nike-shoes.png";
   static const String productImage2 = "assets/images/products/product-1.png";

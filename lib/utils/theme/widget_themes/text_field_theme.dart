@@ -8,14 +8,17 @@ class TTextFormFieldTheme {
   TTextFormFieldTheme._();
 
   static InputDecorationTheme lightInputDecorationTheme = InputDecorationTheme(
+
+    floatingLabelStyle:TTypography.label12Regular.copyWith(color: TColors.primary300),
+    prefixStyle: TTypography.label12Regular.copyWith(color: TColors.primary300),
     errorMaxLines: 3,
     prefixIconColor: TColors.darkGrey,
     suffixIconColor: TColors.darkGrey,
+    helperStyle:  TTypography.label12Regular.copyWith(color: TColors.primary300),
     // constraints: const BoxConstraints.expand(height: TSizes.inputFieldHeight),
-    labelStyle: TTypography.label12Regular.copyWith(color: TColorSystem.n600),
-   // hintStyle: TTypography.label12Regular.copyWith(color: TColors.primary300),
+    labelStyle: TTypography.label12Regular.copyWith(color: TColorSystem.n400),
+    hintStyle: TTypography.label12Regular.copyWith(color: TColorSystem.n500),
     errorStyle: const TextStyle().copyWith(fontStyle: FontStyle.normal, fontFamily: 'Inter'),
-    floatingLabelStyle: const TextStyle().copyWith(color: TColors.textSecondary, fontFamily: 'Inter'),
     border: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(TSizes.inputFieldRadius),
       borderSide: const BorderSide(width: 1, color: TColors.borderPrimary),

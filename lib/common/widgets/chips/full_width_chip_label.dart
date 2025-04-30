@@ -6,6 +6,7 @@ import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/typography.dart';
 import '../containers/rounded_container.dart';
+
 /// Called Pill in Figma
 class FullWidthChipLabel extends StatelessWidget {
   final String label;
@@ -14,6 +15,9 @@ class FullWidthChipLabel extends StatelessWidget {
   final void Function()? onTap;
   final String? leftIcon;
   final String? rightIcon;
+  final double? radius;
+  final double? borderThickness;
+  final EdgeInsets? padding;
 
   const FullWidthChipLabel(
       {super.key,
@@ -22,24 +26,27 @@ class FullWidthChipLabel extends StatelessWidget {
       this.small = false,
       this.onTap,
       this.leftIcon,
-      this.rightIcon});
+      this.rightIcon,
+      this.radius = 100,
+      this.borderThickness = 1,
+      this.padding = const EdgeInsets.symmetric(horizontal: 24, vertical: 12)});
 
   @override
   Widget build(BuildContext context) {
     return TRoundedContainer(
       width: double.infinity,
       onTap: onTap,
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+      padding: padding!,
       margin: const EdgeInsets.all(8),
       backgroundColor:
-      isSelected ? TColorSystem.n100 : TColors.primaryBackground,
+          isSelected ? TColorSystem.n100 : TColors.primaryBackground,
       showBorder: true,
-      borderWidth: 1,
+      borderWidth: borderThickness!,
       borderColor: isSelected ? TColorSystem.n100 : Colors.white,
       showShadow: false,
       height: small ? 36 : 48,
-      radius: 100,
-      child:Center(
+      radius: radius!,
+      child: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min, // Hug content
           children: [
@@ -51,7 +58,8 @@ class FullWidthChipLabel extends StatelessWidget {
             Text(
               label,
               textAlign: TextAlign.center,
-              style: TTypography.label16Regular.copyWith(color:isSelected? TColorSystem.n800: TColorSystem.n100),
+              style: TTypography.label16Regular.copyWith(
+                  color: isSelected ? TColorSystem.n800 : TColorSystem.n300),
             ),
             if (rightIcon != null) ...[
               const SizedBox(width: TSizes.spaceBtwItems / 2),
