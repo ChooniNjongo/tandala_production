@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "251188717400",
+    "project_id": "tandala-85875",
+    "storage_bucket": "tandala-85875.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251188717400:android:7eefbafa2a6c8f39d0672d",
+        "android_client_info": {
+          "package_name": "com.example.cwt_ecommerce_admin_panel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAkjvaxhnzdj6MX5nKgKgNrM0wJqOjLEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

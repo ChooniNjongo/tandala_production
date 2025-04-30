@@ -1,0 +1,4 @@
+enum Owner {
+  Person,
+  Business
+}

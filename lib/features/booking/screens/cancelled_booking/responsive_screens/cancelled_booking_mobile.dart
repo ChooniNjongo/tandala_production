@@ -1,0 +1,33 @@
+import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
+import '../../../../../common/pages/action.dart';
+import '../../../../../common/widgets/navigation/form_navigation/form_navigation.dart';
+import '../../../models/booking/booking.dart';
+import '../widgets/mobile/cancelled_booking_body.dart';
+import '../widgets/mobile/cancelled_booking_owner_buttons.dart';
+import '../widgets/mobile/cancelled_booking_user_buttons.dart';
+
+class CancelledBookingMobileScreen extends StatelessWidget {
+  final Booking booking;
+
+  const CancelledBookingMobileScreen({super.key, required this.booking});
+
+  @override
+  Widget build(BuildContext context) {
+    final storage = GetStorage();
+    final uid = storage.read("uid") as String;
+    return ActionPage(
+      overlayHeader: const FormNavigation(
+        showLeftIcon: true,
+        step3Text: 'Booking Cancelled',
+        initialValue: 0.0,
+        targetValue: 0.0,
+      ),
+      body: CancelledBookingBody(booking: booking),
+      buttonContainer:
+          uid == booking.listing.userId
+              ? CancelledBookingOwnerButtons(booking: booking)
+              : CancelledBookingUserButtons(booking: booking),
+    );
+  }
+}

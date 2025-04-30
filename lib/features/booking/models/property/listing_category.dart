@@ -1,0 +1,4 @@
+enum ListingCategory {
+  SingleHost,
+  MultiHost
+}

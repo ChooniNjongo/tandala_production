@@ -1,0 +1,78 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint"
+      ]
+    }
+  ],
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "tandala-85875",
+          "appId": "1:251188717400:android:7eefbafa2a6c8f39d0672d",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "tandala-85875",
+          "appId": "1:251188717400:ios:67a952b3ba1eeafcd0672d",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "macos": {
+        "default": {
+          "projectId": "tandala-85875",
+          "appId": "1:251188717400:ios:67a952b3ba1eeafcd0672d",
+          "uploadDebugSymbols": false,
+          "fileOutput": "macos/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "tandala-85875",
+          "configurations": {
+            "android": "1:251188717400:android:7eefbafa2a6c8f39d0672d",
+            "ios": "1:251188717400:ios:67a952b3ba1eeafcd0672d",
+            "macos": "1:251188717400:ios:67a952b3ba1eeafcd0672d",
+            "web": "1:251188717400:web:f041ceb4175b1cdcd0672d",
+            "windows": "1:251188717400:web:3b9ebe662c9c7e02d0672d"
+          }
+        }
+      }
+    }
+  }
+}
