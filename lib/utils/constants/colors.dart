@@ -34,12 +34,13 @@ class TColors {
   static const Color iconPrimaryLight = Color(0xFFFFFFFF);
 
   // Text colors
-  static const Color textPrimary = Colors.white;
+  static const Color textPrimary = Color(0xFFB7B5AC);
+  static Color textSecondary = const Color(0xFF9C9A93);
   static const Color textIconFilterInactive = Color(0xFF808D8E);
 
   static const Color textDarkPrimary = TColorSystem.n200;
   static const Color textLightPrimary = TColorSystem.n200;
-  static Color textSecondary = const Color(0xFFC3C0C0).withOpacity(0.5);
+
   static Color textSecondaryDark =
       textSecondaryLight; //const Color(0xFFFFFFFF).withOpacity(0.71);
   static Color textSecondaryLight = const Color(0xFF7F7F7F).withOpacity(0.71);
@@ -48,9 +49,8 @@ class TColors {
   // Background colors
 
   static const Color light = Color(0xFF2C2C2C);
-  static const Color dark = Color(0xFF2C2C2C);
-  static const Color primaryBackground = Color(0xFF2C2C2C);
-  static const Color secondaryBackground = Color(0xFF121418);
+  static const Color primaryBackground = Color(0xFF202424);
+  static const Color secondaryBackground = Color(0xFF2D3030);
   static const Color headerBackground = Color(0xFF030303);
   static const Color popupBackground = Color(0xFF151B23);
 
@@ -78,7 +78,8 @@ class TColors {
   static const Color buttonDisabled = Color(0xFFC4C4C4);
 
   // Border colors
-  static const Color borderPrimaryDark = Color(0xFF444444);
+  static const Color borderPrimary = Color(0xFF393E3E);
+  static const Color borderPrimaryDark = Color(0xFF393E3E);
   static Color borderPrimaryLight = (const Color(0xFF7F7F7F)).withOpacity(0.2);
   static const Color secondaryFilter = Color(0xFF383838);
   static const Color borderSecondary = Color(0xFF313131);
@@ -117,6 +118,5 @@ class TColors {
   // Icon colors
   static const Color iconPrimary = Color(0xFF8D8D8D);
 
-  // Border colors
-  static const Color borderPrimary = Color(0xFFD9D9D9);
+
 }

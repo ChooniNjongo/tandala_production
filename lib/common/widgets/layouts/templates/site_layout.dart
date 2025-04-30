@@ -26,7 +26,7 @@ class TSiteTemplate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      backgroundColor: THelperFunctions.isDarkMode(context) ? TColors.dark : TColors.dark,
+      backgroundColor: THelperFunctions.isDarkMode(context) ? TColors.primaryBackground : TColors.primaryBackground,
       body: TResponsiveWidget(
         desktop: useLayout ? DesktopLayout(body: desktop) : desktop ?? Container(),
         tablet: useLayout ? TabletLayout(body: tablet ?? desktop) : tablet ?? desktop ?? Container(),

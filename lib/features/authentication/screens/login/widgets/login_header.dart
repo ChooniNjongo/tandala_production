@@ -1,7 +1,6 @@
 import 'package:cwt_ecommerce_admin_panel/utils/constants/typography.dart';
 import 'package:flutter/material.dart';
 import '../../../../../../utils/constants/sizes.dart';
-import '../../../../../../utils/constants/text_strings.dart';
 
 class TLoginHeader extends StatelessWidget {
   const TLoginHeader({
@@ -10,7 +9,7 @@ class TLoginHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return const SizedBox(
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -19,22 +18,12 @@ class TLoginHeader extends StatelessWidget {
             child: SizedBox(
                 width: 360,
                 child: Text(
-                  "Login or create an",
+                  "Login or create an account",
                   textAlign: TextAlign.center,
-                  style: TTypography.label14Regular.copyWith(fontSize: 26),
+                  style: TTypography.h3,
                 )),
           ),
-          Center(
-              child: SizedBox(
-            width: 360,
-            child: Text(
-              "account to enjoy great stays",
-              textAlign: TextAlign.center,
-              style: TTypography.label14Regular.copyWith(fontSize: 26),
-            ),
-          )),
-          const SizedBox(height: TSizes.spaceBtwSections),
-          ///
+          SizedBox(height: TSizes.spaceBtwSections),
         ],
       ),
     );

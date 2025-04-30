@@ -30,7 +30,7 @@ class FormNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: TColors.dark,
+      color: TColors.primaryBackground,
       height: 88,
       width: double.infinity,
       child: Column(

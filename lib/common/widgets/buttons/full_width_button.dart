@@ -38,7 +38,7 @@ class TFullWidthElevatedButton extends StatelessWidget {
           onPressed: onPressed,
           child: Text(
             buttonLabel,
-            style: TTypography.body16Bold, // Apply labelColor
+            style: TTypography.body16Bold.copyWith(color: Colors.white), // Apply labelColor
           ),
         ),
       ),

@@ -150,3 +150,20 @@ flutter:
           weight: 600
         - asset: assets/fonts/poppins/Poppins-Bold.ttf
           weight: 800
+
+    - family: CormorantGaramond
+      fonts:
+        - asset: assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Cormorant_Garamond/static/CormorantGaramond-MediumItalic.ttf
+          weight: 500
+        - asset: assets/fonts/Cormorant_Garamond/static/CormorantGaramond-MediumItalic.ttf
+          weight: 600
+        - asset: assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Bold.ttf
+          weight: 800

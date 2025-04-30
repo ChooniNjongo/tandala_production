@@ -17,7 +17,7 @@ class ButtonContainer extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(left: 40, right: 40, bottom: 32, top: 12),
       decoration: const BoxDecoration(
-        color: TColors.dark,
+        color: TColors.primaryBackground,
         border: Border(
           top: BorderSide(
             color: TColors.iconBorder, // White border color

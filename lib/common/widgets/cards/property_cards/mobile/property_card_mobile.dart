@@ -33,7 +33,7 @@ class PropertyCardMobile extends StatelessWidget {
           },
           margin: EdgeInsets.zero,
           showShadow: false,
-          backgroundColor: TColors.dark,
+          backgroundColor: TColors.primaryBackground,
           padding: const EdgeInsets.all(0),
           child: Stack(
             children: [

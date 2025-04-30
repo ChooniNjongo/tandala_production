@@ -13,7 +13,7 @@ class SearchFilter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const TRoundedContainer(
-      backgroundColor: TColors.dark,
+      backgroundColor: TColors.primaryBackground,
       padding: EdgeInsets.zero,
       radius: 8,
       width: 560,

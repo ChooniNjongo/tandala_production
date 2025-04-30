@@ -68,7 +68,7 @@ class _BookingRequestBodyState extends State<BookingRequestBody> {
                 return Container(
                   margin: const EdgeInsets.all(4),
                   decoration: const BoxDecoration(
-                    color: TColors.dark,
+                    color: TColors.primaryBackground,
                     shape: BoxShape.circle,
                   ),
                   child: Center(

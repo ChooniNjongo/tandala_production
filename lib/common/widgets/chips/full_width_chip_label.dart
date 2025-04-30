@@ -39,10 +39,10 @@ class FullWidthChipLabel extends StatelessWidget {
       padding: padding!,
       margin: const EdgeInsets.all(8),
       backgroundColor:
-          isSelected ? TColorSystem.n100 : TColors.primaryBackground,
+          TColors.primaryBackground,
       showBorder: true,
       borderWidth: borderThickness!,
-      borderColor: isSelected ? TColorSystem.n100 : Colors.white,
+      borderColor: isSelected ? TColorSystem.primary300 : TColors.borderPrimaryDark,
       showShadow: false,
       height: small ? 36 : 48,
       radius: radius!,
@@ -51,7 +51,7 @@ class FullWidthChipLabel extends StatelessWidget {
           mainAxisSize: MainAxisSize.min, // Hug content
           children: [
             if (leftIcon != null) ...[
-              SvgPicture.asset(leftIcon!),
+              SvgPicture.asset(leftIcon!,width: 28,),
               const SizedBox(width: TSizes.spaceBtwItems / 2),
               // Add spacing between icon and text
             ],
@@ -59,7 +59,7 @@ class FullWidthChipLabel extends StatelessWidget {
               label,
               textAlign: TextAlign.center,
               style: TTypography.label16Regular.copyWith(
-                  color: isSelected ? TColorSystem.n800 : TColorSystem.n300),
+                  color: isSelected ? TColors.primary300 : TColors.textPrimary),
             ),
             if (rightIcon != null) ...[
               const SizedBox(width: TSizes.spaceBtwItems / 2),

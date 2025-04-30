@@ -16,7 +16,7 @@ class MRoomSelectionSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final isMobile = TDeviceUtils.isMobileScreen(context);
     return TRoundedContainer(
-      backgroundColor: TColors.dark,
+      backgroundColor: TColors.primaryBackground,
       padding: EdgeInsets.zero,
       radius: 8,
       width: isMobile ? double.infinity : 1000,

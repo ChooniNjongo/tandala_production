@@ -18,7 +18,7 @@ class OverlayHeader extends StatelessWidget {
 
   const OverlayHeader({
     super.key,
-    this.backGroundColor = TColors.dark, // Default to visible color
+    this.backGroundColor = TColors.primaryBackground, // Default to visible color
     this.leftIcon = TImages.arrowLeft,
     this.rightIcon = TImages.messageInActive,
     required this.label,

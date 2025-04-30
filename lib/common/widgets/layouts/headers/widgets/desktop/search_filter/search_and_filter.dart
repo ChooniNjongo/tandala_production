@@ -49,7 +49,7 @@ class SearchAndFilters extends StatelessWidget {
           builder: (context) {
             return AlertDialog(
               contentPadding: EdgeInsets.zero,
-              backgroundColor: TColors.dark,
+              backgroundColor: TColors.primaryBackground,
               shadowColor: Colors.grey,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(24)),

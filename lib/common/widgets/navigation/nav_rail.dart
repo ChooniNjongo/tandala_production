@@ -22,7 +22,7 @@ class NavRail extends StatelessWidget {
       () => NavigationRail(
           indicatorColor: Colors.transparent,
           labelType: NavigationRailLabelType.all,
-          backgroundColor: TColors.dark,
+          backgroundColor: TColors.primaryBackground,
           elevation: 1,
           leading: Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),

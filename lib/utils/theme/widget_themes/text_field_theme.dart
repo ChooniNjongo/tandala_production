@@ -16,7 +16,7 @@ class TTextFormFieldTheme {
     suffixIconColor: TColors.darkGrey,
     helperStyle:  TTypography.label12Regular.copyWith(color: TColors.primary300),
     // constraints: const BoxConstraints.expand(height: TSizes.inputFieldHeight),
-    labelStyle: TTypography.label12Regular.copyWith(color: TColorSystem.n400),
+    labelStyle: TTypography.label12Regular.copyWith(color:TColors.textSecondary),
     hintStyle: TTypography.label12Regular.copyWith(color: TColorSystem.n500),
     errorStyle: const TextStyle().copyWith(fontStyle: FontStyle.normal, fontFamily: 'Inter'),
     border: const OutlineInputBorder().copyWith(

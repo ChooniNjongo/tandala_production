@@ -1,7 +1,7 @@
 import 'package:cwt_ecommerce_admin_panel/common/widgets/buttons/full_width_button.dart';
-import 'package:cwt_ecommerce_admin_panel/common/widgets/containers/rounded_container.dart';
 import 'package:cwt_ecommerce_admin_panel/routes/routes.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
+import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,56 +42,70 @@ class TLoginForm extends StatelessWidget {
                 onTap: () {},
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
-            Text(
+            const Text(
               "or",
               style: TTypography.label12Regular,
             ),
-            SizedBox(
+            const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
 
             /// Email
-            SizedBox(
-              width: 370,
-              child: TextFormField(
-                style: TTypography.label12Regular.copyWith(color: TColorSystem.n200), // <-- input text style
-                controller: controller.email,
-                validator: TValidator.validateEmail,
-                decoration: const InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.email_outlined,
-                      color: TColorSystem.n400,
-                    ),
-                    labelText: TTexts.email),
+            Container(
+              decoration: BoxDecoration(
+                  color: TColors.secondaryBackground,
+                  borderRadius: BorderRadius.circular(8)),
+              child: SizedBox(
+                height: 48,
+                width: 370,
+                child: TextFormField(
+                  style: TTypography.label12Regular.copyWith(
+                      color: TColors.textSecondary), // <-- input text style
+                  controller: controller.email,
+                  validator: TValidator.validateEmail,
+                  decoration: InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.email_outlined,
+                        color: TColors.textSecondary,
+                      ),
+                      labelText: TTexts.email),
+                ),
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields),
 
             /// Password
             Obx(
-              () => SizedBox(
-                width: 370,
-                child: TextFormField(
-                  style: TTypography.label12Regular.copyWith(color: TColorSystem.n200), // <-- input text style
-                  obscureText: controller.hidePassword.value,
-                  controller: controller.password,
-                  validator: (value) =>
-                      TValidator.validateEmptyText('Password', value),
-                  decoration: InputDecoration(
-                    labelText: TTexts.password,
-                    prefixIcon: const Icon(
-                      Icons.password_sharp,
-                      color: TColorSystem.n400,
-                    ),
-                    suffixIcon: IconButton(
-                      onPressed: () => controller.hidePassword.value =
-                          !controller.hidePassword.value,
-                      icon: Icon(controller.hidePassword.value
-                          ? Iconsax.eye_slash
-                          : Iconsax.eye),
+              () => Container(
+                decoration: BoxDecoration(
+                    color: TColors.secondaryBackground,
+                    borderRadius: BorderRadius.circular(8)),
+                child: SizedBox(
+                  height: 48,
+                  width: 370,
+                  child: TextFormField(
+                    style: TTypography.label12Regular.copyWith(
+                        color: TColors.textSecondary), // <-- input text style
+                    obscureText: controller.hidePassword.value,
+                    controller: controller.password,
+                    validator: (value) =>
+                        TValidator.validateEmptyText('Password', value),
+                    decoration: InputDecoration(
+                      labelText: TTexts.password,
+                      prefixIcon: Icon(
+                        Icons.password_sharp,
+                        color: TColors.textSecondary,
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () => controller.hidePassword.value =
+                            !controller.hidePassword.value,
+                        icon: Icon(controller.hidePassword.value
+                            ? Iconsax.eye_slash
+                            : Iconsax.eye),
+                      ),
                     ),
                   ),
                 ),
@@ -114,10 +128,9 @@ class TLoginForm extends StatelessWidget {
                           value: controller.rememberMe.value,
                           onChanged: (value) =>
                               controller.rememberMe.value = value!)),
-                      Text(
+                       Text(
                         TTexts.rememberMe,
-                        style: TTypography.label12Regular.copyWith(
-                            color: TColorSystem.primary100, fontSize: 11),
+                        style: TTypography.label12Regular.copyWith(fontSize: 10),
                       ),
                     ],
                   ),
@@ -141,7 +154,7 @@ class TLoginForm extends StatelessWidget {
                 child: Text(
                   TTexts.forgetPassword,
                   style: TTypography.label12Regular
-                      .copyWith(color: TColorSystem.primary100, fontSize: 11),
+                      .copyWith(color: TColorSystem.primary500.withOpacity(0.6), fontSize: 11),
                 )),
           ],
         ),

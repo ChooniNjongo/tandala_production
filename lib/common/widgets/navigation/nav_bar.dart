@@ -67,7 +67,7 @@ class NavBar extends StatelessWidget {
                   break;
               }
             },
-            backgroundColor: TColors.dark,
+            backgroundColor: TColors.primaryBackground,
             indicatorColor: Colors.transparent,
             destinations: [
               NavigationDestination(

@@ -43,7 +43,7 @@ class _TPropertyCardVerticalState extends State<TPropertyCardVertical> {
           TRoundedContainer(
             margin: EdgeInsets.zero,
             showShadow: false,
-            backgroundColor: TColors.dark,
+            backgroundColor: TColors.primaryBackground,
             height: 220,
             width: 370,
             padding: const EdgeInsets.all(0),

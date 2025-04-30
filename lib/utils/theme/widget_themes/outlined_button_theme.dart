@@ -12,7 +12,7 @@ class TOutlinedButtonTheme {
   static final lightOutlinedButtonTheme  = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       elevation: 0,
-      foregroundColor: TColors.dark,
+      foregroundColor: TColors.primaryBackground,
       side: const BorderSide(color: TColors.borderPrimary),
       padding: const EdgeInsets.symmetric(vertical: TSizes.buttonHeight, horizontal: 20),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(TSizes.buttonRadius)),

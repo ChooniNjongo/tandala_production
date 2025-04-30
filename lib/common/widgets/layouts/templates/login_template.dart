@@ -1,4 +1,3 @@
-import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +21,7 @@ class TLoginTemplate extends StatelessWidget {
             padding: TSpacingStyle.paddingWithAppBarHeight,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(TSizes.cardRadiusLg),
-                color: TColors.dark),
+                color: TColors.primaryBackground),
             child: child,
           ),
         ),

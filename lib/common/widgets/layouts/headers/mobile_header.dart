@@ -56,7 +56,7 @@ class MobileHeader extends StatelessWidget  {
         builder: (context) {
           return AlertDialog(
             contentPadding: EdgeInsets.zero,
-            backgroundColor: TColors.dark,
+            backgroundColor: TColors.primaryBackground,
             shadowColor: Colors.grey,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(24),
@@ -74,7 +74,7 @@ class MobileHeader extends StatelessWidget  {
       borderWidth: 1,
       showShadow: false,
       height: 84,
-      backgroundColor: TColors.dark,
+      backgroundColor: TColors.primaryBackground,
       child: Row(
         children: [
           const SizedBox(width: TSizes.spaceBtwItems * 2),
