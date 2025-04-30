@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../../../../../../common/widgets/button_container/button_container.dart';
-import '../../../../../../common/widgets/buttons/extensible_hug_content_button.dart';
 import '../../../../../../common/widgets/buttons/t_text_button.dart';
-import '../../../../../../routes/routes.dart';
 import '../../../../controllers/booking_controller.dart';
 import '../../../../models/booking/booking.dart';
 
@@ -23,7 +20,7 @@ class CancelledBookingOwnerButtons extends StatelessWidget {
           controller.confirmAvailability(booking.bookingId, false);
         },
       ),
-      button2: SizedBox(),
+      button2: const SizedBox(),
     );
   }
 }

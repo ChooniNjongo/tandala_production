@@ -33,7 +33,7 @@ class UserButtons extends StatelessWidget {
         label: 'Cancel Booking',
         labelColor: Colors.red,
       ),
-      button2: SizedBox(),
+      button2: const SizedBox(),
     );
   }
 }

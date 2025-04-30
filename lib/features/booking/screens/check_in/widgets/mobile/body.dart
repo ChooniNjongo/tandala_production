@@ -17,8 +17,8 @@ class CheckInBody extends StatelessWidget {
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child:
           uid == booking.listing.userId
-              ? CheckInOwnerSection()
-              : CheckInUserSection(),
+              ? const CheckInOwnerSection()
+              : const CheckInUserSection(),
     );
   }
 }

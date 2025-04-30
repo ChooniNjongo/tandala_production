@@ -27,7 +27,7 @@ class RoomViewingButtonContainer extends StatelessWidget {
               "K ${room.price.toInt().toString()}",
               style: TTypography.h3.copyWith(color: TColorSystem.primary100),
             ),
-            SizedBox(width: TSizes.spaceBtwInputFields / 4),
+            const SizedBox(width: TSizes.spaceBtwInputFields / 4),
             Row(
               children: [
                 Text(

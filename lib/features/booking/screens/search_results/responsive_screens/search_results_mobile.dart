@@ -30,7 +30,7 @@ class SearchResultsMobile extends StatelessWidget {
                 () => controller.isLoading.value
                     ? Row(
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             width: 16,
                             height: 16,
                             child: CircularProgressIndicator(
@@ -57,7 +57,7 @@ class SearchResultsMobile extends StatelessWidget {
             ),
           ),
 
-          MobileBodySlivers(),
+          const MobileBodySlivers(),
         ],
       ),
     );
@@ -76,7 +76,7 @@ class MobileBodySlivers extends StatelessWidget {
         return Obx(() {
           if (controller.isLoading.value) {
             return Padding(
-              padding: EdgeInsets.symmetric(vertical: 32),
+              padding: const EdgeInsets.symmetric(vertical: 32),
               child: TGridLayout(
                 crossAxisCount: isMobile ? 1 : 3,
                 mainAxisExtent: 340,

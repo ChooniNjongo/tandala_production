@@ -11,13 +11,13 @@ class AmenitiesFilter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const FilterSectionTitle(title: TTexts.amenities),
-        const SizedBox(height: TSizes.spaceBtwSections),
-        const AmenitiesFilterWidget(),
-        const SizedBox(height: TSizes.spaceBtwSections),
+        FilterSectionTitle(title: TTexts.amenities),
+        SizedBox(height: TSizes.spaceBtwSections),
+        AmenitiesFilterWidget(),
+        SizedBox(height: TSizes.spaceBtwSections),
       ],
     );
   }

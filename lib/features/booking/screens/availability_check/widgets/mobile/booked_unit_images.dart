@@ -54,7 +54,7 @@ class BookedUnitImages extends StatelessWidget {
           children: [
             Row(
               children: [
-                Text("Check In Date : ", style: TTypography.label12Regular),
+                const Text("Check In Date : ", style: TTypography.label12Regular),
                 Text(" ${THelperFunctions.formatDate(booking.checkInDate)}"),
               ],
             ),

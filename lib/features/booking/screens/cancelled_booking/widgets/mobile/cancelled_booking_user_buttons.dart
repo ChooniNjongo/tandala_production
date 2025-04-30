@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../../../common/widgets/button_container/button_container.dart';
 import '../../../../../../common/widgets/buttons/extensible_hug_content_button.dart';

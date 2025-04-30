@@ -25,7 +25,7 @@ class BookingCompletedMobileScreen extends StatelessWidget {
       body: BookingCompletedBody(booking: booking),
       buttonContainer:
       uid == booking.listing.userId
-          ? SizedBox()
+          ? const SizedBox()
           : BookingCompletedUserButtons(booking: booking),
     );
   }

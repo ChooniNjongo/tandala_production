@@ -20,7 +20,7 @@ class BodySlivers extends StatelessWidget {
         return Obx(() {
           if (propertyController.isLoading.value) {
             return Padding(
-              padding: EdgeInsets.symmetric(vertical: 32),
+              padding: const EdgeInsets.symmetric(vertical: 32),
               child: TGridLayout(
                 crossAxisCount: isMobile ? 1 : 3,
                 mainAxisExtent: 340,

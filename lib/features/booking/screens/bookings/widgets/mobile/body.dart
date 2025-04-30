@@ -24,9 +24,9 @@ class BookingsBody extends StatelessWidget {
       builder: (context, snapshot) {
         // Show loader while fetching bookings
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: const Center(child: BookingsBodyShimmer()),
+          return const Padding(
+            padding: EdgeInsets.all(12.0),
+            child: Center(child: BookingsBodyShimmer()),
           );
         }
 

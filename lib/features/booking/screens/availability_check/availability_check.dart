@@ -14,7 +14,7 @@ class AvailabilityCheckScreen extends StatelessWidget {
     return   TSiteTemplate(
       useLayout: false,
       desktop: AvailabilityCheckScreenMobile(booking: booking,),
-      tablet:  HomeTabletScreen(),
+      tablet:  const HomeTabletScreen(),
       mobile:  AvailabilityCheckScreenMobile(booking: booking,),
     );
   }

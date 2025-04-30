@@ -4,7 +4,6 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import '../../../../../../common/widgets/question_container/question_container.dart';
 import '../../../../../../utils/constants/color_system.dart';
 import '../../../../../../utils/constants/sizes.dart';
-import '../../../../../../utils/theme/color_system.dart';
 
 class ListerPaymentSection extends StatelessWidget {
   const ListerPaymentSection({super.key});

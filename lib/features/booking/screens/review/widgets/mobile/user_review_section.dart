@@ -14,7 +14,7 @@ class UserReviewSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(ReviewController());
     return Padding(
-      padding: EdgeInsets.all(0),
+      padding: const EdgeInsets.all(0),
       child: Obx(
         () => Column(
           children: [
@@ -57,7 +57,7 @@ class UserReviewSection extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: TSizes.spaceBtwSections),
+            const SizedBox(height: TSizes.spaceBtwSections),
             InputField(
               placeHolder: "Tell us how you found this place?",
               controller: controller.reviewTextEditingController,

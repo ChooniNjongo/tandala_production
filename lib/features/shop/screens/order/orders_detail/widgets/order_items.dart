@@ -7,7 +7,6 @@ import '../../../../../../utils/constants/enums.dart';
 import '../../../../../../utils/constants/image_strings.dart';
 import '../../../../../../utils/constants/sizes.dart';
 import '../../../../../../utils/device/device_utility.dart';
-import '../../../../../../utils/helpers/pricing_calculator.dart';
 import '../../../../models/order_model.dart';
 
 class OrderItems extends StatelessWidget {

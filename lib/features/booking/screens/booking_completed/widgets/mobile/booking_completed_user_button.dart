@@ -13,7 +13,7 @@ class BookingCompletedUserButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ButtonContainer(
-      button1: SizedBox(),
+      button1: const SizedBox(),
       button2: TExtensibleHugContentButton(
         buttonLabel: 'Book Again ',
         onPressed: () {

@@ -4,7 +4,9 @@
 /// This class contains all the App Images in String formats.
 class TImages {
 
+
   // -- App Logos
+  static const String appLogo = "assets/logos/tandala.svg";
   static const String taglineImage = "assets/images/banners/3_4x.png";
   static const String brandLogo = "assets/logos/mylogo.svg";
   static const String darkAppLogo = "assets/logos/tandala.png";
@@ -21,7 +23,7 @@ class TImages {
       "assets/logos/download_app/dark/Store=Google Play, Type=Dark, Language=English.svg";
   static const String sideBarLightAppLogo = "assets/logos/sidebar_logo.png";
   static const String tandalaWhite = "assets/logos/tandala_white.svg";
-  static const String tandalaColor = "assets/logos/tandala_color.svg";
+  static const String tandalaColor = "assets/logos/tandala.svg";
   static const String mobileFooterLogo = "assets/logos/mobile_footer_logo.svg";
 
   // -- Default Images
@@ -549,8 +551,7 @@ class TImages {
   static const String master_card = "assets/images/payment/master_card.svg";
 
 
-  // -- App Logos
-  static const String cwtLogo = "assets/logos/cwt-logo.png";
+
 
   static const String facebook = "assets/logos/facebook-icon.png";
 

@@ -36,26 +36,26 @@ class BookingRoomMobileScreen extends StatelessWidget {
   }
 
   Widget _buildAvailabilityWidget() {
-    return AvailabilityCheckScreen();
+    return const AvailabilityCheckScreen();
   }
 
   Widget _buildPaymentWidget() {
-    return PaymentScreen();
+    return const PaymentScreen();
   }
 
   Widget _buildCheckInWidget() {
-    return CheckInScreen();
+    return const CheckInScreen();
   }
 
   Widget _buildReviewWidget() {
-    return ReviewScreen();
+    return const ReviewScreen();
   }
 
   Widget _buildCompletedWidget() {
-    return BookingCompletedScreen();
+    return const BookingCompletedScreen();
   }
 
   Widget _buildCancelledWidget() {
-    return CancelledBookingScreen();
+    return const CancelledBookingScreen();
   }
 }

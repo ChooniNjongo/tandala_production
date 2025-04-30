@@ -29,7 +29,7 @@ class BookingCompletedBody extends StatelessWidget {
           ],
         ),
 
-        QuestionContainer(
+        const QuestionContainer(
           question: "Successfully completed the booking.",
           body: "We hope you enjoyed your stay here",
         ),

@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/popups/loaders.dart';
 import '../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../data/repositories/booking/booking_repository.dart';
@@ -33,7 +32,7 @@ class BookingController extends GetxController {
   final isCheckingBookie = false.obs;
   final selectedBooking = Rx<Booking?>(null);
   final checkInDate = DateTime.now().obs;
-  final checkOutDate = DateTime.now().add(Duration(days: 1)).obs;
+  final checkOutDate = DateTime.now().add(const Duration(days: 1)).obs;
 
   /// Booking Request Process
   final numberOfNightBooked = 1.obs;

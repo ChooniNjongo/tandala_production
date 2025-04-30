@@ -35,7 +35,7 @@ class CancelledBookingBody extends StatelessWidget {
 
         /// Image Container
         BookedUnitImages(booking: booking),
-        SizedBox(height: TSizes.spaceBtwSections),
+        const SizedBox(height: TSizes.spaceBtwSections),
 
         /// Booking Button
 
@@ -43,7 +43,7 @@ class CancelledBookingBody extends StatelessWidget {
             booking.listing.userId)
           TFullWidthElevatedButton(
             buttonLabel: "Book Again",
-            padding: EdgeInsets.symmetric(horizontal: 56),
+            padding: const EdgeInsets.symmetric(horizontal: 56),
             onPressed: () {
               Get.toNamed(
                 TRoutes.listingViewing,
