@@ -8,7 +8,12 @@ import '../../responsive/screens/tablet_layout.dart';
 
 /// Template for the overall site layout, responsive to different screen sizes
 class TSiteTemplate extends StatelessWidget {
-  const TSiteTemplate({super.key, this.desktop, this.tablet, this.mobile, this.useLayout = true});
+  const TSiteTemplate(
+      {super.key,
+      this.desktop,
+      this.tablet,
+      this.mobile,
+      this.useLayout = true});
 
   /// Widget for desktop layout
   final Widget? desktop;
@@ -25,12 +30,18 @@ class TSiteTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      backgroundColor: THelperFunctions.isDarkMode(context) ? TColors.primaryBackground : TColors.primaryBackground,
+      backgroundColor: THelperFunctions.isDarkMode(context)
+          ? TColors.primaryBackground
+          : TColors.primaryBackground,
       body: TResponsiveWidget(
-        desktop: useLayout ? DesktopLayout(body: desktop) : desktop ?? Container(),
-        tablet: useLayout ? TabletLayout(body: tablet ?? desktop) : tablet ?? desktop ?? Container(),
-        mobile: useLayout ? MobileLayout(body: mobile ?? desktop) : mobile ?? desktop ?? Container(),
+        desktop:
+            useLayout ? DesktopLayout(body: desktop) : desktop ?? Container(),
+        tablet: useLayout
+            ? TabletLayout(body: tablet ?? desktop)
+            : tablet ?? desktop ?? Container(),
+        mobile: useLayout
+            ? MobileLayout(body: mobile ?? desktop)
+            : mobile ?? desktop ?? Container(),
       ),
     );
   }

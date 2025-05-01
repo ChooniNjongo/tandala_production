@@ -128,9 +128,10 @@ class TLoginForm extends StatelessWidget {
                           value: controller.rememberMe.value,
                           onChanged: (value) =>
                               controller.rememberMe.value = value!)),
-                       Text(
+                      Text(
                         TTexts.rememberMe,
-                        style: TTypography.label12Regular.copyWith(fontSize: 10),
+                        style:
+                            TTypography.label12Regular.copyWith(fontSize: 10),
                       ),
                     ],
                   ),
@@ -153,8 +154,9 @@ class TLoginForm extends StatelessWidget {
                 onPressed: () => Get.toNamed(TRoutes.forgetPassword),
                 child: Text(
                   TTexts.forgetPassword,
-                  style: TTypography.label12Regular
-                      .copyWith(color: TColorSystem.primary500.withOpacity(0.6), fontSize: 11),
+                  style: TTypography.label12Regular.copyWith(
+                      color: TColorSystem.primary500.withOpacity(0.6),
+                      fontSize: 11),
                 )),
           ],
         ),

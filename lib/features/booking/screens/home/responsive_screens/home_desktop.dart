@@ -45,9 +45,7 @@ class HomeDesktopScreen extends StatelessWidget {
               const HomeListings(),
               // Product shimmer listings when loading else new TGrid with the new listings
               const ViewMoreListings(),
-              const SizedBox(
-                height: TSizes.spaceBtwSections,
-              ),
+              const SizedBox(height: TSizes.spaceBtwSections),
               if (controller.showLoadingViewMore.value)
                 TExtensibleHugContentButton(
                   buttonLabel: 'See more',
@@ -57,9 +55,7 @@ class HomeDesktopScreen extends StatelessWidget {
                     controller.onViewMoreListingsPressed();
                   },
                 ),
-              const SizedBox(
-                height: TSizes.spaceBtwSections,
-              ),
+              const SizedBox(height: TSizes.spaceBtwSections),
               if (!controller.hasTappedLoadingViewMore.value) const Footer(),
             ],
           ),

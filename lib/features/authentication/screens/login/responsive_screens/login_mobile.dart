@@ -1,10 +1,8 @@
 import 'package:cwt_ecommerce_admin_panel/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
-import '../../../../../utils/helpers/helper_functions.dart';
 import '../widgets/login_form.dart';
 import '../widgets/login_header.dart';
 
@@ -20,9 +18,7 @@ class LoginScreenMobile extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(
-                height: TSizes.spaceBtwSections * 2,
-              ),
+              const SizedBox(height: TSizes.spaceBtwSections * 2),
 
               /// Logo
               Row(
@@ -34,9 +30,7 @@ class LoginScreenMobile extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: TSizes.spaceBtwSections * 2,
-              ),
+              const SizedBox(height: TSizes.spaceBtwSections * 2),
 
               ///  Header
               const TLoginHeader(),

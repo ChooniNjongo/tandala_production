@@ -1,10 +1,7 @@
-
 /* -- App Image Strings -- */
 
 /// This class contains all the App Images in String formats.
 class TImages {
-
-
   // -- App Logos
   static const String appLogo = "assets/logos/tandala.png";
   static const String appLogoSvg = "assets/logos/tandala.svg";
@@ -551,19 +548,20 @@ class TImages {
   static const String visa = "assets/images/payment/visa.svg";
   static const String master_card = "assets/images/payment/master_card.svg";
 
-
-
-
   static const String facebook = "assets/logos/facebook-icon.png";
 
-
   // -- Animations
-  static const String errorIllustration = "assets/images/animations/no-connection.gif";
-  static const String ridingIllustration = "assets/images/animations/riding.gif";
-  static const String mediaIllustration = "assets/images/animations/media-3D.gif";
-  static const String couponIllustration = "assets/images/animations/coupon.gif";
-  static const String dashboardIllustration = "assets/images/animations/dashboard.gif";
+  static const String errorIllustration =
+      "assets/images/animations/no-connection.gif";
+  static const String ridingIllustration =
+      "assets/images/animations/riding.gif";
+  static const String loaderIllustration =
+      "assets/images/animations/loader-animation.json";
+  static const String mediaIllustration =
+      "assets/images/animations/media-3D.gif";
+  static const String couponIllustration =
+      "assets/images/animations/coupon.gif";
+  static const String dashboardIllustration =
+      "assets/images/animations/dashboard.gif";
   static const String tableIllustration = "assets/images/animations/table.gif";
-
 }
-

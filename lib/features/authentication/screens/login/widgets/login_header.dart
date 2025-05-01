@@ -20,7 +20,7 @@ class TLoginHeader extends StatelessWidget {
                 child: Text(
                   "Login or create an account",
                   textAlign: TextAlign.center,
-                  style: TTypography.h3,
+                  style: TTypography.h1,
                 )),
           ),
           SizedBox(height: TSizes.spaceBtwSections),

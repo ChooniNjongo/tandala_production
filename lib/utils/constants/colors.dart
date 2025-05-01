@@ -36,6 +36,7 @@ class TColors {
   // Text colors
   static const Color textPrimary = Color(0xFFB7B5AC);
   static Color textSecondary = const Color(0xFF9C9A93);
+  static Color textOnSecondaryBackground2 = const Color(0xFFEAA165);
   static const Color textIconFilterInactive = Color(0xFF808D8E);
 
   static const Color textDarkPrimary = TColorSystem.n200;
@@ -51,6 +52,7 @@ class TColors {
   static const Color light = Color(0xFF2C2C2C);
   static const Color primaryBackground = Color(0xFF202424);
   static const Color secondaryBackground = Color(0xFF2D3030);
+  static const Color secondaryBackground2 = Color(0xFF141413);
   static const Color headerBackground = Color(0xFF030303);
   static const Color popupBackground = Color(0xFF151B23);
 
@@ -117,6 +119,4 @@ class TColors {
 
   // Icon colors
   static const Color iconPrimary = Color(0xFF8D8D8D);
-
-
 }
