@@ -36,7 +36,7 @@ class AuthenticationRepository extends GetxController {
     // If the user is logged in
     if (user != null) {
       // Navigate to the Home
-      Get.offAllNamed(TRoutes.dashboard);
+      Get.offAllNamed(TRoutes.home);
     } else {
       Get.offAllNamed(TRoutes.login);
     }

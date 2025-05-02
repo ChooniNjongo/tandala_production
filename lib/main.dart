@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/utils/local_storage/storage_utility.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -13,8 +14,8 @@ Future<void> main() async {
   // Ensure that widgets are initialized
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize GetX Local Storage
-  await GetStorage.init();
+
+  await TLocalStorage.init("tandala");
 
   // Remove # sign from url
   setPathUrlStrategy();

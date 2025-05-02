@@ -79,6 +79,19 @@ flutter:
     - assets/images/content/
     - assets/images/animations/
     - assets/icons/payment_methods/
+    - assets/icons/custom_icons/dark/
+    - assets/icons/custom_icons/
+    - assets/icons/custom_icons/nav_icons/
+    - assets/icons/custom_icons/amenities/
+    - assets/icons/custom_icons/light/
+    - assets/icons/custom_icons/active/
+    - assets/icons/custom_icons/inactive/
+    - assets/images/content/
+    - assets/images/animations/
+    - assets/icons/payment_methods/
+    - assets/icons/custom_icons/product_card/
+    - assets/icons/custom_icons/icon_family/
+    - assets/icons/custom_icons/header_nav_icons/
 
   #--------------- LOCAL FONTS ------------------#
   fonts:

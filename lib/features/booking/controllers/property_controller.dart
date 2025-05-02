@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import '../../../../utils/popups/loaders.dart';
 import '../../../data/repositories/listing/listing_repository.dart';
-import '../../../data/repositories/user/temp_user_repository.dart' show UserRepository;
+import '../../../data/repositories/user/user_repository.dart';
 import '../models/booking/sorting_order.dart';
 import '../models/property/listing_model.dart';
 import '../models/property/property_review.dart';

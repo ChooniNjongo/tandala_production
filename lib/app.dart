@@ -25,7 +25,7 @@ class App extends StatelessWidget {
       initialBinding: GeneralBindings(),
       navigatorObservers: [RouteObservers()],
       scrollBehavior: MyCustomScrollBehavior(),
-      initialRoute: TRoutes.dashboard,
+      initialRoute: TRoutes.home,
       getPages: TAppRoute.pages,
       unknownRoute: GetPage(
         name: '/page-not-found',
@@ -36,10 +36,7 @@ class App extends StatelessWidget {
               'Looks like you’ve discovered the Bermuda Triangle of our app. Don\'t worry, we won’t let you stay lost forever. Click the button below to return to safety!',
         ),
       ),
-      home: const Scaffold(
-        backgroundColor: TColors.primary,
-        body: Center(child: CircularProgressIndicator(color: Colors.white)),
-      ),
+
     );
   }
 }

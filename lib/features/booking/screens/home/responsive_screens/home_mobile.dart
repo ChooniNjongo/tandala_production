@@ -3,9 +3,7 @@ import '../widgets/mobile/animated_drawer.dart';
 import '../widgets/mobile/home_content.dart';
 
 class HomeMobileScreen extends StatelessWidget {
-  HomeMobileScreen({super.key});
-
-  final ScrollController _scrollController = ScrollController();
+  const HomeMobileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

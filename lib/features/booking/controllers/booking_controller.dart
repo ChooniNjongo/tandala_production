@@ -5,7 +5,7 @@ import '../../../../utils/popups/loaders.dart';
 import '../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../data/repositories/booking/booking_repository.dart';
 import '../../../data/repositories/listing/listing_repository.dart';
-import '../../../data/repositories/user/temp_user_repository.dart' show UserRepository;
+import '../../../data/repositories/user/user_repository.dart';
 import '../../../routes/routes.dart';
 import '../models/booking/booking.dart';
 import '../models/booking/booking_notification.dart';
