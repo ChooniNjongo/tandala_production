@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../../common/widgets/layouts/headers/mobile_header.dart';
 import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/constants/image_strings.dart';
 import '../../../../controllers/secondary_filter_controller.dart';
@@ -14,7 +13,7 @@ class MySliverAppBar extends StatelessWidget {
     final filterController = Get.put(SecondaryFilterController());
     // GetX MenuController
     return SliverAppBar(
-      title: const MobileHeader(),
+     /// title: const MobileHeader(),
       automaticallyImplyLeading: false,
       // Remove back arrow
       leading: null,
