@@ -21,14 +21,17 @@ class TVerticalProductShimmer extends StatelessWidget {
           TShimmerEffect(
             radius: TSizes.borderRadiusMd,
             height: MediaQuery.of(context).size.height * .30,
-            width:
-                isMobile
-                    ? double.infinity
-                    : THelperFunctions.screenWidth() * .86,
+            width: isMobile
+                ? double.infinity
+                : THelperFunctions.screenWidth() * .86,
           ),
-          const SizedBox(height: TSizes.spaceBtwItems),
+          const SizedBox(height: TSizes.spaceBtwItems / 2),
 
           /// Property Name Shimmer and  City Shimmer
+          const TShimmerEffect(width: 110, height: 16, radius: 4),
+          const SizedBox(height: TSizes.spaceBtwItems / 2),
+
+          /// Distance Shimmer
           const TShimmerEffect(width: 110, height: 16, radius: 4),
           const SizedBox(height: TSizes.spaceBtwItems / 2),
 

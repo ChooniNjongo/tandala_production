@@ -28,7 +28,7 @@ class TMenuItem extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 color: menuController.isHovering(route) || menuController.isActive(route)
-                    ? TColors.primary
+                    ? TColors.secondaryBackground2
                     : Colors.transparent,
                 borderRadius: BorderRadius.circular(TSizes.cardRadiusMd),
               ),
@@ -41,13 +41,13 @@ class TMenuItem extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: TSizes.lg, top: TSizes.md, bottom: TSizes.md, right: TSizes.md),
                     child: menuController.isActive(route)
-                        ? Icon(icon, size: 22, color: TColors.white)
+                        ? Icon(icon, size: 22, color: TColors.primary500)
                         : Icon(icon, size: 22, color: menuController.isHovering(route) ? TColors.white : TColors.darkGrey),
                   ),
                   // Text
                   if (menuController.isHovering(route) || menuController.isActive(route))
                     Flexible(
-                      child: Text(itemName, style: Theme.of(context).textTheme.bodyMedium!.apply(color: TColors.white)),
+                      child: Text(itemName, style: Theme.of(context).textTheme.bodyMedium!.apply(color: TColors.primary500)),
                     )
                   else
                     Flexible(

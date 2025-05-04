@@ -21,38 +21,21 @@ class TSidebar extends StatelessWidget {
       shape: const BeveledRectangleBorder(),
       child: Container(
         decoration: const BoxDecoration(
-          color: TColors.white,
-          border: Border(right: BorderSide(width: 1, color: TColors.grey)),
+          color: TColors.primaryBackground,
+          // border: Border(right: BorderSide(width: 1, color: TColors.grey)),
         ),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  Obx(
-                    () => TCircularImage(
-                      width: 60,
-                      height: 60,
-                      padding: 0,
-                      margin: TSizes.sm,
-                      backgroundColor: Colors.transparent,
-                      imageType: SettingsController.instance.settings.value.appLogo.isNotEmpty ? ImageType.network : ImageType.asset,
-                      image: SettingsController.instance.settings.value.appLogo.isNotEmpty
-                          ? SettingsController.instance.settings.value.appLogo
-                          : TImages.darkAppLogo,
-                    ),
-                  ),
-                  Expanded(
-                    child: Obx(
-                      () => Text(
-                        SettingsController.instance.settings.value.appName,
-                        style: Theme.of(context).textTheme.headlineLarge,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ),
-                ],
+              ///Logo
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: TSizes.xl,vertical: 4),
+                child: Image.asset(
+                  TImages.logoPng,
+                  height: 56,
+                  width: 100,
+                ),
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
               Padding(
@@ -61,23 +44,67 @@ class TSidebar extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text('MENU', style: Theme.of(context).textTheme.bodySmall!.apply(letterSpacingDelta: 1.2)),
+                    Text('MENU',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodySmall!
+                            .apply(letterSpacingDelta: 1.2)),
                     // Menu Items
-                    const TMenuItem(route: TRoutes.dashboard, icon: Iconsax.status, itemName: 'Dashboard'),
-                    const TMenuItem(route: TRoutes.media, icon: Iconsax.image, itemName: 'Media'),
-                    const TMenuItem(route: TRoutes.banners, icon: Iconsax.picture_frame, itemName: 'Banners'),
-                    const TMenuItem(route: TRoutes.products, icon: Iconsax.shopping_bag, itemName: 'Products'),
-                    const TMenuItem(route: TRoutes.categories, icon: Iconsax.category_2, itemName: 'Categories'),
-                    const TMenuItem(route: TRoutes.brands, icon: Iconsax.dcube, itemName: 'Brands'),
-                    const TMenuItem(route: TRoutes.customers, icon: Iconsax.profile_2user, itemName: 'Customers'),
-                    const TMenuItem(route: TRoutes.orders, icon: Iconsax.box, itemName: 'Orders'),
-                    const TMenuItem(route: TRoutes.coupons, icon: Iconsax.code, itemName: 'Coupons'),
+                    const TMenuItem(
+                        route: TRoutes.dashboard,
+                        icon: Iconsax.status,
+                        itemName: 'Dashboard'),
+                    const TMenuItem(
+                        route: TRoutes.media,
+                        icon: Iconsax.image,
+                        itemName: 'Media'),
+                    const TMenuItem(
+                        route: TRoutes.banners,
+                        icon: Iconsax.picture_frame,
+                        itemName: 'Banners'),
+                    const TMenuItem(
+                        route: TRoutes.products,
+                        icon: Iconsax.shopping_bag,
+                        itemName: 'Products'),
+                    const TMenuItem(
+                        route: TRoutes.categories,
+                        icon: Iconsax.category_2,
+                        itemName: 'Categories'),
+                    const TMenuItem(
+                        route: TRoutes.brands,
+                        icon: Iconsax.dcube,
+                        itemName: 'Brands'),
+                    const TMenuItem(
+                        route: TRoutes.customers,
+                        icon: Iconsax.profile_2user,
+                        itemName: 'Customers'),
+                    const TMenuItem(
+                        route: TRoutes.orders,
+                        icon: Iconsax.box,
+                        itemName: 'Orders'),
+                    const TMenuItem(
+                        route: TRoutes.coupons,
+                        icon: Iconsax.code,
+                        itemName: 'Coupons'),
                     const SizedBox(height: TSizes.spaceBtwItems),
-                    Text('OTHER', style: Theme.of(context).textTheme.bodySmall!.apply(letterSpacingDelta: 1.2)),
+                    Text('OTHER',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodySmall!
+                            .apply(letterSpacingDelta: 1.2)),
                     // Other menu items
-                    const TMenuItem(route: TRoutes.profile, icon: Iconsax.user, itemName: 'Profile'),
-                    const TMenuItem(route: TRoutes.settings, icon: Iconsax.setting_2, itemName: 'Settings'),
-                    const TMenuItem(route: 'logout', icon: Iconsax.logout, itemName: 'Logout'),
+                    const TMenuItem(
+                        route: TRoutes.profile,
+                        icon: Iconsax.user,
+                        itemName: 'Profile'),
+                    const TMenuItem(
+                        route: TRoutes.settings,
+                        icon: Iconsax.setting_2,
+                        itemName: 'Settings'),
+                    const TMenuItem(
+                        route: 'logout',
+                        icon: Iconsax.logout,
+                        itemName: 'Logout'),
                   ],
                 ),
               ),
