@@ -15,15 +15,13 @@ class LocationController extends GetxController {
 
   Future<void> updateLocationStatus() async {
     isLocationEnabled.value = await Geolocator.isLocationServiceEnabled();
-
     LocationPermission permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.always || permission == LocationPermission.whileInUse) {
-        if (isLocationEnabled.value) {
-          await getLocation(); // Fetch location on init if enabled
-        }
-
+    if (permission == LocationPermission.always ||
+        permission == LocationPermission.whileInUse) {
+      if (isLocationEnabled.value) {
+        await getLocation(); // Fetch location on init if enabled
+      }
     }
-
   }
 
   Future<void> getLocation() async {

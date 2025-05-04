@@ -14,53 +14,68 @@ class SecondaryFilterItem extends StatelessWidget {
   final String filterName;
   final void Function()? onTap;
 
-  const SecondaryFilterItem(
-      {super.key,
-      required this.isActive,
-      required this.activeIcon,
-      required this.inactiveIcon,
-      required this.border,
-      this.onTap,
-      required this.filterName});
+  const SecondaryFilterItem({
+    super.key,
+    required this.isActive,
+    required this.activeIcon,
+    required this.inactiveIcon,
+    required this.border,
+    this.onTap,
+    required this.filterName,
+  });
 
   @override
   Widget build(BuildContext context) {
     final isMobile = TDeviceUtils.isMobileScreen(context);
-    return TRoundedContainer(
 
+    return TRoundedContainer(
       onTap: onTap,
       padding: const EdgeInsets.all(4),
       backgroundColor: Colors.transparent,
       margin: const EdgeInsets.only(left: 4),
       child: ClipRect(
-
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SvgPicture.asset(
-             activeIcon ,
-              height: 22,
-              semanticsLabel: 'Logo',
-              color: isActive ? TColorSystem.primary500 : TColors.textIconFilterInactive,
-            ),
-            const SizedBox(
-              height: 2,
-            ),
-            Text(
-              filterName,
-              style: TTypography.body12Regular.copyWith(fontSize: 11,
-                  fontWeight: isActive ? FontWeight.w500 : FontWeight.w500,
-                  color: isActive
-                      ? (TColors.white)
-                      : (TColors.textIconFilterInactive)),
-            ),
-            if(!isMobile)
-             const SizedBox(
-              height: 8,
-            ),
-          ],
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            maxHeight: 60, // Adjust based on icon and text layout
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SvgPicture.asset(
+                activeIcon,
+                height: 22,
+                semanticsLabel: 'Logo',
+                color: isActive
+                    ? TColorSystem.primary500
+                    : TColors.textIconFilterInactive,
+              ),
+              const SizedBox(height: 2),
+              ClipRect(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(
+                    maxHeight: 60, // Adjust based on icon and text layout
+                  ),
+                  child: Text(
+                    filterName,
+                    style: TTypography.body12Regular.copyWith(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w500,
+                      color:
+                          isActive ? TColors.white : TColors.textIconFilterInactive,
+                    ),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ),
+              if (!isMobile) const SizedBox(height: 8),
+            ],
+          ),
         ),
       ),
     );
   }
 }
+
+
+
