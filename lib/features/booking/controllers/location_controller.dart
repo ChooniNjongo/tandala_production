@@ -1,4 +1,8 @@
+import 'package:flutter/foundation.dart' show defaultTargetPlatform, TargetPlatform, kIsWeb;
 import 'package:geolocator/geolocator.dart';
+import 'package:geolocator_android/geolocator_android.dart';
+import 'package:geolocator_apple/geolocator_apple.dart';
+import 'package:geolocator_web/geolocator_web.dart';
 import 'package:get/get.dart';
 
 class LocationController extends GetxController {
@@ -15,6 +19,7 @@ class LocationController extends GetxController {
 
   Future<void> updateLocationStatus() async {
     isLocationEnabled.value = await Geolocator.isLocationServiceEnabled();
+
     LocationPermission permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.always ||
         permission == LocationPermission.whileInUse) {
@@ -44,8 +49,41 @@ class LocationController extends GetxController {
       return;
     }
 
+    // Platform-specific location settings
+    late LocationSettings locationSettings;
+
+    if (kIsWeb) {
+      locationSettings = WebSettings(
+        accuracy: LocationAccuracy.high,
+        distanceFilter: 100,
+        maximumAge: Duration(minutes: 5),
+      );
+    } else if (defaultTargetPlatform == TargetPlatform.android) {
+      locationSettings = AndroidSettings(
+        accuracy: LocationAccuracy.high,
+        distanceFilter: 100,
+        intervalDuration: Duration(seconds: 10),
+        forceLocationManager: false,
+      );
+    } else if (defaultTargetPlatform == TargetPlatform.iOS ||
+        defaultTargetPlatform == TargetPlatform.macOS) {
+      locationSettings = AppleSettings(
+        accuracy: LocationAccuracy.high,
+        activityType: ActivityType.other,
+        distanceFilter: 100,
+        pauseLocationUpdatesAutomatically: false,
+        showBackgroundLocationIndicator: false,
+      );
+    } else {
+      locationSettings = LocationSettings(
+        accuracy: LocationAccuracy.high,
+        distanceFilter: 100,
+      );
+    }
+
     try {
-      Position position = await Geolocator.getCurrentPosition();
+      Position position =
+      await Geolocator.getCurrentPosition(locationSettings: locationSettings);
       currentPosition.value = position;
       isLocationEnabled.value = true;
 

@@ -1,4 +1,6 @@
-<!DOCTYPE html><html><head>
+<!DOCTYPE html>
+<html>
+<head>
 
     <base href="$FLUTTER_BASE_HREF">
 
@@ -25,89 +27,83 @@
     <!-- This script adds the flutter initialization JS code -->
     <script src="flutter.js" defer=""></script>
 
-  
-  
-  
-  
-  
-  <style id="splash-screen-style">
-    html {
-      height: 100%
-    }
+    <!-- ✅ Added for geolocation support on web -->
+    <meta name="referrer" content="no-referrer-when-downgrade">
 
-    body {
-      margin: 0;
-      min-height: 100%;
-      background-color: #2C2C2C;
+    <style id="splash-screen-style">
+        html {
+          height: 100%
+        }
+
+        body {
+          margin: 0;
+          min-height: 100%;
+          background-color: #2C2C2C;
           background-size: 100% 100%;
-    }
+        }
 
-    .center {
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-    }
+        .center {
+          margin: 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+        }
 
-    .contain {
-      display:block;
-      width:100%; height:100%;
-      object-fit: contain;
-    }
+        .contain {
+          display:block;
+          width:100%; height:100%;
+          object-fit: contain;
+        }
 
-    .stretch {
-      display:block;
-      width:100%; height:100%;
-    }
+        .stretch {
+          display:block;
+          width:100%; height:100%;
+        }
 
-    .cover {
-      display:block;
-      width:100%; height:100%;
-      object-fit: cover;
-    }
+        .cover {
+          display:block;
+          width:100%; height:100%;
+          object-fit: cover;
+        }
 
-    .bottom {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      -ms-transform: translate(-50%, 0);
-      transform: translate(-50%, 0);
-    }
+        .bottom {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+        }
 
-    .bottomLeft {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
+        .bottomLeft {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
 
-    .bottomRight {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    }
+        .bottomRight {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
 
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #2C2C2C;
+        @media (prefers-color-scheme: dark) {
+          body {
+            background-color: #2C2C2C;
           }
-    }
-  </style>
-  <script id="splash-screen-script">
-    function removeSplashFromWeb() {
-      document.getElementById("splash")?.remove();
-      document.getElementById("splash-branding")?.remove();
-      document.body.style.background = "transparent";
-    }
-  </script>
+        }
+    </style>
+    <script id="splash-screen-script">
+        function removeSplashFromWeb() {
+          document.getElementById("splash")?.remove();
+          document.getElementById("splash-branding")?.remove();
+          document.body.style.background = "transparent";
+        }
+    </script>
 </head>
 <body>
-  
-  
-  
-<!-- Create a progress bar container with a nested progress bar -->
-<!-- Loading indicator -->
+
 <div id="loading">
     <style>
         body {
@@ -126,14 +122,13 @@
           width: 100%;
         }
 
-       #loading img {
-  width: 150px; /* or whatever size fits */
-  height: auto;
-  animation: 1s ease-in-out 0s infinite alternate breathe;
-  opacity: 1;
-  transition: opacity .4s;
-}
-
+        #loading img {
+          width: 150px;
+          height: auto;
+          animation: 1s ease-in-out 0s infinite alternate breathe;
+          opacity: 1;
+          transition: opacity .4s;
+        }
 
         #loading.main_done img {
           opacity: 1;
@@ -166,6 +161,7 @@
     </style>
     <img src="icons/logo.png" alt="Loading indicator...">
 </div>
+
 <script>
     window.addEventListener('load', function () {
       {{flutter_js}}
@@ -183,8 +179,6 @@
         loading.classList.add('init_done');
         return appRunner.runApp();
       }).then(function (app) {
-        // Wait a few milliseconds so users can see the "zoooom" animation
-        // before getting rid of the "loading" div.
         window.setTimeout(function () {
           loading.remove();
         }, 50);
@@ -192,5 +186,5 @@
     });
 </script>
 
-
-</body></html>
+</body>
+</html>
