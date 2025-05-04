@@ -56,34 +56,45 @@ class PropertyCardMobile extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  RichText(
-                    text: TextSpan(
-                      children: <InlineSpan>[
-                        TextSpan(
-                          text: listing.propertyName,
-                          style: TTypography.body12Bold.copyWith(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 12,
-                            color: TColorSystem.white,
-                          ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: TColors.secondaryBackground2,
+                      borderRadius:
+                          BorderRadius.circular(TSizes.borderRadiusSm),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 4),
+                      child: RichText(
+                        text: TextSpan(
+                          children: <InlineSpan>[
+                            TextSpan(
+                              text: listing.propertyName,
+                              style: TTypography.body12Bold.copyWith(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 12,
+                                color: TColors.textOnSecondaryBackground2,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "   ",
+                              style: TTypography.body12Bold.copyWith(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w700,
+                                color: TColorSystem.white,
+                              ),
+                            ),
+                            TextSpan(
+                              text: listing.city,
+                              style: TTypography.body12Bold.copyWith(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w700,
+                                color: TColorSystem.white,
+                              ),
+                            ),
+                          ],
                         ),
-                        TextSpan(
-                          text: ", ",
-                          style: TTypography.body12Bold.copyWith(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: TColorSystem.white,
-                          ),
-                        ),
-                        TextSpan(
-                          text: "${listing.city}.",
-                          style: TTypography.body12Bold.copyWith(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: TColorSystem.white,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
 

@@ -14,16 +14,18 @@ class BodySlivers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final propertyController = Get.put(ListingsController());
-    final isMobile = TDeviceUtils.isMobileScreen(context);
     return SliverList(
       delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
         return Obx(() {
           if (propertyController.isLoading.value) {
             return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 32),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 32,
+              ),
               child: TGridLayout(
-                crossAxisCount: isMobile ? 1 : 3,
-                mainAxisExtent: 340,
+                crossAxisCount: 1,
+                mainAxisExtent: 360,
                 itemCount: 12,
                 itemBuilder: (_, index) => const TVerticalProductShimmer(),
               ),
@@ -42,18 +44,17 @@ class BodySlivers extends StatelessWidget {
           }
 
           return Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: isMobile ? 12 : 40,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 12,
               vertical: 32,
             ),
             child: TGridLayout(
-              crossAxisCount: isMobile ? 1 : 3,
+              crossAxisCount: 1,
               mainAxisExtent: 360,
               itemCount: propertyController.listings.length,
-              itemBuilder:
-                  (_, index) => PropertyCardMobile(
-                    listing: propertyController.listings[index],
-                  ),
+              itemBuilder: (_, index) => PropertyCardMobile(
+                listing: propertyController.listings[index],
+              ),
             ),
           );
         });

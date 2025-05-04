@@ -11,7 +11,7 @@ import 'firebase_options.dart';
 Future<void> main() async {
   // Ensure that widgets are initialized
   WidgetsFlutterBinding.ensureInitialized();
-
+  // Get storage Initialisation
   await TLocalStorage.init("tandala");
 
   // Remove # sign from url

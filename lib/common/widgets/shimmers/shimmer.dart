@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -18,13 +19,13 @@ class TShimmerEffect extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: TColorSystem.n900,
-      highlightColor: TColorSystem.n800,
+      baseColor: TColors.secondaryBackground2,
+      highlightColor: TColors.secondaryBackground2,
       child: Container(
         width: width,
         height: height,
         decoration: BoxDecoration(
-          color: color ?? (TColorSystem.n600),
+          color: color ?? (TColors.secondaryBackground2),
           borderRadius: BorderRadius.circular(radius),
         ),
       ),
