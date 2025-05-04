@@ -25,8 +25,8 @@ class BodySlivers extends StatelessWidget {
               ),
               child: TGridLayout(
                 crossAxisCount: 1,
-                mainAxisExtent: 360,
-                itemCount: 12,
+                mainAxisExtent: 380,
+                itemCount: 8,
                 itemBuilder: (_, index) => const TVerticalProductShimmer(),
               ),
             );
@@ -50,7 +50,7 @@ class BodySlivers extends StatelessWidget {
             ),
             child: TGridLayout(
               crossAxisCount: 1,
-              mainAxisExtent: 360,
+              mainAxisExtent: 380,
               itemCount: propertyController.listings.length,
               itemBuilder: (_, index) => PropertyCardMobile(
                 listing: propertyController.listings[index],
