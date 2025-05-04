@@ -30,9 +30,7 @@ class TSiteTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: THelperFunctions.isDarkMode(context)
-          ? TColors.primaryBackground
-          : TColors.primaryBackground,
+      backgroundColor: TColors.primaryBackground,
       body: TResponsiveWidget(
         desktop:
             useLayout ? DesktopLayout(body: desktop) : desktop ?? Container(),

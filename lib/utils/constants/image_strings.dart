@@ -3,12 +3,13 @@
 /// This class contains all the App Images in String formats.
 class TImages {
   // -- App Logos
-  static const String appLogo = "assets/logos/tandala.png";
+  static const String appLogo = "assets/logos/test_logo.png";
+  static const String logoPng = "assets/logos/test_logo.png";
   static const String appLogoSvg = "assets/logos/tandala.svg";
   static const String taglineImage = "assets/images/banners/3_4x.png";
   static const String brandLogo = "assets/logos/mylogo.svg";
   static const String darkAppLogo = "assets/logos/tandala.png";
-  static const String appIcon = "assets/icons/brands/brand_icon.svg";
+  static const String appIcon = "assets/logos/logo.png";
   static const String darkAppIcon = "assets/logos/Icon.png";
   static const String lightAppLogo = "assets/logos/Logo Horizontal copy 3.png";
   static const String appStoreLogoDark =

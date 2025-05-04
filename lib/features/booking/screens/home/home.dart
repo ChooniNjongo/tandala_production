@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
     return TSiteTemplate(
       useLayout: true,
       desktop: HomeDesktopScreen(),
-      mobile:   HomeMobileScreen(),
+      mobile:   const HomeMobileScreen(),
     );
   }
 }

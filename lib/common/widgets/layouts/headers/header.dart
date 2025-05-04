@@ -1,5 +1,8 @@
+import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/headers/widgets/desktop/search_filter/search_filter.dart';
+import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/headers/widgets/mobile_search_icon_controller.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/enums.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../features/personalization/controllers/user_controller.dart';
@@ -21,35 +24,90 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
   /// GlobalKey to access the Scaffold state
   final GlobalKey<ScaffoldState> scaffoldKey;
 
+
+
   @override
   Widget build(BuildContext context) {
+    void showMobileFilter() {
+      showModalBottomSheet(
+        useSafeArea: true,
+        barrierColor: TColors.lightGrey,
+        backgroundColor: TColors.lightGrey,
+        context: context,
+        isScrollControlled: true,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(16),
+            topRight: Radius.circular(16),
+          ),
+        ),
+        builder: (BuildContext context) {
+          return SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: const SearchFilter(),
+          );
+        },
+      );
+    }
+
+    void showCompulsoryDialog() {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            contentPadding: EdgeInsets.zero,
+            backgroundColor: TColors.primaryBackground,
+            shadowColor: Colors.grey,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(24),
+            ),
+            content: const SearchFilter(),
+          );
+        },
+        barrierDismissible: true,
+      );
+    }
+    final searchIconVisibilityController = Get.put(MobileSearchIconController());
     final controller = UserController.instance;
     return Container(
       /// Background Color, Bottom Border
       decoration: const BoxDecoration(
-        color: TColors.white,
-        border: Border(bottom: BorderSide(color: TColors.grey, width: 1)),
+        color: TColors.primaryBackground,
       ),
-      padding: const EdgeInsets.symmetric(horizontal: TSizes.md, vertical: TSizes.sm),
+      padding: const EdgeInsets.symmetric(
+          horizontal: TSizes.md, vertical: TSizes.sm),
       child: TAppBar(
         /// Mobile Menu
-        leadingIcon: !TDeviceUtils.isDesktopScreen(context) ? Iconsax.menu : null,
-        leadingOnPressed: !TDeviceUtils.isDesktopScreen(context) ? () => scaffoldKey.currentState?.openDrawer() : null,
+       // leadingIcon: !TDeviceUtils.isDesktopScreen(context) ? Iconsax.menu : null,
+        leadingOnPressed: !TDeviceUtils.isDesktopScreen(context)
+            ? () => scaffoldKey.currentState?.openDrawer()
+            : null,
         title: Row(
           children: [
-            /// Search
-            if (TDeviceUtils.isDesktopScreen(context))
-              SizedBox(
-                width: 400,
-                child: TextFormField(
-                  decoration: const InputDecoration(prefixIcon: Icon(Iconsax.search_normal), hintText: 'Search anything...'),
-                ),
-              ),
+            /// Logo
+            Image.asset(
+              TImages.logoPng,
+              height: 56,
+              width: 100,
+            ),
           ],
         ),
         actions: [
+
+
           // Search Icon on Mobile
-          if (!TDeviceUtils.isDesktopScreen(context)) IconButton(icon: const Icon(Iconsax.search_normal), onPressed: () {}),
+          if (!TDeviceUtils.isDesktopScreen(context))
+            IconButton(
+                icon: const Icon(Iconsax.search_normal), onPressed: () {
+
+              searchIconVisibilityController.onSearchIconTapped();
+              if (TDeviceUtils.isMobileScreen(context)) {
+                showMobileFilter();
+              }
+              if (TDeviceUtils.isDesktopScreen(context)) {
+                showCompulsoryDialog();
+              }
+            }),
 
           // Notification Icon
           IconButton(icon: const Icon(Iconsax.notification), onPressed: () {}),
@@ -66,8 +124,12 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
                   padding: 2,
                   height: 40,
                   fit: BoxFit.cover,
-                  imageType: controller.user.value.profilePicture.isNotEmpty ? ImageType.network : ImageType.asset,
-                  image: controller.user.value.profilePicture.isNotEmpty ? controller.user.value.profilePicture : TImages.user,
+                  imageType: controller.user.value.profilePicture.isNotEmpty
+                      ? ImageType.network
+                      : ImageType.asset,
+                  image: controller.user.value.profilePicture.isNotEmpty
+                      ? controller.user.value.profilePicture
+                      : TImages.user,
                 ),
               ),
 
@@ -82,13 +144,20 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
                     children: [
                       controller.loading.value
                           ? const TShimmerEffect(width: 50, height: 13)
-                          : Text(controller.user.value.fullName, style: Theme.of(context).textTheme.titleLarge),
+                          : Text(controller.user.value.fullName,
+                              style: Theme.of(context).textTheme.titleLarge),
                       controller.loading.value
                           ? const TShimmerEffect(width: 70, height: 13)
-                          : Text(controller.user.value.email, style: Theme.of(context).textTheme.labelMedium),
+                          : Text(controller.user.value.email,
+                              style: Theme.of(context).textTheme.labelMedium),
                     ],
                   ),
                 ),
+              IconButton(
+                  icon: const Icon(Iconsax.menu),
+                  onPressed: () {
+                    scaffoldKey.currentState?.openDrawer();
+                  }),
             ],
           ),
         ],
@@ -97,5 +166,6 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(TDeviceUtils.getAppBarHeight() + 15);
+  Size get preferredSize =>
+      Size.fromHeight(TDeviceUtils.getAppBarHeight() + 15);
 }

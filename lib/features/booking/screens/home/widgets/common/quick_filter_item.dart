@@ -32,31 +32,34 @@ class SecondaryFilterItem extends StatelessWidget {
       padding: const EdgeInsets.all(4),
       backgroundColor: Colors.transparent,
       margin: const EdgeInsets.only(left: 4),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SvgPicture.asset(
-           activeIcon ,
-            height: 22,
-            semanticsLabel: 'Logo',
-            color: isActive ? TColorSystem.primary500 : TColors.textIconFilterInactive,
-          ),
-          const SizedBox(
-            height: 2,
-          ),
-          Text(
-            filterName,
-            style: TTypography.body12Regular.copyWith(fontSize: 11,
-                fontWeight: isActive ? FontWeight.w500 : FontWeight.w500,
-                color: isActive
-                    ? (TColors.white)
-                    : (TColors.textIconFilterInactive)),
-          ),
-          if(!isMobile)
-           const SizedBox(
-            height: 8,
-          ),
-        ],
+      child: ClipRect(
+
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SvgPicture.asset(
+             activeIcon ,
+              height: 22,
+              semanticsLabel: 'Logo',
+              color: isActive ? TColorSystem.primary500 : TColors.textIconFilterInactive,
+            ),
+            const SizedBox(
+              height: 2,
+            ),
+            Text(
+              filterName,
+              style: TTypography.body12Regular.copyWith(fontSize: 11,
+                  fontWeight: isActive ? FontWeight.w500 : FontWeight.w500,
+                  color: isActive
+                      ? (TColors.white)
+                      : (TColors.textIconFilterInactive)),
+            ),
+            if(!isMobile)
+             const SizedBox(
+              height: 8,
+            ),
+          ],
+        ),
       ),
     );
   }
