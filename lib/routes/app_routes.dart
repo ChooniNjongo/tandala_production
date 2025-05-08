@@ -1,4 +1,5 @@
 import 'package:cwt_ecommerce_admin_panel/features/authentication/screens/password_configuration/reset_password/reset_password.dart';
+import 'package:cwt_ecommerce_admin_panel/features/booking/screens/booking_request/booking_request.dart';
 import 'package:cwt_ecommerce_admin_panel/features/booking/screens/listing_viewing/responsive_screens/listing_viewing_desktop.dart';
 import 'package:cwt_ecommerce_admin_panel/features/media/screens/media/media.dart';
 import 'package:cwt_ecommerce_admin_panel/features/personalization/screens/profile/profile.dart';
@@ -50,6 +51,7 @@ class TAppRoute {
     GetPage(name: TRoutes.roomSelection, page: () => const RoomSelectionScreen(),),
     GetPage(name: TRoutes.roomViewing, page: () => const RoomViewingScreen(),),
     GetPage(name: TRoutes.roomPhotoGallery, page: () => const RoomPhotoGalleryScreen(),),
+    GetPage(name: TRoutes.bookingRequest, page: () => const BookingRequestScreen(),),
 
 
     // Banners
