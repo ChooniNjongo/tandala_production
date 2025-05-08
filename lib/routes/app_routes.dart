@@ -20,6 +20,9 @@ import '../features/authentication/screens/login/login.dart';
 import '../features/booking/screens/home/home.dart';
 import '../features/booking/screens/listing_photo_gallery/photo_gallery.dart';
 import '../features/booking/screens/listing_viewing/listing_viewing.dart';
+import '../features/booking/screens/room_photo_gallery/room_photo_gallery.dart';
+import '../features/booking/screens/room_selection/room_selection.dart';
+import '../features/booking/screens/room_viewing/room_viewing.dart';
 import '../features/shop/screens/banner/all_banners/banners.dart';
 import '../features/shop/screens/banner/create_banner/create_banner.dart';
 import '../features/shop/screens/brand/create_brand/create_brand.dart';
@@ -44,6 +47,9 @@ class TAppRoute {
     GetPage(name: TRoutes.places, page: () => const HomeScreen()),
     GetPage(name: TRoutes.destination, page: () => const ListingViewingScreen(),),
     GetPage(name: TRoutes.photoGallery, page: () => const PhotoGalleryScreen(),),
+    GetPage(name: TRoutes.roomSelection, page: () => const RoomSelectionScreen(),),
+    GetPage(name: TRoutes.roomViewing, page: () => const RoomViewingScreen(),),
+    GetPage(name: TRoutes.roomPhotoGallery, page: () => const RoomPhotoGalleryScreen(),),
 
 
     // Banners

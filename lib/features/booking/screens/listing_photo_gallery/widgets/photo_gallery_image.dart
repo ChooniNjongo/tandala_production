@@ -23,7 +23,7 @@ class _PhotoGalleryImageSliderState extends State<PhotoGalleryImageSlider> {
   @override
   void initState() {
     super.initState();
-    imageUrls = widget.listing.getAllImages();
+    imageUrls = widget.listing.getAllImages() + widget.listing.getAllImages();
   }
 
   @override
@@ -36,14 +36,14 @@ class _PhotoGalleryImageSliderState extends State<PhotoGalleryImageSlider> {
         CarouselSlider.builder(
           carouselController: controller,
           options: CarouselOptions(
+            autoPlay: true,
             height: screenHeight * 1,
             enableInfiniteScroll: false,
             initialPage: 0,
             viewportFraction: 1,
             //enableInfiniteScroll: false,
             enlargeStrategy: CenterPageEnlargeStrategy.scale,
-            //enlargeCenterPage: true,
-            autoPlay: false,
+
             // height: MediaQuery.of(context).size.height * .50,
             onPageChanged: (index, reason) =>
                 setState(() => activeIndex = index),
@@ -54,7 +54,7 @@ class _PhotoGalleryImageSliderState extends State<PhotoGalleryImageSlider> {
               width: double.infinity,
               child: Image.network(
                 imageUrls[index],
-                fit: BoxFit.contain,
+                fit: BoxFit.cover,
               ),
             );
           },
@@ -79,16 +79,12 @@ class _PhotoGalleryImageSliderState extends State<PhotoGalleryImageSlider> {
         ),
 
         /// Animated Smooth Progress Indicator
-        Container(
-          padding: const EdgeInsets.all(8),
-          decoration: const BoxDecoration(color: TColors.secondaryBackground2),
-          child: Positioned(
-            top: 4,
-            right: 0,
-            left: 0,
-            child: Center(
-              child: buildIndicator(),
-            ),
+        Positioned(
+          top: 12, // adjust as needed
+          left: 0,
+          right: 0,
+          child: Center(
+            child: buildIndicator(),
           ),
         ),
 
@@ -126,17 +122,46 @@ class _PhotoGalleryImageSliderState extends State<PhotoGalleryImageSlider> {
     );
   }
 
-  Widget buildIndicator() => AnimatedSmoothIndicator(
-        activeIndex: activeIndex,
-        count: imageUrls.length,
-        onDotClicked: animateToSlide,
-        effect: const WormEffect(
-          dotWidth: 6,
-          dotHeight: 6,
-          activeDotColor: TColors.primary500,
-          dotColor: Colors.grey,
-        ),
-      );
+  Widget buildIndicator() {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final dotCount = imageUrls.length;
+
+    // Constraints
+    const maxDotWidth = 16.0;
+    const minDotWidth = 6.0;
+    const maxSpacing = 8.0;
+    const minSpacing = 2.0;
+
+    // Estimate maximum available space for dots and spacings
+    final availableWidth = screenWidth * 0.9;
+
+    // Try with max spacing first
+    double spacing = maxSpacing;
+    double dotWidth = (availableWidth - (spacing * (dotCount - 1))) / dotCount;
+
+    // If dotWidth is too small, reduce spacing
+    if (dotWidth < minDotWidth) {
+      spacing = (availableWidth - (minDotWidth * dotCount)) / (dotCount - 1);
+      spacing = spacing.clamp(minSpacing, maxSpacing);
+      dotWidth = (availableWidth - (spacing * (dotCount - 1))) / dotCount;
+    }
+
+    // Clamp final dotWidth
+    dotWidth = dotWidth.clamp(minDotWidth, maxDotWidth);
+
+    return AnimatedSmoothIndicator(
+      activeIndex: activeIndex,
+      count: dotCount,
+      onDotClicked: animateToSlide,
+      effect: WormEffect(
+        dotWidth: dotWidth,
+        dotHeight: 6,
+        spacing: spacing,
+        activeDotColor: TColors.primary500,
+        dotColor: Colors.grey,
+      ),
+    );
+  }
 
   Widget buildButtons({bool stretch = false}) => Row(
         mainAxisAlignment: MainAxisAlignment.center,

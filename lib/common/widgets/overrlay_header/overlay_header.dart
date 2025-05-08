@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../../../utils/constants/color_system.dart';
 import '../../../utils/constants/colors.dart';
@@ -49,26 +50,17 @@ class OverlayHeader extends StatelessWidget {
           children: [
             /// Leading Icon
             if (!mainHeader)
-              GestureDetector(
-                onTap: (){
-                  Get.back();
-                },
-                child: SvgPicture.asset(
-                  leftIcon,
-                  color: leftIconColor, // Color for the leading icon
-                ),
-              ),
+              IconButton(
+                  onPressed: () => Get.back(),
+                  icon: const Icon(
+                    Iconsax.arrow_left,
+                    color: TColorSystem.n500,
+                  )),
 
             /// Label
             Text(
               label,
-              style: mainHeader
-                  ? TTypography.h3.copyWith(
-                      color: TColorSystem.n200, // Text color from theme
-                    )
-                  : TTypography.h4.copyWith(
-                      color: TColorSystem.n200, // Text color from theme
-                    ),
+                style: Theme.of(context).textTheme.headlineLarge
             ),
 
             /// End Icon

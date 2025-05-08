@@ -71,7 +71,7 @@ class _PropertyHomeImageSliderState extends State<PropertyHomeImageSlider> {
               ),
             ),
           ),
-          Positioned(bottom: 24, right: 136, child: buildIndicator()),
+          Positioned(bottom: 24, right: 0,left: 0, child: Center(child: buildIndicator())),
           Visibility(
             visible: widget.isHovering && activeIndex != imageUrls.length - 1,
             child: Positioned(

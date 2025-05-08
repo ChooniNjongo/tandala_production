@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -19,7 +20,7 @@ class TabAmenityTile extends StatelessWidget {
         children: [
           SvgPicture.asset(
             svgIcon,
-            color: Colors.white.withOpacity(1),
+            color: TColorSystem.primary300,
             height: 24,
           ),
           const SizedBox(width: TSizes.spaceBtwItems),

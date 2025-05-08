@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../common/widgets/appbar/appbar.dart';
-import '../../../controllers/room_photo_gallery_controller.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:iconsax/iconsax.dart';
+import '../../../../../common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
+import '../../../../../utils/constants/color_system.dart';
 import '../../../models/property/room.dart';
 import '../widgets/room_photo_gallery_image_slider.dart';
 
@@ -11,21 +13,20 @@ class RoomPhotoGalleryMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(RoomPhotoGalleryController());
-    return Obx(
-          () => Scaffold(
-        backgroundColor: Colors.black,
-        appBar: TAppBar(
-          title:
-          Text("${controller.activeIndex.value + 1}/${room.getAllImages().length}"),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              /// Photo Image Slider
-              RoomPhotoGalleryImageSlider(room: room),
-            ],
-          ),
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            IconButton(
+                onPressed: () => Get.back(),
+                icon: const Icon(
+                  Iconsax.arrow_left,
+                  color: TColorSystem.n500,
+                )),
+            /// Photo Image Slider
+            RoomPhotoGalleryImageSlider(room: room),
+          ],
         ),
       ),
     );

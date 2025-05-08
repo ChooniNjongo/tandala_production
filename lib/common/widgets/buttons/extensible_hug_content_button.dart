@@ -56,7 +56,7 @@ class TExtensibleHugContentButton extends StatelessWidget {
               Text(
                 buttonLabel,
                 textAlign: TextAlign.center,
-                style: TTypography.h5.copyWith(
+                style: TTypography.body16Regular.copyWith(
                   color:
                   isDisabled
                       ? Colors.white.withOpacity(0.5)
