@@ -1,4 +1,5 @@
 import 'package:cwt_ecommerce_admin_panel/features/booking/screens/room_viewing/widgets/mobile/room_viewing_image_card.dart';
+import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../../routes/routes.dart';
@@ -41,12 +42,12 @@ class RoomViewingBody extends StatelessWidget {
                   // Create a property called Room summary
                   "This is room is an quite save if you looking to combine style and affordability. We believe you will enjoy your stay.",
                   style: TTypography.body12Regular
-                      .copyWith(color: Colors.white.withOpacity(0.6)),
+                      .copyWith(color: TColorSystem.n400),
                 ),
-                const SizedBox(height: TSizes.spaceBtwSections * 3),
+                const SizedBox(height: TSizes.spaceBtwSections),
                 Text(
                   "What this room has to offer",
-                  style: TTypography.h5.copyWith(color: Colors.white),
+                  style: TTypography.h4.copyWith(color: Colors.white),
                 ),
                 const SizedBox(height: TSizes.spaceBtwItems / 2),
                 const Row(
