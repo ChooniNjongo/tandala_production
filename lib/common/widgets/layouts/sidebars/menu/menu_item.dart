@@ -42,16 +42,16 @@ class TMenuItem extends StatelessWidget {
                     padding: const EdgeInsets.only(left: TSizes.lg, top: TSizes.md, bottom: TSizes.md, right: TSizes.md),
                     child: menuController.isActive(route)
                         ? Icon(icon, size: 22, color: TColors.primary500)
-                        : Icon(icon, size: 22, color: menuController.isHovering(route) ? TColors.white : TColors.darkGrey),
+                        : Icon(icon, size: 22, color: menuController.isHovering(route) ? TColors.primary500 : TColors.primary500),
                   ),
                   // Text
                   if (menuController.isHovering(route) || menuController.isActive(route))
                     Flexible(
-                      child: Text(itemName, style: Theme.of(context).textTheme.bodyMedium!.apply(color: TColors.primary500)),
+                      child: Text(itemName, style: Theme.of(context).textTheme.bodyMedium!.apply(color: TColors.white)),
                     )
                   else
                     Flexible(
-                      child: Text(itemName, style: Theme.of(context).textTheme.bodyMedium!.apply(color: TColors.darkGrey)),
+                      child: Text(itemName, style: Theme.of(context).textTheme.bodyMedium!.apply(color: TColors.white)),
                     ),
                 ],
               ),

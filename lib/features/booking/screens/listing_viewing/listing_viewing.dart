@@ -19,7 +19,6 @@ class ListingViewingScreen extends StatelessWidget {
     final bool isEditing = args['isEditing'] ?? false;
     final ListingModel listing = args['listing'];
 
-    final isMobile = TDeviceUtils.isMobileScreen(context);
     return TSiteTemplate(
       desktop: ListingViewingDesktopScreen(
         isEditing: isEditing,

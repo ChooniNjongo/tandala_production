@@ -34,7 +34,8 @@ class TColors {
   static const Color iconPrimaryLight = Color(0xFFFFFFFF);
 
   // Text colors
-  static const Color textPrimary = Color(0xFFB7B5AC);
+  //static const Color textPrimary = Color(0xFFB7B5AC);
+  static const Color textPrimary = Color(0xFFFFFFFF);
   static Color textSecondary = const Color(0xFF9C9A93);
   static Color textOnSecondaryBackground2 = const Color(0xFFEAA165);
   static const Color textIconFilterInactive = Color(0xFF808D8E);

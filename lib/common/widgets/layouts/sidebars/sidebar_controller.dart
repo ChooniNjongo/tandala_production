@@ -10,7 +10,7 @@ class SidebarController extends GetxController {
   static SidebarController instance = Get.find();
 
   /// Observable variable to track the active menu item
-  final activeItem = TRoutes.dashboard.obs;
+  final activeItem = TRoutes.places.obs;
 
   /// Observable variable to track the menu item being hovered over
   final hoverItem = ''.obs;

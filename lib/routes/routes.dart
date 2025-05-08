@@ -15,7 +15,7 @@ class TRoutes {
 
   static const navigationMenu = '/navigationMenu';
   static const login = '/login';
-  static const home = '/';
+  static const places = '/';
   static const forgetPassword = '/forge-password/';
   static const resetPassword = '/reset-password';
 
@@ -36,7 +36,7 @@ class TRoutes {
 
   // Listings
   static const searchResults = '/searchResults';
-  static const listingViewing = '/listingViewing';
+  static const destination = '/destination';
   static const listingPhotoTour = '/photoTour';
   static const banners = '/banners';
   static const createBanner = '/createBanner';
@@ -110,6 +110,10 @@ class TRoutes {
 
 
   static List sideMenuItems = [
+    places,
+    bookings,
+    messages,
+    wishlist,
     login,
     forgetPassword,
     dashboard,

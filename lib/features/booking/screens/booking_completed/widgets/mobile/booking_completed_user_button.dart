@@ -18,7 +18,7 @@ class BookingCompletedUserButtons extends StatelessWidget {
         buttonLabel: 'Book Again ',
         onPressed: () {
           Get.toNamed(
-            TRoutes.listingViewing,
+            TRoutes.destination,
             arguments: {
               'listing': booking.listing,
               'isEditing': false, // Or true, depending on your use case

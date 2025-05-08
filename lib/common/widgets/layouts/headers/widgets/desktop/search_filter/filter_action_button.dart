@@ -62,7 +62,7 @@ class FilterActionButtons extends StatelessWidget {
                               style: Theme.of(context)
                                   .textTheme
                                   .labelMedium!
-                                  .apply(fontSizeFactor: 1.1),
+                                  .apply(fontSizeFactor: 1.1,color: Colors.white),
                             ),
                     ),
                   ),

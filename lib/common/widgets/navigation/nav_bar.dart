@@ -51,7 +51,7 @@ class NavBar extends StatelessWidget {
               navController.selectedIndex.value = index;
               switch (index) {
                 case 0:
-                  Get.toNamed(TRoutes.home);
+                  Get.toNamed(TRoutes.places);
                   break;
                 case 1:
                   Get.toNamed(TRoutes.wishlist);

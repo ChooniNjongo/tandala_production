@@ -35,7 +35,9 @@ class CreateProductMobileScreen extends StatelessWidget {
             children: [
               // Breadcrumbs
               const TBreadcrumbsWithHeading(
-                  returnToPreviousScreen: true, heading: 'Create Product', breadcrumbItems: [TRoutes.products, 'Create Product']),
+                  returnToPreviousScreen: true,
+                  heading: 'Create Product',
+                  breadcrumbItems: [TRoutes.products, 'Create Product']),
               const SizedBox(height: TSizes.spaceBtwSections),
 
               // Create Product
@@ -51,7 +53,8 @@ class CreateProductMobileScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         // Heading
-                        Text('Stock & Pricing', style: Theme.of(context).textTheme.headlineSmall),
+                        Text('Stock & Pricing',
+                            style: Theme.of(context).textTheme.headlineSmall),
                         const SizedBox(height: TSizes.spaceBtwItems),
 
                         // Product Type
@@ -83,12 +86,16 @@ class CreateProductMobileScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('All Product Images', style: Theme.of(context).textTheme.headlineSmall),
+                        Text('All Product Images',
+                            style: Theme.of(context).textTheme.headlineSmall),
                         const SizedBox(height: TSizes.spaceBtwItems),
                         ProductAdditionalImages(
-                          additionalProductImagesURLs: controller.additionalProductImagesUrls,
-                          onTapToAddImages: () => controller.selectMultipleProductImages(),
-                          onTapToRemoveImage: (index) => controller.removeImage(index),
+                          additionalProductImagesURLs:
+                              controller.additionalProductImagesUrls,
+                          onTapToAddImages: () =>
+                              controller.selectMultipleProductImages(),
+                          onTapToRemoveImage: (index) =>
+                              controller.removeImage(index),
                         ),
                       ],
                     ),

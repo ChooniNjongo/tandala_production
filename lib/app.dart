@@ -25,7 +25,7 @@ class App extends StatelessWidget {
       initialBinding: GeneralBindings(),
       navigatorObservers: [RouteObservers()],
       scrollBehavior: MyCustomScrollBehavior(),
-      initialRoute: TRoutes.home,
+      initialRoute: TRoutes.places,
       getPages: TAppRoute.pages,
       unknownRoute: GetPage(
         name: '/page-not-found',

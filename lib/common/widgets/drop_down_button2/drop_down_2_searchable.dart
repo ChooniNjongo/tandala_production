@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,7 +36,6 @@ class _DropDown2SearchableLocationState
           padding: EdgeInsets.zero,
           radius: 4,
           borderColor: TColorSystem.n600,
-          showBorder: true,
           showShadow: false,
           child: DropdownButtonHideUnderline(
             child: DropdownButton2<String>(
@@ -69,12 +69,20 @@ class _DropDown2SearchableLocationState
                   }
                 });
               },
+
               buttonStyleData: const ButtonStyleData(
+                  decoration: BoxDecoration(
+                      color: TColors.secondaryBackground2
+                  ),
+
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 height: 40,
                 width: 240,
               ),
               dropdownStyleData: const DropdownStyleData(
+                decoration: BoxDecoration(
+                  color: TColors.secondaryBackground2
+                ),
                 maxHeight: 400,
               ),
               menuItemStyleData: const MenuItemStyleData(

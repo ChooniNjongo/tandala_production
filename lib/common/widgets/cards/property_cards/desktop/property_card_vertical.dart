@@ -35,7 +35,7 @@ class _TPropertyCardVerticalState extends State<TPropertyCardVertical> {
       hoverColor: Colors.transparent,
       splashColor: Colors.transparent,
       onTap: () {
-        Get.toNamed(TRoutes.listingViewing);
+        Get.toNamed(TRoutes.destination);
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -46,7 +46,7 @@ class CancelledBookingBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 56),
             onPressed: () {
               Get.toNamed(
-                TRoutes.listingViewing,
+                TRoutes.destination,
                 arguments: {
                   'listing': booking.listing,
                   'isEditing': false, // Or true, depending on your use case

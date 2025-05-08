@@ -21,16 +21,16 @@ class TPill extends StatelessWidget {
   Widget build(BuildContext context) {
     return TRoundedContainer(
         margin: const EdgeInsets.symmetric(horizontal: 4,vertical: 4),
-        padding: const EdgeInsets.symmetric(vertical: 6.2, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         onTap: onTap,
-        backgroundColor: isSelected ? TColors.primary500 : Colors.transparent,
+        backgroundColor: isSelected ? TColors.primary500 : TColors.secondaryBackground2,
         radius: 40,
-        borderWidth: 0.6,
-        showBorder: true,
+       // borderWidth: 0.6,
+       // showBorder: true,
         borderColor: isSelected ? TColors.primary500 : TColorSystem.n600,
         child: Text(
           title,
-          style: TTypography.h5.copyWith(
+          style: TTypography.body16Bold.copyWith(
             color: isSelected ? TColorSystem.n100 : TColorSystem.n500,
           ),
         ));

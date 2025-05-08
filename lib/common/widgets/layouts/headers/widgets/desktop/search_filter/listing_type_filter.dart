@@ -102,7 +102,7 @@ class TCheckboxItem extends StatelessWidget {
           Text(
             checkboxItem,
             style: TTypography.body14Regular
-                .copyWith(color: value ? TColorSystem.n100 : TColorSystem.n600),
+                .copyWith(color: value ? TColorSystem.primary300 : TColors.textPrimary),
           ),
           Checkbox(
             activeColor: TColorSystem.primary500,

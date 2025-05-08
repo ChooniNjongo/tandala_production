@@ -62,7 +62,7 @@ class SuccessPage extends StatelessWidget {
             TFullWidthElevatedButton(
               buttonLabel: TTexts.tContinue,
               onPressed: () {
-                Get.toNamed(TRoutes.home);
+                Get.toNamed(TRoutes.places);
               },
             ),
           ],

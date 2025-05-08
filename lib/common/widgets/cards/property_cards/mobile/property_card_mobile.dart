@@ -30,7 +30,7 @@ class PropertyCardMobile extends StatelessWidget {
       children: [
         TRoundedContainer(
           onTap: () {
-            Get.toNamed(TRoutes.listingViewing, arguments: {
+            Get.toNamed(TRoutes.destination, arguments: {
               'listing': listing,
               'isEditing': false // Or true, depending on your use case
             });
@@ -68,10 +68,10 @@ class PropertyCardMobile extends StatelessWidget {
               child: Row(
                 children: [
                   Text(listing.city,
-                      style: TTypography.h5.copyWith(
-                        fontFamily: 'Lora',
-                        color: TColorSystem.n400,
-                      )),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .apply(fontWeightDelta: -1),),
                   ListingDistance(listing: listing),
                 ],
               ),

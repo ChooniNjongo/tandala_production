@@ -1,5 +1,6 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/typography.dart';
 import 'package:flutter/material.dart';
-
+import '../../../../../../utils/constants/color_system.dart';
 import '../../../../models/property/listing_model.dart';
 
 class ListingNameLocation extends StatelessWidget {
@@ -12,14 +13,11 @@ class ListingNameLocation extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Text(
-          "${listing.propertyName}, ${listing.city}.",
-          style: const TextStyle(
-              fontFamily: 'Lora',
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              color: Colors.white),
-        ),
+        Text(" ${listing.city}",
+            style: TTypography.h3.copyWith(
+            //  fontFamily: 'CormorantGaramond',
+              color: TColorSystem.n200,
+            )),
       ],
     );
   }

@@ -51,6 +51,22 @@ class TSidebar extends StatelessWidget {
                             .apply(letterSpacingDelta: 1.2)),
                     // Menu Items
                     const TMenuItem(
+                        route: TRoutes.places,
+                        icon: Iconsax.home,
+                        itemName: 'Places'),
+                    const TMenuItem(
+                        route: TRoutes.bookings,
+                        icon: Iconsax.reserve,
+                        itemName: 'Bookings'),
+                    const TMenuItem(
+                        route: TRoutes.messages,
+                        icon: Iconsax.message,
+                        itemName: 'Messages'),
+                    const TMenuItem(
+                        route: TRoutes.wishlist,
+                        icon: Iconsax.notification_favorite,
+                        itemName: 'Wishlist'),
+                    const TMenuItem(
                         route: TRoutes.dashboard,
                         icon: Iconsax.status,
                         itemName: 'Dashboard'),

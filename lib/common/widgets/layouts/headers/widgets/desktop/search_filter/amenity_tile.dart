@@ -36,9 +36,9 @@ class AmenityTile extends StatelessWidget {
         ),
         Expanded(
           flex: 4,
-          child: TProductTitleText(
-            smallSize: true,
-            title: amenityType,
+          child: Text(
+            amenityType,
+
           ),
         ),
       ],

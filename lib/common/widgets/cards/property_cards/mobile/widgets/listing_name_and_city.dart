@@ -16,32 +16,25 @@ class ListingName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: TColors.secondaryBackground2,
-        borderRadius: BorderRadius.circular(TSizes.borderRadiusSm),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-        child: SizedBox(
-          // Adjust this width to fit your layout, or wrap in Flexible/Expanded
-          child: Text.rich(
-            TextSpan(
-              children: <InlineSpan>[
-                TextSpan(
-                  text: listing.propertyName,
-                  style: TTypography.body16Bold.copyWith(
-                    fontFamily: "Lora",
-                    fontWeight: FontWeight.w700,
-                    color: TColors.white,
-                  ),
-                ),
-      
-              ],
-            ),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      child: SizedBox(
+        // Adjust this width to fit your layout, or wrap in Flexible/Expanded
+        child: Text.rich(
+          TextSpan(
+            children: <InlineSpan>[
+              TextSpan(
+                text: listing.propertyName,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .apply(fontSizeFactor: 1.1,color: Colors.white),
+              ),
+
+            ],
           ),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
         ),
       ),
     );

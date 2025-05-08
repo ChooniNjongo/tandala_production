@@ -55,14 +55,14 @@ class _FiltersState extends State<Filters> {
                 FilterDivider(),
                 ListingTypeFilter(),
                 FilterDivider(),
-                PriceFilterSection(),
-                FilterDivider(),
+/*                PriceFilterSection(),
+                FilterDivider(),*/
                 ImportantCountsFilterSection(),
                 FilterDivider(),
                 AmenitiesFilter(),
                 FilterDivider(),
                 PropertyRulesFilter(),
-                FilterDivider(),
+
               ],
             ),
           ),

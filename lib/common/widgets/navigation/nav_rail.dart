@@ -44,7 +44,7 @@ class NavRail extends StatelessWidget {
           onDestinationSelected: (index) {
             navController.selectedIndex.value = index;
             if (index == 0) {
-              Get.toNamed(TRoutes.home);
+              Get.toNamed(TRoutes.places);
             }
             if (index == 1) {
               Get.toNamed(TRoutes.bookings);

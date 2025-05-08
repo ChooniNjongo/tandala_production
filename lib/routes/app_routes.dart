@@ -1,4 +1,5 @@
 import 'package:cwt_ecommerce_admin_panel/features/authentication/screens/password_configuration/reset_password/reset_password.dart';
+import 'package:cwt_ecommerce_admin_panel/features/booking/screens/listing_viewing/responsive_screens/listing_viewing_desktop.dart';
 import 'package:cwt_ecommerce_admin_panel/features/media/screens/media/media.dart';
 import 'package:cwt_ecommerce_admin_panel/features/personalization/screens/profile/profile.dart';
 import 'package:cwt_ecommerce_admin_panel/features/personalization/screens/settings/settings.dart';
@@ -17,6 +18,8 @@ import 'package:get/get.dart';
 import '../features/authentication/screens/forget_password/forget_password.dart';
 import '../features/authentication/screens/login/login.dart';
 import '../features/booking/screens/home/home.dart';
+import '../features/booking/screens/listing_photo_gallery/photo_gallery.dart';
+import '../features/booking/screens/listing_viewing/listing_viewing.dart';
 import '../features/shop/screens/banner/all_banners/banners.dart';
 import '../features/shop/screens/banner/create_banner/create_banner.dart';
 import '../features/shop/screens/brand/create_brand/create_brand.dart';
@@ -38,7 +41,10 @@ class TAppRoute {
     GetPage(name: TRoutes.media, page: () => const MediaScreen(), middlewares: [TRouteMiddleware()]),
 
     // Booking
-    GetPage(name: TRoutes.home, page: () => const HomeScreen()),
+    GetPage(name: TRoutes.places, page: () => const HomeScreen()),
+    GetPage(name: TRoutes.destination, page: () => const ListingViewingScreen(),),
+    GetPage(name: TRoutes.photoGallery, page: () => const PhotoGalleryScreen(),),
+
 
     // Banners
     GetPage(name: TRoutes.banners, page: () => const BannersScreen(), middlewares: [TRouteMiddleware()]),

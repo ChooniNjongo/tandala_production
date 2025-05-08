@@ -38,38 +38,41 @@ class SecondaryFilterItem extends StatelessWidget {
           constraints: const BoxConstraints(
             maxHeight: 60, // Adjust based on icon and text layout
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SvgPicture.asset(
-                activeIcon,
-                height: 22,
-                semanticsLabel: 'Logo',
-                color: isActive
-                    ? TColorSystem.primary500
-                    : TColors.textIconFilterInactive,
-              ),
-              const SizedBox(height: 2),
-              ClipRect(
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(
-                    maxHeight: 60, // Adjust based on icon and text layout
-                  ),
-                  child: Text(
-                    filterName,
-                    style: TTypography.body12Regular.copyWith(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w500,
-                      color:
-                          isActive ? TColors.white : TColors.textIconFilterInactive,
+          child: SingleChildScrollView(
+
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SvgPicture.asset(
+                  activeIcon,
+                  height: 22,
+                  semanticsLabel: 'Logo',
+                  color: isActive
+                      ? TColorSystem.primary500
+                      : TColors.textIconFilterInactive,
+                ),
+                const SizedBox(height: 2),
+                ClipRect(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(
+                      maxHeight: 60, // Adjust based on icon and text layout
                     ),
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
+                    child: Text(
+                      filterName,
+                      style: TTypography.body12Regular.copyWith(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w500,
+                        color:
+                            isActive ? TColors.white : TColors.textIconFilterInactive,
+                      ),
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ),
-              ),
-              if (!isMobile) const SizedBox(height: 8),
-            ],
+                if (!isMobile) const SizedBox(height: 8),
+              ],
+            ),
           ),
         ),
       ),

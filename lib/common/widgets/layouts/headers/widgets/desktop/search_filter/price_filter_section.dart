@@ -44,7 +44,7 @@ class PriceFilterSection extends StatelessWidget {
           ),
           Text("The average amount of money spent is ZMK250",
               style:
-                  TTypography.body12Regular.copyWith(color: TColors.textSecondaryDark)),
+                  TTypography.body12Regular.copyWith(color: TColors.textPrimary)),
         ],
       ),
     );

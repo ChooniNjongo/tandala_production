@@ -66,7 +66,7 @@ class FormNavigation extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Get.toNamed(TRoutes.home);
+                    Get.toNamed(TRoutes.places);
                   },
                   child: Text(
                     actionText, // Use passed exitText

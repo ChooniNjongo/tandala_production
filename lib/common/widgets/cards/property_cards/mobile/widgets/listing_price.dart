@@ -19,23 +19,24 @@ class ListingPrice extends StatelessWidget {
         children: <InlineSpan>[
           TextSpan(
             text: 'Starting at',
-            style: TTypography.body14Regular.copyWith(
-              color: TColors.textPrimary,
-            ),
+            style: Theme.of(context)
+                .textTheme
+                .bodySmall!
+                .apply(fontWeightDelta: -1),
           ),
           TextSpan(
             text: ' K${listing.startingRoomPrice.toInt().toString()} ',
-            style: TTypography.h4.copyWith(
-              fontFamily: 'Lora',
-              color: TColors.textPrimary,
-            ),
+            style: Theme.of(context)
+                .textTheme
+                .bodySmall!
+                .apply(fontWeightDelta: -1),
           ),
           TextSpan(
             text: 'night',
-            style: TTypography.body12Regular.copyWith(
-              fontSize: 10,
-              color: TColors.textPrimary,
-            ),
+            style: Theme.of(context)
+                .textTheme
+                .bodySmall!
+                .apply(fontWeightDelta: -1),
           ),
         ],
       ),

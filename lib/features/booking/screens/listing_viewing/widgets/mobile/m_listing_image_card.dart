@@ -1,8 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cwt_ecommerce_admin_panel/common/widgets/icons/t_circular_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../../../../../../common/widgets/containers/rounded_container.dart';
-import '../../../../../../common/widgets/icons/t_circular_icon.dart';
 import '../../../../../../utils/constants/colors.dart';
 import '../../../../models/property/listing_model.dart';
 
@@ -30,6 +29,8 @@ class _MListingImageCardState extends State<MListingImageCard> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.sizeOf(context).height;
+    final double carouselHeight = screenHeight * 0.33;
+    const double iconSize = 32;
     return Stack(
       children: [
         CarouselSlider.builder(
@@ -58,22 +59,49 @@ class _MListingImageCardState extends State<MListingImageCard> {
             );
           },
         ),
+
+        /// Previous Image
+        Visibility(
+          visible: activeIndex > 0,
+          child: Positioned(
+              left: 12,
+              top: (carouselHeight - iconSize) / 2,
+              child: TCircularIcon(
+                  onPressed: () {
+                    if (activeIndex < imageUrls.length - 1) {
+                      controller.previousPage();
+                    }
+                  },
+                  backgroundColor: Colors.blueGrey.withOpacity(0.3),
+                  icon: Icons.chevron_left,
+                  color: Colors.white,
+                  size: 32)),
+        ),
+
+        /// Next Image
+        Visibility(
+          visible: activeIndex < imageUrls.length - 1,
+          child: Positioned(
+              right: 12,
+              top: (carouselHeight - iconSize) / 2,
+              child: TCircularIcon(
+                onPressed: () {
+                  if (activeIndex < imageUrls.length - 1) {
+                    controller.nextPage();
+                  }
+                },
+                backgroundColor: Colors.blueGrey.withOpacity(0.3),
+                icon: Icons.chevron_right,
+                color: Colors.white,
+                size: 32,
+              )),
+        ),
         Positioned(
-            left: 12, top: 12, child: TCircularIcon(
-          icon: Icons.chevron_left,
-          size: 24,
-          color: TColors.black,
-          backgroundColor: TColors.white,
-          onPressed: () {
-            Get.back();
-          },
-        )),
-         Positioned(
             right: 12,
             bottom: 12,
             child: TRoundedContainer(
               radius: 4,
-              padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 12),
+              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
               backgroundColor: TColors.jetBlack.withOpacity(0.5),
               child: Text(
                 "${activeIndex + 1} / ${imageUrls.length}",
