@@ -85,7 +85,7 @@ class ActionButtons extends StatelessWidget {
               }
             },
             child: Text(
-              "Reserve",
+              "View Rooms",
               style: TTypography.label14Bold.copyWith(color: Colors.white),
             ),
           ),

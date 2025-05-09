@@ -51,7 +51,7 @@ class TAppRoute {
     GetPage(name: TRoutes.roomSelection, page: () => const RoomSelectionScreen(),),
     GetPage(name: TRoutes.roomViewing, page: () => const RoomViewingScreen(),),
     GetPage(name: TRoutes.roomPhotoGallery, page: () => const RoomPhotoGalleryScreen(),),
-    GetPage(name: TRoutes.bookingRequest, page: () => const BookingRequestScreen(),),
+    GetPage(name: TRoutes.bookingRequest, page: () => const BookingRequestScreen(), middlewares: [TRouteMiddleware()]),
 
 
     // Banners

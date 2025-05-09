@@ -22,11 +22,12 @@ class LoginScreenMobile extends StatelessWidget {
 
               /// Logo
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(
-                    TImages.appLogoSvg,
+                  Image.asset(
+                    TImages.logoPng,
                     width: 160,
+                    height: 56,
                   ),
                 ],
               ),

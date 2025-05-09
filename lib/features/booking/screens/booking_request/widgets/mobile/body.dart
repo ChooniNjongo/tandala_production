@@ -37,21 +37,26 @@ class _BookingRequestBodyState extends State<BookingRequestBody> {
             style: TTypography.body12Regular.copyWith(color: TColorSystem.n400),
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
-
           TableCalendar(
+            headerStyle: HeaderStyle(
+              leftChevronIcon:
+                  const Icon(Icons.chevron_left, color: Colors.white),
+              rightChevronIcon:
+                  const Icon(Icons.chevron_right, color: Colors.white),
+              titleTextStyle: TTypography.label14Bold
+                  .copyWith(color: TColorSystem.primary300),
+              titleCentered: true,
+            ),
             firstDay: DateTime(2023),
             lastDay: DateTime(3000),
             focusedDay: checkInDate ?? DateTime.now(),
             calendarFormat: _calendarFormat,
             availableCalendarFormats: const {CalendarFormat.month: 'Month'},
-
-            // Disable past dates but allow today
             enabledDayPredicate: (day) {
               final now = DateTime.now();
               final today = DateTime(now.year, now.month, now.day);
               return !day.isBefore(today);
             },
-
             selectedDayPredicate: (day) {
               if (checkInDate == null) return false;
 
@@ -59,22 +64,28 @@ class _BookingRequestBodyState extends State<BookingRequestBody> {
                 return day.isAtSameMomentAs(checkInDate!);
               }
 
-              return day.isAfter(checkInDate!.subtract(const Duration(days: 1))) &&
+              return day.isAfter(
+                      checkInDate!.subtract(const Duration(days: 1))) &&
                   day.isBefore(checkOutDate!.add(const Duration(days: 1)));
             },
-
             calendarBuilders: CalendarBuilders(
               todayBuilder: (context, day, focusedDay) {
                 return Container(
                   margin: const EdgeInsets.all(4),
-                  decoration: const BoxDecoration(
-                    color: TColors.primaryBackground,
+                  decoration: BoxDecoration(
                     shape: BoxShape.circle,
+                    border: Border.all(
+                      color: TColorSystem.n400, // White border color
+                      width: 0.7, // Border thickness
+                    ),
                   ),
                   child: Center(
                     child: Text(
                       day.day.toString(),
-                      style: const TextStyle(color: TColorSystem.n700),
+                      style: const TextStyle(
+                        color: Colors.white, // Text visible on yellow
+                        fontWeight: FontWeight.normal,
+                      ),
                     ),
                   ),
                 );
@@ -98,7 +109,6 @@ class _BookingRequestBodyState extends State<BookingRequestBody> {
                 );
               },
             ),
-
             onDaySelected: (selectedDay, focusedDay) {
               final now = DateTime.now();
               final today = DateTime(now.year, now.month, now.day);
@@ -106,7 +116,8 @@ class _BookingRequestBodyState extends State<BookingRequestBody> {
               if (selectedDay.isBefore(today)) return;
 
               setState(() {
-                if (checkInDate == null || (checkInDate != null && checkOutDate != null)) {
+                if (checkInDate == null ||
+                    (checkInDate != null && checkOutDate != null)) {
                   checkInDate = selectedDay;
                   checkOutDate = null;
                 } else {
@@ -130,7 +141,6 @@ class _BookingRequestBodyState extends State<BookingRequestBody> {
               });
             },
           ),
-
           const SizedBox(height: TSizes.spaceBtwSections),
         ],
       ),
