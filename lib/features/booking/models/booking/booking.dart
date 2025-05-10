@@ -1,3 +1,4 @@
+import '../../../../utils/helpers/helper_functions.dart';
 import '../property/listing_model.dart';
 import 'booking_stages.dart';
 
@@ -51,6 +52,8 @@ class Booking {
     this.bookieHasReviewProperty = false,
     this.canCancelBooking = true,
   });
+
+  String get formattedBookingDate => THelperFunctions.getFormattedDate(bookingStart);
 
   Map<String, dynamic> toJson() {
     return {

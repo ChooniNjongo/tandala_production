@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import '../../../../utils/popups/loaders.dart';
+import '../../../data/abstract/base_data_table_controller.dart';
 import '../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../data/repositories/booking/booking_repository.dart';
 import '../../../data/repositories/listing/listing_repository.dart';
@@ -15,7 +15,7 @@ import '../models/booking/payment.dart';
 import '../models/property/listing_model.dart';
 import '../models/property/property_review.dart';
 
-class BookingController extends GetxController {
+class BookingController extends TBaseController<Booking> {
   static BookingController get instance => Get.find();
 
   /// Variables
@@ -52,6 +52,12 @@ class BookingController extends GetxController {
   Rx<double> userLatitude = 0.0.obs;
   Rx<double> userLongitude = 0.0.obs;
 
+  /// Check if the user is authenticated
+  bool get isUserLoggedIn => AuthenticationRepository.instance.authUser != null;
+
+  /// Get current user ID safely
+  String? get currentUserId => AuthenticationRepository.instance.authUser?.uid;
+
   void initGetLocation() async {
     await userRepository.getCurrentLocation().then((value) {
       userLatitude.value = value.latitude;
@@ -68,21 +74,26 @@ class BookingController extends GetxController {
 
   void fetchUserBookingNotifications() async {
     try {
-      final storage = GetStorage();
-      final uid = storage.read("uid") as String?;
-      // Fetch Chats
+      // Check if user is authenticated
+      if (!isUserLoggedIn || currentUserId == null) {
+        bookingNotifications.clear();
+        return;
+      }
+
+      // Fetch notifications for authenticated user
       final userBookingsNotifications =
-          await bookingRepository.getUserBookingsNotifications(uid!);
+      await bookingRepository.getUserBookingsNotifications(currentUserId!);
 
       if (kDebugMode) {
-        print("${userBookingsNotifications.length} ******Bookings***** $uid}");
+        print("${userBookingsNotifications.length} ******Bookings***** $currentUserId}");
       }
 
       if (userBookingsNotifications.isNotEmpty) {
-        // Assign Chats
+        // Assign notifications
         bookingNotifications.assignAll(userBookingsNotifications);
       } else {
-        // Handle case where bookings list is null
+        // Handle case where notifications list is empty
+        bookingNotifications.clear();
       }
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
@@ -92,7 +103,7 @@ class BookingController extends GetxController {
   void updateNumberOfNights(DateTime startDate, DateTime endDate, int price) {
     final nights = endDate.difference(startDate).inDays;
     numberOfNightBooked.value =
-        nights > 0 ? nights : 1; // Ensure at least 1 night
+    nights > 0 ? nights : 1; // Ensure at least 1 night
     bookingTotal.value = price.toInt() * numberOfNightBooked.value;
   }
 
@@ -101,19 +112,30 @@ class BookingController extends GetxController {
     update(); // Notify listeners
   }
 
-  /*   Method to retrieve user chats using userId in the process update isRetrievingUserChats accordingly and userChats.obs */
+  /*   Method to retrieve user bookings using userId in the process update isRetrievingUserBookings accordingly and userBookings.obs */
   Future<void> fetchUserBookings() async {
     try {
-      // Show loader while loading Chats
+      // Show loader while loading bookings
       isRetrievingUserBookings.value = true;
-      // Fetch Chats
-      final bookings = await bookingRepository.getUserBookings(AuthenticationRepository.instance.authUser!.uid);
+
+      // Check if user is authenticated
+      if (!isUserLoggedIn || currentUserId == null) {
+        userBookings.clear();
+        numberOfUnCompletedBookings.value = 0;
+        return;
+      }
+
+      // Fetch bookings for authenticated user
+      final bookings = await bookingRepository.getUserBookings(currentUserId!);
+
       if (bookings.isNotEmpty) {
-        // Assign Chats
+        // Assign bookings
         userBookings.assignAll(bookings);
         numberOfUnCompletedBookings.value = getActiveBookings();
       } else {
-        // Handle case where bookings list is null
+        // Handle case where bookings list is empty
+        userBookings.clear();
+        numberOfUnCompletedBookings.value = 0;
       }
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
@@ -125,7 +147,17 @@ class BookingController extends GetxController {
 
   void submitBookingRequest(BookingRequest bookingRequest) async {
     try {
-      // Show loader while loading Chats
+      // Check if user is authenticated
+      if (!isUserLoggedIn) {
+        TLoaders.errorSnackBar(
+          title: 'Authentication Required',
+          message: 'Please log in to submit a booking request',
+        );
+        Get.toNamed(TRoutes.login); // Navigate to login page
+        return;
+      }
+
+      // Show loader while submitting request
       isSubmittingABookingRequest.value = true;
       await bookingRepository.submitBookingRequest(bookingRequest);
       TLoaders.customToast(
@@ -143,7 +175,17 @@ class BookingController extends GetxController {
 
   void confirmAvailability(String bookingId, bool isAvailable) async {
     try {
-      // Show loader while loading Chats
+      // Check if user is authenticated
+      if (!isUserLoggedIn) {
+        TLoaders.errorSnackBar(
+          title: 'Authentication Required',
+          message: 'Please log in to confirm availability',
+        );
+        Get.toNamed(TRoutes.login); // Navigate to login page
+        return;
+      }
+
+      // Show loader while confirming availability
       isConfirmingAvailability.value = true;
 
       final booking = await bookingRepository.confirmAvailability(
@@ -164,21 +206,32 @@ class BookingController extends GetxController {
   }
 
   void payForBooking(Booking booking) async {
-    final payment = Payment(
-      bookingId: booking.bookingId,
-      userId: booking.bookieUserId,
-      bookingFee: booking.bookingAmountTotal,
-      userFee: booking.bookingBookieFee,
-      taxFee: booking.bookingTaxFee,
-      date: DateTime.now(),
-    );
     try {
-      // Show loader while loading Chats
+      // Check if user is authenticated
+      if (!isUserLoggedIn) {
+        TLoaders.errorSnackBar(
+          title: 'Authentication Required',
+          message: 'Please log in to make a payment',
+        );
+        Get.toNamed(TRoutes.login); // Navigate to login page
+        return;
+      }
+
+      final payment = Payment(
+        bookingId: booking.bookingId,
+        userId: booking.bookieUserId,
+        bookingFee: booking.bookingAmountTotal,
+        userFee: booking.bookingBookieFee,
+        taxFee: booking.bookingTaxFee,
+        date: DateTime.now(),
+      );
+
+      // Show loader while processing payment
       isPayingForBooking.value = true;
 
-      final booking = await bookingRepository.payForBooking(payment);
+      final updatedBooking = await bookingRepository.payForBooking(payment);
       TLoaders.successSnackBar(title: 'Payment Successful');
-      selectedBooking.value = booking;
+      selectedBooking.value = updatedBooking;
 
       fetchUserBookings();
       Get.toNamed(TRoutes.paymentSuccess);
@@ -192,7 +245,17 @@ class BookingController extends GetxController {
 
   void submitPropertyReview(PropertyReview propertyReview) async {
     try {
-      // Show loader while loading Chats
+      // Check if user is authenticated
+      if (!isUserLoggedIn) {
+        TLoaders.errorSnackBar(
+          title: 'Authentication Required',
+          message: 'Please log in to submit a review',
+        );
+        Get.toNamed(TRoutes.login); // Navigate to login page
+        return;
+      }
+
+      // Show loader while submitting review
       isSubmittingPropertyReview.value = true;
 
       await bookingRepository.reviewProperty(propertyReview);
@@ -208,12 +271,18 @@ class BookingController extends GetxController {
   }
 
   void refreshBookings() async {
-    isRefreshingBookings.value = true;
     try {
-      // Fetch Chats
-      final bookings = await bookingRepository.getUserBookings(
-        AuthenticationRepository.instance.authUser!.uid,
-      );
+      // Check if user is authenticated
+      if (!isUserLoggedIn || currentUserId == null) {
+        userBookings.clear();
+        numberOfUnCompletedBookings.value = 0;
+        return;
+      }
+
+      isRefreshingBookings.value = true;
+
+      // Fetch bookings for authenticated user
+      final bookings = await bookingRepository.getUserBookings(currentUserId!);
 
       int num = 0;
 
@@ -224,7 +293,7 @@ class BookingController extends GetxController {
       }
       numberOfUnCompletedBookings.value = num;
 
-      // Assign Chats
+      // Assign bookings
       userBookings.assignAll(bookings);
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
@@ -235,6 +304,16 @@ class BookingController extends GetxController {
 
   void checkIn(String bookingId) async {
     try {
+      // Check if user is authenticated
+      if (!isUserLoggedIn) {
+        TLoaders.errorSnackBar(
+          title: 'Authentication Required',
+          message: 'Please log in to check in',
+        );
+        Get.toNamed(TRoutes.login); // Navigate to login page
+        return;
+      }
+
       isCheckingBookie.value = true;
       final booking = await bookingRepository.checkIn(bookingId);
       selectedBooking.value = booking;
@@ -250,6 +329,16 @@ class BookingController extends GetxController {
 
   void cancelBooking(String bookingId) async {
     try {
+      // Check if user is authenticated
+      if (!isUserLoggedIn) {
+        TLoaders.errorSnackBar(
+          title: 'Authentication Required',
+          message: 'Please log in to cancel a booking',
+        );
+        Get.toNamed(TRoutes.login); // Navigate to login page
+        return;
+      }
+
       isCheckingBookie.value = true;
       await bookingRepository.cancelBooking(bookingId);
       fetchUserBookings();
@@ -266,11 +355,16 @@ class BookingController extends GetxController {
   }
 
   Future<List<ListingModel>> getListingForBooking(String listingId) async {
-    return await PropertyRepository.instance.getListingForBooking(
-      listingId: listingId,
-      latitude: userLatitude.value,
-      longitude: userLongitude.value,
-    );
+    try {
+      return await PropertyRepository.instance.getListingForBooking(
+        listingId: listingId,
+        latitude: userLatitude.value,
+        longitude: userLongitude.value,
+      );
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+      return [];
+    }
   }
 
   /// Function to get the number of active bookings
@@ -278,11 +372,52 @@ class BookingController extends GetxController {
     return userBookings
         .where(
           (booking) =>
-              booking.bookingStage == BookingStage.Availability ||
-              booking.bookingStage == BookingStage.Payment ||
-              booking.bookingStage == BookingStage.CheckIn ||
-              booking.bookingStage == BookingStage.Review,
-        )
+      booking.bookingStage == BookingStage.Availability ||
+          booking.bookingStage == BookingStage.Payment ||
+          booking.bookingStage == BookingStage.CheckIn ||
+          booking.bookingStage == BookingStage.Review,
+    )
         .length;
   }
+
+  @override
+  Future<List<Booking>> fetchItems() async {
+    try {
+      // Set sorting order for the table
+      sortAscending.value = false;
+
+      // Check if user is authenticated
+      if (!isUserLoggedIn || currentUserId == null) {
+        return [];
+      }
+
+      // Use the existing bookingRepository to fetch bookings
+      return await bookingRepository.getUserBookings(currentUserId!);
+    } catch (e) {
+      if (kDebugMode) {
+        print('Error fetching items: $e');
+      }
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+      return [];
+    }
+  }
+
+  void sortById(int sortColumnIndex, bool ascending) {
+    sortByProperty(sortColumnIndex, ascending, (Booking o) => o.bookingAmountTotal.toString().toLowerCase());
+  }
+
+  void sortByDate(int sortColumnIndex, bool ascending) {
+    sortByProperty(sortColumnIndex, ascending, (Booking o) => o.bookingStart.toString().toLowerCase());
+  }
+
+  @override
+  bool containsSearchQuery(Booking item, String query) {
+    return item.bookingId.toLowerCase().contains(query.toLowerCase());
+  }
+
+  @override
+  Future<void> deleteItem(Booking item) async {
+    //await _orderRepository.deleteOrder(item.docId);
+  }
+
 }

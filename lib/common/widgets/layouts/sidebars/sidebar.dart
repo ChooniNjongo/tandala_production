@@ -1,5 +1,5 @@
-import 'package:cwt_ecommerce_admin_panel/features/personalization/controllers/settings_controller.dart';
-import 'package:cwt_ecommerce_admin_panel/utils/constants/enums.dart';
+import 'package:cwt_ecommerce_admin_panel/features/booking/controllers/booking_controller.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -8,7 +8,6 @@ import '../../../../routes/routes.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
-import '../../images/t_circular_image.dart';
 import 'menu/menu_item.dart';
 
 /// Sidebar widget for navigation menu
@@ -17,6 +16,7 @@ class TSidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bookingController = BookingController.instance;
     return Drawer(
       shape: const BeveledRectangleBorder(),
       child: Container(
@@ -30,7 +30,8 @@ class TSidebar extends StatelessWidget {
             children: [
               ///Logo
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: TSizes.xl,vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: TSizes.xl, vertical: 4),
                 child: Image.asset(
                   TImages.logoPng,
                   height: 56,
@@ -40,88 +41,95 @@ class TSidebar extends StatelessWidget {
               const SizedBox(height: TSizes.spaceBtwSections),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: TSizes.md),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text('MENU',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodySmall!
-                            .apply(letterSpacingDelta: 1.2)),
-                    // Menu Items
-                    const TMenuItem(
-                        route: TRoutes.places,
-                        icon: Iconsax.home,
-                        itemName: 'Places'),
-                    const TMenuItem(
+                child: Obx(
+                  () => Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text('MENU',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .apply(letterSpacingDelta: 1.2)),
+                      // Menu Items
+                      const TMenuItem(
+                          route: TRoutes.places,
+                          icon: Iconsax.home,
+                          itemName: 'Places'),
+                      TMenuItem(
                         route: TRoutes.bookings,
                         icon: Iconsax.reserve,
-                        itemName: 'Bookings'),
-                    const TMenuItem(
-                        route: TRoutes.messages,
-                        icon: Iconsax.message,
-                        itemName: 'Messages'),
-                    const TMenuItem(
-                        route: TRoutes.wishlist,
-                        icon: Iconsax.notification_favorite,
-                        itemName: 'Wishlist'),
-                    const TMenuItem(
-                        route: TRoutes.dashboard,
-                        icon: Iconsax.status,
-                        itemName: 'Dashboard'),
-                    const TMenuItem(
-                        route: TRoutes.media,
-                        icon: Iconsax.image,
-                        itemName: 'Media'),
-                    const TMenuItem(
-                        route: TRoutes.banners,
-                        icon: Iconsax.picture_frame,
-                        itemName: 'Banners'),
-                    const TMenuItem(
-                        route: TRoutes.products,
-                        icon: Iconsax.shopping_bag,
-                        itemName: 'Products'),
-                    const TMenuItem(
-                        route: TRoutes.categories,
-                        icon: Iconsax.category_2,
-                        itemName: 'Categories'),
-                    const TMenuItem(
-                        route: TRoutes.brands,
-                        icon: Iconsax.dcube,
-                        itemName: 'Brands'),
-                    const TMenuItem(
-                        route: TRoutes.customers,
-                        icon: Iconsax.profile_2user,
-                        itemName: 'Customers'),
-                    const TMenuItem(
-                        route: TRoutes.orders,
-                        icon: Iconsax.box,
-                        itemName: 'Orders'),
-                    const TMenuItem(
-                        route: TRoutes.coupons,
-                        icon: Iconsax.code,
-                        itemName: 'Coupons'),
-                    const SizedBox(height: TSizes.spaceBtwItems),
-                    Text('OTHER',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodySmall!
-                            .apply(letterSpacingDelta: 1.2)),
-                    // Other menu items
-                    const TMenuItem(
-                        route: TRoutes.profile,
-                        icon: Iconsax.user,
-                        itemName: 'Profile'),
-                    const TMenuItem(
-                        route: TRoutes.settings,
-                        icon: Iconsax.setting_2,
-                        itemName: 'Settings'),
-                    const TMenuItem(
-                        route: 'logout',
-                        icon: Iconsax.logout,
-                        itemName: 'Logout'),
-                  ],
+                        itemName: 'Bookings',
+                        notificationCount:
+                            bookingController.numberOfUnCompletedBookings.value,
+                      ),
+                      TMenuItem(
+                          route: TRoutes.messages,
+                          icon: Iconsax.message,
+                          itemName: 'Messages',
+                          notificationCount: bookingController
+                              .numberOfUnCompletedBookings.value),
+                      const TMenuItem(
+                          route: TRoutes.wishlist,
+                          icon: Iconsax.notification_favorite,
+                          itemName: 'Wishlist'),
+                      const TMenuItem(
+                          route: TRoutes.dashboard,
+                          icon: Iconsax.status,
+                          itemName: 'Dashboard'),
+                      const TMenuItem(
+                          route: TRoutes.media,
+                          icon: Iconsax.image,
+                          itemName: 'Media'),
+                      const TMenuItem(
+                          route: TRoutes.banners,
+                          icon: Iconsax.picture_frame,
+                          itemName: 'Banners'),
+                      const TMenuItem(
+                          route: TRoutes.products,
+                          icon: Iconsax.shopping_bag,
+                          itemName: 'Products'),
+                      const TMenuItem(
+                          route: TRoutes.categories,
+                          icon: Iconsax.category_2,
+                          itemName: 'Categories'),
+                      const TMenuItem(
+                          route: TRoutes.brands,
+                          icon: Iconsax.dcube,
+                          itemName: 'Brands'),
+                      const TMenuItem(
+                          route: TRoutes.customers,
+                          icon: Iconsax.profile_2user,
+                          itemName: 'Customers'),
+                      const TMenuItem(
+                          route: TRoutes.orders,
+                          icon: Iconsax.box,
+                          itemName: 'Orders'),
+                      const TMenuItem(
+                          route: TRoutes.coupons,
+                          icon: Iconsax.code,
+                          itemName: 'Coupons'),
+                      const SizedBox(height: TSizes.spaceBtwItems),
+                      Text('OTHER',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .apply(letterSpacingDelta: 1.2)),
+                      // Other menu items
+                      const TMenuItem(
+                          route: TRoutes.profile,
+                          icon: Iconsax.user,
+                          itemName: 'Profile'),
+                      const TMenuItem(
+                          route: TRoutes.settings,
+                          icon: Iconsax.setting_2,
+                          itemName: 'Settings'),
+                      const TMenuItem(
+                          route: 'logout',
+                          icon: Iconsax.logout,
+                          itemName: 'Logout'),
+                    ],
+                  ),
                 ),
               ),
             ],

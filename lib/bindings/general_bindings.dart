@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/features/booking/controllers/booking_controller.dart';
 import 'package:cwt_ecommerce_admin_panel/features/personalization/controllers/settings_controller.dart';
 import 'package:get/get.dart';
 import '../features/personalization/controllers/user_controller.dart';
@@ -10,5 +11,7 @@ class GeneralBindings extends Bindings {
     Get.lazyPut(() => NetworkManager(), fenix: true);
     Get.lazyPut(() => UserController(), fenix: true);
     Get.lazyPut(() => SettingsController(), fenix: true);
+    /// -- Booking Process
+    Get.lazyPut(() => BookingController(), fenix: true);
   }
 }

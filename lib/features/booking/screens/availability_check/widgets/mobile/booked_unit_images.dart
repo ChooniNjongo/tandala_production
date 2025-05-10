@@ -47,19 +47,28 @@ class BookedUnitImages extends StatelessWidget {
           ),
         ),
         const SizedBox(height: TSizes.spaceBtwInputFields),
-        Text("Nights (${booking.numberOfNights})"),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Nights (${booking.numberOfNights})"),
+            const SizedBox(width: TSizes.spaceBtwInputFields),
+            Text("K ${booking.bookingAmountTotal}"),
+          ],
+        ),
         const SizedBox(height: TSizes.spaceBtwInputFields),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Row(
               children: [
-                const Text("Check In Date : ", style: TTypography.label12Regular),
+                const Text("Check In Date : ",
+                    style: TTypography.label12Regular),
                 Text(" ${THelperFunctions.formatDate(booking.checkInDate)}"),
               ],
             ),
           ],
         ),
+        Text("BookingID (${booking.bookingId})"),
         const SizedBox(height: TSizes.spaceBtwSections),
       ],
     );

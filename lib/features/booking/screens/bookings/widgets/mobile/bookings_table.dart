@@ -1,3 +1,5 @@
+import 'package:cwt_ecommerce_admin_panel/features/booking/controllers/booking_controller.dart';
+import 'package:cwt_ecommerce_admin_panel/features/booking/screens/bookings/widgets/mobile/bookings_rows.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,7 +15,7 @@ class BookingsTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(OrderController());
+    final controller = BookingController.instance;
     return Obx(
           () {
         // Orders & Selected Rows are Hidden => Just to update the UI => Obx => [ProductRows]
@@ -28,12 +30,11 @@ class BookingsTable extends StatelessWidget {
           columns: [
             const DataColumn2(label: Text('Booking ID')),
             DataColumn2(label: const Text('Date'), onSort: (columnIndex, ascending) => controller.sortByDate(columnIndex, ascending)),
-            const DataColumn2(label: Text('Items')),
-            DataColumn2(label: const Text('Status'), fixedWidth: TDeviceUtils.isMobileScreen(context) ? 120 : null),
+            const DataColumn2(label: Text('Place')),
+            DataColumn2(label: const Text('Stage'), fixedWidth: TDeviceUtils.isMobileScreen(context) ? 120 : null),
             const DataColumn2(label: Text('Amount')),
-            const DataColumn2(label: Text('Action'), fixedWidth: 100),
           ],
-          source: OrderRows(),
+          source: BookingsRows(),
         );
       },
     );

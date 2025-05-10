@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../../common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
 import '../../../../../utils/constants/sizes.dart';
-import '../../../../shop/screens/order/all_orders/table/data_table.dart';
+import '../widgets/mobile/bookings_table.dart';
 
 class BookingsMobileScreen extends StatelessWidget {
   const BookingsMobileScreen({super.key});
@@ -16,7 +16,7 @@ class BookingsMobileScreen extends StatelessWidget {
             children: [
               TBreadcrumbsWithHeading(heading: 'Bookings', breadcrumbItems: ['Bookings']),
               SizedBox(height: TSizes.spaceBtwSections),
-              OrderTable(),
+              BookingsTable(),
             ],
           ),
         ),

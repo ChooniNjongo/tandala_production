@@ -25,12 +25,7 @@ class UserSection extends StatelessWidget {
               "This can take a few minutes or more depending on host, you are NOT going to pay until we confirm.",
         ),
         const SizedBox(height: TSizes.spaceBtwSections),
-        const Center(
-          child: SpinKitPouringHourGlassRefined(
-            color: TColorSystem.primary500,
-            size: 50.0,
-          ),
-        ),
+
       ],
     );
   }
