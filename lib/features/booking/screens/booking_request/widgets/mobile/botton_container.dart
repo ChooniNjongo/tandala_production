@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../../../../common/widgets/button_container/button_container.dart';
 import '../../../../../../common/widgets/buttons/extensible_hug_content_button.dart';
+import '../../../../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../../../../utils/constants/color_system.dart';
 import '../../../../../../utils/constants/sizes.dart';
 import '../../../../../../utils/constants/typography.dart';
@@ -66,7 +67,7 @@ class BookingRequestButtonContainer extends StatelessWidget {
           onPressed: () {
             controller.submitBookingRequest(
               BookingRequest(
-                bookieUserId: null,
+                bookieUserId: AuthenticationRepository.instance.authUser?.uid,
                 listingId: room.listingId,
                 numberOfNights: controller.numberOfNightBooked.value,
                 roomId: room.roomId!,

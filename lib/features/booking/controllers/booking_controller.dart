@@ -71,8 +71,8 @@ class BookingController extends GetxController {
       final storage = GetStorage();
       final uid = storage.read("uid") as String?;
       // Fetch Chats
-      final userBookingsNotifications = await bookingRepository
-          .getUserBookingsNotifications(uid!);
+      final userBookingsNotifications =
+          await bookingRepository.getUserBookingsNotifications(uid!);
 
       if (kDebugMode) {
         print("${userBookingsNotifications.length} ******Bookings***** $uid}");
@@ -118,8 +118,6 @@ class BookingController extends GetxController {
         // Assign Chats
         userBookings.assignAll(bookings);
         numberOfUnCompletedBookings.value = getActiveBookings();
-
-
       } else {
         // Handle case where bookings list is null
       }
@@ -132,27 +130,20 @@ class BookingController extends GetxController {
   }
 
   void submitBookingRequest(BookingRequest bookingRequest) async {
-    final storage = GetStorage();
-    final uid = storage.read("uid") as String?;
-    if (uid != null) {
-      bookingRequest.bookieUserId = uid;
-      try {
-        // Show loader while loading Chats
-        isSubmittingABookingRequest.value = true;
-        await bookingRepository.submitBookingRequest(bookingRequest);
-        TLoaders.customToast(
-          message: 'Congratulations! Booking request submitted',
-        );
-        fetchUserBookings();
-        Get.offAllNamed(TRoutes.bookings);
-      } catch (e) {
-        TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
-      } finally {
-        // Stop Loader
-        isSubmittingABookingRequest.value = false;
-      }
-    } else {
-      Get.offAllNamed(TRoutes.loginIntro);
+    try {
+      // Show loader while loading Chats
+      isSubmittingABookingRequest.value = true;
+      await bookingRepository.submitBookingRequest(bookingRequest);
+      TLoaders.customToast(
+        message: 'Congratulations! Booking request submitted',
+      );
+      fetchUserBookings();
+      Get.offAllNamed(TRoutes.bookings);
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+    } finally {
+      // Stop Loader
+      isSubmittingABookingRequest.value = false;
     }
   }
 
