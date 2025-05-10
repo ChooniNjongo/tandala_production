@@ -31,20 +31,6 @@ class BottomSheetRoomPreviewCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: TSizes.spaceBtwSections),
-            Text(
-              room.roomDescription,
-              style: isMobile
-                  ? TTypography.h4.copyWith(color: TColors.white, fontSize: 22)
-                  : TTypography.h4.copyWith(
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                    ),
-            ),
-            SizedBox(
-              height:
-                  isMobile ? TSizes.spaceBtwItems : TSizes.spaceBtwItems * 2,
-            ),
-
             /// Room Image Card
             Container(
               height: screenHeight * 0.3,
@@ -70,6 +56,20 @@ class BottomSheetRoomPreviewCard extends StatelessWidget {
                   : null,
             ),
 
+            /// Room Name
+            Text(
+              room.roomDescription,
+              style: isMobile
+                  ? TTypography.h3.copyWith(color: TColors.white, fontSize: 22)
+                  : TTypography.h4.copyWith(
+                fontSize: 14,
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+            SizedBox(
+              height:
+              isMobile ? TSizes.spaceBtwItems : TSizes.spaceBtwItems * 2,
+            ),
             /// Room Counts and Price
             Column(
               children: [

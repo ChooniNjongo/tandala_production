@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
+import '../../../../../common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
 import '../../../../../utils/constants/sizes.dart';
-import '../widgets/mobile/body.dart';
+import '../../../../shop/screens/order/all_orders/table/data_table.dart';
 
 class BookingsMobileScreen extends StatelessWidget {
   const BookingsMobileScreen({super.key});
@@ -12,7 +12,13 @@ class BookingsMobileScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(TSizes.defaultSpace),
-          child: BookingsBody(),
+          child: Column(
+            children: [
+              TBreadcrumbsWithHeading(heading: 'Bookings', breadcrumbItems: ['Bookings']),
+              SizedBox(height: TSizes.spaceBtwSections),
+              OrderTable(),
+            ],
+          ),
         ),
       ),
     );
