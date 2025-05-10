@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../../../../../common/widgets/buttons/full_width_button.dart';
 import '../../../../../../routes/routes.dart';
 import '../../../../../../utils/constants/image_strings.dart';
 import '../../../../../../utils/constants/sizes.dart';
@@ -41,19 +40,22 @@ class CancelledBookingBody extends StatelessWidget {
 
         if (AuthenticationRepository.instance.authUser!.uid !=
             booking.listing.userId)
-          TFullWidthElevatedButton(
-            buttonLabel: "Book Again",
-            padding: const EdgeInsets.symmetric(horizontal: 56),
-            onPressed: () {
-              Get.toNamed(
-                TRoutes.destination,
-                arguments: {
-                  'listing': booking.listing,
-                  'isEditing': false, // Or true, depending on your use case
-                },
-              );
-            },
+          SizedBox(
+            width: TSizes.buttonWidth,
+            child: ElevatedButton(
+              onPressed: () {
+                Get.toNamed(
+                  TRoutes.destination,
+                  arguments: {
+                    'listing': booking.listing,
+                    'isEditing': false, // Or true, depending on your use case
+                  },
+                );
+              },
+              child: const Text( "Book Again"),
+            ),
           ),
+
       ],
     );
   }

@@ -48,7 +48,7 @@ class UserController extends GetxController {
       loading.value = false;
       return user.value;
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Something went wrong.', message: e.toString());
+      TLoaders.errorSnackBar(title: 'Something went wrong ========.', message: e.toString());
       return UserModel.empty();
     }
   }

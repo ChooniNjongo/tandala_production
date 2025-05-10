@@ -42,72 +42,48 @@ class BookingsBody extends StatelessWidget {
           );
         }
 
-        return Padding(
-          padding: const EdgeInsets.all(TSizes.defaultSpace),
-          child: Obx(
-            () => Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  " Active Bookings (${controller.getActiveBookings()})",
-                  style: TTypography.label12Regular.copyWith(
-                    color: TColorSystem.n200,
+        return Obx(
+          () => Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                " Active Bookings (${controller.getActiveBookings()})",
+                style: TTypography.label12Regular.copyWith(
+                  color: TColorSystem.n200,
+                ),
+              ),
+              const SizedBox(height: TSizes.spaceBtwSections / 2),
+              const ExtensibleFullWidthDivider(),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: TSizes.spaceBtwItems),
+                child: TGridLayout(
+                  crossAxisCount: 1,
+                  mainAxisExtent: 104,
+                  itemCount: controller.userBookings.length,
+                  itemBuilder: (_, index) => TBookingCard(
+                    actionIconColor: TColorSystem.primary500,
+                    actionIcon: TImages.notificationLight,
+                    productName:
+                        controller.userBookings[index].listing.propertyName,
+                    productInfo: controller.userBookings[index].listing.rooms
+                        .firstWhere(
+                          (room) =>
+                              room.roomId ==
+                              controller.userBookings[index].roomId,
+                        )
+                        .roomDescription,
+                    productsSubInfo:
+                        "${controller.userBookings[index].numberOfNights} Nights",
+                    date: DateFormat('dd MMM yyyy').format(
+                      DateTime.parse(controller.userBookings[index].bookingStart
+                          .toString()),
+                    ),
+                    booking: controller.userBookings[index],
                   ),
                 ),
-                const SizedBox(height: TSizes.spaceBtwSections / 2),
-                const ExtensibleFullWidthDivider(),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 24),
-                  child: TGridLayout(
-                    crossAxisCount: 1,
-                    mainAxisExtent: 120,
-                    itemCount: controller.userBookings.length,
-                    itemBuilder:
-                        (_, index) => Column(
-                          children: [
-                            TBookingCard(
-                              actionIconColor: TColorSystem.primary500,
-                              actionIcon: TImages.notificationLight,
-                              onTap: () {
-                                Get.toNamed(TRoutes.availabilityCheck)!.then((
-                                  _,
-                                ) {
-                                  controller.fetchUserBookings();
-                                });
-                              },
-                              productName:
-                                  controller.userBookings[index].listing.rooms
-                                      .firstWhere(
-                                        (room) =>
-                                            room.roomId ==
-                                            controller
-                                                .userBookings[index]
-                                                .roomId,
-                                      )
-                                      .roomDescription ??
-                                  controller
-                                      .userBookings[index]
-                                      .listing
-                                      .description,
-                              productInfo:
-                                  controller
-                                      .userBookings[index]
-                                      .listing
-                                      .propertyName,
-                              productsSubInfo:
-                                  "${controller.userBookings[index].numberOfNights} Nights",
-                              date: DateFormat('dd MMM yyyy').format(
-                                DateTime.parse(controller.userBookings[index].bookingStart.toString()),
-                              ),
-
-                              booking: controller.userBookings[index],
-                            ),
-                          ],
-                        ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         );
       },

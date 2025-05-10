@@ -67,11 +67,10 @@ class PropertyCardMobile extends StatelessWidget {
               padding: const EdgeInsets.only(left: 8.0),
               child: Row(
                 children: [
-                  Text(listing.city,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .apply(fontWeightDelta: -1),),
+                  Text(
+                    listing.city,
+                    style: TTypography.label16Bold,
+                  ),
                   ListingDistance(listing: listing),
                 ],
               ),

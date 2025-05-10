@@ -10,30 +10,30 @@ class TElevatedButtonTheme {
   /* -- Light Theme -- */
   static final lightElevatedButtonTheme  = ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      elevation: 0,
-      foregroundColor: TColors.light,
+      elevation:TSizes.buttonElevation,
+      foregroundColor: TColors.white,
       backgroundColor: TColors.primary,
       disabledForegroundColor: TColors.darkGrey,
       disabledBackgroundColor: TColors.buttonDisabled,
       side: const BorderSide(color: TColors.primary),
       padding: const EdgeInsets.symmetric(vertical: TSizes.buttonHeight),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(TSizes.buttonRadius)),
-      textStyle: const TextStyle(fontSize: 16, color: TColors.textWhite, fontWeight: FontWeight.w500, fontFamily: 'Urbanist'),
+      textStyle: const TextStyle(fontSize: 18, color: TColors.textWhite, fontWeight: FontWeight.w500, fontFamily: 'Urbanist'),
     ),
   );
 
   /* -- Dark Theme -- */
   static final darkElevatedButtonTheme = ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      elevation: 0,
-      foregroundColor: TColors.light,
+      elevation: TSizes.buttonElevation,
+      foregroundColor: TColors.white,
       backgroundColor: TColors.primary,
       disabledForegroundColor: TColors.darkGrey,
       disabledBackgroundColor: TColors.darkerGrey,
       side: const BorderSide(color: TColors.primary),
       padding: const EdgeInsets.symmetric(vertical: TSizes.buttonHeight),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(TSizes.buttonRadius)),
-      textStyle: const TextStyle(fontSize: 16, color: TColors.textWhite, fontWeight: FontWeight.w600, fontFamily: 'Urbanist'),
+      textStyle: const TextStyle(fontSize: 18, color: TColors.textWhite, fontWeight: FontWeight.w500, fontFamily: 'Urbanist'),
     ),
   );
 }

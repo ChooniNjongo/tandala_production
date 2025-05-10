@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../features/personalization/controllers/user_controller.dart';
+import '../../../../routes/routes.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
@@ -85,10 +86,13 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
         title: Row(
           children: [
             /// Logo
-            Image.asset(
-              TImages.logoPng,
-              height: 56,
-              width: 100,
+            GestureDetector(
+              onTap: ()=> Get.toNamed(TRoutes.places),
+              child: Image.asset(
+                TImages.logoPng,
+                height: 56,
+                width: 100,
+              ),
             ),
           ],
         ),

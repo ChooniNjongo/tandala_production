@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/data/repositories/authentication/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../../../../common/pages/action.dart';
@@ -14,8 +15,7 @@ class CancelledBookingMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final storage = GetStorage();
-    final uid = storage.read("uid") as String;
+    final uid = AuthenticationRepository.instance.authUser!.uid;
     return ActionPage(
       overlayHeader: const FormNavigation(
         showLeftIcon: true,

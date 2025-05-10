@@ -31,94 +31,97 @@ class _PhotoGalleryImageSliderState extends State<PhotoGalleryImageSlider> {
     final screenHeight = MediaQuery.sizeOf(context).height;
     final double carouselHeight = screenHeight * 1;
     const double iconSize = 32;
-    return Stack(
-      children: [
-        CarouselSlider.builder(
-          carouselController: controller,
-          options: CarouselOptions(
-            autoPlay: true,
-            height: screenHeight * 1,
-            enableInfiniteScroll: false,
-            initialPage: 0,
-            viewportFraction: 1,
-            //enableInfiniteScroll: false,
-            enlargeStrategy: CenterPageEnlargeStrategy.scale,
+    return Container(
+      color: TColors.secondaryBackground2,
+      child: Stack(
+        children: [
+          CarouselSlider.builder(
+            carouselController: controller,
+            options: CarouselOptions(
+              autoPlay: true,
+              height: screenHeight * 1,
+              enableInfiniteScroll: false,
+              initialPage: 0,
+              viewportFraction: 1,
+              //enableInfiniteScroll: false,
+              enlargeStrategy: CenterPageEnlargeStrategy.scale,
 
-            // height: MediaQuery.of(context).size.height * .50,
-            onPageChanged: (index, reason) =>
-                setState(() => activeIndex = index),
+              // height: MediaQuery.of(context).size.height * .50,
+              onPageChanged: (index, reason) =>
+                  setState(() => activeIndex = index),
+            ),
+            itemCount: imageUrls.length,
+            itemBuilder: (context, index, realIdx) {
+              return SizedBox(
+                width: double.infinity,
+                child: Image.network(
+                  imageUrls[index],
+                  fit: BoxFit.cover,
+                ),
+              );
+            },
           ),
-          itemCount: imageUrls.length,
-          itemBuilder: (context, index, realIdx) {
-            return SizedBox(
-              width: double.infinity,
-              child: Image.network(
-                imageUrls[index],
-                fit: BoxFit.cover,
-              ),
-            );
-          },
-        ),
 
-        /// Previous Image
-        Visibility(
-          visible: activeIndex > 0,
-          child: Positioned(
-              left: 12,
-              top: (carouselHeight - iconSize) / 2,
-              child: TCircularIcon(
+          /// Previous Image
+          Visibility(
+            visible: activeIndex > 0,
+            child: Positioned(
+                left: 12,
+                top: (carouselHeight - iconSize) / 2,
+                child: TCircularIcon(
+                    onPressed: () {
+                      if (activeIndex < imageUrls.length - 1) {
+                        controller.previousPage();
+                      }
+                    },
+                    backgroundColor: Colors.blueGrey.withOpacity(0.3),
+                    icon: Icons.chevron_left,
+                    color: Colors.white,
+                    size: 32)),
+          ),
+
+          /// Animated Smooth Progress Indicator
+          Positioned(
+            top: 12, // adjust as needed
+            left: 0,
+            right: 0,
+            child: Center(
+              child: buildIndicator(),
+            ),
+          ),
+
+          /// Next Image
+          Visibility(
+            visible: activeIndex < imageUrls.length - 1,
+            child: Positioned(
+                right: 12,
+                top: (carouselHeight - iconSize) / 2,
+                child: TCircularIcon(
                   onPressed: () {
                     if (activeIndex < imageUrls.length - 1) {
-                      controller.previousPage();
+                      controller.nextPage();
                     }
                   },
                   backgroundColor: Colors.blueGrey.withOpacity(0.3),
-                  icon: Icons.chevron_left,
+                  icon: Icons.chevron_right,
                   color: Colors.white,
-                  size: 32)),
-        ),
-
-        /// Animated Smooth Progress Indicator
-        Positioned(
-          top: 12, // adjust as needed
-          left: 0,
-          right: 0,
-          child: Center(
-            child: buildIndicator(),
+                  size: 32,
+                )),
           ),
-        ),
-
-        /// Next Image
-        Visibility(
-          visible: activeIndex < imageUrls.length - 1,
-          child: Positioned(
+          Positioned(
               right: 12,
-              top: (carouselHeight - iconSize) / 2,
-              child: TCircularIcon(
-                onPressed: () {
-                  if (activeIndex < imageUrls.length - 1) {
-                    controller.nextPage();
-                  }
-                },
-                backgroundColor: Colors.blueGrey.withOpacity(0.3),
-                icon: Icons.chevron_right,
-                color: Colors.white,
-                size: 32,
-              )),
-        ),
-        Positioned(
-            right: 12,
-            bottom: 12,
-            child: TRoundedContainer(
-              radius: 4,
-              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
-              backgroundColor: TColors.jetBlack.withOpacity(0.5),
-              child: Text(
-                "${activeIndex + 1} / ${imageUrls.length}",
-                style: const TextStyle(color: Colors.white),
-              ),
-            ))
-      ],
+              bottom: 12,
+              child: TRoundedContainer(
+                radius: 4,
+                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+                backgroundColor: TColors.jetBlack.withOpacity(0.5),
+                child: Text(
+                  "${activeIndex + 1} / ${imageUrls.length}",
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ))
+        ],
+      ),
     );
   }
 

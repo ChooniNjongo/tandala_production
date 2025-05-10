@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../common/widgets/button_container/button_container.dart';
-import '../../../../../../common/widgets/buttons/extensible_hug_content_button.dart';
 import '../../../../../../common/widgets/buttons/t_text_button.dart';
+import '../../../../../../utils/constants/sizes.dart';
 import '../../../../controllers/booking_controller.dart';
 import '../../../../models/booking/booking.dart';
 
@@ -18,11 +18,14 @@ class CheckInUserButtons extends StatelessWidget {
         label: 'Cancel Booking',
         labelColor: Colors.red,
       ),
-      button2: TExtensibleHugContentButton(
-        buttonLabel: 'Check In',
-        onPressed: () {
-          controller.checkIn(booking.bookingId);
-        },
+      button2: SizedBox(
+        width: TSizes.buttonWidth,
+        child: ElevatedButton(
+          onPressed: () {
+            controller.checkIn(booking.bookingId);
+          },
+          child: Text('Check In'),
+        ),
       ),
     );
   }

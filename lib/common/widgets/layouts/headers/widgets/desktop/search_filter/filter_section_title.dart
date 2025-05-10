@@ -13,7 +13,7 @@ class FilterSectionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: TTypography.h2.copyWith(color: TColors.white),
+      style: TTypography.h3.copyWith(color: TColors.white),
     );
   }
 }

@@ -15,6 +15,7 @@ class ButtonContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 120,
       padding: const EdgeInsets.only(left: 40, right: 40, bottom: 32, top: 12),
       decoration: const BoxDecoration(
         color: TColors.primaryBackground,

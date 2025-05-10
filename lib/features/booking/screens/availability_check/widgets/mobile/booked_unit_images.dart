@@ -26,11 +26,11 @@ class BookedUnitImages extends StatelessWidget {
         /// Image Container
         Text(
           booking.listing.propertyName,
-          style: TTypography.body16Regular.copyWith(color: TColorSystem.n200),
+          style: TTypography.h3.copyWith(color: TColorSystem.n200),
         ),
         const SizedBox(height: TSizes.spaceBtwItems),
-        Text(room!.roomDescription, style: TTypography.h3),
-        const SizedBox(height: TSizes.spaceBtwSections),
+        Text(room!.roomDescription, style: TTypography.body16Bold),
+        const SizedBox(height: TSizes.spaceBtwInputFields),
         TRoundedContainer(
           padding: EdgeInsets.zero,
           margin: EdgeInsets.zero,
@@ -46,9 +46,9 @@ class BookedUnitImages extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: TSizes.spaceBtwSections),
+        const SizedBox(height: TSizes.spaceBtwInputFields),
         Text("Nights (${booking.numberOfNights})"),
-        const SizedBox(height: TSizes.spaceBtwSections),
+        const SizedBox(height: TSizes.spaceBtwInputFields),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

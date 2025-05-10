@@ -1,9 +1,13 @@
+import 'package:cwt_ecommerce_admin_panel/common/widgets/icons/favorite_icon.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../../../common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
 import '../../../../../common/widgets/cards/property_cards/mobile/widgets/listing_distance.dart';
+import '../../../../../common/widgets/containers/rounded_container.dart';
 import '../../../../../routes/routes.dart';
+import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../models/property/listing_model.dart';
 import '../widgets/common/action_buttons.dart';
@@ -77,8 +81,9 @@ class ListingViewingMobileScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  const SizedBox(height: 6),
+                  const SizedBox(height: TSizes.spaceBtwItems),
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,7 +95,28 @@ class ListingViewingMobileScreen extends StatelessWidget {
                           ListingDistance(listing: listing),
                         ],
                       ),
-                      const SizedBox(width: TSizes.spaceBtwSections),
+                      const Spacer(),
+                      TRoundedContainer(
+                        borderWidth: 1,
+                        padding: const EdgeInsets.all(0),
+                        radius: 4,
+                        showBorder: true,
+                        borderColor: TColors.iconBorder,
+                        child: FavoriteIcon(propertyId: listing.listingId!),
+                      ),
+                      const SizedBox(width: TSizes.spaceBtwItems),
+                      TRoundedContainer(
+                        borderWidth: 1,
+                        padding: const EdgeInsets.all(8),
+                        radius: 4,
+                        showBorder: true,
+                        borderColor: TColors.iconBorder,
+                        child: SvgPicture.asset(
+                          TImages.productShareListing,
+                          height: 24,
+                          semanticsLabel: 'Share Icon',
+                        ),
+                      ),
                       if (isEditing)
                         Edit(
                           label: 'edit name',

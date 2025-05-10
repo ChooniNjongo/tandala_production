@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/common/widgets/containers/rounded_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -37,8 +38,10 @@ class _BookingRequestBodyState extends State<BookingRequestBody> {
             style: TTypography.body12Regular.copyWith(color: TColorSystem.n400),
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
-          Padding(
+          TRoundedContainer(
             padding: const EdgeInsets.all(TSizes.defaultSpace),
+            showBorder: true,
+            borderColor: TColors.iconBorder,
             child: TableCalendar(
               headerStyle: HeaderStyle(
                 leftChevronIcon:

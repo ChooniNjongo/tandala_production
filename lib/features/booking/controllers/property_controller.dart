@@ -127,8 +127,6 @@ class ListingsController extends GetxController {
 
       listings.assignAll(listingsFetched);
 
-      print(listings);
-
       return listingsFetched; // ✅ Return the fetched listings
     } catch (e) {
       if (kDebugMode) {

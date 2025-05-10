@@ -1,8 +1,8 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/color_system.dart';
 import '../../../utils/constants/typography.dart';
-import '../buttons/extensible_hug_content_button.dart';
 
 class TAlertDialog extends StatelessWidget {
   final dynamic Function() onTapPrimaryAction;
@@ -40,9 +40,12 @@ class TAlertDialog extends StatelessWidget {
           mainAxisAlignment:
               MainAxisAlignment.spaceBetween, // Pushes buttons apart
           children: [
-            TExtensibleHugContentButton(
-              buttonLabel: buttonLabel,
-              onPressed: onTapPrimaryAction,
+            SizedBox(
+              width: TSizes.buttonWidth,
+              child: ElevatedButton(
+                onPressed: onTapPrimaryAction,
+                child: Text( buttonLabel),
+              ),
             ),
 
             TextButton(

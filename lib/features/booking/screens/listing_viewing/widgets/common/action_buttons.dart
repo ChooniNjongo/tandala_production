@@ -68,10 +68,7 @@ class ActionButtons extends StatelessWidget {
     return Row(
       children: [
         SizedBox(
-          width: TDeviceUtils.isMobileScreen(context)
-              ? MediaQuery.sizeOf(context).width * 0.5
-              : MediaQuery.sizeOf(context).width * 0.2,
-          height: 48,
+          width: TSizes.buttonWidth,
           child: ElevatedButton(
             onPressed: () {
               /// Mobile onPress
@@ -84,38 +81,13 @@ class ActionButtons extends StatelessWidget {
                 showDesktopDialog();
               }
             },
-            child: Text(
+            child: const Text(
               "View Rooms",
-              style: TTypography.label14Bold.copyWith(color: Colors.white),
             ),
           ),
         ),
         const SizedBox(width: TSizes.spaceBtwItems),
-        TRoundedContainer(
-          borderWidth: 1,
-          padding: const EdgeInsets.all(8),
-          radius: 4,
-          showBorder: true,
-          borderColor: TColors.iconBorder,
-          child: SvgPicture.asset(
-            TImages.productAddToFavorites,
-            height: 24,
-            semanticsLabel: 'Favorites Icon',
-          ),
-        ),
-        const SizedBox(width: TSizes.spaceBtwItems),
-        TRoundedContainer(
-          borderWidth: 1,
-          padding: const EdgeInsets.all(8),
-          radius: 4,
-          showBorder: true,
-          borderColor: TColors.iconBorder,
-          child: SvgPicture.asset(
-            TImages.productShareListing,
-            height: 24,
-            semanticsLabel: 'Share Icon',
-          ),
-        ),
+
       ],
     );
   }

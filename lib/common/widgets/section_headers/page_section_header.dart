@@ -3,8 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../utils/constants/color_system.dart';
 import '../../../utils/constants/image_strings.dart';
+import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/typography.dart';
-import '../buttons/extensible_hug_content_outline_button.dart';
 
 class PageSectionHeader extends StatelessWidget {
   const PageSectionHeader({
@@ -96,10 +96,14 @@ class PageSectionHeader extends StatelessWidget {
 
         /// Outline button
         if (showOutlineButton)
-          ExtensibleHugContentOutlineButton(
-            buttonLabel: outlineButtonLabel,
-            onPressed: onOutlineButtonPressed,
-          )
+          SizedBox(
+            width: TSizes.buttonWidth,
+            child: ElevatedButton(
+              onPressed: onOutlineButtonPressed,
+              child: Text( outlineButtonLabel),
+            ),
+          ),
+
       ],
     );
   }

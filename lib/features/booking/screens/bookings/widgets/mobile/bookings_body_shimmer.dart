@@ -8,56 +8,53 @@ class BookingsBodyShimmer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          /// Active Bookings Shimmer
-          const TShimmerEffect(width: 110, height: 16, radius: 4),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        /// Active Bookings Shimmer
+        const TShimmerEffect(width: 110, height: 16, radius: 4),
 
-          const SizedBox(height: TSizes.spaceBtwSections),
-          const ExtensibleFullWidthDivider(),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * .7,
-            child: ListView.builder(
-              itemCount: 8,
-              itemBuilder: (context, index) {
-                return const Column(
-                  children: [
-                    Row(
-                      children: [
-                        /// Booking Image Shimmer
-                        TShimmerEffect(width: 80, height: 80, radius: 8),
-                        SizedBox(width: TSizes.spaceBtwInputFields),
+        const SizedBox(height: TSizes.spaceBtwSections),
+        const ExtensibleFullWidthDivider(),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * .7,
+          child: ListView.builder(
+            itemCount: 8,
+            itemBuilder: (context, index) {
+              return const Column(
+                children: [
+                  Row(
+                    children: [
+                      /// Booking Image Shimmer
+                      TShimmerEffect(width: 80, height: 80, radius: 8),
+                      SizedBox(width: TSizes.spaceBtwInputFields),
 
-                        /// Booking Info Shimmer
-                        Column(
-                          children: [
-                            TShimmerEffect(width: 80, height: 12, radius: 4),
-                            SizedBox(height: TSizes.spaceBtwInputFields / 2),
-                            TShimmerEffect(width: 80, height: 12, radius: 4),
-                            SizedBox(height: TSizes.spaceBtwInputFields / 2),
-                            TShimmerEffect(width: 80, height: 12, radius: 4),
-                            SizedBox(height: TSizes.spaceBtwInputFields / 2),
-                            TShimmerEffect(width: 80, height: 12, radius: 4),
-                          ],
-                        ),
+                      /// Booking Info Shimmer
+                      Column(
+                        children: [
+                          TShimmerEffect(width: 80, height: 12, radius: 4),
+                          SizedBox(height: TSizes.spaceBtwInputFields / 2),
+                          TShimmerEffect(width: 80, height: 12, radius: 4),
+                          SizedBox(height: TSizes.spaceBtwInputFields / 2),
+                          TShimmerEffect(width: 80, height: 12, radius: 4),
+                          SizedBox(height: TSizes.spaceBtwInputFields / 2),
+                          TShimmerEffect(width: 80, height: 12, radius: 4),
+                        ],
+                      ),
 
-                        /// Status Shimmer
-                        Spacer(),
-                        TShimmerEffect(width: 40, height: 40, radius: 32),
-                        SizedBox(width: TSizes.spaceBtwSections),
-                      ],
-                    ),
-                    ExtensibleFullWidthDivider(),
-                  ],
-                );
-              },
-            ),
+                      /// Status Shimmer
+                      Spacer(),
+                      TShimmerEffect(width: 40, height: 40, radius: 32),
+                      SizedBox(width: TSizes.spaceBtwSections),
+                    ],
+                  ),
+                  ExtensibleFullWidthDivider(),
+                ],
+              );
+            },
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

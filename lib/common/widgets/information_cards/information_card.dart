@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../utils/constants/color_system.dart';
-import '../buttons/full_width_button.dart';
+import '../../../utils/constants/sizes.dart';
 import '../containers/rounded_container.dart';
 import '../question_container/question_container.dart';
 
@@ -54,12 +54,13 @@ class InformationCard extends StatelessWidget {
           const SizedBox(
             height: 24,
           ),
-          TFullWidthElevatedButton(
-            labelColor: TColorSystem.n900,
-            backgroundColor: Colors.white,
-            buttonLabel: "Create a wishlist",
-            onPressed: () {},
-          )
+          SizedBox(
+            width: TSizes.buttonWidth,
+            child: ElevatedButton(
+              onPressed: (){},
+              child: Text( 'buttonLabel'),
+            ),
+          ),
         ],
       ),
     );

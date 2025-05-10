@@ -8,7 +8,6 @@ import '../../utils/constants/sizes.dart';
 import '../../utils/constants/text_strings.dart';
 import '../../utils/constants/typography.dart';
 import '../styles/spacing_styles.dart';
-import '../widgets/buttons/full_width_button.dart';
 
 class SuccessPage extends StatelessWidget {
   const SuccessPage({
@@ -59,12 +58,16 @@ class SuccessPage extends StatelessWidget {
             const SizedBox(height: TSizes.spaceBtwSections * 2),
 
             /// Let's Continue button
-            TFullWidthElevatedButton(
-              buttonLabel: TTexts.tContinue,
-              onPressed: () {
-                Get.toNamed(TRoutes.places);
-              },
+            SizedBox(
+              width: TSizes.buttonWidth,
+              child: ElevatedButton(
+                onPressed: () {
+                  Get.toNamed(TRoutes.places);
+                },
+                child: const Text( TTexts.tContinue,),
+              ),
             ),
+
           ],
         ),
       ),

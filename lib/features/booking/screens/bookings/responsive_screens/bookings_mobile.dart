@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../common/pages/action.dart';
-import '../../../../../common/widgets/overrlay_header/overlay_header.dart';
-import '../../../../../utils/constants/image_strings.dart';
+import '../../../../../utils/constants/sizes.dart';
 import '../widgets/mobile/body.dart';
 
 class BookingsMobileScreen extends StatelessWidget {
@@ -10,14 +8,13 @@ class BookingsMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ActionPage(
-      overlayHeader: OverlayHeader(
-        mainHeader: true,
-        label: "Bookings",
-        rightIcon: TImages.shoppingCart,
-        rightIconColor: Colors.transparent,
+    return const Scaffold(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(TSizes.defaultSpace),
+          child: BookingsBody(),
+        ),
       ),
-      body: BookingsBody(),
     );
   }
 }

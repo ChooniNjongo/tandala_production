@@ -5,6 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import '../../../../../../features/booking/controllers/location_controller.dart';
 import '../../../../../../features/booking/controllers/property_controller.dart';
 import '../../../../../../features/booking/models/property/listing_model.dart';
+import '../../../../../../routes/routes.dart';
 import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/constants/typography.dart';
 
@@ -25,6 +26,7 @@ class ListingDistance extends StatelessWidget {
           onTap: () async {
             await locationController.getLocation();
             listingsController.searchListings();
+            Get.toNamed(TRoutes.places);
           },
           child: Text(
             'See distance',

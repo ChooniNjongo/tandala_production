@@ -106,14 +106,8 @@ class BookingController extends GetxController {
     try {
       // Show loader while loading Chats
       isRetrievingUserBookings.value = true;
-      final storage = GetStorage();
-      final uid = storage.read("uid") as String?;
       // Fetch Chats
-      final bookings = await bookingRepository.getUserBookings(uid!);
-      if (kDebugMode) {
-        print("${bookings.length} ******Bookings***** $uid}");
-      }
-
+      final bookings = await bookingRepository.getUserBookings(AuthenticationRepository.instance.authUser!.uid);
       if (bookings.isNotEmpty) {
         // Assign Chats
         userBookings.assignAll(bookings);

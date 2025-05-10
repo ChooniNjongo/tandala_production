@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
+import '../../../../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../../../../utils/constants/sizes.dart';
 import '../../../../models/booking/booking.dart';
 import 'check_in_owner_section.dart';
@@ -11,8 +12,7 @@ class CheckInBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final storage = GetStorage();
-    final uid = storage.read("uid") as String;
+    final uid = AuthenticationRepository.instance.authUser!.uid;
     return Padding(
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child:

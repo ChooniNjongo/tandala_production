@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../common/widgets/buttons/extensible_hug_content_button.dart';
 import '../../../../../common/widgets/containers/rounded_container.dart';
 import '../../../../../common/widgets/footer/desktop/footer.dart';
 import '../../../../../utils/constants/sizes.dart';
@@ -47,14 +46,18 @@ class HomeDesktopScreen extends StatelessWidget {
               const ViewMoreListings(),
               const SizedBox(height: TSizes.spaceBtwSections),
               if (controller.showLoadingViewMore.value)
-                TExtensibleHugContentButton(
-                  buttonLabel: 'See more',
-                  onPressed: () {
-                    controller.hasTappedLoadingViewMore.value = true;
-                    controller.showLoadingViewMore.value = false;
-                    controller.onViewMoreListingsPressed();
-                  },
+                SizedBox(
+                  width: TSizes.buttonWidth,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      controller.hasTappedLoadingViewMore.value = true;
+                      controller.showLoadingViewMore.value = false;
+                      controller.onViewMoreListingsPressed();
+                    },
+                    child: const Text('See more'),
+                  ),
                 ),
+
               const SizedBox(height: TSizes.spaceBtwSections),
               if (!controller.hasTappedLoadingViewMore.value) const Footer(),
             ],

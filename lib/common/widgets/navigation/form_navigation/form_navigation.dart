@@ -2,6 +2,7 @@ import 'package:cwt_ecommerce_admin_panel/common/widgets/navigation/form_navigat
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../../../../routes/routes.dart';
 import '../../../../utils/constants/color_system.dart';
@@ -50,10 +51,12 @@ class FormNavigation extends StatelessWidget {
                           Get.back();
                         },
 
-                        child: SvgPicture.asset(
-                          TImages.chevronLeft, // Use passed svgImageString
-                          color: TColorSystem.n200,
-                        ),
+                        child:               IconButton(
+                            onPressed: () => Get.back(),
+                            icon: const Icon(
+                              Iconsax.arrow_left,
+                              color: TColorSystem.n500,
+                            )),
                       ),
                     const SizedBox(width: 12),
                     Text(

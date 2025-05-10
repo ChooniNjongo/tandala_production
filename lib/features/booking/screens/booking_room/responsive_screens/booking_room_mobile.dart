@@ -36,7 +36,7 @@ class BookingRoomMobileScreen extends StatelessWidget {
   }
 
   Widget _buildAvailabilityWidget() {
-    return const AvailabilityCheckScreen();
+    return  AvailabilityCheckScreen(booking: booking,);
   }
 
   Widget _buildPaymentWidget() {

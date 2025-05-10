@@ -51,7 +51,7 @@ class BottomSheetRoomPreviewCard extends StatelessWidget {
               width: isMobile ? screenWidth * 0.7 : screenWidth * 0.3,
               margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 0),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: TColors.secondaryBackground2,
                 borderRadius: BorderRadius.circular(12),
                 image: room.bedAndBashBoardPictures.isNotEmpty
                     ? DecorationImage(

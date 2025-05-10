@@ -27,8 +27,8 @@ class ListingName extends StatelessWidget {
                 text: listing.propertyName,
                   style: Theme.of(context)
                       .textTheme
-                      .bodyLarge!
-                      .apply(fontSizeFactor: 1.1,color: Colors.white),
+                      .headlineMedium!
+                      .apply(color: Colors.white),
               ),
 
             ],

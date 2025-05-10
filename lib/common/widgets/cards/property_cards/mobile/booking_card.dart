@@ -98,7 +98,7 @@ class TBookingCard extends StatelessWidget {
       onTap: () {
         Get.toNamed(TRoutes.bookingRoom, arguments: booking);
       },
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric( vertical: 4),
       margin: EdgeInsets.zero,
       radius: 12,
       height: 96,
@@ -108,7 +108,7 @@ class TBookingCard extends StatelessWidget {
           /// Image Container
           TRoundedContainer(
             onTap: onTap,
-            padding: EdgeInsets.zero,
+            padding: const EdgeInsets.only(left: 8),
             margin: EdgeInsets.zero,
             radius: 4,
             height: 80,
