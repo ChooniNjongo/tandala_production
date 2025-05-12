@@ -82,10 +82,11 @@ class BookingController extends TBaseController<Booking> {
 
       // Fetch notifications for authenticated user
       final userBookingsNotifications =
-      await bookingRepository.getUserBookingsNotifications(currentUserId!);
+          await bookingRepository.getUserBookingsNotifications(currentUserId!);
 
       if (kDebugMode) {
-        print("${userBookingsNotifications.length} ******Bookings***** $currentUserId}");
+        print(
+            "${userBookingsNotifications.length} ******Bookings***** $currentUserId}");
       }
 
       if (userBookingsNotifications.isNotEmpty) {
@@ -103,7 +104,7 @@ class BookingController extends TBaseController<Booking> {
   void updateNumberOfNights(DateTime startDate, DateTime endDate, int price) {
     final nights = endDate.difference(startDate).inDays;
     numberOfNightBooked.value =
-    nights > 0 ? nights : 1; // Ensure at least 1 night
+        nights > 0 ? nights : 1; // Ensure at least 1 night
     bookingTotal.value = price.toInt() * numberOfNightBooked.value;
   }
 
@@ -132,6 +133,8 @@ class BookingController extends TBaseController<Booking> {
         // Assign bookings
         userBookings.assignAll(bookings);
         numberOfUnCompletedBookings.value = getActiveBookings();
+        // Notify listeners about the change
+        update();
       } else {
         // Handle case where bookings list is empty
         userBookings.clear();
@@ -164,7 +167,7 @@ class BookingController extends TBaseController<Booking> {
         message: 'Congratulations! Booking request submitted',
       );
       fetchUserBookings();
-      Get.offAllNamed(TRoutes.bookings);
+      Get.offAllNamed(TRoutes.places);
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     } finally {
@@ -194,8 +197,7 @@ class BookingController extends TBaseController<Booking> {
       );
       TLoaders.customToast(message: 'Availability Successfully Updated');
       fetchUserBookings();
-      Get.toNamed(TRoutes.bookings);
-
+      Get.toNamed(TRoutes.places);
       selectedBooking.value = booking;
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
@@ -372,11 +374,11 @@ class BookingController extends TBaseController<Booking> {
     return userBookings
         .where(
           (booking) =>
-      booking.bookingStage == BookingStage.Availability ||
-          booking.bookingStage == BookingStage.Payment ||
-          booking.bookingStage == BookingStage.CheckIn ||
-          booking.bookingStage == BookingStage.Review,
-    )
+              booking.bookingStage == BookingStage.Availability ||
+              booking.bookingStage == BookingStage.Payment ||
+              booking.bookingStage == BookingStage.CheckIn ||
+              booking.bookingStage == BookingStage.Review,
+        )
         .length;
   }
 
@@ -403,11 +405,13 @@ class BookingController extends TBaseController<Booking> {
   }
 
   void sortById(int sortColumnIndex, bool ascending) {
-    sortByProperty(sortColumnIndex, ascending, (Booking o) => o.bookingAmountTotal.toString().toLowerCase());
+    sortByProperty(sortColumnIndex, ascending,
+        (Booking o) => o.bookingAmountTotal.toString().toLowerCase());
   }
 
   void sortByDate(int sortColumnIndex, bool ascending) {
-    sortByProperty(sortColumnIndex, ascending, (Booking o) => o.bookingStart.toString().toLowerCase());
+    sortByProperty(sortColumnIndex, ascending,
+        (Booking o) => o.bookingStart.toString().toLowerCase());
   }
 
   @override
@@ -419,5 +423,4 @@ class BookingController extends TBaseController<Booking> {
   Future<void> deleteItem(Booking item) async {
     //await _orderRepository.deleteOrder(item.docId);
   }
-
 }

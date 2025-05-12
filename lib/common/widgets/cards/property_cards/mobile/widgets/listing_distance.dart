@@ -41,10 +41,8 @@ class ListingDistance extends StatelessWidget {
         padding: const EdgeInsets.only(left: 8.0),
         child: Text(
           '${listing.distanceFromUser!.round()} Kilometers away',
-          style: Theme.of(context)
-              .textTheme
-              .bodySmall!
-              .apply(),
+          style: TTypography.label12Regular.copyWith(
+          ),
         ),
       );
     }

@@ -1,4 +1,5 @@
 import 'package:cwt_ecommerce_admin_panel/data/repositories/settings/setting_repository.dart';
+import 'package:cwt_ecommerce_admin_panel/features/booking/controllers/booking_controller.dart';
 import 'package:cwt_ecommerce_admin_panel/features/personalization/controllers/settings_controller.dart';
 import 'package:cwt_ecommerce_admin_panel/features/personalization/models/setting_model.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,8 @@ class LoginController extends GetxController {
   Future<void> emailAndPasswordSignIn() async {
     try {
       // Start Loading
-      TFullScreenLoader.openLoadingDialog('Logging you in...', TImages.ridingIllustration);
+      TFullScreenLoader.openLoadingDialog(
+          'Logging you in...', TImages.ridingIllustration);
 
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -72,10 +74,17 @@ class LoginController extends GetxController {
       }
 
       // Login user using Email & Password Authentication
-      await AuthenticationRepository.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+      await AuthenticationRepository.instance
+          .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 
       // User Information
       final user = await fetchUserInformation();
+
+      // User Bookings fetching
+      // User Bookings fetching
+      final bookingController = Get.put(BookingController());
+      await bookingController.fetchUserBookings(); // Make sure this method exists
+
 
       // Settings Information
       await fetchSettingsInformation();
@@ -86,7 +95,9 @@ class LoginController extends GetxController {
       // If user is not admin, logout and return
       if (user.role != AppRole.admin) {
         await AuthenticationRepository.instance.logout();
-        TLoaders.errorSnackBar(title: 'Not Authorized', message: 'You are not authorized or do have access. Contact Admin');
+        TLoaders.errorSnackBar(
+            title: 'Not Authorized',
+            message: 'You are not authorized or do have access. Contact Admin');
       } else {
         // Redirect
         AuthenticationRepository.instance.screenRedirect();
@@ -101,7 +112,8 @@ class LoginController extends GetxController {
   Future<void> registerAdmin() async {
     try {
       // Start Loading
-      TFullScreenLoader.openLoadingDialog('Registering Admin Account...', TImages.ridingIllustration);
+      TFullScreenLoader.openLoadingDialog(
+          'Registering Admin Account...', TImages.ridingIllustration);
 
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -111,7 +123,8 @@ class LoginController extends GetxController {
       }
 
       // Register user using Email & Password Authentication
-      await AuthenticationRepository.instance.registerWithEmailAndPassword(TTexts.adminEmail, TTexts.adminPassword);
+      await AuthenticationRepository.instance.registerWithEmailAndPassword(
+          TTexts.adminEmail, TTexts.adminPassword);
 
       // Create admin record in the Firestore
       final userRepository = Get.put(UserRepository());
@@ -128,7 +141,8 @@ class LoginController extends GetxController {
 
       // Create settings record in the Firestore
       final settingsRepository = Get.put(SettingsRepository());
-      await settingsRepository.registerSettings(SettingsModel(appLogo: '', appName: 'My App', taxRate: 0, shippingCost: 0));
+      await settingsRepository.registerSettings(SettingsModel(
+          appLogo: '', appName: 'My App', taxRate: 0, shippingCost: 0));
 
       // Remove Loader
       TFullScreenLoader.stopLoading();
@@ -156,7 +170,8 @@ class LoginController extends GetxController {
 
   fetchSettingsInformation() async {
     final controller = SettingsController.instance;
-    if (controller.settings.value.id == null || controller.settings.value.id!.isEmpty) {
+    if (controller.settings.value.id == null ||
+        controller.settings.value.id!.isEmpty) {
       await SettingsController.instance.fetchSettingDetails();
     }
   }

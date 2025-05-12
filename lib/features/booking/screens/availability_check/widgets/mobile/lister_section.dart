@@ -20,6 +20,7 @@ class ListerSection extends StatelessWidget {
     );
     return Column(
       children: [
+        const SizedBox(height: TSizes.spaceBtwSections),
         /// Image Container
         BookedUnitImages(booking: booking),
         const QuestionContainer(

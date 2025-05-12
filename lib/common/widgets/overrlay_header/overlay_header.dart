@@ -54,13 +54,13 @@ class OverlayHeader extends StatelessWidget {
                   onPressed: () => Get.back(),
                   icon: const Icon(
                     Iconsax.arrow_left,
-                    color: TColorSystem.n500,
+                    color: TColorSystem.n300,
                   )),
 
             /// Label
             Text(
               label,
-                style: Theme.of(context).textTheme.headlineLarge
+                style: Theme.of(context).textTheme.headlineLarge?.apply(color: TColorSystem.n200)
             ),
 
             /// End Icon

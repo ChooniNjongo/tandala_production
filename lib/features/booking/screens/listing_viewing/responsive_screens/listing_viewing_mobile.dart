@@ -1,9 +1,11 @@
 import 'package:cwt_ecommerce_admin_panel/common/widgets/icons/favorite_icon.dart';
+import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
+import 'package:cwt_ecommerce_admin_panel/utils/constants/typography.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import '../../../../../common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
+import 'package:iconsax/iconsax.dart';
 import '../../../../../common/widgets/cards/property_cards/mobile/widgets/listing_distance.dart';
 import '../../../../../common/widgets/containers/rounded_container.dart';
 import '../../../../../routes/routes.dart';
@@ -33,21 +35,6 @@ class ListingViewingMobileScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: TSizes.defaultSpace,
-                  vertical: TSizes.spaceBtwItems),
-              child: Column(
-                children: [
-                  TBreadcrumbsWithHeading(
-                    returnToPreviousScreen: true,
-                    breadcrumbItems: const ['Destination'],
-                    heading: listing.propertyName,
-                  ),
-                ],
-              ),
-            ),
-
             /// Listing Image Card
             Stack(
               children: [
@@ -59,6 +46,16 @@ class ListingViewingMobileScreen extends StatelessWidget {
                       decoration: const BoxDecoration(
                           color: TColors.secondaryBackground2),
                       child: MListingImageCard(listing: listing)),
+                ),
+                Positioned(
+                  top: 24,
+                  left: 24,
+                  child: IconButton(
+                      onPressed: () => Get.back(),
+                      icon: const Icon(
+                        Iconsax.arrow_left,
+                        color: TColorSystem.n100,
+                      )),
                 ),
                 if (isEditing)
                   Positioned(
@@ -80,43 +77,50 @@ class ListingViewingMobileScreen extends StatelessWidget {
                 horizontal: TSizes.defaultSpace,
               ),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   const SizedBox(height: TSizes.spaceBtwItems),
                   Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ListingNameLocation(listing: listing),
-                          const SizedBox(
-                            height: TSizes.spaceBtwItems,
-                          ),
-                          ListingDistance(listing: listing),
-                        ],
-                      ),
-                      const Spacer(),
                       TRoundedContainer(
+                        padding: EdgeInsets.zero,
+                        width: 40,
+                        height: 40,
                         borderWidth: 1,
-                        padding: const EdgeInsets.all(0),
                         radius: 4,
                         showBorder: true,
                         borderColor: TColors.iconBorder,
                         child: FavoriteIcon(propertyId: listing.listingId!),
                       ),
                       const SizedBox(width: TSizes.spaceBtwItems),
-                      TRoundedContainer(
+                      const TRoundedContainer(
+                        padding: EdgeInsets.zero,
+                        width: 40,
+                        height: 40,
                         borderWidth: 1,
-                        padding: const EdgeInsets.all(8),
                         radius: 4,
                         showBorder: true,
                         borderColor: TColors.iconBorder,
-                        child: SvgPicture.asset(
-                          TImages.productShareListing,
-                          height: 24,
-                          semanticsLabel: 'Share Icon',
-                        ),
+                        child: Icon(Iconsax.share,color: TColorSystem.n100,),
                       ),
+                    ],
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwItems),
+                  // Place Name
+                  Text(
+                    listing.propertyName,
+                    style: TTypography.h3.copyWith(color: TColorSystem.n200),
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwItems),
+                  ListingNameLocation(listing: listing),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
+                  ),
+                  ListingDistance(listing: listing),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       if (isEditing)
                         Edit(
                           label: 'edit name',

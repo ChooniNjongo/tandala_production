@@ -50,12 +50,11 @@ class FormNavigation extends StatelessWidget {
                         onTap: () {
                           Get.back();
                         },
-
-                        child:               IconButton(
+                        child: IconButton(
                             onPressed: () => Get.back(),
                             icon: const Icon(
                               Iconsax.arrow_left,
-                              color: TColorSystem.n500,
+                              color: TColorSystem.n400,
                             )),
                       ),
                     const SizedBox(width: 12),

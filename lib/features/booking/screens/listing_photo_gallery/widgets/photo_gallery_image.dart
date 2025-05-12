@@ -1,8 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../../common/widgets/containers/rounded_container.dart';
 import '../../../../../common/widgets/icons/t_circular_icon.dart';
+import '../../../../../utils/constants/color_system.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../models/property/listing_model.dart';
 
@@ -32,7 +36,7 @@ class _PhotoGalleryImageSliderState extends State<PhotoGalleryImageSlider> {
     final double carouselHeight = screenHeight * 1;
     const double iconSize = 32;
     return Container(
-      color: TColors.secondaryBackground2,
+      color: TColors.jetBlack,
       child: Stack(
         children: [
           CarouselSlider.builder(
@@ -56,10 +60,21 @@ class _PhotoGalleryImageSliderState extends State<PhotoGalleryImageSlider> {
                 width: double.infinity,
                 child: Image.network(
                   imageUrls[index],
-                  fit: BoxFit.cover,
+                  fit: BoxFit.contain,
                 ),
               );
             },
+          ),
+        /// Previous Page
+          Positioned(
+            top: 24,
+            left: 24,
+            child: IconButton(
+                onPressed: () => Get.back(),
+                icon: const Icon(
+                  Iconsax.arrow_left,
+                  color: TColorSystem.n200,
+                )),
           ),
 
           /// Previous Image
@@ -81,12 +96,15 @@ class _PhotoGalleryImageSliderState extends State<PhotoGalleryImageSlider> {
           ),
 
           /// Animated Smooth Progress Indicator
-          Positioned(
-            top: 12, // adjust as needed
-            left: 0,
-            right: 0,
-            child: Center(
-              child: buildIndicator(),
+          Visibility(
+            visible: false,
+            child: Positioned(
+              top: 56, // adjust as needed
+              left: 0,
+              right: 0,
+              child: Center(
+                child: buildIndicator(),
+              ),
             ),
           ),
 

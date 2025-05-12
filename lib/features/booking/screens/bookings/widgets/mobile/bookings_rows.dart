@@ -11,7 +11,7 @@ class BookingsRows extends DataTableSource {
 
   @override
   DataRow? getRow(int index) {
-    final booking = controller.filteredItems[index];
+    final booking = controller.userBookings[index];
     return DataRow2(
       onTap: () => Get.toNamed(TRoutes.bookingRoom, arguments: booking),
       selected: controller.selectedRows[index],
@@ -41,7 +41,7 @@ class BookingsRows extends DataTableSource {
                 color: booking.isComplete
                     ? TColors.darkerGrey
                     : TColors.primary))),
-        DataCell(Text('\$${booking.bookingAmountTotal}',
+        DataCell(Text('K${booking.bookingAmountTotal.round()}',
             style: TTypography.label12Regular.copyWith(
                 color: booking.isComplete
                     ? TColors.darkerGrey

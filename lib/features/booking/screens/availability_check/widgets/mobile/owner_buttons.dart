@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import '../../../../../../common/widgets/button_container/button_container.dart';
 import '../../../../../../common/widgets/buttons/t_text_button.dart';
-import '../../../../../../routes/routes.dart';
 import '../../../../../../utils/constants/sizes.dart';
 import '../../../../controllers/booking_controller.dart';
 import '../../../../models/booking/booking.dart';
@@ -29,7 +28,6 @@ class OwnerButtons extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             controller.confirmAvailability(booking.bookingId, true);
-            Get.toNamed(TRoutes.bookings);
           },
           child: const Text('Accept '),
         ),

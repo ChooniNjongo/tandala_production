@@ -16,8 +16,8 @@ class PaymentBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child: uid == booking.listing.userId
-          ? const ListerPaymentSection()
-          : const UserPaymentSection(),
+          ?  ListerPaymentSection(booking:booking)
+          :  UserPaymentSection(booking:booking),
     );
   }
 }

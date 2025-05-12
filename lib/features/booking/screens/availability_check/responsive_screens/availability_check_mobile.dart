@@ -21,7 +21,7 @@ class AvailabilityCheckScreenMobile extends StatelessWidget {
     final currentStage = booking.bookingStage;
     return ActionPage(
       overlayHeader: SizedBox(
-        height: 88,
+        height: 96,
         child: BookingStageIndicator(
           isAvailabilityStage: currentStage == BookingStage.Availability,
           isPaymentStage: currentStage == BookingStage.Payment,

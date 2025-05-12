@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../../common/widgets/layouts/headers/widgets/desktop/search_filter/filter_divider.dart';
@@ -56,11 +57,13 @@ class BottomSheetRoomPreviewCard extends StatelessWidget {
                   : null,
             ),
 
+            const SizedBox(height: TSizes.spaceBtwItems,),
+
             /// Room Name
             Text(
               room.roomDescription,
               style: isMobile
-                  ? TTypography.h3.copyWith(color: TColors.white, fontSize: 22)
+                  ? TTypography.h3.copyWith(color: TColorSystem.n300, fontSize: 18)
                   : TTypography.h4.copyWith(
                 fontSize: 14,
                 fontWeight: FontWeight.normal,

@@ -77,7 +77,7 @@ class RoomCounts extends StatelessWidget {
 TextStyle roomCountTextStyle() {
   return TTypography.label12Regular.copyWith(
       color: Colors.white.withOpacity(0.5),
-      fontFamily: 'Inter',
+      fontFamily: 'Poppins',
       fontWeight: FontWeight.w200,
-      fontSize: 10);
+      fontSize: 12);
 }

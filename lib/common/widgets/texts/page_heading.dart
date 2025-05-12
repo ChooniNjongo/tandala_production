@@ -1,9 +1,11 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
 import 'package:flutter/material.dart';
-
 
 class TPageHeading extends StatelessWidget {
   const TPageHeading({
-    super.key,required this.heading,  this.rightSideWidget,
+    super.key,
+    required this.heading,
+    this.rightSideWidget,
   });
 
   final String heading;
@@ -14,7 +16,11 @@ class TPageHeading extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(heading, style: Theme.of(context).textTheme.headlineLarge),
+        Text(heading,
+            style: Theme.of(context)
+                .textTheme
+                .headlineLarge
+                ?.apply(color: TColorSystem.n200)),
         rightSideWidget ?? const SizedBox(),
       ],
     );

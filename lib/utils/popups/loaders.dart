@@ -17,10 +17,10 @@ class TLoaders {
         duration: const Duration(seconds: 7),
         backgroundColor: Colors.transparent,
         content: Container(
-          padding: const EdgeInsets.all(18.0),
+          padding: const EdgeInsets.all(12),
           margin: const EdgeInsets.symmetric(horizontal: 30),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(4),
+            borderRadius: BorderRadius.circular(12),
             color: TColors.secondaryBackground2,
           ),
           child: Center(child: Text(message, style: Theme.of(Get.context!).textTheme.labelLarge)),

@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/data/repositories/authentication/authentication_repository.dart';
 import 'package:cwt_ecommerce_admin_panel/features/booking/controllers/booking_controller.dart';
 
 import 'package:flutter/material.dart';
@@ -124,10 +125,17 @@ class TSidebar extends StatelessWidget {
                           route: TRoutes.settings,
                           icon: Iconsax.setting_2,
                           itemName: 'Settings'),
+
+                      if(AuthenticationRepository.instance.isAuthenticated)
                       const TMenuItem(
                           route: 'logout',
                           icon: Iconsax.logout,
                           itemName: 'Logout'),
+                      if(!AuthenticationRepository.instance.isAuthenticated)
+                        const TMenuItem(
+                            route: 'login',
+                            icon: Iconsax.login,
+                            itemName: 'Logout'),
                     ],
                   ),
                 ),

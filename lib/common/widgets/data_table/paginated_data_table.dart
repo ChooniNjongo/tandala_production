@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -56,7 +57,15 @@ class TPaginatedDataTable extends StatelessWidget {
       height: tableHeight,
       child: Theme(
         // Use to set the Backend color
-        data: Theme.of(context).copyWith(cardTheme: const CardTheme(color: TColors.secondaryBackground, elevation: 0)),
+        data: Theme.of(context).copyWith(
+          cardTheme:
+              const CardTheme(color: TColors.secondaryBackground, elevation: 0),
+          iconButtonTheme: IconButtonThemeData(
+            style: IconButton.styleFrom(
+              foregroundColor: TColorSystem.n300, // <-- For arrow icons
+            ),
+          ),
+        ),
         child: PaginatedDataTable2(
           source: source,
 
@@ -80,21 +89,27 @@ class TPaginatedDataTable extends StatelessWidget {
 
           /// HEADER DESIGN
           headingTextStyle: Theme.of(context).textTheme.titleMedium,
-          headingRowColor: WidgetStateProperty.resolveWith((states) => TColors.primaryBackground),
+          headingRowColor: WidgetStateProperty.resolveWith(
+              (states) => TColors.primaryBackground),
           headingRowDecoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(TSizes.borderRadiusMd),
               topRight: Radius.circular(TSizes.borderRadiusMd),
             ),
           ),
-          empty: const TAnimationLoaderWidget(animation: TImages.tableIllustration, text: 'Nothing Found', height: 200, width: 200),
+          empty: const TAnimationLoaderWidget(
+              animation: TImages.tableIllustration,
+              text: 'Nothing Found',
+              height: 200,
+              width: 200),
 
           /// SORTING
           sortAscending: sortAscending,
           sortColumnIndex: sortColumnIndex,
           sortArrowBuilder: (bool ascending, bool sorted) {
             if (sorted) {
-              return Icon(ascending ? Iconsax.arrow_up_3 : Iconsax.arrow_down, size: TSizes.iconSm);
+              return Icon(ascending ? Iconsax.arrow_up_3 : Iconsax.arrow_down,
+                  size: TSizes.iconSm);
             } else {
               return const Icon(Iconsax.arrow_3, size: TSizes.iconSm);
             }

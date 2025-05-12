@@ -14,32 +14,34 @@ class ListingPrice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      text: TextSpan(
-        children: <InlineSpan>[
-          TextSpan(
-            text: 'Starting at',
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .apply(fontWeightDelta: -1),
-          ),
-          TextSpan(
-            text: ' K${listing.startingRoomPrice.toInt().toString()} ',
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .apply(fontWeightDelta: -1),
-          ),
-          TextSpan(
-            text: 'night',
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .apply(fontWeightDelta: -1),
-          ),
-        ],
-      ),
-    );
+    return               /// Price and Rating
+      RichText(
+        text: TextSpan(
+          children: <InlineSpan>[
+            TextSpan(
+              text: 'Starting at',
+              style: TTypography.body12Regular.copyWith(
+                fontSize: 10,
+                color: TColors.textSecondary,
+              ),
+            ),
+            TextSpan(
+              text:
+              ' K${listing.startingRoomPrice.toInt().toString()} ',
+              style: TTypography.h5.copyWith(
+                fontSize: 14,
+                color: TColors.textSecondary,
+              ),
+            ),
+            TextSpan(
+              text: 'night',
+              style: TTypography.body12Regular.copyWith(
+                fontSize: 10,
+                color: TColors.textSecondary,
+              ),
+            ),
+          ],
+        ),
+      );
   }
 }

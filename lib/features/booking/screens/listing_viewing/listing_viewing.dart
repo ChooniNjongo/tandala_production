@@ -3,7 +3,6 @@ import 'package:cwt_ecommerce_admin_panel/features/booking/screens/listing_viewi
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../common/widgets/layouts/templates/site_layout.dart';
-import '../../../../utils/device/device_utility.dart';
 import '../../models/property/listing_model.dart';
 import '../home/responsive_screens/home_tablet.dart';
 
@@ -20,6 +19,7 @@ class ListingViewingScreen extends StatelessWidget {
     final ListingModel listing = args['listing'];
 
     return TSiteTemplate(
+      useLayout: false,
       desktop: ListingViewingDesktopScreen(
         isEditing: isEditing,
         listing: listing,

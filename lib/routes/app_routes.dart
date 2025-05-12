@@ -24,6 +24,7 @@ import '../features/booking/screens/bookings/bookings.dart';
 import '../features/booking/screens/home/home.dart';
 import '../features/booking/screens/listing_photo_gallery/photo_gallery.dart';
 import '../features/booking/screens/listing_viewing/listing_viewing.dart';
+import '../features/booking/screens/payment_success/payment_success.dart';
 import '../features/booking/screens/room_photo_gallery/room_photo_gallery.dart';
 import '../features/booking/screens/room_selection/room_selection.dart';
 import '../features/booking/screens/room_viewing/room_viewing.dart';
@@ -57,6 +58,7 @@ class TAppRoute {
     GetPage(name: TRoutes.bookingRequest, page: () => const BookingRequestScreen(), middlewares: [TRouteMiddleware()]),
     GetPage(name: TRoutes.bookings, page: () => const BookingsScreen(), middlewares: [TRouteMiddleware()]),
     GetPage(name: TRoutes.bookingRoom, page: () => const BookingRoomScreen(), middlewares: [TRouteMiddleware()]),
+    GetPage(name: TRoutes.paymentSuccess, page: () => const PaymentSuccessScreen(), middlewares: [TRouteMiddleware()]),
 
 
     // Banners

@@ -14,8 +14,7 @@ class ListingNameLocation extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Text(" ${listing.city}",
-            style: TTypography.h3.copyWith(
-            //  fontFamily: 'CormorantGaramond',
+            style: TTypography.h4.copyWith(
               color: TColorSystem.n200,
             )),
       ],

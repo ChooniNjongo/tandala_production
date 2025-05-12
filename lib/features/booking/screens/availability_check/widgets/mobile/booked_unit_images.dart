@@ -26,10 +26,10 @@ class BookedUnitImages extends StatelessWidget {
         /// Image Container
         Text(
           booking.listing.propertyName,
-          style: TTypography.h3.copyWith(color: TColorSystem.n200),
+          style: TTypography.body16Bold.copyWith(color: TColorSystem.n200),
         ),
         const SizedBox(height: TSizes.spaceBtwItems),
-        Text(room!.roomDescription, style: TTypography.body16Bold),
+        Text(room!.roomDescription, style: TTypography.body16Regular),
         const SizedBox(height: TSizes.spaceBtwInputFields),
         TRoundedContainer(
           padding: EdgeInsets.zero,
@@ -68,7 +68,13 @@ class BookedUnitImages extends StatelessWidget {
             ),
           ],
         ),
-        Text("BookingID (${booking.bookingId})"),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text("Booking Id: ", style: TTypography.label12Regular),
+            Text(booking.bookingId),
+          ],
+        ),
         const SizedBox(height: TSizes.spaceBtwSections),
       ],
     );

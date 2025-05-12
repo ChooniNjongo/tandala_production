@@ -14,17 +14,12 @@ class PhotoGalleryMobileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: TColors.secondaryBackground,
+      backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            IconButton(
-                onPressed: () => Get.back(),
-                icon: const Icon(
-                  Iconsax.arrow_left,
-                  color: TColorSystem.n500,
-                )),
+
 
             /// Photo Image Slider
             PhotoGalleryImageSlider(listing: listing),

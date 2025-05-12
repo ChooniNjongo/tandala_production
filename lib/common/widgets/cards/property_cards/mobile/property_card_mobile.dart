@@ -69,7 +69,11 @@ class PropertyCardMobile extends StatelessWidget {
                 children: [
                   Text(
                     listing.city,
-                    style: TTypography.label16Bold,
+                    style: TTypography.body12Bold.copyWith(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      color: TColorSystem.white,
+                    ),
                   ),
                   ListingDistance(listing: listing),
                 ],

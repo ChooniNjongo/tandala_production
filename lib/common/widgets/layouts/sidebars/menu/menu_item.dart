@@ -92,9 +92,9 @@ class TMenuItem extends StatelessWidget {
                           padding: const EdgeInsets.all(6),
                           decoration: const BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Colors.purpleAccent),
+                              color: Colors.green),
                           child: Text(
-                            "9",
+                            notificationCount.toString(),
                             style: TTypography.label14Regular
                                 .copyWith(color: Colors.white),
                           ),
