@@ -1,4 +1,5 @@
 import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
+import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -26,7 +27,7 @@ class TabAmenityTile extends StatelessWidget {
           const SizedBox(width: TSizes.spaceBtwItems),
           Text(amenityTitle,
               style: TTypography.label12Regular
-                  .copyWith(color: Colors.white.withOpacity(1))),
+                  .copyWith(color: TColors.textPrimary.withOpacity(1))),
         ],
       ),
     );

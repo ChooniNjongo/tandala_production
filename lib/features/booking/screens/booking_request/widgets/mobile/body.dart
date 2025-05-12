@@ -1,4 +1,5 @@
 import 'package:cwt_ecommerce_admin_panel/common/widgets/containers/rounded_container.dart';
+import 'package:cwt_ecommerce_admin_panel/common/widgets/question_container/question_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -32,13 +33,10 @@ class _BookingRequestBodyState extends State<BookingRequestBody> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(height: TSizes.spaceBtwSections),
-          Text(
-            "Please select both check in and check out dates in that order. You can select by tapping the dates.",
-            style: TTypography.body12Regular.copyWith(color: TColorSystem.n400),
-          ),
+          const QuestionContainer(question:"Start the booking process" , body: "Please select both check in and check out dates in that order. You can select by tapping the dates."),
           const SizedBox(height: TSizes.spaceBtwSections),
           TRoundedContainer(
+            elevation: 2,
             padding: const EdgeInsets.all(TSizes.defaultSpace),
             showBorder: true,
             borderColor: TColors.iconBorder,

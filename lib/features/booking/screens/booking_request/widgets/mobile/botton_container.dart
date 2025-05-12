@@ -77,7 +77,7 @@ class BookingRequestButtonContainer extends StatelessWidget {
                 ),
               );
             },
-            child: const Text('Book'),
+            child: const Text('Check Availability'),
           ),
         ),
       ),

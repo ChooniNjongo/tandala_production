@@ -15,7 +15,7 @@ class BookingsTable extends StatelessWidget {
 
     // Table
     return TPaginatedDataTable(
-      minWidth: 700,
+      minWidth: 600,
       sortAscending: controller.sortAscending.value,
       sortColumnIndex: controller.sortColumnIndex.value,
       columns: [

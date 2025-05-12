@@ -16,10 +16,11 @@ class RoomPrice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TRoundedContainer(
+      elevation: 6,
       borderWidth: 1,
       margin: const EdgeInsets.all(6),
-      padding: const EdgeInsets.all(4),
-      radius: 4,
+      padding: const EdgeInsets.all(8),
+      radius: 32,
       showBorder: true,
       borderColor: TColors.iconBorder,
       child: RichText(
@@ -27,11 +28,11 @@ class RoomPrice extends StatelessWidget {
           children: [
             const TextSpan(
                 text: ' K ', // Add the currency initial
-                style: TTypography.h3),
+                style: TTypography.body16Regular),
             TextSpan(
                 text: '${room.price.toInt()}',
                 // Display the room price dynamically
-                style: TTypography.h3),
+                style: TTypography.body16Regular),
             const TextSpan(
                 text: '  night', // Display the room price dynamically
                 style: TTypography.label12Regular),

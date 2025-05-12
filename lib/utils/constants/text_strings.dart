@@ -164,7 +164,7 @@ class TTexts {
 
   /// Booking Process Screen
   //Bookings Screen
-  static const String bookingTableInstruction1 = "Scroll right or left in the table rows to see full booking details";
+  static const String bookingTableInstruction1 = "Scroll right or left to see full booking details";
   static const String bookingTableInstruction2 = "Tap on each row to manage a booking";
   //Booking Room
   static const String checkInInstruction1 = "Go to the location and check in";

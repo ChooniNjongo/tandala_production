@@ -23,7 +23,7 @@ class BookingsMobileScreen extends StatelessWidget {
                   TBreadcrumbsWithHeading(
                       heading: 'Bookings', breadcrumbItems: ['Bookings']),
                   SizedBox(height: TSizes.spaceBtwSections),
-                  Column(
+                  Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -37,7 +37,6 @@ class BookingsMobileScreen extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(height: TSizes.spaceBtwItems),
                   Row(
                     children: [
                       Text(

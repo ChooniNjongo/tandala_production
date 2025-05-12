@@ -1,10 +1,8 @@
 import 'package:cwt_ecommerce_admin_panel/data/repositories/authentication/authentication_repository.dart';
 import 'package:cwt_ecommerce_admin_panel/features/booking/controllers/booking_controller.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../../routes/routes.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
@@ -23,13 +21,12 @@ class TSidebar extends StatelessWidget {
       child: Container(
         decoration: const BoxDecoration(
           color: TColors.primaryBackground,
-          // border: Border(right: BorderSide(width: 1, color: TColors.grey)),
         ),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ///Logo
+              /// Logo
               Padding(
                 padding: const EdgeInsets.symmetric(
                     horizontal: TSizes.xl, vertical: 4),
@@ -43,7 +40,7 @@ class TSidebar extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: TSizes.md),
                 child: Obx(
-                  () => Column(
+                      () => Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -62,7 +59,7 @@ class TSidebar extends StatelessWidget {
                         icon: Iconsax.reserve,
                         itemName: 'Bookings',
                         notificationCount:
-                            bookingController.numberOfUnCompletedBookings.value,
+                        bookingController.numberOfUnCompletedBookings.value,
                       ),
                       const TMenuItem(
                           route: TRoutes.messages,
@@ -125,12 +122,15 @@ class TSidebar extends StatelessWidget {
                           icon: Iconsax.setting_2,
                           itemName: 'Settings'),
 
-                      if(AuthenticationRepository.instance.authUser != null)
-                      const TMenuItem(
-                          route: TRoutes.logout,
+                      if (AuthenticationRepository.instance.authUser != null)
+                        TMenuItem(
                           icon: Iconsax.logout,
-                          itemName: 'Logout'),
-                      if(AuthenticationRepository.instance.authUser == null)
+                          itemName: 'Logout',
+                          onTap: () async {
+                            await AuthenticationRepository.instance.logout();
+                          }, route: '',
+                        )
+                      else
                         const TMenuItem(
                             route: TRoutes.login,
                             icon: Iconsax.login,

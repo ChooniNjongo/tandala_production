@@ -1,4 +1,5 @@
 import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
+import 'package:cwt_ecommerce_admin_panel/utils/constants/typography.dart';
 import 'package:flutter/material.dart';
 
 class TPageHeading extends StatelessWidget {
@@ -17,10 +18,7 @@ class TPageHeading extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(heading,
-            style: Theme.of(context)
-                .textTheme
-                .headlineLarge
-                ?.apply(color: TColorSystem.n200)),
+            style: TTypography.body16Bold.copyWith(color: TColorSystem.n200),),
         rightSideWidget ?? const SizedBox(),
       ],
     );

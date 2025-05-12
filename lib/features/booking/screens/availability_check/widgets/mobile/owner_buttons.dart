@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../../../../common/widgets/button_container/button_container.dart';
 import '../../../../../../common/widgets/buttons/t_text_button.dart';
+import '../../../../../../utils/constants/color_system.dart';
 import '../../../../../../utils/constants/sizes.dart';
 import '../../../../controllers/booking_controller.dart';
 import '../../../../models/booking/booking.dart';
@@ -17,8 +18,10 @@ class OwnerButtons extends StatelessWidget {
     final controller = BookingController.instance;
     return ButtonContainer(
       button1: TTextButton(
+        showIcon: true,
+        icon: Icons.cancel_outlined,
         label: 'Reject',
-        labelColor: Colors.red,
+        labelColor: TColorSystem.n400,
         onPressed: () {
           controller.confirmAvailability(booking.bookingId, false);
         },

@@ -42,7 +42,7 @@ class RoomViewingBody extends StatelessWidget {
                   // Create a property called Room summary
                   "This is room is an quite save if you looking to combine style and affordability. We believe you will enjoy your stay.",
                   style: TTypography.body12Regular
-                      .copyWith(color: TColorSystem.n400),
+                      .copyWith(color: TColorSystem.n500),
                 ),
                 const SizedBox(height: TSizes.spaceBtwSections),
                 Text(

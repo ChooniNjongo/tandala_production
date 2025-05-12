@@ -104,6 +104,8 @@ class ListingViewingMobileScreen extends StatelessWidget {
                         borderColor: TColors.iconBorder,
                         child: Icon(Iconsax.share,color: TColorSystem.n100,),
                       ),
+                      Spacer(),
+                      ActionButtons(listing: listing),
                     ],
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),
@@ -133,7 +135,7 @@ class ListingViewingMobileScreen extends StatelessWidget {
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  ActionButtons(listing: listing),
+
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),

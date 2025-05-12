@@ -36,7 +36,7 @@ class OverlayHeader extends StatelessWidget {
         border: const Border(
           bottom: BorderSide(
             color: TColors.iconBorder, // Border color from theme
-            width: 1, // Thickness of the border
+            width: 0.2, // Thickness of the border
           ),
         ),
       ),
@@ -54,13 +54,13 @@ class OverlayHeader extends StatelessWidget {
                   onPressed: () => Get.back(),
                   icon: const Icon(
                     Iconsax.arrow_left,
-                    color: TColorSystem.n400,
+                    color: TColorSystem.n100,
                   )),
 
             /// Label
             Text(
               label,
-                style: TTypography.h4
+                style: TTypography.body16Bold
             ),
 
             /// End Icon
