@@ -106,6 +106,9 @@ class BookingRepository extends GetxController {
       Uri.parse('${APIConstants.baseUrl}/booking/check-in/$bookingId'),
     );
 
+    print("****************");
+    print(response.body);
+
     if (response.statusCode == 200) {
       return Booking.fromJson(jsonDecode(response.body));
     } else {

@@ -158,6 +158,17 @@ class TTexts {
   // Bottom copy right
   static const String copyRight = "Tandala tours Limited";
 
+  //
+
+
+
+  /// Booking Process Screen
+  //Bookings Screen
+  static const String bookingTableInstruction1 = "Scroll right or left in the table rows to see full booking details";
+  static const String bookingTableInstruction2 = "Tap on each row to manage a booking";
+  //Booking Room
+  static const String checkInInstruction1 = "Go to the location and check in";
+  static const String checkInInstruction2 = "Go to the reception and click button below to complete booking.View listing page for directions on how to get to host location";
 
 
 }

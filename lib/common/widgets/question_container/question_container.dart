@@ -25,9 +25,9 @@ class QuestionContainer extends StatelessWidget {
           Text(
             question!,
             textAlign: TextAlign.center,
-            style: large? TTypography.h2.copyWith(
+            style: large? TTypography.h3.copyWith(
               color: TColorSystem.n100,
-            ):TTypography.h3.copyWith(
+            ):TTypography.h4.copyWith(
               color: TColorSystem.n100,
             ),
           ),
@@ -38,7 +38,7 @@ class QuestionContainer extends StatelessWidget {
           Text(
             body!,
             textAlign: TextAlign.center,
-            style:large? TTypography.body16Regular.copyWith(color: TColorSystem.n400):TTypography.body14Regular.copyWith(color: TColorSystem.n400),
+            style:large? TTypography.body16Regular.copyWith(color: TColorSystem.n400):TTypography.body12Regular.copyWith(color: TColorSystem.n400),
           ),
 
 

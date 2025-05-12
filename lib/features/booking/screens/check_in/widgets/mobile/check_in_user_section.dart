@@ -4,10 +4,15 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../../../common/widgets/question_container/question_container.dart';
 import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/constants/sizes.dart';
+import '../../../../../../utils/constants/text_strings.dart';
 import '../../../../../../utils/constants/typography.dart';
+import '../../../../models/booking/booking.dart';
+import '../../../availability_check/widgets/mobile/booked_unit_images.dart';
 
 class CheckInUserSection extends StatelessWidget {
-  const CheckInUserSection({super.key});
+  final Booking booking;
+
+  const CheckInUserSection({super.key, required this.booking});
 
   @override
   Widget build(BuildContext context) {
@@ -15,22 +20,14 @@ class CheckInUserSection extends StatelessWidget {
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child: Column(
         children: [
-          const SizedBox(height: TSizes.spaceBtwSections * 2),
+          /// Image Container
+          BookedUnitImages(booking: booking),
+          const SizedBox(height: TSizes.spaceBtwSections),
           const QuestionContainer(
-            question: "Once at the site, click button below to check in.",
-            body:
-                "Go ahead and check in. Use map below for directions on how to get to host location.",
+            question: TTexts.checkInInstruction1,
+            body: TTexts.checkInInstruction2,
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
-          Text(
-            "Google maps",
-            style: TTypography.body10Regular.copyWith(
-              color: TColors.primary100,
-            ),
-          ),
-          SvgPicture.asset("assets/images/map/logos_google-maps.svg"),
-          const SizedBox(height: TSizes.spaceBtwSections),
-          SvgPicture.asset("assets/images/hero_svg/check_in.svg"),
         ],
       ),
     );

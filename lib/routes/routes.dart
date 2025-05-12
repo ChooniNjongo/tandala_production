@@ -36,7 +36,7 @@ class TRoutes {
 
   // Listings
   static const searchResults = '/searchResults';
-  static const destination = '/destination';
+  static const listingViewing = '/listingViewing';
   static const listingPhotoTour = '/photoTour';
   static const banners = '/banners';
   static const createBanner = '/createBanner';

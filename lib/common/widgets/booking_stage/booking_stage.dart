@@ -26,123 +26,126 @@ class BookingStageIndicator extends StatelessWidget {
     const indicatorWidth = 80.0;
     const indicatorHeight = 16.0;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.only(left: TSizes.defaultSpace),
-          child: Row(
+    return SizedBox(
+      height: 96,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.only(left: TSizes.defaultSpace),
+            child: Row(
+              children: [
+                IconButton(
+                    onPressed: () => Get.back(),
+                    icon: const Icon(
+                      Iconsax.arrow_left,
+                      color: TColorSystem.n100,
+                    )),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              IconButton(
-                  onPressed: () => Get.back(),
-                  icon: const Icon(
-                    Iconsax.arrow_left,
-                    color: TColorSystem.n100,
-                  )),
+              /// Availability Stage
+              Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+                    width: indicatorWidth,
+                    height: indicatorHeight,
+                    decoration: BoxDecoration(
+                      color: isAvailabilityStage || isPaymentStage || isCheckInStage || isReviewStage
+                          ? Colors.greenAccent
+                          : TColors.secondaryBackground,
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        bottomLeft: Radius.circular(12),
+                        topRight: Radius.circular(0),
+                        bottomRight: Radius.circular(0),
+                      ),
+                    ),
+                  ),
+                  BookingStageTitle(
+                    title: "Availability",
+                    isCurrentStage: isAvailabilityStage,
+                  ),
+                ],
+              ),
+
+              /// Payment Stage
+              Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+                    width: indicatorWidth,
+                    height: indicatorHeight,
+                    decoration: BoxDecoration(
+                      color:   isPaymentStage  || isCheckInStage || isReviewStage
+                          ? Colors.greenAccent
+                          : TColors.secondaryBackground,
+                    ),
+                  ),
+                  BookingStageTitle(
+                    title: "Payment",
+                    isCurrentStage: isPaymentStage,
+                  ),
+                ],
+              ),
+
+              /// Check-In Stage
+              Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+                    width: indicatorWidth,
+                    height: indicatorHeight,
+                    decoration: BoxDecoration(
+                      color: isCheckInStage || isReviewStage
+                          ? Colors.greenAccent
+                          : TColors.secondaryBackground,
+                    ),
+                  ),
+                  BookingStageTitle(
+                    title: "Check In",
+                    isCurrentStage: isCheckInStage,
+                  ),
+                ],
+              ),
+
+              /// Review Stage
+              Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+                    width: indicatorWidth,
+                    height: indicatorHeight,
+                    decoration: BoxDecoration(
+                      color: isReviewStage
+                          ? Colors.greenAccent
+                          : TColors.secondaryBackground,
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(0),
+                        bottomLeft: Radius.circular(0),
+                        topRight: Radius.circular(12),
+                        bottomRight: Radius.circular(12),
+                      ),
+                    ),
+                  ),
+                  BookingStageTitle(
+                    title: "Review",
+                    isCurrentStage: isReviewStage,
+                  ),
+                ],
+              ),
             ],
           ),
-        ),
-
-        const SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            /// Availability Stage
-            Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-                  width: indicatorWidth,
-                  height: indicatorHeight,
-                  decoration: BoxDecoration(
-                    color: isAvailabilityStage || isPaymentStage || isCheckInStage || isReviewStage
-                        ? Colors.greenAccent
-                        : TColors.secondaryBackground,
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      bottomLeft: Radius.circular(12),
-                      topRight: Radius.circular(0),
-                      bottomRight: Radius.circular(0),
-                    ),
-                  ),
-                ),
-                BookingStageTitle(
-                  title: "Availability",
-                  isCurrentStage: isAvailabilityStage,
-                ),
-              ],
-            ),
-
-            /// Payment Stage
-            Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-                  width: indicatorWidth,
-                  height: indicatorHeight,
-                  decoration: BoxDecoration(
-                    color:   isPaymentStage  || isCheckInStage || isReviewStage
-                        ? Colors.greenAccent
-                        : TColors.secondaryBackground,
-                  ),
-                ),
-                BookingStageTitle(
-                  title: "Payment",
-                  isCurrentStage: isPaymentStage,
-                ),
-              ],
-            ),
-
-            /// Check-In Stage
-            Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-                  width: indicatorWidth,
-                  height: indicatorHeight,
-                  decoration: BoxDecoration(
-                    color: isCheckInStage || isReviewStage
-                        ? Colors.greenAccent
-                        : TColors.secondaryBackground,
-                  ),
-                ),
-                BookingStageTitle(
-                  title: "Check In",
-                  isCurrentStage: isCheckInStage,
-                ),
-              ],
-            ),
-
-            /// Review Stage
-            Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-                  width: indicatorWidth,
-                  height: indicatorHeight,
-                  decoration: BoxDecoration(
-                    color: isReviewStage
-                        ? Colors.greenAccent
-                        : TColors.secondaryBackground,
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(0),
-                      bottomLeft: Radius.circular(0),
-                      topRight: Radius.circular(12),
-                      bottomRight: Radius.circular(12),
-                    ),
-                  ),
-                ),
-                BookingStageTitle(
-                  title: "Review",
-                  isCurrentStage: isReviewStage,
-                ),
-              ],
-            ),
-          ],
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

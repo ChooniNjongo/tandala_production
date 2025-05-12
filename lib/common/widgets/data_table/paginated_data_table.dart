@@ -90,7 +90,7 @@ class TPaginatedDataTable extends StatelessWidget {
           /// HEADER DESIGN
           headingTextStyle: Theme.of(context).textTheme.titleMedium,
           headingRowColor: WidgetStateProperty.resolveWith(
-              (states) => TColors.primaryBackground),
+              (states) => TColors.secondaryBackground2),
           headingRowDecoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(TSizes.borderRadiusMd),

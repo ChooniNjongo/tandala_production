@@ -4,9 +4,13 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import '../../../../../../common/widgets/question_container/question_container.dart';
 import '../../../../../../utils/constants/color_system.dart';
 import '../../../../../../utils/constants/sizes.dart';
+import '../../../../models/booking/booking.dart';
+import '../../../availability_check/widgets/mobile/booked_unit_images.dart';
 
 class CheckInOwnerSection extends StatelessWidget {
-  const CheckInOwnerSection({super.key});
+  final Booking booking;
+
+  const CheckInOwnerSection({super.key, required this.booking});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +18,11 @@ class CheckInOwnerSection extends StatelessWidget {
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child: Column(
         children: [
-          const SizedBox(height: TSizes.spaceBtwSections * 2),
+          const SizedBox(height: TSizes.spaceBtwSections),
+
+          /// Image Container
+          BookedUnitImages(booking: booking),
+          const SizedBox(height: TSizes.spaceBtwSections),
           const QuestionContainer(
             question: "Waiting for user to check in.",
             body:
@@ -22,9 +30,8 @@ class CheckInOwnerSection extends StatelessWidget {
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
           Center(
-            child: LoadingAnimationWidget.progressiveDots(color: TColorSystem.primary300, size: 64
-
-            ),
+            child: LoadingAnimationWidget.progressiveDots(
+                color: TColorSystem.primary300, size: 64),
           ),
         ],
       ),

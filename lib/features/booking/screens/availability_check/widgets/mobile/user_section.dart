@@ -17,20 +17,20 @@ class UserSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: TSizes.spaceBtwItems),
-        const Center(
-          child: SpinKitPouringHourGlassRefined(
-            color: TColorSystem.primary500,
-            size: 50.0,
-          ),
-        ),
         const SizedBox(height: TSizes.spaceBtwSections),
         const QuestionContainer(
           question: "We are waiting for host to confirm availability.",
           body:
               "This can take a few minutes or more depending on host, you are NOT going to pay until we confirm.",
         ),
-        const SizedBox(height: TSizes.spaceBtwSections),
+        const SizedBox(height: TSizes.spaceBtwItems),
+        const Center(
+          child: SpinKitPouringHourGlass(
+            color: TColorSystem.primary500,
+            size: 50.0,
+          ),
+        ),
+        const SizedBox(height: TSizes.spaceBtwItems),
         BookedUnitImages(booking: booking),
       ],
     );

@@ -50,7 +50,7 @@ class TAppRoute {
 
     ///  Booking Process
     GetPage(name: TRoutes.places, page: () => const HomeScreen()),
-    GetPage(name: TRoutes.destination, page: () => const ListingViewingScreen(),),
+    GetPage(name: TRoutes.listingViewing, page: () => const ListingViewingScreen(),),
     GetPage(name: TRoutes.photoGallery, page: () => const PhotoGalleryScreen(),),
     GetPage(name: TRoutes.roomSelection, page: () => const RoomSelectionScreen(),),
     GetPage(name: TRoutes.roomViewing, page: () => const RoomViewingScreen(),),

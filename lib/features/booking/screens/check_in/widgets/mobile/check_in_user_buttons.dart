@@ -24,7 +24,7 @@ class CheckInUserButtons extends StatelessWidget {
           onPressed: () {
             controller.checkIn(booking.bookingId);
           },
-          child: Text('Check In'),
+          child: const Text('Check In'),
         ),
       ),
     );

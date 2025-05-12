@@ -232,7 +232,7 @@ class BookingController extends TBaseController<Booking> {
       isPayingForBooking.value = true;
 
       final updatedBooking = await bookingRepository.payForBooking(payment);
-      TLoaders.successSnackBar(title: 'Payment Successful');
+      TLoaders.customToast(message: 'Payment successful');
       selectedBooking.value = updatedBooking;
 
       fetchUserBookings();
@@ -320,7 +320,7 @@ class BookingController extends TBaseController<Booking> {
       final booking = await bookingRepository.checkIn(bookingId);
       selectedBooking.value = booking;
       fetchUserBookings();
-      TLoaders.customToast(message: "Checked in successfully");
+      TLoaders.customToast(message: "Checked in successfully. Enjoy your stay");
       Get.toNamed(TRoutes.bookings);
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());

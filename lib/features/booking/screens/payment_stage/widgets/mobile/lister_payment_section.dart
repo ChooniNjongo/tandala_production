@@ -25,7 +25,7 @@ class ListerPaymentSection extends StatelessWidget {
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
           const Center(
-            child: SpinKitPouringHourGlassRefined(
+            child: SpinKitPouringHourGlass(
               color: TColorSystem.primary500,
               size: 49.0,
             ),

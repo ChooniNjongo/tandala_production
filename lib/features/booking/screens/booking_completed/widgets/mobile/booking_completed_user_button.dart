@@ -19,7 +19,7 @@ class BookingCompletedUserButtons extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             Get.toNamed(
-              TRoutes.destination,
+              TRoutes.listingViewing,
               arguments: {
                 'listing': booking.listing,
                 'isEditing': false, // Or true, depending on your use case

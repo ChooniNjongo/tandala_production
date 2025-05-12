@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../../common/widgets/containers/rounded_container.dart';
+import '../../../../../../routes/routes.dart';
 import '../../../../../../utils/constants/color_system.dart';
 import '../../../../../../utils/constants/sizes.dart';
 import '../../../../../../utils/constants/typography.dart';
@@ -29,9 +30,15 @@ class BookedUnitImages extends StatelessWidget {
           style: TTypography.body16Bold.copyWith(color: TColorSystem.n200),
         ),
         const SizedBox(height: TSizes.spaceBtwItems),
-        Text(room!.roomDescription, style: TTypography.body16Regular),
+        Text(room!.roomDescription, style: TTypography.body12Regular),
         const SizedBox(height: TSizes.spaceBtwInputFields),
         TRoundedContainer(
+          onTap: () {
+            Get.toNamed(TRoutes.listingViewing, arguments: {
+              'listing': booking.listing,
+              'isEditing': false // Or true, depending on your use case
+            });
+          },
           padding: EdgeInsets.zero,
           margin: EdgeInsets.zero,
           radius: 4,

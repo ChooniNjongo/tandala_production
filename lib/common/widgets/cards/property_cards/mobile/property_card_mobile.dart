@@ -30,7 +30,7 @@ class PropertyCardMobile extends StatelessWidget {
       children: [
         TRoundedContainer(
           onTap: () {
-            Get.toNamed(TRoutes.destination, arguments: {
+            Get.toNamed(TRoutes.listingViewing, arguments: {
               'listing': listing,
               'isEditing': false // Or true, depending on your use case
             });

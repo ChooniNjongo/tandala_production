@@ -20,14 +20,11 @@ class AvailabilityCheckScreenMobile extends StatelessWidget {
     final uid = AuthenticationRepository.instance.authUser!.uid;
     final currentStage = booking.bookingStage;
     return ActionPage(
-      overlayHeader: SizedBox(
-        height: 96,
-        child: BookingStageIndicator(
-          isAvailabilityStage: currentStage == BookingStage.Availability,
-          isPaymentStage: currentStage == BookingStage.Payment,
-          isCheckInStage: currentStage == BookingStage.CheckIn,
-          isReviewStage: currentStage == BookingStage.Review,),
-      ),
+      overlayHeader: BookingStageIndicator(
+        isAvailabilityStage: currentStage == BookingStage.Availability,
+        isPaymentStage: currentStage == BookingStage.Payment,
+        isCheckInStage: currentStage == BookingStage.CheckIn,
+        isReviewStage: currentStage == BookingStage.Review,),
       body: AvailabilityCheckBody(booking: booking),
       buttonContainer: uid == booking.listing.userId
           ? OwnerButtons(booking: booking)
