@@ -64,12 +64,11 @@ class TSidebar extends StatelessWidget {
                         notificationCount:
                             bookingController.numberOfUnCompletedBookings.value,
                       ),
-                      TMenuItem(
+                      const TMenuItem(
                           route: TRoutes.messages,
                           icon: Iconsax.message,
                           itemName: 'Messages',
-                          notificationCount: bookingController
-                              .numberOfUnCompletedBookings.value),
+                          notificationCount: 9),
                       const TMenuItem(
                           route: TRoutes.wishlist,
                           icon: Iconsax.notification_favorite,
@@ -126,16 +125,16 @@ class TSidebar extends StatelessWidget {
                           icon: Iconsax.setting_2,
                           itemName: 'Settings'),
 
-                      if(AuthenticationRepository.instance.isAuthenticated)
+                      if(AuthenticationRepository.instance.authUser != null)
                       const TMenuItem(
-                          route: 'logout',
+                          route: TRoutes.logout,
                           icon: Iconsax.logout,
                           itemName: 'Logout'),
-                      if(!AuthenticationRepository.instance.isAuthenticated)
+                      if(AuthenticationRepository.instance.authUser == null)
                         const TMenuItem(
-                            route: 'login',
+                            route: TRoutes.login,
                             icon: Iconsax.login,
-                            itemName: 'Logout'),
+                            itemName: 'Login'),
                     ],
                   ),
                 ),

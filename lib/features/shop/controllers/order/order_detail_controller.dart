@@ -18,7 +18,7 @@ class OrderDetailController extends GetxController {
       // Show loader while loading categories
       loading.value = true;
       // Fetch customer orders & addresses
-      final user = await UserRepository.instance.fetchUserDetails(order.value.userId);
+      final user = await UserRepository.instance.fetchUserDetails();
 
       customer.value = user;
     } catch (e) {

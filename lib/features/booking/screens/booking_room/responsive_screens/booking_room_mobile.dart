@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../../utils/constants/enums.dart';
 import '../../../models/booking/booking.dart';
-import '../../../models/booking/booking_stages.dart';
 import '../../availability_check/availability_check.dart';
 import '../../booking_completed/booking_completed.dart';
 import '../../cancelled_booking/cancelled_booking.dart';

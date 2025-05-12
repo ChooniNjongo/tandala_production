@@ -59,7 +59,7 @@ class TPaginatedDataTable extends StatelessWidget {
         // Use to set the Backend color
         data: Theme.of(context).copyWith(
           cardTheme:
-              const CardTheme(color: TColors.secondaryBackground, elevation: 0),
+               CardTheme(color: TColors.secondaryBackground2.withOpacity(0.6), elevation: 0),
           iconButtonTheme: IconButtonThemeData(
             style: IconButton.styleFrom(
               foregroundColor: TColorSystem.n300, // <-- For arrow icons

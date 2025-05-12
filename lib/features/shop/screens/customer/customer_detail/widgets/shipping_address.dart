@@ -22,11 +22,7 @@ class ShippingAddress extends StatelessWidget {
         if (controller.addressesLoading.value) return const TLoaderAnimation();
 
         AddressModel selectedAddress = AddressModel.empty();
-        if (controller.customer.value.addresses != null) {
-          if (controller.customer.value.addresses!.isNotEmpty) {
-            selectedAddress = controller.customer.value.addresses!.where((element) => element.selectedAddress).single;
-          }
-        }
+
 
         return TRoundedContainer(
           padding: const EdgeInsets.all(TSizes.defaultSpace),

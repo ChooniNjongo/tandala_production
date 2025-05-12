@@ -35,7 +35,7 @@ class RoomViewingBody extends StatelessWidget {
               children: [
                 Text(
                   room.roomDescription,
-                  style: TTypography.h3.copyWith(color: Colors.white),
+                  style: TTypography.label16Bold.copyWith(color: Colors.white),
                 ),
                 const SizedBox(height: TSizes.spaceBtwItems),
                 Text(
@@ -47,7 +47,7 @@ class RoomViewingBody extends StatelessWidget {
                 const SizedBox(height: TSizes.spaceBtwSections),
                 Text(
                   "What this room has to offer",
-                  style: TTypography.h4.copyWith(color: Colors.white),
+                  style: TTypography.label14Bold.copyWith(color: TColorSystem.n300),
                 ),
                 const SizedBox(height: TSizes.spaceBtwItems / 2),
                 const Row(

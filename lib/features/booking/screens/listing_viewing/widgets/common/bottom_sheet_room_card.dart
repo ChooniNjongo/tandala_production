@@ -63,7 +63,7 @@ class BottomSheetRoomPreviewCard extends StatelessWidget {
             Text(
               room.roomDescription,
               style: isMobile
-                  ? TTypography.h3.copyWith(color: TColorSystem.n300, fontSize: 18)
+                  ? TTypography.h3.copyWith(color: TColorSystem.n100, fontSize: 18)
                   : TTypography.h4.copyWith(
                 fontSize: 14,
                 fontWeight: FontWeight.normal,

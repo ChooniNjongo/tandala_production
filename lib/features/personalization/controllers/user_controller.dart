@@ -37,7 +37,7 @@ class UserController extends GetxController {
     try {
       loading.value = true;
       if (user.value.id == null || user.value.id!.isEmpty) {
-        final user = await userRepository.fetchAdminDetails();
+        final user = await userRepository.fetchUserDetails();
         this.user.value = user;
       }
 

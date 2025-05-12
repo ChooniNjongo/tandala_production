@@ -120,4 +120,5 @@ class TColors {
 
   // Icon colors
   static const Color iconPrimary = Color(0xFF8D8D8D);
+  static const Color beautifulPurple = Color(0xFF5D4791);
 }

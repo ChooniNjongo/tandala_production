@@ -45,7 +45,7 @@ class BookedUnitImages extends StatelessWidget {
           height: 240,
           width: 240,
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(4),
+            borderRadius: BorderRadius.circular(16),
             // Rounded corners for the image
             child: Image.network(
               getRoomImage(booking), // Get the correct image from the booking
@@ -54,36 +54,39 @@ class BookedUnitImages extends StatelessWidget {
           ),
         ),
         const SizedBox(height: TSizes.spaceBtwInputFields),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Nights (${booking.numberOfNights})"),
-            const SizedBox(width: TSizes.spaceBtwInputFields),
-            Text("K ${booking.bookingAmountTotal}"),
-          ],
-        ),
-        const SizedBox(height: TSizes.spaceBtwInputFields),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              children: [
-                const Text("Check In Date : ",
-                    style: TTypography.label12Regular),
-                Text(" ${THelperFunctions.formatDate(booking.checkInDate)}"),
-              ],
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text("Booking Id: ", style: TTypography.label12Regular),
-            Text(booking.bookingId),
-          ],
-        ),
+        BookingDetailsItem(bookingDetailTitle: 'Nights', bookingDetailInfo: booking.numberOfNights.toString()),
+        BookingDetailsItem(bookingDetailTitle: 'Booking Fee', bookingDetailInfo: "K ${booking.bookingAmountTotal.round()}"),
+        BookingDetailsItem(bookingDetailTitle: 'Check In Date', bookingDetailInfo: booking.formattedBookingDate.toString()),
+        BookingDetailsItem(bookingDetailTitle: 'Booking Id', bookingDetailInfo: booking.bookingId.toString().substring(8)),
+
         const SizedBox(height: TSizes.spaceBtwSections),
       ],
+    );
+  }
+}
+
+class BookingDetailsItem extends StatelessWidget {
+  final String bookingDetailTitle;
+  final String bookingDetailInfo;
+  const BookingDetailsItem(
+      {super.key,
+      required this.bookingDetailTitle,
+      required this.bookingDetailInfo});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 240,
+      child: Row(
+        children: [
+          Expanded(child: Text(bookingDetailTitle, style: TTypography.body12Regular)),
+          Expanded(
+              child: Text(
+                bookingDetailInfo,
+            style: TTypography.body12Regular,
+          )),
+        ],
+      ),
     );
   }
 }

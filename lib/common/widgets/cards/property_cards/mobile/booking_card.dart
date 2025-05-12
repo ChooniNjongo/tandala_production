@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../../../../features/booking/models/booking/booking.dart';
-import '../../../../../features/booking/models/booking/booking_stages.dart';
 import '../../../../../features/booking/models/property/room.dart';
 import '../../../../../routes/routes.dart';
 import '../../../../../utils/constants/color_system.dart';
+import '../../../../../utils/constants/enums.dart';
 import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/typography.dart';
 import '../../../containers/rounded_container.dart';

@@ -1,6 +1,6 @@
+import '../../../../utils/constants/enums.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 import '../property/listing_model.dart';
-import 'booking_stages.dart';
 
 class Booking {
   String bookingId;

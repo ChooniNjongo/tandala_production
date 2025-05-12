@@ -3,7 +3,9 @@
       They cannot be created inside a class.
 -- */
 
-enum AppRole { admin, user }
+enum AppRole { Admin, User }
+
+enum BookingStage { Availability, Payment, CheckIn, Review, Completed, Cancelled }
 
 enum TransactionType { buy, sell }
 

@@ -31,7 +31,7 @@ class BookingRequestButtonContainer extends StatelessWidget {
                 children: [
                   Text(
                     "K${controller.bookingTotal.value.toString()}",
-                    style: TTypography.h3.copyWith(
+                    style: TTypography.h4.copyWith(
                       color: TColorSystem.primary100,
                     ),
                   ),
@@ -45,7 +45,7 @@ class BookingRequestButtonContainer extends StatelessWidget {
                   const SizedBox(width: TSizes.spaceBtwItems / 4),
                   Text(
                     controller.numberOfNightBooked.value.toString(),
-                    style: TTypography.h3.copyWith(color: TColorSystem.n600),
+                    style: TTypography.h4.copyWith(color: TColorSystem.n600),
                   ),
                   const SizedBox(width: TSizes.spaceBtwItems / 4),
                   Text(
@@ -56,13 +56,14 @@ class BookingRequestButtonContainer extends StatelessWidget {
                       color: TColorSystem.n600,
                     ),
                   ),
+                  const SizedBox(width: TSizes.spaceBtwItems / 4),
                 ],
               ),
             ],
           ),
         ),
         button2: SizedBox(
-          width: TSizes.buttonWidth,
+          width: TSizes.buttonWidth - 8,
           child: ElevatedButton(
             onPressed: () {
               controller.submitBookingRequest(

@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
 import 'package:flutter/material.dart';
 import '../../../../../../common/widgets/button_container/button_container.dart';
 import '../../../../../../common/widgets/buttons/t_text_button.dart';
@@ -15,6 +16,8 @@ class UserButtons extends StatelessWidget {
     final controller = BookingController.instance;
     return ButtonContainer(
       button1: TTextButton(
+        icon: Icons.cancel_outlined,
+        showIcon: true,
         onPressed: () {
           showDialog(
             context: context,
@@ -31,7 +34,7 @@ class UserButtons extends StatelessWidget {
           );
         },
         label: 'Cancel Booking',
-        labelColor: Colors.red,
+        labelColor: TColorSystem.n400,
       ),
       button2: const SizedBox(),
     );

@@ -15,6 +15,7 @@ class TRoutes {
 
   static const navigationMenu = '/navigationMenu';
   static const login = '/login';
+  static const logout = '/logout';
   static const places = '/';
   static const forgetPassword = '/forge-password/';
   static const resetPassword = '/reset-password';
@@ -110,6 +111,7 @@ class TRoutes {
 
 
   static List sideMenuItems = [
+    logout,
     places,
     bookings,
     messages,

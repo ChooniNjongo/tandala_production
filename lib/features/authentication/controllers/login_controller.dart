@@ -93,7 +93,7 @@ class LoginController extends GetxController {
       TFullScreenLoader.stopLoading();
 
       // If user is not admin, logout and return
-      if (user.role != AppRole.admin) {
+      if (user.role != AppRole.Admin) {
         await AuthenticationRepository.instance.logout();
         TLoaders.errorSnackBar(
             title: 'Not Authorized',
@@ -128,13 +128,13 @@ class LoginController extends GetxController {
 
       // Create admin record in the Firestore
       final userRepository = Get.put(UserRepository());
-      await userRepository.createUser(
+      await userRepository.registerUser(
         UserModel(
           id: AuthenticationRepository.instance.authUser!.uid,
           firstName: 'App',
           lastName: 'Admin',
           email: TTexts.adminEmail,
-          role: AppRole.admin,
+          role: AppRole.Admin,
           createdAt: DateTime.now(),
         ),
       );
@@ -164,7 +164,6 @@ class LoginController extends GetxController {
     } else {
       user = controller.user.value;
     }
-
     return user;
   }
 

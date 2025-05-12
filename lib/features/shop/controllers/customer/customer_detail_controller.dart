@@ -27,19 +27,7 @@ class CustomerDetailController extends GetxController {
       // Show loader while loading categories
       ordersLoading.value = true;
 
-      // Fetch customer orders & addresses
-      if (customer.value.id != null && customer.value.id!.isNotEmpty) {
-        customer.value.orders = await UserRepository.instance.fetchUserOrders(customer.value.id!);
-      }
 
-      // Update the categories list
-      allCustomerOrders.assignAll(customer.value.orders ?? []);
-
-      // Filter featured categories
-      filteredCustomerOrders.assignAll(customer.value.orders ?? []);
-
-      // Add all rows as false [Not Selected] & Toggle when required
-      selectedRows.assignAll(List.generate(customer.value.orders != null ? customer.value.orders!.length : 0, (index) => false));
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     } finally {
@@ -53,10 +41,6 @@ class CustomerDetailController extends GetxController {
       // Show loader while loading categories
       addressesLoading.value = true;
 
-      // Fetch customer orders & addresses
-      if (customer.value.id != null && customer.value.id!.isNotEmpty) {
-        customer.value.addresses = await addressRepository.fetchUserAddresses(customer.value.id!);
-      }
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     } finally {

@@ -61,7 +61,7 @@ class BookingStageIndicator extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: isAvailabilityStage || isPaymentStage || isCheckInStage || isReviewStage
                           ? Colors.greenAccent
-                          : TColors.secondaryBackground,
+                          : TColorSystem.n600,
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(12),
                         bottomLeft: Radius.circular(12),
@@ -87,7 +87,7 @@ class BookingStageIndicator extends StatelessWidget {
                     decoration: BoxDecoration(
                       color:   isPaymentStage  || isCheckInStage || isReviewStage
                           ? Colors.greenAccent
-                          : TColors.secondaryBackground,
+                          : TColorSystem.n600
                     ),
                   ),
                   BookingStageTitle(
@@ -107,7 +107,7 @@ class BookingStageIndicator extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: isCheckInStage || isReviewStage
                           ? Colors.greenAccent
-                          : TColors.secondaryBackground,
+                          : TColorSystem.n600,
                     ),
                   ),
                   BookingStageTitle(
@@ -127,7 +127,7 @@ class BookingStageIndicator extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: isReviewStage
                           ? Colors.greenAccent
-                          : TColors.secondaryBackground,
+                          : TColorSystem.n600,
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(0),
                         bottomLeft: Radius.circular(0),
