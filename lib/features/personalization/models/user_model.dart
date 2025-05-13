@@ -1,11 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cwt_ecommerce_admin_panel/features/personalization/models/address_model.dart';
-import 'package:cwt_ecommerce_admin_panel/features/shop/models/order_model.dart';
-import 'package:get/get.dart';
 
 import '../../../../utils/formatters/formatter.dart';
 import '../../../utils/constants/enums.dart';
-import '../../booking/models/property/listing.dart';
 
 /// Model class representing user data.
 class UserModel {

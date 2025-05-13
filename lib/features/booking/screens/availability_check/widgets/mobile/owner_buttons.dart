@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../../../../common/widgets/button_container/button_container.dart';
 import '../../../../../../common/widgets/buttons/t_text_button.dart';

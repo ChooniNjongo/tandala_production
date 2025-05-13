@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import '../../../../utils/constants/color_system.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
-import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/device/device_utility.dart';
 import '../../containers/rounded_container.dart';
 

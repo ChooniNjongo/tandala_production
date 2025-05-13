@@ -2,7 +2,6 @@ import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/headers/widgets
 import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/headers/widgets/mobile_search_icon_controller.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/enums.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../features/personalization/controllers/user_controller.dart';

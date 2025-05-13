@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../utils/constants/color_system.dart';
 import '../../../utils/constants/sizes.dart';
 import '../containers/rounded_container.dart';
 import '../question_container/question_container.dart';
@@ -58,7 +57,7 @@ class InformationCard extends StatelessWidget {
             width: TSizes.buttonWidth,
             child: ElevatedButton(
               onPressed: (){},
-              child: Text( 'buttonLabel'),
+              child: const Text( 'buttonLabel'),
             ),
           ),
         ],

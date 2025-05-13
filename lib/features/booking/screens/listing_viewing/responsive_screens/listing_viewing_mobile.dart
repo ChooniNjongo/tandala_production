@@ -3,13 +3,11 @@ import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/typography.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../../common/widgets/cards/property_cards/mobile/widgets/listing_distance.dart';
 import '../../../../../common/widgets/containers/rounded_container.dart';
 import '../../../../../routes/routes.dart';
-import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../models/property/listing_model.dart';
 import '../widgets/common/action_buttons.dart';
@@ -33,29 +31,30 @@ class ListingViewingMobileScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             /// Listing Image Card
             Stack(
+              fit: StackFit.expand,
               children: [
                 GestureDetector(
                   onTap: () {
                     Get.toNamed(TRoutes.photoGallery, arguments: listing);
                   },
                   child: Container(
-                      decoration: const BoxDecoration(
-                          color: TColors.secondaryBackground2),
-                      child: MListingImageCard(listing: listing)),
+                    color: TColors.secondaryBackground2,
+                    child: MListingImageCard(listing: listing),
+                  ),
                 ),
                 Positioned(
                   top: 24,
                   left: 24,
                   child: IconButton(
-                      onPressed: () => Get.back(),
-                      icon: const Icon(
-                        Iconsax.arrow_left,
-                        color: TColorSystem.n100,
-                      )),
+                    onPressed: () => Get.back(),
+                    icon: const Icon(
+                      Iconsax.arrow_left,
+                      color: TColorSystem.n100,
+                    ),
+                  ),
                 ),
                 if (isEditing)
                   Positioned(
@@ -71,14 +70,13 @@ class ListingViewingMobileScreen extends StatelessWidget {
               ],
             ),
 
-            /// Listing Name and Location
+            /// Scrollable Content
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: TSizes.defaultSpace,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
                 children: [
                   const SizedBox(height: TSizes.spaceBtwItems),
                   Row(
@@ -102,48 +100,50 @@ class ListingViewingMobileScreen extends StatelessWidget {
                         radius: 4,
                         showBorder: true,
                         borderColor: TColors.iconBorder,
-                        child: Icon(Iconsax.share,color: TColorSystem.n100,),
+                        child: Icon(Iconsax.share, color: TColorSystem.n100),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       ActionButtons(listing: listing),
                     ],
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),
-                  // Place Name
-                  Text(
-                    listing.propertyName,
-                    style: TTypography.h3.copyWith(color: TColorSystem.n200),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 3.0),
+                    child: Text(
+                      listing.propertyName,
+                      style: TTypography.h4.copyWith(color: TColorSystem.n200),
+                    ),
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),
-                  ListingNameLocation(listing: listing),
-                  const SizedBox(
-                    height: TSizes.spaceBtwItems,
-                  ),
-                  ListingDistance(listing: listing),
                   Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      if (isEditing)
+                      ListingNameLocation(listing: listing),
+                      const SizedBox(width: TSizes.spaceBtwItems),
+                      ListingDistance(listing: listing),
+                    ],
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwItems),
+                  if (isEditing)
+                    Row(
+                      children: [
                         Edit(
                           label: 'edit name',
                           onTap: () {
                             Get.toNamed(TRoutes.nameAndCity);
                           },
                         ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwItems,
-                  ),
-
-                  const SizedBox(
-                    height: TSizes.spaceBtwItems,
-                  ),
-                  // Tab Bar
+                      ],
+                    ),
                 ],
               ),
             ),
-            MobileTabView(listing: listing, isEditing: isEditing),
+
+            /// Full-width Mobile Tab View (no horizontal padding)
+            MobileTabView(
+              listing: listing,
+              isEditing: isEditing,
+            ),
           ],
         ),
       ),

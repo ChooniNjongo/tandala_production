@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../data/repositories/address/address_repository.dart';
-import '../../../../data/repositories/user/user_repository.dart';
 import '../../../../utils/popups/loaders.dart';
 import '../../../personalization/models/user_model.dart';
 

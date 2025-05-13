@@ -1,6 +1,6 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../../../features/booking/controllers/location_controller.dart';
 import '../../../../../../features/booking/controllers/property_controller.dart';
@@ -41,7 +41,7 @@ class ListingDistance extends StatelessWidget {
         padding: const EdgeInsets.only(left: 8.0),
         child: Text(
           '${listing.distanceFromUser!.round()} Kilometers away',
-          style: TTypography.label12Regular.copyWith(
+          style: TTypography.label12Regular.copyWith(color: TColorSystem.n600
           ),
         ),
       );

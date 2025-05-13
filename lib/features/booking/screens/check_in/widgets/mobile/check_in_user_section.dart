@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../common/widgets/question_container/question_container.dart';
-import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/constants/sizes.dart';
 import '../../../../../../utils/constants/text_strings.dart';
-import '../../../../../../utils/constants/typography.dart';
 import '../../../../models/booking/booking.dart';
 import '../../../availability_check/widgets/mobile/booked_unit_images.dart';
 

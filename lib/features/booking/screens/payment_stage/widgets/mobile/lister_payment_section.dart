@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import '../../../../../../common/widgets/question_container/question_container.dart';
 import '../../../../../../utils/constants/color_system.dart';
@@ -20,7 +19,7 @@ class ListerPaymentSection extends StatelessWidget {
       child: Column(
         children: [
           const QuestionContainer(
-            question: "Waiting for payment.",
+            question: "Waiting for payment",
             body: "Please wait for user to make payment.",
           ),
           const SizedBox(height: TSizes.spaceBtwSections),

@@ -12,10 +12,11 @@ class ListingNameLocation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(" ${listing.city}",
-            style: TTypography.h4.copyWith(
-              color: TColorSystem.n200,
+            style: TTypography.body16Regular.copyWith(
+              color: TColorSystem.n400,
             )),
       ],
     );

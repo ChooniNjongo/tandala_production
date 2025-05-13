@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../../../features/booking/models/property/listing_model.dart';
 import '../../../../../../utils/constants/color_system.dart';
-import '../../../../../../utils/constants/colors.dart';
-import '../../../../../../utils/constants/sizes.dart';
 import '../../../../../../utils/constants/typography.dart';
 
 class ListingName extends StatelessWidget {
@@ -25,10 +23,9 @@ class ListingName extends StatelessWidget {
             children: <InlineSpan>[
               TextSpan(
                 text: listing.propertyName,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineMedium!
-                      .apply(color: Colors.white),
+                  style:TTypography.h4.copyWith(
+                    color: TColorSystem.n100,
+                  ),
               ),
 
             ],

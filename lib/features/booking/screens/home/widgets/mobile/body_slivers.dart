@@ -5,7 +5,6 @@ import '../../../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../../../common/widgets/shimmers/vertical_product_shimmer.dart';
 import '../../../../../../utils/constants/color_system.dart';
 import '../../../../../../utils/constants/typography.dart';
-import '../../../../../../utils/device/device_utility.dart';
 import '../../../../controllers/property_controller.dart';
 
 class BodySlivers extends StatelessWidget {

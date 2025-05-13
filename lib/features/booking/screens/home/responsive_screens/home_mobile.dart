@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../widgets/mobile/animated_drawer.dart';
 import '../widgets/mobile/home_content.dart';
 
 class HomeMobileScreen extends StatelessWidget {

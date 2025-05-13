@@ -18,14 +18,14 @@ class BookingsRows extends DataTableSource {
       onSelectChanged: (value) =>
           controller.selectedRows[index] = value ?? false,
       cells: [
-        DataCell(
+/*        DataCell(
           Text(
             booking.bookingId.substring(0,6),
             style: Theme.of(Get.context!).textTheme.bodyLarge!.apply(
                 color:
                     booking.isComplete ? TColors.darkerGrey : TColors.primary),
           ),
-        ),
+        ),*/
         DataCell(Text(
           booking.formattedBookingDate,
           style: TTypography.label12Regular.copyWith(

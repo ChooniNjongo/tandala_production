@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/typography.dart';
 import 'package:get/get.dart';

@@ -6,7 +6,6 @@ import 'bindings/general_bindings.dart';
 import 'common/widgets/page_not_found/page_not_found.dart';
 import 'routes/app_routes.dart';
 import 'routes/route_observer.dart';
-import 'utils/constants/colors.dart';
 import 'utils/constants/text_strings.dart';
 import 'utils/device/web_material_scroll.dart';
 import 'utils/theme/theme.dart';

@@ -1,6 +1,5 @@
 import 'package:cwt_ecommerce_admin_panel/common/widgets/navigation/form_navigation/widgets/animated_progress_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 

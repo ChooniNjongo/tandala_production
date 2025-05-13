@@ -18,7 +18,7 @@ import '../widgets/title_description.dart';
 import '../widgets/variations_widget.dart';
 import '../widgets/visibility_widget.dart';
 
-class CreateProductMobileScreen extends StatelessWidget {
+class  CreateProductMobileScreen extends StatelessWidget {
   const CreateProductMobileScreen({super.key});
 
   @override

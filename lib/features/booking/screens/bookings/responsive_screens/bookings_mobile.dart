@@ -1,9 +1,8 @@
-import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import '../../../../../common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
 import '../../../../../utils/constants/sizes.dart';
-import '../../../../../utils/constants/text_strings.dart';
-import '../../../../../utils/constants/typography.dart';
+import '../../../../shop/screens/dashboard/widgets/dashboard_card.dart';
 import '../widgets/mobile/bookings_table.dart';
 
 class BookingsMobileScreen extends StatelessWidget {
@@ -11,19 +10,29 @@ class BookingsMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.all(TSizes.defaultSpace),
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
-                  TBreadcrumbsWithHeading(
+                  const TBreadcrumbsWithHeading(
                       heading: 'Bookings', breadcrumbItems: ['Bookings']),
-                  SizedBox(height: TSizes.spaceBtwSections),
-                  Row(
+                  TDashboardCard(
+                    headingIcon: Iconsax.note,
+                    headingIconColor: Colors.blue,
+                    headingIconBgColor: Colors.blue.withOpacity(0.1),
+                    stats: 25,
+                    context: context,
+                    title: 'Sales total',
+                    subTitle:
+                    '45',
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwSections),
+/*                  Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -48,11 +57,11 @@ class BookingsMobileScreen extends StatelessWidget {
                         color: TColors.iconPrimary,
                       )
                     ],
-                  ),
+                  ),*/
                 ],
               ),
             ),
-            BookingsTable(),
+            const BookingsTable(),
           ],
         ),
       ),

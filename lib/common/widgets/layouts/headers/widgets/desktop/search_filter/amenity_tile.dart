@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../../common/widgets/texts/product_title_text.dart';
 import '../../../../../../../utils/constants/colors.dart';
 
 class AmenityTile extends StatelessWidget {

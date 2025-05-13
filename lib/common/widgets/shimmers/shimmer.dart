@@ -2,7 +2,6 @@ import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../../utils/constants/color_system.dart';
 
 class TShimmerEffect extends StatelessWidget {
   const TShimmerEffect({

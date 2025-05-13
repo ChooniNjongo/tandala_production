@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import '../../../../../../common/widgets/containers/rounded_container.dart';
 import '../../../../../../routes/routes.dart';
 import '../../../../../../utils/constants/colors.dart';
-import '../../../../../../utils/constants/image_strings.dart';
 import '../../../../../../utils/constants/sizes.dart';
-import '../../../../../../utils/constants/typography.dart';
 import '../../../../../../utils/device/device_utility.dart';
 import '../../../../models/property/listing_model.dart';
 import '../mobile/m_room_selection_sheet.dart';

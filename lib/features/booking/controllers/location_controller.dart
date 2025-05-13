@@ -1,8 +1,5 @@
 import 'package:flutter/foundation.dart' show defaultTargetPlatform, TargetPlatform, kIsWeb;
 import 'package:geolocator/geolocator.dart';
-import 'package:geolocator_android/geolocator_android.dart';
-import 'package:geolocator_apple/geolocator_apple.dart';
-import 'package:geolocator_web/geolocator_web.dart';
 import 'package:get/get.dart';
 
 class LocationController extends GetxController {
@@ -56,13 +53,13 @@ class LocationController extends GetxController {
       locationSettings = WebSettings(
         accuracy: LocationAccuracy.high,
         distanceFilter: 100,
-        maximumAge: Duration(minutes: 5),
+        maximumAge: const Duration(minutes: 5),
       );
     } else if (defaultTargetPlatform == TargetPlatform.android) {
       locationSettings = AndroidSettings(
         accuracy: LocationAccuracy.high,
         distanceFilter: 100,
-        intervalDuration: Duration(seconds: 10),
+        intervalDuration: const Duration(seconds: 10),
         forceLocationManager: false,
       );
     } else if (defaultTargetPlatform == TargetPlatform.iOS ||
@@ -75,7 +72,7 @@ class LocationController extends GetxController {
         showBackgroundLocationIndicator: false,
       );
     } else {
-      locationSettings = LocationSettings(
+      locationSettings = const LocationSettings(
         accuracy: LocationAccuracy.high,
         distanceFilter: 100,
       );

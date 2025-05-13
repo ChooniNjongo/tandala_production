@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../../common/widgets/button_container/button_container.dart';
 import '../../../../../../common/widgets/buttons/t_text_button.dart';
+import '../../../../../../utils/constants/color_system.dart';
 import '../../../../../../utils/constants/sizes.dart';
 import '../../../../controllers/booking_controller.dart';
 import '../../../../controllers/review_controller.dart';
@@ -17,7 +18,15 @@ class UserReviewButtons extends StatelessWidget {
     final controller = BookingController.instance;
     final reviewController = Get.put(ReviewController());
     return ButtonContainer(
-      button1: const TTextButton(label: 'Report', labelColor: Colors.red),
+      button1:  TTextButton(
+        showIcon: true,
+        icon: Icons.cancel_outlined,
+        label: 'Report',
+        labelColor: TColorSystem.n400,
+        onPressed: () {
+          controller.confirmAvailability(booking.bookingId, false);
+        },
+      ),
       button2:
       SizedBox(
         width: TSizes.buttonWidth,

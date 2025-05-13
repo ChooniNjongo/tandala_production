@@ -18,14 +18,8 @@ class FavoriteIcon extends StatelessWidget {
         () => IconButton(
           icon:
               controller.isFavourite(propertyId)
-                  ? SvgPicture.asset(
-                    "assets/icons/custom_icons/favorited_heart.svg",
-                    height: 24, // Increase height on hover
-                  )
-                  : SvgPicture.asset(
-                    "assets/icons/custom_icons/unfavorited_heart.svg",
-                    height: 24, // Increase height on hover
-                  ),
+                  ? Icon(Icons.favorite,color: Colors.redAccent.withOpacity(0.5),)
+                  : Icon(Icons.favorite,color: Colors.blueGrey.withOpacity(.5),),
           onPressed: () => controller.toggleFavouriteProduct(propertyId),
         ),
       ),

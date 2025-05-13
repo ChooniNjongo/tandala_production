@@ -19,7 +19,7 @@ class BookingsTable extends StatelessWidget {
       sortAscending: controller.sortAscending.value,
       sortColumnIndex: controller.sortColumnIndex.value,
       columns: [
-        const DataColumn2(label: Text('Booking ID')),
+       // const DataColumn2(label: Text('Booking ID')),
         DataColumn2(
             label: const Text('Date'),
             onSort: (columnIndex, ascending) =>

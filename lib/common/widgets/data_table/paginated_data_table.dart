@@ -57,7 +57,7 @@ class TPaginatedDataTable extends StatelessWidget {
       child: Theme(
         data: Theme.of(context).copyWith(
           cardTheme: const CardTheme(
-            color: TColorSystem.n900,
+            color: TColors.secondaryBackground2,
             elevation: 2,
           ),
           iconButtonTheme: IconButtonThemeData(
@@ -66,68 +66,57 @@ class TPaginatedDataTable extends StatelessWidget {
             ),
           ),
         ),
-        child: Container(
+        child: PaginatedDataTable2(
+          source: source,
 
-          margin: EdgeInsets.all(3),
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: TColors.primary500, // Change this to your desired border color
-              width: 1.0,         // Border width
+          /// COLUMNS & ROWS
+          columns: columns,
+          columnSpacing: 12,
+          minWidth: minWidth,
+          dividerThickness: 0,
+          horizontalMargin: 12,
+          rowsPerPage: rowsPerPage,
+          dataRowHeight: dataRowHeight,
+
+          /// CHECKBOX
+          showCheckboxColumn: true,
+
+          /// PAGINATION
+          showFirstLastButtons: true,
+          onPageChanged: onPageChanged,
+          renderEmptyRowsInTheEnd: false,
+          onRowsPerPageChanged: (noOfRows) {},
+
+          /// HEADER DESIGN
+          headingTextStyle: Theme.of(context).textTheme.titleMedium,
+          headingRowColor: WidgetStateProperty.resolveWith(
+                  (states) => TColors.secondaryBackground2),
+          headingRowDecoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(TSizes.borderRadiusMd),
+              topRight: Radius.circular(TSizes.borderRadiusMd),
             ),
-            borderRadius: BorderRadius.circular(TSizes.borderRadiusMd),
           ),
-          child: PaginatedDataTable2(
-            source: source,
-
-            /// COLUMNS & ROWS
-            columns: columns,
-            columnSpacing: 12,
-            minWidth: minWidth,
-            dividerThickness: 0,
-            horizontalMargin: 12,
-            rowsPerPage: rowsPerPage,
-            dataRowHeight: dataRowHeight,
-
-            /// CHECKBOX
-            showCheckboxColumn: true,
-
-            /// PAGINATION
-            showFirstLastButtons: true,
-            onPageChanged: onPageChanged,
-            renderEmptyRowsInTheEnd: false,
-            onRowsPerPageChanged: (noOfRows) {},
-
-            /// HEADER DESIGN
-            headingTextStyle: Theme.of(context).textTheme.titleMedium,
-            headingRowColor: WidgetStateProperty.resolveWith(
-                    (states) => TColors.secondaryBackground2),
-            headingRowDecoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(TSizes.borderRadiusMd),
-                topRight: Radius.circular(TSizes.borderRadiusMd),
-              ),
-            ),
-            empty: const TAnimationLoaderWidget(
-              animation: TImages.tableIllustration,
-              text: 'Nothing Found',
-              height: 200,
-              width: 200,
-            ),
-
-            /// SORTING
-            sortAscending: sortAscending,
-            sortColumnIndex: sortColumnIndex,
-            sortArrowBuilder: (bool ascending, bool sorted) {
-              if (sorted) {
-                return Icon(
-                  ascending ? Iconsax.arrow_up_3 : Iconsax.arrow_down,
-                  size: TSizes.iconSm,
-                );
-              } else {
-                return const Icon(Iconsax.arrow_3, size: TSizes.iconSm);
-              }
-            },
+          empty: const TAnimationLoaderWidget(
+            animation: TImages.tableIllustration,
+            text: 'Nothing Found',
+            height: 200,
+            width: 200,
           ),
+
+          /// SORTING
+          sortAscending: sortAscending,
+          sortColumnIndex: sortColumnIndex,
+          sortArrowBuilder: (bool ascending, bool sorted) {
+            if (sorted) {
+              return Icon(
+                ascending ? Iconsax.arrow_up_3 : Iconsax.arrow_down,
+                size: TSizes.iconSm,
+              );
+            } else {
+              return const Icon(Iconsax.arrow_3, size: TSizes.iconSm);
+            }
+          },
         ),
       ),
     );

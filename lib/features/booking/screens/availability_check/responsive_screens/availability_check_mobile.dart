@@ -1,8 +1,6 @@
 import 'package:cwt_ecommerce_admin_panel/common/widgets/booking_stage/booking_stage.dart';
 import 'package:flutter/material.dart';
-import 'package:get_storage/get_storage.dart';
 import '../../../../../common/pages/action.dart';
-import '../../../../../common/widgets/navigation/form_navigation/form_navigation.dart';
 import '../../../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../../../utils/constants/enums.dart';
 import '../../../models/booking/booking.dart';

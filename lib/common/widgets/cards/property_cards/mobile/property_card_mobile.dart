@@ -4,7 +4,6 @@ import 'package:cwt_ecommerce_admin_panel/common/widgets/cards/property_cards/mo
 import 'package:cwt_ecommerce_admin_panel/common/widgets/cards/property_cards/mobile/widgets/listing_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 import '../../../../../features/booking/controllers/location_controller.dart';
 import '../../../../../features/booking/controllers/property_controller.dart';
 import '../../../../../features/booking/models/property/listing_model.dart';
@@ -69,11 +68,7 @@ class PropertyCardMobile extends StatelessWidget {
                 children: [
                   Text(
                     listing.city,
-                    style: TTypography.body12Bold.copyWith(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
-                      color: TColorSystem.white,
-                    ),
+                    style: TTypography.body12Regular.copyWith(color: TColorSystem.n400),
                   ),
                   ListingDistance(listing: listing),
                 ],

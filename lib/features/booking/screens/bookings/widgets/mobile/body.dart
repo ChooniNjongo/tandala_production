@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 import '../../../../../../common/widgets/cards/property_cards/mobile/booking_card.dart';
 import '../../../../../../common/widgets/dividers/extensible_full_width_divider.dart';
 import '../../../../../../common/widgets/layouts/grid_layout.dart';
-import '../../../../../../routes/routes.dart';
 import '../../../../../../utils/constants/color_system.dart';
 import '../../../../../../utils/constants/image_strings.dart';
 import '../../../../../../utils/constants/sizes.dart';

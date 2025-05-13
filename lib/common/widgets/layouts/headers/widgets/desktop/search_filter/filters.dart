@@ -1,4 +1,3 @@
-import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/headers/widgets/desktop/search_filter/price_filter_section.dart';
 import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/headers/widgets/desktop/search_filter/property_rules_filter.dart';
 import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/headers/widgets/desktop/search_filter/sort_by.dart';
 import 'package:flutter/material.dart';

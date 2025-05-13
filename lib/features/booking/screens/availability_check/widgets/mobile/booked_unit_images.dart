@@ -5,7 +5,6 @@ import '../../../../../../routes/routes.dart';
 import '../../../../../../utils/constants/color_system.dart';
 import '../../../../../../utils/constants/sizes.dart';
 import '../../../../../../utils/constants/typography.dart';
-import '../../../../../../utils/helpers/helper_functions.dart';
 import '../../../../models/booking/booking.dart';
 import '../../../../models/property/room.dart';
 import 'body.dart';
@@ -79,11 +78,11 @@ class BookingDetailsItem extends StatelessWidget {
       width: 240,
       child: Row(
         children: [
-          Expanded(child: Text(bookingDetailTitle, style: TTypography.body12Regular)),
+          Expanded(child: Text(bookingDetailTitle, style: TTypography.label12Bold.copyWith(color: TColorSystem.n400))),
           Expanded(
               child: Text(
                 bookingDetailInfo,
-            style: TTypography.body12Regular,
+            style: TTypography.body12Regular.copyWith(color: TColorSystem.primary500),
           )),
         ],
       ),
