@@ -41,7 +41,7 @@ class UserReviewButtons extends StatelessWidget {
                 propertyName: booking.listing.propertyName,
                 dateTime: DateTime.now(),
                 rating: reviewController.rating.toInt(),
-                review: reviewController.reviewTextEditingController.text,
+                review: reviewController.description.text,
                 reviewReply: '',
               ),
             );

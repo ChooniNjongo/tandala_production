@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:iconsax/iconsax.dart';
@@ -15,6 +16,7 @@ class TRatingBarIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RatingBarIndicator(
+        unratedColor: TColorSystem.n600,
         rating: rating,
         itemSize: 20,
         itemBuilder: (_, __) => const Icon(Iconsax.star1,color: TColors.primary500 ,));

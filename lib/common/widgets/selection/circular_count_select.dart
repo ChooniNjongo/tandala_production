@@ -21,11 +21,11 @@ class CircularCountSelect extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 64,
+        width: 48,
         // Equal  width and height
-        height: 64,
+        height: 48,
         decoration: BoxDecoration(
-          color: isSelected ? TColors.primary500 : Colors.transparent,
+          color: isSelected ? TColors.primary500 : TColors.secondaryBackground2,
           shape: BoxShape.circle, // Makes the container circular
           border: Border.all(
             color: isSelected ? TColors.primary100 : TColors.iconBorder,
@@ -37,7 +37,7 @@ class CircularCountSelect extends StatelessWidget {
         // Centers the text inside the circle
         child: Text(
           count,
-          style: TTypography.h3.copyWith(color: TColorSystem.n100),
+          style: TTypography.h4.copyWith(color: TColorSystem.n100,fontFamily: 'Lora'),
         ),
       ),
     );

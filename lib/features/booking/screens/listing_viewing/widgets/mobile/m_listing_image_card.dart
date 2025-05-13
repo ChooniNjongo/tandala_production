@@ -36,7 +36,7 @@ class _MListingImageCardState extends State<MListingImageCard> {
         CarouselSlider.builder(
           carouselController: controller,
           options: CarouselOptions(
-            height: screenHeight * .33,
+            height: screenHeight * .38,
             enableInfiniteScroll: false,
             initialPage: 0,
             viewportFraction: 1,

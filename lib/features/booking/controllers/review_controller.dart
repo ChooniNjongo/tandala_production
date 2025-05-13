@@ -12,7 +12,9 @@ class ReviewController extends GetxController {
   final isRatingFourSelected = false.obs;
   final isRatingFiveSelected = false.obs;
   final review = "".obs;
-  final reviewTextEditingController = TextEditingController();
+  TextEditingController description = TextEditingController();
+  final titleDescriptionFormKey = GlobalKey<FormState>();
+
 
   final rating = 0.0.obs;
 

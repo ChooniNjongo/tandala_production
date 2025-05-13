@@ -5,6 +5,7 @@ import 'package:cwt_ecommerce_admin_panel/utils/constants/typography.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+
 import '../../../../../common/widgets/cards/property_cards/mobile/widgets/listing_distance.dart';
 import '../../../../../common/widgets/containers/rounded_container.dart';
 import '../../../../../routes/routes.dart';
@@ -31,46 +32,50 @@ class ListingViewingMobileScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// Listing Image Card
-            Stack(
-              fit: StackFit.expand,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Get.toNamed(TRoutes.photoGallery, arguments: listing);
-                  },
-                  child: Container(
-                    color: TColors.secondaryBackground2,
-                    child: MListingImageCard(listing: listing),
-                  ),
-                ),
-                Positioned(
-                  top: 24,
-                  left: 24,
-                  child: IconButton(
-                    onPressed: () => Get.back(),
-                    icon: const Icon(
-                      Iconsax.arrow_left,
-                      color: TColorSystem.n100,
+            /// Listing Image Section with fixed height
+            SizedBox(
+              height: 320,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(TRoutes.photoGallery, arguments: listing);
+                    },
+                    child: Container(
+                      color: TColors.secondaryBackground2,
+                      child: MListingImageCard(listing: listing),
                     ),
                   ),
-                ),
-                if (isEditing)
                   Positioned(
-                    top: 8,
-                    right: 8,
-                    child: Edit(
-                      label: 'edit photos',
-                      onTap: () {
-                        Get.toNamed(TRoutes.uploadPhotos);
-                      },
+                    top: 24,
+                    left: 24,
+                    child: IconButton(
+                      onPressed: () => Get.back(),
+                      icon: const Icon(
+                        Iconsax.arrow_left,
+                        color: TColorSystem.n100,
+                      ),
                     ),
                   ),
-              ],
+                  if (isEditing)
+                    Positioned(
+                      top: 8,
+                      right: 8,
+                      child: Edit(
+                        label: 'edit photos',
+                        onTap: () {
+                          Get.toNamed(TRoutes.uploadPhotos);
+                        },
+                      ),
+                    ),
+                ],
+              ),
             ),
 
-            /// Scrollable Content
+            /// Padded scrollable content
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: TSizes.defaultSpace,
@@ -107,6 +112,7 @@ class ListingViewingMobileScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),
+
                   Padding(
                     padding: const EdgeInsets.only(left: 3.0),
                     child: Text(
@@ -115,6 +121,7 @@ class ListingViewingMobileScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),
+
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -124,6 +131,7 @@ class ListingViewingMobileScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),
+
                   if (isEditing)
                     Row(
                       children: [
@@ -139,7 +147,8 @@ class ListingViewingMobileScreen extends StatelessWidget {
               ),
             ),
 
-            /// Full-width Mobile Tab View (no horizontal padding)
+            /// Mobile Tab View - full bleed (no padding)
+            const SizedBox(height: TSizes.spaceBtwSections),
             MobileTabView(
               listing: listing,
               isEditing: isEditing,
