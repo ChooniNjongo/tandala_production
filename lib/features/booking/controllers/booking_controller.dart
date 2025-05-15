@@ -245,7 +245,7 @@ class BookingController extends TBaseController<Booking> {
     }
   }
 
-  void submitPropertyReview(PropertyReview propertyReview) async {
+  void submitPropertyReview(PropertyReview propertyReview, Booking booking) async {
     try {
       // Check if user is authenticated
       if (!isUserLoggedIn) {
@@ -263,7 +263,7 @@ class BookingController extends TBaseController<Booking> {
       await bookingRepository.reviewProperty(propertyReview);
       TLoaders.customToast(message: "Review Submitted.");
       fetchUserBookings();
-      Get.toNamed(TRoutes.bookings);
+      Get.toNamed(TRoutes.bookingComplete,arguments: booking);
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     } finally {

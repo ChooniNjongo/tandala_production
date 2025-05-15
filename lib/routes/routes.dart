@@ -53,6 +53,7 @@ class TRoutes {
   static const bookings = '/bookings';
   static const bookingRequest = '/bookingRequest';
   static const availabilityCheck = '/availabilityCheck';
+  static const bookingComplete = '/bookingComplete';
   static const bookingRoom = '/bookingRoom';
   static const payment = '/payment';
   static const checkIn = '/checkIn';
@@ -86,6 +87,7 @@ class TRoutes {
   static const displayCover = '/displayCover';
   static const done = '/done';
   static const listings = '/listings';
+  static const createListing = '/createListing';
   static const location = '/location';
   static const nameAndCity = '/nameAndCity';
   static const propertyType = '/propertyType';
@@ -121,6 +123,7 @@ class TRoutes {
     dashboard,
     media,
     products,
+    listings,
     categories,
     brands,
     customers,

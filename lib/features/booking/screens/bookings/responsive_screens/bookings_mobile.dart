@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import '../../../../../common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../shop/screens/dashboard/widgets/dashboard_card.dart';
+import '../widgets/mobile/bookings_summary.dart';
 import '../widgets/mobile/bookings_table.dart';
 
 class BookingsMobileScreen extends StatelessWidget {
@@ -10,28 +11,18 @@ class BookingsMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return   const Scaffold(
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(TSizes.defaultSpace),
+              padding: EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
-                  const TBreadcrumbsWithHeading(
+                  TBreadcrumbsWithHeading(
                       heading: 'Bookings', breadcrumbItems: ['Bookings']),
-                  TDashboardCard(
-                    headingIcon: Iconsax.note,
-                    headingIconColor: Colors.blue,
-                    headingIconBgColor: Colors.blue.withOpacity(0.1),
-                    stats: 25,
-                    context: context,
-                    title: 'Sales total',
-                    subTitle:
-                    '45',
-                  ),
-                  const SizedBox(height: TSizes.spaceBtwSections),
+                  BookingsSummary(),
 /*                  Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -61,7 +52,7 @@ class BookingsMobileScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const BookingsTable(),
+            BookingsTable(),
           ],
         ),
       ),

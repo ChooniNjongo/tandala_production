@@ -15,12 +15,7 @@ class BookingCompletedMobileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final uid = AuthenticationRepository.instance.authUser!.uid;
     return ActionPage(
-      overlayHeader: const FormNavigation(
-        showLeftIcon: true,
-        step3Text: 'Booking completed',
-        initialValue: 1.0,
-        targetValue: 1.0,
-      ),
+      overlayHeader: SizedBox(height: 8,),
       body: BookingCompletedBody(booking: booking),
       buttonContainer:
       uid == booking.listing.userId

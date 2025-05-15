@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../../../common/widgets/button_container/button_container.dart';
 import '../../../../../../common/widgets/buttons/t_text_button.dart';
+import '../../../../../../utils/constants/color_system.dart';
 import '../../../../controllers/booking_controller.dart';
 import '../../../../models/booking/booking.dart';
 
@@ -13,11 +14,13 @@ class CancelledBookingOwnerButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = BookingController.instance;
     return ButtonContainer(
-      button1: TTextButton(
+      button1:  TTextButton(
+        showIcon: true,
+        icon: Icons.cancel_outlined,
         label: 'Report',
-        labelColor: Colors.red,
+        labelColor: TColorSystem.n400,
         onPressed: () {
-          controller.confirmAvailability(booking.bookingId, false);
+          controller.cancelBooking(booking.bookingId);
         },
       ),
       button2: const SizedBox(),

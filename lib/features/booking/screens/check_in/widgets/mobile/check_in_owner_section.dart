@@ -24,7 +24,7 @@ class CheckInOwnerSection extends StatelessWidget {
           BookedUnitImages(booking: booking),
           const SizedBox(height: TSizes.spaceBtwSections),
           const QuestionContainer(
-            question: "Waiting for user to check in.",
+            question: "Ask user to check in once on site",
             body:
                 "Funds will be credited to your account once the user checks in.",
           ),

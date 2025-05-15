@@ -6,7 +6,7 @@ class PropertyReview {
   String userNameTruncated;
   String propertyName;
   DateTime dateTime;
-  int rating;
+  double rating;
   String review;
   String reviewReply;
 

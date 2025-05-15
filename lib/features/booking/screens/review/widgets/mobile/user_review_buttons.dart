@@ -17,8 +17,9 @@ class UserReviewButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = BookingController.instance;
     final reviewController = Get.put(ReviewController());
+
     return ButtonContainer(
-      button1:  TTextButton(
+      button1: TTextButton(
         showIcon: true,
         icon: Icons.cancel_outlined,
         label: 'Report',
@@ -27,29 +28,34 @@ class UserReviewButtons extends StatelessWidget {
           controller.confirmAvailability(booking.bookingId, false);
         },
       ),
-      button2:
-      SizedBox(
-        width: TSizes.buttonWidth,
-        child: ElevatedButton(
-          onPressed: () {
-            controller.submitPropertyReview(
-              PropertyReview(
-                listingId: booking.listing.listingId!,
-                bookingId: booking.bookingId,
-                userId: booking.bookieUserId,
-                userNameTruncated: '',
-                propertyName: booking.listing.propertyName,
-                dateTime: DateTime.now(),
-                rating: reviewController.rating.toInt(),
-                review: reviewController.description.text,
-                reviewReply: '',
-              ),
-            );
-          },
-          child: const Text( 'Submit Review'),
-        ),
-      ),
+      button2: Obx(() {
+        final isDisabled = !reviewController.isDescriptionNotEmpty.value ||
+            reviewController.rating.value == 0;
 
+        return SizedBox(
+          width: TSizes.buttonWidth,
+          child: ElevatedButton(
+            onPressed: isDisabled
+                ? null
+                : () {
+              controller.submitPropertyReview(
+                PropertyReview(
+                  listingId: booking.listing.listingId!,
+                  bookingId: booking.bookingId,
+                  userId: booking.bookieUserId,
+                  userNameTruncated: '',
+                  propertyName: booking.listing.propertyName,
+                  dateTime: DateTime.now(),
+                  rating: reviewController.rating.value,
+                  review: reviewController.description.text,
+                  reviewReply: '',
+                ),booking
+              );
+            },
+            child: const Text('Submit Review'),
+          ),
+        );
+      }),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-
 import '../../../utils/helpers/helper_functions.dart';
 
 class ReviewController extends GetxController {
@@ -11,12 +10,20 @@ class ReviewController extends GetxController {
   final isRatingThreeSelected = false.obs;
   final isRatingFourSelected = false.obs;
   final isRatingFiveSelected = false.obs;
-  final review = "".obs;
+
+  final rating = 0.0.obs;
+  final isDescriptionNotEmpty = false.obs;
+
   TextEditingController description = TextEditingController();
   final titleDescriptionFormKey = GlobalKey<FormState>();
 
-
-  final rating = 0.0.obs;
+  @override
+  void onInit() {
+    super.onInit();
+    description.addListener(() {
+      isDescriptionNotEmpty.value = description.text.trim().isNotEmpty;
+    });
+  }
 
   void setRating() {
     if (isRatingOneSelected.value) {
@@ -30,52 +37,50 @@ class ReviewController extends GetxController {
     } else if (isRatingFiveSelected.value) {
       rating.value = 5.0;
     } else {
-      rating.value = 0.0; // Default if no rating is selected
+      rating.value = 0.0;
     }
   }
 
-  void resetRatings(){
-     isRatingOneSelected.value = false;
-     isRatingTwoSelected.value = false;
-     isRatingThreeSelected.value = false;
-     isRatingFourSelected.value = false;
-     isRatingFiveSelected.value = false;
+  void resetRatings() {
+    isRatingOneSelected.value = false;
+    isRatingTwoSelected.value = false;
+    isRatingThreeSelected.value = false;
+    isRatingFourSelected.value = false;
+    isRatingFiveSelected.value = false;
   }
 
-
-  void Function()? onRatingOneTapped(){
+  void Function()? onRatingOneTapped() {
     resetRatings();
     THelperFunctions.toggleObxValue(isRatingOneSelected);
     setRating();
     return null;
   }
 
-  void Function()? onRatingTwoTapped(){
+  void Function()? onRatingTwoTapped() {
     resetRatings();
     THelperFunctions.toggleObxValue(isRatingTwoSelected);
     setRating();
     return null;
   }
 
-  void Function()? onRatingThreeTapped(){
+  void Function()? onRatingThreeTapped() {
     resetRatings();
     THelperFunctions.toggleObxValue(isRatingThreeSelected);
     setRating();
     return null;
   }
 
-  void Function()? onRatingFourTapped(){
+  void Function()? onRatingFourTapped() {
     resetRatings();
     THelperFunctions.toggleObxValue(isRatingFourSelected);
     setRating();
     return null;
   }
 
-  void Function()? onRatingFiveTapped(){
+  void Function()? onRatingFiveTapped() {
     resetRatings();
     THelperFunctions.toggleObxValue(isRatingFiveSelected);
     setRating();
     return null;
   }
-
 }

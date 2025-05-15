@@ -16,12 +16,7 @@ class CancelledBookingMobileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final uid = AuthenticationRepository.instance.authUser!.uid;
     return ActionPage(
-      overlayHeader: const FormNavigation(
-        showLeftIcon: true,
-        step3Text: 'Booking Cancelled',
-        initialValue: 0.0,
-        targetValue: 0.0,
-      ),
+      overlayHeader: SizedBox(),
       body: CancelledBookingBody(booking: booking),
       buttonContainer:
           uid == booking.listing.userId

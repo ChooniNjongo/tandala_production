@@ -70,23 +70,23 @@ class TSidebar extends StatelessWidget {
                           route: TRoutes.wishlist,
                           icon: Iconsax.notification_favorite,
                           itemName: 'Wishlist'),
-                      const TMenuItem(
+ /*                     const TMenuItem(
                           route: TRoutes.dashboard,
                           icon: Iconsax.status,
-                          itemName: 'Dashboard'),
+                          itemName: 'Dashboard'),*/
                       const TMenuItem(
                           route: TRoutes.media,
                           icon: Iconsax.image,
                           itemName: 'Media'),
-                      const TMenuItem(
+/*                      const TMenuItem(
                           route: TRoutes.banners,
                           icon: Iconsax.picture_frame,
-                          itemName: 'Banners'),
-                      const TMenuItem(
-                          route: TRoutes.products,
+                          itemName: 'Banners'),*/
+/*                      const TMenuItem(
+                          route: TRoutes.listings,
                           icon: Iconsax.shopping_bag,
-                          itemName: 'Products'),
-                      const TMenuItem(
+                          itemName: 'Listings'),*/
+/*                      const TMenuItem(
                           route: TRoutes.categories,
                           icon: Iconsax.category_2,
                           itemName: 'Categories'),
@@ -105,7 +105,7 @@ class TSidebar extends StatelessWidget {
                       const TMenuItem(
                           route: TRoutes.coupons,
                           icon: Iconsax.code,
-                          itemName: 'Coupons'),
+                          itemName: 'Coupons'),*/
                       const SizedBox(height: TSizes.spaceBtwItems),
                       Text('OTHER',
                           style: Theme.of(context)
@@ -117,10 +117,10 @@ class TSidebar extends StatelessWidget {
                           route: TRoutes.profile,
                           icon: Iconsax.user,
                           itemName: 'Profile'),
-                      const TMenuItem(
+/*                      const TMenuItem(
                           route: TRoutes.settings,
                           icon: Iconsax.setting_2,
-                          itemName: 'Settings'),
+                          itemName: 'Settings'),*/
 
                       if (AuthenticationRepository.instance.authUser != null)
                         TMenuItem(
