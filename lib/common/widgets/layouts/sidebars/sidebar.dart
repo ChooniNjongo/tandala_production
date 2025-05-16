@@ -1,6 +1,7 @@
 import 'package:cwt_ecommerce_admin_panel/data/repositories/authentication/authentication_repository.dart';
 import 'package:cwt_ecommerce_admin_panel/features/booking/controllers/booking_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../routes/routes.dart';
@@ -30,8 +31,8 @@ class TSidebar extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(
                     horizontal: TSizes.xl, vertical: 4),
-                child: Image.asset(
-                  TImages.logoPng,
+                child: SvgPicture.asset(
+                  TImages.tandalaColor,
                   height: 56,
                   width: 100,
                 ),

@@ -2,6 +2,7 @@ import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/headers/widgets
 import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/headers/widgets/mobile_search_icon_controller.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/enums.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../features/personalization/controllers/user_controller.dart';
@@ -87,8 +88,8 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
             /// Logo
             GestureDetector(
               onTap: ()=> Get.toNamed(TRoutes.places),
-              child: Image.asset(
-                TImages.logoPng,
+              child: SvgPicture.asset(
+                TImages.tandalaColor,
                 height: 56,
                 width: 100,
               ),
