@@ -54,7 +54,7 @@ class _PropertyHomeImageSliderState extends State<PropertyHomeImageSlider> {
                   enlargeStrategy: CenterPageEnlargeStrategy.height,
                   //enlargeCenterPage: true,
                   autoPlay: false,
-                  height: MediaQuery.of(context).size.height * .30,
+                  height: MediaQuery.of(context).size.height * .35,
                   onPageChanged:
                       (index, reason) => setState(() => activeIndex = index),
                 ),

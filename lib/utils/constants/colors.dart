@@ -5,10 +5,10 @@ import 'color_system.dart';
 class TColors {
   // App theme colors
   // App theme colors
-  static const Color primary = Color(0xFF00AFC1);
+  static const Color primary = Color(0xFF42ECFF);
   static const Color secondary = Color(0xFFFFE24B);
   static const Color accent = Color(0xFFb0c7ff);
-  static const Color primary500 = Color(0xFF00AFC1);
+  static const Color primary500 = Color(0xFF42ECFF);
   static const Color primary300 = Color(0xFF42ECFF);
   static const Color primary100 = Color(0xFFE0FCFF);
 

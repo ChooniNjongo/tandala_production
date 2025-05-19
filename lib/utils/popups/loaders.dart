@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -13,14 +14,14 @@ class TLoaders {
         width: 500,
         elevation: 0,
         behavior: SnackBarBehavior.floating,
-        duration: const Duration(seconds: 10),
+        duration: const Duration(seconds: 3),
         backgroundColor: Colors.transparent,
         content: Container(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(12.0),
           margin: const EdgeInsets.symmetric(horizontal: 30),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(24),
-            color: TColors.secondaryBackground2,
+            borderRadius: BorderRadius.circular(30),
+            color: TColorSystem.n700,
           ),
           child: Center(child: Text(message, style: Theme.of(Get.context!).textTheme.labelLarge)),
         ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../features/booking/controllers/favorites_controller.dart';
 
@@ -15,11 +14,13 @@ class FavoriteIcon extends StatelessWidget {
       top: 4,
       right: 2,
       child: Obx(
-        () => IconButton(
-          icon:
-              controller.isFavourite(propertyId)
-                  ? Icon(Icons.favorite,color: Colors.redAccent.withOpacity(0.5),)
-                  : Icon(Icons.favorite,color: Colors.blueGrey.withOpacity(.5),),
+            () => IconButton(
+          icon: Icon(
+            Icons.favorite,
+            color: controller.isFavourite(propertyId)
+                ? Colors.redAccent.withAlpha(204)     // 0.8 * 255 ≈ 204
+                : Colors.blueGrey.withAlpha(204),
+          ),
           onPressed: () => controller.toggleFavouriteProduct(propertyId),
         ),
       ),

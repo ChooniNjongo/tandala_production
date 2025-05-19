@@ -89,9 +89,10 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
             GestureDetector(
               onTap: ()=> Get.toNamed(TRoutes.places),
               child: SvgPicture.asset(
+                color: TColors.primary,
                 TImages.tandalaColor,
-                height: 56,
-                width: 100,
+                height: 18,
+                width: 32,
               ),
             ),
           ],
