@@ -33,10 +33,12 @@ class _BookingRequestBodyState extends State<BookingRequestBody> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const QuestionContainer(question:"Start the booking process" , body: "Please select both check in and check out dates in that order. You can select by tapping the dates."),
+          const QuestionContainer(
+              question: "Start the booking process",
+              body:
+                  "Please select both check in and check out dates in that order. You can select by tapping the dates."),
           const SizedBox(height: TSizes.spaceBtwSections),
           TRoundedContainer(
-            elevation: 2,
             padding: const EdgeInsets.all(TSizes.defaultSpace),
             showBorder: true,
             borderColor: TColors.iconBorder,

@@ -19,9 +19,11 @@ class HomeListingsMobile extends StatelessWidget {
       child: Obx(() {
         if (controller.isLoading.value) {
           return TGridLayout(
-              mainAxisExtent: 294,
-              itemCount: 4,
-              itemBuilder: (_, index) => const TVerticalProductShimmer());
+            mainAxisExtent: 294,
+            itemCount: 4,
+            itemBuilder: (_, index) =>
+                const TVerticalProductShimmer()
+          );
         }
         if (controller.listings.isEmpty) {
           return Center(

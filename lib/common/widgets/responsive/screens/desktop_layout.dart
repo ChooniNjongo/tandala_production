@@ -1,30 +1,39 @@
 import 'package:flutter/material.dart';
-import '../../layouts/headers/header.dart';
+import '../../layouts/headers/mobile_header.dart';
 import '../../layouts/sidebars/sidebar.dart';
+import '../../navigation/nav_rail.dart';
 
 /// Widget for the desktop layout
 class DesktopLayout extends StatelessWidget {
-  DesktopLayout({super.key, this.body});
+  DesktopLayout({
+    super.key,
+    this.body, required this.showNavRail,
+  });
 
-  /// Widget to be displayed as the body of the desktop layout
   final Widget? body;
+  final bool showNavRail;
 
-  /// Key for the scaffold widget
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      drawer: const TSidebar(),
       body: Row(
         children: [
-          const Expanded(child: TSidebar()), // Sidebar
+          // Navigation Rail
+          Visibility(
+              visible: showNavRail,
+              child: NavRail(scaffoldKey: scaffoldKey)),
+          // Main Content Area
           Expanded(
-            flex: 5,
             child: Column(
               children: [
-                THeader(scaffoldKey: scaffoldKey), // Header
-                Expanded(child: body ?? Container()), // Body
+                // Header
+                MobileHeader(scaffoldKey: scaffoldKey),
+                // Body
+                Expanded(child: body ?? const SizedBox()),
               ],
             ),
           ),
@@ -33,4 +42,3 @@ class DesktopLayout extends StatelessWidget {
     );
   }
 }
-

@@ -28,21 +28,21 @@ class BookingsRows extends DataTableSource {
         ),*/
         DataCell(Text(
           booking.formattedBookingDate,
-          style: TTypography.label12Regular.copyWith(
+          style: TTypography.body10Regular.copyWith(
               color: booking.isComplete ? TColors.darkerGrey : TColors.primary),
         )),
         DataCell(Text(booking.listing.propertyName,
-            style: TTypography.label12Regular.copyWith(
+            style: TTypography.body10Regular.copyWith(
                 color: booking.isComplete
                     ? TColors.darkerGrey
                     : TColors.primary))),
         DataCell(Text(booking.bookingStage.name,
-            style: TTypography.label12Regular.copyWith(
+            style: TTypography.body10Regular.copyWith(
                 color: booking.isComplete
                     ? TColors.darkerGrey
                     : TColors.primary))),
         DataCell(Text('K${booking.bookingAmountTotal.round()}',
-            style: TTypography.label12Regular.copyWith(
+            style: TTypography.body10Regular.copyWith(
                 color: booking.isComplete
                     ? TColors.darkerGrey
                     : TColors.primary))),

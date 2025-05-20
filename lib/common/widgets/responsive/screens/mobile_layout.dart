@@ -1,26 +1,20 @@
 import 'package:flutter/material.dart';
+import '../../navigation/nav_bar.dart';
 
-import '../../layouts/headers/header.dart';
-import '../../layouts/sidebars/sidebar.dart';
-
-/// Widget for the mobile layout
+/// Widget for the desktop layout
 class MobileLayout extends StatelessWidget {
-  MobileLayout({super.key, this.body});
+  const MobileLayout({super.key, this.body});
 
-  /// Widget to be displayed as the body of the mobile layout
   final Widget? body;
-
-  /// Key for the scaffold widget
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      drawer: const TSidebar(), // Sidebar
-      appBar: THeader(scaffoldKey: scaffoldKey), // Header
-      body: body ?? Container(), // Body
+    return SafeArea(
+      child: Scaffold(
+        bottomNavigationBar: const NavBar(),
+        body: Column(children: [
+          Expanded(child: body ?? const SizedBox())]),
+      ),
     );
   }
 }
-

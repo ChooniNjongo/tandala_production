@@ -20,8 +20,6 @@ class UserReviewButtons extends StatelessWidget {
 
     return ButtonContainer(
       button1: TTextButton(
-        showIcon: true,
-        icon: Icons.cancel_outlined,
         label: 'Report',
         labelColor: TColorSystem.n400,
         onPressed: () {

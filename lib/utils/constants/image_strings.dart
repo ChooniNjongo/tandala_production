@@ -565,4 +565,8 @@ class TImages {
   static const String dashboardIllustration =
       "assets/images/animations/dashboard.gif";
   static const String tableIllustration = "assets/images/animations/table.gif";
+  static const String ratingStory = "assets/images/hero_svg/rating_story.svg";
+
+
+
 }

@@ -15,8 +15,8 @@ class ReviewBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child: uid == booking.listing.userId
-          ? const OwnerReviewSection()
-          : const UserReviewSection(),
+          ?  OwnerReviewSection(booking: booking,)
+          :  UserReviewSection(booking: booking,),
     );
   }
 }

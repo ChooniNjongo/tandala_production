@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/sidebars/sidebar_controller.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import '../../../../utils/popups/loaders.dart';
@@ -58,17 +59,10 @@ class BookingController extends TBaseController<Booking> {
   /// Get current user ID safely
   String? get currentUserId => AuthenticationRepository.instance.authUser?.uid;
 
-  void initGetLocation() async {
-    await userRepository.getCurrentLocation().then((value) {
-      userLatitude.value = value.latitude;
-      userLongitude.value = value.longitude;
-    });
-  }
 
   @override
   void onInit() {
     fetchUserBookings();
-    initGetLocation();
     super.onInit();
   }
 
@@ -167,7 +161,8 @@ class BookingController extends TBaseController<Booking> {
         message: 'Congratulations! Booking request submitted',
       );
       fetchUserBookings();
-      Get.offAllNamed(TRoutes.places);
+      SidebarController.instance.activeItem.value = TRoutes.activeBookings;
+      Get.offAllNamed(TRoutes.activeBookings);
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     } finally {
@@ -321,7 +316,7 @@ class BookingController extends TBaseController<Booking> {
       selectedBooking.value = booking;
       fetchUserBookings();
       TLoaders.customToast(message: "Checked in successfully. Enjoy your stay");
-      Get.toNamed(TRoutes.bookings);
+      Get.toNamed(TRoutes.bookingsHistory);
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     } finally {
@@ -345,7 +340,7 @@ class BookingController extends TBaseController<Booking> {
       await bookingRepository.cancelBooking(bookingId);
       fetchUserBookings();
       TLoaders.customToast(message: "Booking cancelled");
-      Get.toNamed(TRoutes.bookings);
+      Get.toNamed(TRoutes.bookingsHistory);
     } catch (e) {
       if (kDebugMode) {
         print(e);

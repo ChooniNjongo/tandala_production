@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../../routes/routes.dart';
@@ -16,69 +17,48 @@ class AmenitiesTabSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isMobile = TDeviceUtils.isMobileScreen(context);
-    return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: isMobile ? TSizes.defaultSpace : 0,
-          vertical: isMobile ? TSizes.defaultSpace : 0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height:
-                isMobile ? TSizes.spaceBtwItems : TSizes.spaceBtwSections * 2,
-          ),
-          Text(
-            "What this place offers",
-            style: TTypography.h5.copyWith(color: Colors.white),
-          ),
-          const SizedBox(
-            height: TSizes.spaceBtwItems,
-          ),
-          Row(
-            children: [
-              /// Right side amenities
-              const Expanded(
-                  child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  TabAmenityTile(
-                      svgIcon: TImages.kitchen, amenityTitle: 'Kitchen'),
-                  TabAmenityTile(
-                      svgIcon: TImages.swimming_active,
-                      amenityTitle: 'Swimming pool'),
-                ],
-              )),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height:
+              isMobile ? TSizes.spaceBtwItems : TSizes.spaceBtwSections * 4,
+        ),
+        Text(
+          "What this place offers",
+          style: TTypography.body12Regular.copyWith(color: TColorSystem.n500),
+        ),
+        const SizedBox(
+          height: TSizes.spaceBtwItems/ 2,
+        ),
+        const TabAmenityTile(
+            svgIcon: TImages.kitchen, amenityTitle: 'Kitchen'),
+        const TabAmenityTile(
+            svgIcon: TImages.swimming_active,
+            amenityTitle: 'Swimming pool'),
 
-              /// Left side amenities
-              const Expanded(
-                  child: Column(
-                children: [
-                  TabAmenityTile(
-                      svgIcon: TImages.parking, amenityTitle: 'Parking space'),
-                  TabAmenityTile(
-                      svgIcon: TImages.aircon,
-                      amenityTitle: 'Air conditioning'),
-                ],
-              )),
+        /// Left side amenities
+        const TabAmenityTile(
+            svgIcon: TImages.parking, amenityTitle: 'Parking space'),
+        const TabAmenityTile(
+            svgIcon: TImages.aircon,
+            amenityTitle: 'Air conditioning'),
 
-              /// Expanded Widget to push them closer
-              Visibility(
-                  visible: !isMobile,
-                  child: Expanded(flex: 3, child: Container()))
-            ],
-          ),
-          const SizedBox(
-            height: TSizes.spaceBtwItems,
-          ),
-          if (isEditing)
-            Edit(
-              label: 'edit amenities',
-              onTap: () {
-                Get.toNamed(TRoutes.amenities);
-              },
-            )
-        ],
-      ),
+        /// Expanded Widget to push them closer
+        Visibility(
+            visible: !isMobile,
+            child: Expanded(flex: 3, child: Container())),
+        const SizedBox(
+          height: TSizes.spaceBtwItems,
+        ),
+        if (isEditing)
+          Edit(
+            label: 'edit amenities',
+            onTap: () {
+              Get.toNamed(TRoutes.amenities);
+            },
+          )
+      ],
     );
   }
 }

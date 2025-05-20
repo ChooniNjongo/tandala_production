@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../../../utils/constants/color_system.dart';
 import '../../../../../../../utils/constants/colors.dart';
 import '../../../../../../../utils/constants/typography.dart';
 
@@ -12,7 +13,7 @@ class FilterSectionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: TTypography.h3.copyWith(color: TColors.white),
+      style: TTypography.h4.copyWith(color: TColors.white),
     );
   }
 }
@@ -26,7 +27,7 @@ class FilterSectionSubtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       subTitle,
-      style: TTypography.body12Regular.copyWith(color:TColors.textPrimary),
+      style: TTypography.body12Regular.copyWith(color: TColorSystem.n600),
     );
   }
 }

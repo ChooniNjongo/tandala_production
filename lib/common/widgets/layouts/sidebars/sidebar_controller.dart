@@ -32,7 +32,7 @@ class SidebarController extends GetxController {
   /// Handler for menu item tap
   Future<void> menuOnTap(String route) async {
     try {
-      if (!isActive(route)) {
+      if (true) {
         // Update Selected Menu Item
         changeActiveItem(route);
 

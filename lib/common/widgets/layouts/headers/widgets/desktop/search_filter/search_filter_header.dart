@@ -39,8 +39,8 @@ class SearchFilterHeader extends StatelessWidget {
             Text(
               title,
               style: isMobile
-                  ? TTypography.h3.copyWith(color: Colors.white)
-                  : TTypography.h3.copyWith(color: Colors.white),
+                  ? TTypography.h5.copyWith(color: Colors.white)
+                  : TTypography.h5.copyWith(color: Colors.white),
             ),
             IconButton(
                 onPressed: () {},

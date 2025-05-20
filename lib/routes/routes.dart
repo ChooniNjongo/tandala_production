@@ -50,7 +50,8 @@ class TRoutes {
   static const sendSuggestion = '/sendSuggestion';
 
   // Bookings
-  static const bookings = '/bookings';
+  static const bookingsHistory = '/bookingsHistory';
+  static const activeBookings = '/activeBookings';
   static const bookingRequest = '/bookingRequest';
   static const availabilityCheck = '/availabilityCheck';
   static const bookingComplete = '/bookingComplete';
@@ -115,9 +116,11 @@ class TRoutes {
   static List sideMenuItems = [
     logout,
     places,
-    bookings,
+    bookingsHistory,
     messages,
     wishlist,
+    listingStage,
+    createListing,
     login,
     forgetPassword,
     dashboard,

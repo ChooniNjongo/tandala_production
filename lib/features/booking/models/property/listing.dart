@@ -11,6 +11,7 @@ class Listing {
   PropertyType propertyType;
   String? hostName;
   String description;
+  String summary;
   String userId;
   DateTime dateTimePublished;
   Owner businessType;
@@ -55,6 +56,7 @@ class Listing {
     required this.propertyType,
     this.hostName,
     required this.description,
+    required this.summary,
     required this.userId,
     required this.dateTimePublished,
     required this.businessType,
@@ -110,6 +112,7 @@ class Listing {
       propertyType: PropertyType.values.first,
       hostName: null,
       description: '',
+      summary: '',
       userId: '',
       dateTimePublished: DateTime.now(),
       businessType: Owner.values.first,
@@ -149,6 +152,7 @@ class Listing {
       'propertyType': propertyType.toString().split('.').last,
       'hostName': hostName,
       'description': description,
+      'summary': summary,
       'userId': userId,
       'dateTimePublished': dateTimePublished.toIso8601String(),
       'businessType': businessType.toString().split('.').last,
@@ -196,6 +200,7 @@ class Listing {
               (e) => e.toString().split('.').last == json['propertyType']),
       hostName: json['hostName'],
       description: json['description'],
+      summary: json['summary'],
       userId: json['userId'],
       dateTimePublished: DateTime.parse(json['dateTimePublished']),
       businessType: Owner.values.firstWhere(

@@ -81,7 +81,7 @@ class ListingsController extends GetxController {
     isLoading.value = true;
 
     try {
-      await locationController.updateLocationStatus();
+      await locationController.getLocation();
 
       final double? latitude =
           locationController.currentPosition.value?.latitude;
@@ -168,10 +168,7 @@ class ListingsController extends GetxController {
       isLoading.value = true;
       // Fetch User Location
 
-      await userRepository.getCurrentLocation().then((value) {
-        userLatitude.value = value.latitude;
-        userLongitude.value = value.longitude;
-      });
+
 
       // Fetch Products
       final products = await propertyRepository.getCheapestProperties(

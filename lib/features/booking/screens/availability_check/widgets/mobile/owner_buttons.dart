@@ -17,8 +17,6 @@ class OwnerButtons extends StatelessWidget {
     final controller = BookingController.instance;
     return ButtonContainer(
       button1: TTextButton(
-        showIcon: true,
-        icon: Icons.cancel_outlined,
         label: 'Reject',
         labelColor: TColorSystem.n400,
         onPressed: () {

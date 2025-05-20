@@ -18,16 +18,10 @@ class FavouritesController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    initGetLocation();
     initFavorites();
   }
 
-  void initGetLocation() async {
-    await userRepository.getCurrentLocation().then((value) {
-      userLatitude.value = value.latitude;
-      userLongitude.value = value.longitude;
-    });
-  }
+
 
   // Method to Initialize favorites by reading from storage
   void initFavorites() {

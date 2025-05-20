@@ -1,5 +1,6 @@
 import 'package:cwt_ecommerce_admin_panel/features/authentication/screens/password_configuration/reset_password/reset_password.dart';
 import 'package:cwt_ecommerce_admin_panel/features/booking/screens/booking_request/booking_request.dart';
+import 'package:cwt_ecommerce_admin_panel/features/booking/screens/bookings_history/bookings.dart';
 import 'package:cwt_ecommerce_admin_panel/features/media/screens/media/media.dart';
 import 'package:cwt_ecommerce_admin_panel/features/personalization/screens/profile/profile.dart';
 import 'package:cwt_ecommerce_admin_panel/features/personalization/screens/settings/settings.dart';
@@ -17,9 +18,9 @@ import 'package:cwt_ecommerce_admin_panel/features/shop/screens/product/edit_pro
 import 'package:get/get.dart';
 import '../features/authentication/screens/forget_password/forget_password.dart';
 import '../features/authentication/screens/login/login.dart';
+import '../features/booking/screens/active_bookings/active_bookings.dart';
 import '../features/booking/screens/booking_completed/booking_completed.dart';
 import '../features/booking/screens/booking_room/booking_room.dart';
-import '../features/booking/screens/bookings/bookings.dart';
 import '../features/booking/screens/home/home.dart';
 import '../features/booking/screens/listing_photo_gallery/photo_gallery.dart';
 import '../features/booking/screens/listing_viewing/listing_viewing.dart';
@@ -57,7 +58,8 @@ class TAppRoute {
     GetPage(name: TRoutes.roomViewing, page: () => const RoomViewingScreen(),),
     GetPage(name: TRoutes.roomPhotoGallery, page: () => const RoomPhotoGalleryScreen(),),
     GetPage(name: TRoutes.bookingRequest, page: () => const BookingRequestScreen(), middlewares: [TRouteMiddleware()]),
-    GetPage(name: TRoutes.bookings, page: () => const BookingsScreen(), middlewares: [TRouteMiddleware()]),
+    GetPage(name: TRoutes.bookingsHistory, page: () => const BookingsHistoryScreen(), middlewares: [TRouteMiddleware()]),
+    GetPage(name: TRoutes.activeBookings, page: () => const ActiveBookingsScreen(), middlewares: [TRouteMiddleware()]),
     GetPage(name: TRoutes.bookingRoom, page: () => const BookingRoomScreen(), middlewares: [TRouteMiddleware()]),
     GetPage(name: TRoutes.paymentSuccess, page: () => const PaymentSuccessScreen(), middlewares: [TRouteMiddleware()]),
     GetPage(name: TRoutes.bookingComplete, page: () => const BookingCompletedScreen(), middlewares: [TRouteMiddleware()]),
@@ -70,7 +72,7 @@ class TAppRoute {
 
     /// Listings Management
     GetPage(name: TRoutes.listings, page: () => const ListingsScreen(), middlewares: [TRouteMiddleware()]),
-    GetPage(name: TRoutes.createListing, page: () => const CreateListingScreen(), middlewares: [TRouteMiddleware()]),
+    GetPage(name: TRoutes.createListing, page: () => const CreateListingScreen(),),
 
 
     // Products

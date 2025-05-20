@@ -22,6 +22,7 @@ class FilterActionButtons extends StatelessWidget {
           width: double.infinity,
           color: const Color(0xFF404747),
         ),
+
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           child: Row(
@@ -36,6 +37,7 @@ class FilterActionButtons extends StatelessWidget {
                   ),
                 ),
               ),
+
               SizedBox(
                 height: 48,
                 child: ElevatedButton(
@@ -50,20 +52,19 @@ class FilterActionButtons extends StatelessWidget {
                       horizontal: TSizes.spaceBtwItems,
                     ),
                     child: Obx(
-                      () => controller.isLoading.value
+                          () =>
+                      controller.isLoading.value
                           ? const Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: TSizes.spaceBtwItems,
-                              ),
-                              child: MySpinKitLoadingIndicator(),
-                            )
+                        padding: EdgeInsets.symmetric(
+                          horizontal: TSizes.spaceBtwItems,
+                        ),
+                        child: MySpinKitLoadingIndicator(),
+                      )
                           : Text(
-                              'Show  ${controller.listings.length} Offers',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelMedium!
-                                  .apply(fontSizeFactor: 1.1,color: Colors.white),
-                            ),
+                        'Show  ${controller.listings.length} Offers',
+                        style: Theme.of(context).textTheme.labelMedium!
+                            .apply(fontSizeFactor: 1.1),
+                      ),
                     ),
                   ),
                 ),

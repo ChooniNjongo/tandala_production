@@ -58,7 +58,7 @@ class TBookingCard extends StatelessWidget {
                 booking.bookingStage == BookingStage.CheckIn ||
                 booking.bookingStage == BookingStage.Review ||
                 booking.bookingStage == BookingStage.Completed
-            ? TColorSystem.primary500
+            ? Colors.greenAccent
             : TColorSystem.n800,
       ),
       ChartData(
@@ -68,7 +68,7 @@ class TBookingCard extends StatelessWidget {
                 booking.bookingStage == BookingStage.CheckIn ||
                 booking.bookingStage == BookingStage.Review ||
                 booking.bookingStage == BookingStage.Completed
-            ? TColorSystem.primary500
+            ? Colors.greenAccent
             : TColorSystem.n800,
       ),
       ChartData(
@@ -77,14 +77,14 @@ class TBookingCard extends StatelessWidget {
         booking.bookingStage == BookingStage.CheckIn ||
                 booking.bookingStage == BookingStage.Review ||
                 booking.bookingStage == BookingStage.Completed
-            ? TColorSystem.primary500
+            ? Colors.greenAccent
             : TColorSystem.n800,
       ),
       ChartData(
         'Review',
         50,
         booking.bookingStage == BookingStage.Completed
-            ? TColorSystem.primary500
+            ? Colors.greenAccent
             : TColorSystem.n800,
       ),
     ];

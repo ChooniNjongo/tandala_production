@@ -20,29 +20,23 @@ class ListingDistance extends StatelessWidget {
     final listingsController = Get.put(ListingsController());
 
     if (listing.distanceFromUser == null) {
-      return Padding(
-        padding: const EdgeInsets.only(left: 8.0),
-        child: GestureDetector(
-          onTap: () async {
-            await locationController.getLocation();
-            listingsController.searchListings();
-            Get.toNamed(TRoutes.places);
-          },
-          child: Text(
-            'See distance',
-            style: TTypography.label12Regular.copyWith(
-              color: TColors.accent,
-            ),
+      return GestureDetector(
+        onTap: () async {
+          await locationController.getLocation();
+          listingsController.searchListings();
+          Get.toNamed(TRoutes.places);
+        },
+        child: Text(
+          'See distance',
+          style: TTypography.label12Regular.copyWith(
+            color: TColors.accent,
           ),
         ),
       );
     } else {
-      return Padding(
-        padding: const EdgeInsets.only(left: 8.0),
-        child: Text(
-          '${listing.distanceFromUser!.round()} Kilometers away',
-          style: TTypography.label12Regular.copyWith(color: TColorSystem.n600
-          ),
+      return Text(
+        '${listing.distanceFromUser!.round()} Kilometers away',
+        style: TTypography.label12Regular.copyWith(color: TColorSystem.n600
         ),
       );
     }

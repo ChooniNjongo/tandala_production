@@ -5,6 +5,7 @@ import '../../../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../../../common/widgets/shimmers/vertical_product_shimmer.dart';
 import '../../../../../../utils/constants/color_system.dart';
 import '../../../../../../utils/constants/typography.dart';
+import '../../../../../../utils/device/device_utility.dart';
 import '../../../../controllers/property_controller.dart';
 
 class BodySlivers extends StatelessWidget {
@@ -13,19 +14,17 @@ class BodySlivers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final propertyController = Get.put(ListingsController());
+    final isMobile = TDeviceUtils.isMobileScreen(context);
     return SliverList(
       delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
         return Obx(() {
           if (propertyController.isLoading.value) {
             return Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 12,
-                vertical: 32,
-              ),
+              padding: const EdgeInsets.symmetric(vertical: 32),
               child: TGridLayout(
-                crossAxisCount: 1,
-                mainAxisExtent: 380,
-                itemCount: 8,
+                crossAxisCount: isMobile ? 1 : 3,
+                mainAxisExtent: 340,
+                itemCount: 12,
                 itemBuilder: (_, index) => const TVerticalProductShimmer(),
               ),
             );
@@ -43,15 +42,16 @@ class BodySlivers extends StatelessWidget {
           }
 
           return Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 12,
+            padding: EdgeInsets.symmetric(
+              horizontal: isMobile ? 12 : 40,
               vertical: 32,
             ),
             child: TGridLayout(
-              crossAxisCount: 1,
-              mainAxisExtent: 412,
+              crossAxisCount: isMobile ? 1 : 3,
+              mainAxisExtent: 360,
               itemCount: propertyController.listings.length,
-              itemBuilder: (_, index) => PropertyCardMobile(
+              itemBuilder:
+                  (_, index) => PropertyCardMobile(
                 listing: propertyController.listings[index],
               ),
             ),

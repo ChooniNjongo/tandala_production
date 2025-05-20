@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/mobile/animated_drawer.dart';
 import '../widgets/mobile/home_content.dart';
 
 class HomeMobileScreen extends StatelessWidget {
@@ -6,6 +7,6 @@ class HomeMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomeContent();
+    return AnimatedDrawer(child: const HomeContent());
   }
 }

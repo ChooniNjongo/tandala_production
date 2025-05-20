@@ -1,28 +1,37 @@
-import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
-import 'package:cwt_ecommerce_admin_panel/utils/constants/typography.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../../../common/widgets/booking_stage/booking_stage.dart';
 import '../../../../../../common/widgets/cards/ratings/rating_indicator.dart';
 import '../../../../../../common/widgets/containers/rounded_container.dart';
-import '../../../../../../common/widgets/input_fields/input_field.dart';
 import '../../../../../../common/widgets/question_container/question_container.dart';
 import '../../../../../../common/widgets/selection/circular_count_select.dart';
+import '../../../../../../utils/constants/enums.dart';
 import '../../../../../../utils/constants/sizes.dart';
 import '../../../../../../utils/validators/validation.dart';
 import '../../../../controllers/review_controller.dart';
+import '../../../../models/booking/booking.dart';
 
 class UserReviewSection extends StatelessWidget {
-  const UserReviewSection({super.key});
+  final Booking booking;
+
+  const UserReviewSection({super.key, required this.booking});
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ReviewController());
+    final currentStage = booking.bookingStage;
     return Padding(
       padding: const EdgeInsets.all(0),
       child: Obx(
         () => Column(
           children: [
-            const SizedBox(height: TSizes.spaceBtwSections * 2),
+            BookingStageIndicator(
+              isAvailabilityStage: currentStage == BookingStage.Availability,
+              isPaymentStage: currentStage == BookingStage.Payment,
+              isCheckInStage: currentStage == BookingStage.CheckIn,
+              isReviewStage: currentStage == BookingStage.Review,
+            ),
+            const SizedBox(height: TSizes.spaceBtwSections),
             const QuestionContainer(
               question: 'How was your stay ?',
               body:
@@ -45,8 +54,8 @@ class UserReviewSection extends StatelessWidget {
                         controller: controller.description,
                         keyboardType: TextInputType.multiline,
                         textAlignVertical: TextAlignVertical.top,
-                        validator: (value) => TValidator.validateEmptyText(
-                            'Your Review', value),
+                        validator: (value) =>
+                            TValidator.validateEmptyText('Your Review', value),
                         decoration: const InputDecoration(
                           labelText: 'How was your stay?',
                           hintText: 'Add your Review here...',
@@ -58,12 +67,13 @@ class UserReviewSection extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: TSizes.spaceBtwSections/ 2),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: const QuestionContainer(
+            const SizedBox(height: TSizes.spaceBtwSections / 2),
+            const Padding(
+              padding: EdgeInsets.all(5.0),
+              child: QuestionContainer(
                 question: '',
-                body: 'On a scale of 1 to 5, how would you rate your experience?',
+                body:
+                    'On a scale of 1 to 5, how would you rate your experience?',
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
@@ -102,7 +112,6 @@ class UserReviewSection extends StatelessWidget {
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
             TRatingBarIndicator(rating: controller.rating.value),
-
           ],
         ),
       ),

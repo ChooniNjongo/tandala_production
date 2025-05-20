@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../../../../common/widgets/cards/property_cards/mobile/property_card_mobile.dart';
 import '../../../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../../../common/widgets/shimmers/vertical_product_shimmer.dart';

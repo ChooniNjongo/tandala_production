@@ -1,8 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cwt_ecommerce_admin_panel/common/widgets/icons/t_circular_icon.dart';
 import 'package:flutter/material.dart';
-import '../../../../../../common/widgets/containers/rounded_container.dart';
-import '../../../../../../utils/constants/colors.dart';
 import '../../../../models/property/listing_model.dart';
 
 class MListingImageCard extends StatefulWidget {
@@ -29,14 +27,14 @@ class _MListingImageCardState extends State<MListingImageCard> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.sizeOf(context).height;
-    final double carouselHeight = screenHeight * 0.33;
+    final double carouselHeight = screenHeight * 0.26;
     const double iconSize = 32;
     return Stack(
       children: [
         CarouselSlider.builder(
           carouselController: controller,
           options: CarouselOptions(
-            height: screenHeight * .38,
+            height: screenHeight * .26,
             enableInfiniteScroll: false,
             initialPage: 0,
             viewportFraction: 1,
@@ -96,18 +94,7 @@ class _MListingImageCardState extends State<MListingImageCard> {
                 size: 32,
               )),
         ),
-        Positioned(
-            right: 12,
-            bottom: 12,
-            child: TRoundedContainer(
-              radius: 4,
-              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
-              backgroundColor: TColors.jetBlack.withOpacity(0.5),
-              child: Text(
-                "${activeIndex + 1} / ${imageUrls.length}",
-                style: const TextStyle(color: Colors.white),
-              ),
-            ))
+
       ],
     );
   }

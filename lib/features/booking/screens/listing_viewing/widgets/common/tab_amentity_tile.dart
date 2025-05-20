@@ -1,5 +1,4 @@
 import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
-import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,18 +15,18 @@ class TabAmenityTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16),
+      padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
         children: [
           SvgPicture.asset(
             svgIcon,
             color: TColorSystem.primary300,
-            height: 24,
+            height: 18,
           ),
           const SizedBox(width: TSizes.spaceBtwItems),
           Text(amenityTitle,
-              style: TTypography.label12Regular
-                  .copyWith(color: TColors.textPrimary.withOpacity(1))),
+              style: TTypography.body10Regular
+                  .copyWith(color: TColorSystem.n500)),
         ],
       ),
     );

@@ -1,8 +1,9 @@
-import 'package:cwt_ecommerce_admin_panel/common/widgets/breadcrumbs/breadcrumb.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import '../../../../../../common/widgets/booking_stage/booking_stage.dart';
 import '../../../../../../common/widgets/question_container/question_container.dart';
+import '../../../../../../utils/constants/enums.dart';
 import '../../../../../../utils/constants/image_strings.dart';
 import '../../../../models/booking/booking.dart';
 import '../../../availability_check/widgets/mobile/booked_unit_images.dart';
@@ -13,15 +14,21 @@ class BookingCompletedBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentStage = booking.bookingStage;
     return Column(
       children: [
+        BookingStageIndicator(
+          isAvailabilityStage: currentStage == BookingStage.Availability,
+          isPaymentStage: currentStage == BookingStage.Payment,
+          isCheckInStage: currentStage == BookingStage.CheckIn,
+          isReviewStage: currentStage == BookingStage.Review,),
 
         const QuestionContainer(
           question: "Thank you for using tandala",
           body: "We hope you enjoyed your stay here",
         ),
 
-        SizedBox(height: TSizes.spaceBtwItems,),
+        const SizedBox(height: TSizes.spaceBtwItems,),
         /// Image Container
         BookedUnitImages(booking: booking),
         /// Success Animation

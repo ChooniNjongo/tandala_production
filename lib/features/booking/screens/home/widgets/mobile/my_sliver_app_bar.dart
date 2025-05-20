@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:visibility_detector/visibility_detector.dart';
+import '../../../../../../common/widgets/layouts/headers/mobile_header.dart';
 import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/constants/image_strings.dart';
+import '../../../../controllers/menu_visibility_controller.dart';
 import '../../../../controllers/secondary_filter_controller.dart';
 import '../common/quick_filter_item.dart';
 
@@ -11,20 +14,30 @@ class MySliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final filterController = Get.put(SecondaryFilterController());
-    // GetX MenuController
+    final menuController = Get.put(
+      MenuVisibilityController(),
+    ); // GetX MenuController
     return SliverAppBar(
-      backgroundColor: TColors.primaryBackground,
+      title: VisibilityDetector(
+        key: const Key('mobile-header-key'),
+        onVisibilityChanged: (VisibilityInfo info) {
+          // Update menu icon visibility based on header visibility
+          menuController.menuIconVisible.value = info.visibleFraction > 0.0;
+        },
+
+        child: const MobileHeader(),
+      ),
       automaticallyImplyLeading: false,
       // Remove back arrow
       leading: null,
       // Explicitly set leading to null
-      expandedHeight: 80,
+      expandedHeight: 108.0,
       titleSpacing: 0.0,
       floating: true,
       snap: true,
       flexibleSpace: FlexibleSpaceBar(
-        titlePadding: const EdgeInsets.only(top: 4, bottom: 8),
-        expandedTitleScale: 1,
+        titlePadding: const EdgeInsets.only(top: 4),
+        expandedTitleScale: 1.1,
         title: Container(
           color: TColors.primaryBackground,
           child: SingleChildScrollView(
@@ -35,9 +48,10 @@ class MySliverAppBar extends StatelessWidget {
                 children: [
                   // Swimming Filter
                   SecondaryFilterItem(
-                    onTap: () => filterController.onFilterItemTapped(
-                      filterController.hasSwimmingPool,
-                    ),
+                    onTap:
+                        () => filterController.onFilterItemTapped(
+                          filterController.hasSwimmingPool,
+                        ),
                     isActive: filterController.hasSwimmingPool.value,
                     activeIcon: TImages.swimming_active,
                     inactiveIcon: TImages.swimming_inactive,
@@ -46,9 +60,10 @@ class MySliverAppBar extends StatelessWidget {
                   ),
                   // Bed & Breakfast Filter
                   SecondaryFilterItem(
-                    onTap: () => filterController.onFilterItemTapped(
-                      filterController.hasBedNBreakfast,
-                    ),
+                    onTap:
+                        () => filterController.onFilterItemTapped(
+                          filterController.hasBedNBreakfast,
+                        ),
                     isActive: filterController.hasBedNBreakfast.value,
                     activeIcon: TImages.breakfastActive,
                     inactiveIcon: TImages.breakfastInactive,
@@ -57,9 +72,10 @@ class MySliverAppBar extends StatelessWidget {
                   ),
                   // Boat Filter
                   SecondaryFilterItem(
-                    onTap: () => filterController.onFilterItemTapped(
-                      filterController.hasBoat,
-                    ),
+                    onTap:
+                        () => filterController.onFilterItemTapped(
+                          filterController.hasBoat,
+                        ),
                     isActive: filterController.hasBoat.value,
                     activeIcon: TImages.boat_active,
                     inactiveIcon: TImages.boat_inactive,
@@ -68,9 +84,10 @@ class MySliverAppBar extends StatelessWidget {
                   ),
                   // Waterfront Filter
                   SecondaryFilterItem(
-                    onTap: () => filterController.onFilterItemTapped(
-                      filterController.hasWaterfront,
-                    ),
+                    onTap:
+                        () => filterController.onFilterItemTapped(
+                          filterController.hasWaterfront,
+                        ),
                     isActive: filterController.hasWaterfront.value,
                     activeIcon: TImages.waterfrontActive,
                     inactiveIcon: TImages.waterfront_inactive,
@@ -79,9 +96,10 @@ class MySliverAppBar extends StatelessWidget {
                   ),
                   // Countryside Filter
                   SecondaryFilterItem(
-                    onTap: () => filterController.onFilterItemTapped(
-                      filterController.hasCountryside,
-                    ),
+                    onTap:
+                        () => filterController.onFilterItemTapped(
+                          filterController.hasCountryside,
+                        ),
                     isActive: filterController.hasCountryside.value,
                     activeIcon: TImages.countryside_active,
                     inactiveIcon: TImages.countryside_inactive,
@@ -90,9 +108,10 @@ class MySliverAppBar extends StatelessWidget {
                   ),
                   // City Filter
                   SecondaryFilterItem(
-                    onTap: () => filterController.onFilterItemTapped(
-                      filterController.inCity,
-                    ),
+                    onTap:
+                        () => filterController.onFilterItemTapped(
+                          filterController.inCity,
+                        ),
                     isActive: filterController.inCity.value,
                     activeIcon: TImages.city_active,
                     inactiveIcon: TImages.city_inactive,
@@ -101,9 +120,10 @@ class MySliverAppBar extends StatelessWidget {
                   ),
                   // Balcony Filter
                   SecondaryFilterItem(
-                    onTap: () => filterController.onFilterItemTapped(
-                      filterController.hasBalcony,
-                    ),
+                    onTap:
+                        () => filterController.onFilterItemTapped(
+                          filterController.hasBalcony,
+                        ),
                     isActive: filterController.hasBalcony.value,
                     activeIcon: TImages.balconyActive,
                     inactiveIcon: TImages.balconyInactive,
@@ -112,9 +132,10 @@ class MySliverAppBar extends StatelessWidget {
                   ),
                   // Party Filter
                   SecondaryFilterItem(
-                    onTap: () => filterController.onFilterItemTapped(
-                      filterController.hasParty,
-                    ),
+                    onTap:
+                        () => filterController.onFilterItemTapped(
+                          filterController.hasParty,
+                        ),
                     isActive: filterController.hasParty.value,
                     activeIcon: TImages.party_active,
                     inactiveIcon: TImages.party_inactive,
@@ -123,9 +144,10 @@ class MySliverAppBar extends StatelessWidget {
                   ),
                   // Cabin Filter
                   SecondaryFilterItem(
-                    onTap: () => filterController.onFilterItemTapped(
-                      filterController.hasCabin,
-                    ),
+                    onTap:
+                        () => filterController.onFilterItemTapped(
+                          filterController.hasCabin,
+                        ),
                     isActive: filterController.hasCabin.value,
                     activeIcon: TImages.cabin_active,
                     inactiveIcon: TImages.cabin_inactive,
@@ -134,9 +156,10 @@ class MySliverAppBar extends StatelessWidget {
                   ),
                   // Camping Filter
                   SecondaryFilterItem(
-                    onTap: () => filterController.onFilterItemTapped(
-                      filterController.hasCamping,
-                    ),
+                    onTap:
+                        () => filterController.onFilterItemTapped(
+                          filterController.hasCamping,
+                        ),
                     isActive: filterController.hasCamping.value,
                     activeIcon: TImages.campingActive,
                     inactiveIcon: TImages.camping_inactive,
@@ -145,9 +168,10 @@ class MySliverAppBar extends StatelessWidget {
                   ),
                   // Conference Filter
                   SecondaryFilterItem(
-                    onTap: () => filterController.onFilterItemTapped(
-                      filterController.hasConference,
-                    ),
+                    onTap:
+                        () => filterController.onFilterItemTapped(
+                          filterController.hasConference,
+                        ),
                     isActive: filterController.hasConference.value,
                     activeIcon: TImages.conference_active,
                     inactiveIcon: TImages.conference_inactive,

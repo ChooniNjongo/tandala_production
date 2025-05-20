@@ -444,6 +444,7 @@ class TTestListings {
       propertyName: "Protea Hotel",
       listingCategory: ListingCategory.MultiHost,
       hostName: "",
+      summary: 'backgroundColor',
       description:
           """We are taking extra care to disinfect your space due to COVID-19.
 What guests say about 58 On Hume…
@@ -487,6 +488,7 @@ The service and hospitality exceeds most hotels by far and rooms are exactly as"
       listingCategory: ListingCategory.MultiHost,
       propertyType: PropertyType.Apartment,
       hostName: "Ajay",
+      summary: "sdfs",
       description:
           "My name is Ajay. I own this lovely Holiday home in Livingstone",
       userId: "bsCY8sl14rZ3ujiOsEipdVF2gdu1",
@@ -525,6 +527,7 @@ The service and hospitality exceeds most hotels by far and rooms are exactly as"
       listingCategory: ListingCategory.MultiHost,
       propertyType: PropertyType.Apartment,
       hostName: "",
+      summary: "sddsf",
       description: "The heart of Serenje town",
       userId: "bsCY8sl14rZ3ujiOsEipdVF2gdu1",
       dateTimePublished: DateTime.now(),
@@ -555,6 +558,7 @@ The service and hospitality exceeds most hotels by far and rooms are exactly as"
       numberOfReviews: 9, listOfAmenities: [],
     ),
     ListingModel(
+      summary: "sf",
       listingId: "4",
       // Name & Own Info
       propertyName: "James's Home",
@@ -598,6 +602,7 @@ The service and hospitality exceeds most hotels by far and rooms are exactly as"
       propertyType: PropertyType.Apartment,
       hostName: "",
       description: "Lovely city views await your arrival",
+      summary: "sddsfs",
       userId: "bsCY8sl14rZ3ujiOsEipdVF2gdu1",
       dateTimePublished: DateTime.now(),
       businessType: Owner.Business,
@@ -633,6 +638,7 @@ The service and hospitality exceeds most hotels by far and rooms are exactly as"
       listingCategory: ListingCategory.MultiHost,
       propertyType: PropertyType.Apartment,
       hostName: "",
+      summary: "sdsdfs",
       description: "Lovely city views await your arrival",
       userId: "bsCY8sl14rZ3ujiOsEipdVF2gdu1",
       dateTimePublished: DateTime.now(),
@@ -669,6 +675,7 @@ The service and hospitality exceeds most hotels by far and rooms are exactly as"
       listingCategory: ListingCategory.MultiHost,
       propertyType: PropertyType.Apartment,
       hostName: "James",
+      summary: "sdfsdf",
       description:
           "My name is Ajay. I own this lovely Holiday home in Livingstone",
       userId: "bsCY8sl14rZ3ujiOsEipdVF2gdu1",
@@ -705,6 +712,7 @@ The service and hospitality exceeds most hotels by far and rooms are exactly as"
       listingCategory: ListingCategory.MultiHost,
       propertyType: PropertyType.Apartment,
       hostName: "James",
+      summary: "Sdfsdf",
       description:
           "My name is Ajay. I own this lovely Holiday home in Livingstone",
       userId: "bsCY8sl14rZ3ujiOsEipdVF2gdu1",
@@ -741,6 +749,7 @@ The service and hospitality exceeds most hotels by far and rooms are exactly as"
       listingCategory: ListingCategory.MultiHost,
       propertyType: PropertyType.Apartment,
       hostName: "",
+      summary: "Sdfsdf",
       description: "The heart of Serenje town",
       userId: "bsCY8sl14rZ3ujiOsEipdVF2gdu1",
       dateTimePublished: DateTime.now(),
@@ -778,6 +787,7 @@ The service and hospitality exceeds most hotels by far and rooms are exactly as"
       propertyType: PropertyType.Apartment,
       hostName: "",
       description: "The heart of Serenje town",
+      summary: "SDfsdf",
       userId: "bsCY8sl14rZ3ujiOsEipdVF2gdu1",
       dateTimePublished: DateTime.now(),
       businessType: Owner.Business,
@@ -813,6 +823,7 @@ The service and hospitality exceeds most hotels by far and rooms are exactly as"
       listingCategory: ListingCategory.MultiHost,
       propertyType: PropertyType.Apartment,
       hostName: "Ajay",
+      summary: "SDFSDf",
       description:
           "My name is Ajay. I own this lovely Holiday home in Livingstone",
       userId: "bsCY8sl14rZ3ujiOsEipdVF2gdu1",
@@ -851,6 +862,7 @@ The service and hospitality exceeds most hotels by far and rooms are exactly as"
       listingCategory: ListingCategory.MultiHost,
       propertyType: PropertyType.Apartment,
       hostName: "Ajay",
+      summary: "DSFsdf",
       description:
           "My name is Ajay. I own this lovely Holiday home in Livingstone",
       userId: "bsCY8sl14rZ3ujiOsEipdVF2gdu1",

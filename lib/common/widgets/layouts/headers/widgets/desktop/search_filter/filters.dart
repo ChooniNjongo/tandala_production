@@ -1,6 +1,8 @@
+import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/headers/widgets/desktop/search_filter/price_filter_section.dart';
 import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/headers/widgets/desktop/search_filter/property_rules_filter.dart';
 import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/headers/widgets/desktop/search_filter/sort_by.dart';
 import 'package:flutter/material.dart';
+
 import '../../../../../../../common/widgets/containers/rounded_container.dart';
 import 'amenities_filter.dart';
 import 'filter_divider.dart';
@@ -54,14 +56,14 @@ class _FiltersState extends State<Filters> {
                 FilterDivider(),
                 ListingTypeFilter(),
                 FilterDivider(),
-/*                PriceFilterSection(),
-                FilterDivider(),*/
+                PriceFilterSection(),
+                FilterDivider(),
                 ImportantCountsFilterSection(),
                 FilterDivider(),
                 AmenitiesFilter(),
                 FilterDivider(),
                 PropertyRulesFilter(),
-
+                FilterDivider(),
               ],
             ),
           ),

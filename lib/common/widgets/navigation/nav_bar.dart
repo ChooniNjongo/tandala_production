@@ -1,6 +1,6 @@
+import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/sidebars/sidebar_controller.dart';
 import 'package:cwt_ecommerce_admin_panel/common/widgets/navigation/widgets/svg_nav_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../features/booking/controllers/booking_controller.dart';
 import '../../../routes/routes.dart';
@@ -15,6 +15,7 @@ class NavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final navController = Get.put(NavigationController());
     final bookingController = Get.put(BookingController());
+    final sidebarController = Get.put(SidebarController());
 
     return Obx(
       () => NavigationBarTheme(
@@ -51,19 +52,19 @@ class NavBar extends StatelessWidget {
               navController.selectedIndex.value = index;
               switch (index) {
                 case 0:
-                  Get.toNamed(TRoutes.places);
+                  sidebarController.menuOnTap(TRoutes.places);
                   break;
                 case 1:
-                  Get.toNamed(TRoutes.wishlist);
+                  sidebarController.menuOnTap(TRoutes.wishlist);
                   break;
                 case 2:
-                  Get.toNamed(TRoutes.listingStage);
+                  sidebarController.menuOnTap(TRoutes.createListing);
                   break;
                 case 3:
-                  Get.toNamed(TRoutes.bookings);
+                  sidebarController.menuOnTap(TRoutes.activeBookings);
                   break;
                 case 4:
-                  Get.toNamed(TRoutes.messages);
+                  sidebarController.menuOnTap(TRoutes.messages);
                   break;
               }
             },
@@ -73,48 +74,40 @@ class NavBar extends StatelessWidget {
               NavigationDestination(
                 icon: SvgNavIcon(
                   navIcon: TImages.home,
-                  isSelected: navController.selectedIndex.value == 0,
+                  isSelected: sidebarController.activeItem.value == TRoutes.places,
                 ),
                 label: "Home",
               ),
               NavigationDestination(
                 icon: SvgNavIcon(
                   navIcon: TImages.heart,
-                  isSelected: navController.selectedIndex.value == 1,
+                  isSelected: sidebarController.activeItem.value == TRoutes.wishlist,
                 ),
                 label: "Wishlist",
               ),
-              GestureDetector(
-                onTap: () {
-                  navController.selectedIndex.value = 2;
-                  Get.toNamed(TRoutes.listingStage);
-                },
-                child: Container(
-                  width: 40, // Adjusted width for a smaller circle
-                  height: 40, // Adjusted height for a smaller circle
+
+              NavigationDestination(
+                icon: Container(
+                  width: 40, // Make sure width and height are equal to ensure a perfect circle
+                  height: 40,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color:
-                          navController.selectedIndex.value == 2
-                              ? TColorSystem.primary500
-                              : TColorSystem.n700,
-                      width: 1,
+                      color:  sidebarController.activeItem.value == TRoutes.createListing? TColors.primary: TColorSystem.n700, // Change to your preferred color
+                      width: 0.8, // Change to your preferred border width
                     ),
                   ),
-                  child: Center(
-                    child: SvgPicture.asset(
-                      TImages.plusCircle,
-                      color:
-                          navController.selectedIndex.value == 2
-                              ? TColorSystem.primary500
-                              : TColorSystem.n700,
-                      height: 24, // Reduced icon size
-                      width: 24, // Reduced icon size
+                  child: Center( // Center the icon inside the circle
+                    child: SvgNavIcon(
+                      navIcon: TImages.plusCircle,
+                      isSelected: sidebarController.activeItem.value == TRoutes.createListing,
                     ),
                   ),
                 ),
+                label: "",
               ),
+
+
               NavigationDestination(
                 icon: SvgNavIcon(
                   notificationCount:
@@ -122,16 +115,16 @@ class NavBar extends StatelessWidget {
                   notificationColor: TColors.success,
                   count: true,
                   navIcon: TImages.shoppingBag,
-                  isSelected: navController.selectedIndex.value == 3,
+                  isSelected: sidebarController.activeItem.value == TRoutes.bookingsHistory,
                 ),
                 label: "Bookings",
               ),
               NavigationDestination(
                 icon: SvgNavIcon(
-                  notificationCount: 3,
+                  notificationCount: 0,
                   count: true,
                   navIcon: TImages.messageCircle,
-                  isSelected: navController.selectedIndex.value == 4,
+                  isSelected: sidebarController.activeItem.value == TRoutes.messages,
                 ),
                 label: "Messages",
               ),

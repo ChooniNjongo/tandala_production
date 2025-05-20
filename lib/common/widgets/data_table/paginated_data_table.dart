@@ -18,7 +18,7 @@ class TPaginatedDataTable extends StatelessWidget {
     this.tableHeight = 760,
     this.onPageChanged,
     this.sortColumnIndex,
-    this.dataRowHeight = TSizes.xl * 2,
+    this.dataRowHeight = TSizes.md * 2,
     this.sortAscending = true,
     this.minWidth = 1000,
   });
@@ -57,7 +57,7 @@ class TPaginatedDataTable extends StatelessWidget {
       child: Theme(
         data: Theme.of(context).copyWith(
           cardTheme: const CardTheme(
-            color: TColors.secondaryBackground2,
+            color: TColors.primaryBackground,
             elevation: 2,
           ),
           iconButtonTheme: IconButtonThemeData(
@@ -71,10 +71,10 @@ class TPaginatedDataTable extends StatelessWidget {
 
           /// COLUMNS & ROWS
           columns: columns,
-          columnSpacing: 12,
+          columnSpacing: 4,
           minWidth: minWidth,
           dividerThickness: 0,
-          horizontalMargin: 12,
+          horizontalMargin: 4,
           rowsPerPage: rowsPerPage,
           dataRowHeight: dataRowHeight,
 
@@ -90,11 +90,11 @@ class TPaginatedDataTable extends StatelessWidget {
           /// HEADER DESIGN
           headingTextStyle: Theme.of(context).textTheme.titleMedium,
           headingRowColor: WidgetStateProperty.resolveWith(
-                  (states) => TColors.secondaryBackground2),
+                  (states) => TColors.secondaryBackground),
           headingRowDecoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(TSizes.borderRadiusMd),
-              topRight: Radius.circular(TSizes.borderRadiusMd),
+              topLeft: Radius.circular(0),
+              topRight: Radius.circular(0),
             ),
           ),
           empty: const TAnimationLoaderWidget(

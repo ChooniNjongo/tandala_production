@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../features/booking/models/property/listing_model.dart';
 import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/sizes.dart';
 import '../../icons/t_circular_icon.dart';
 
 class PropertyHomeImageSlider extends StatefulWidget {
@@ -39,9 +38,10 @@ class _PropertyHomeImageSliderState extends State<PropertyHomeImageSlider> {
       child: Stack(
         children: [
           Container(
+            height: 400,
             decoration: BoxDecoration(
-              color: TColors.secondaryBackground2,
-              borderRadius: BorderRadius.circular(TSizes.borderRadiusMd), // Circular border radius
+              border: Border.all(color: TColors.iconBorder, width: 0.4),
+              borderRadius: BorderRadius.circular(16), // Circular border radius
             ),
             child: SizedBox(
               child: CarouselSlider.builder(
@@ -54,7 +54,7 @@ class _PropertyHomeImageSliderState extends State<PropertyHomeImageSlider> {
                   enlargeStrategy: CenterPageEnlargeStrategy.height,
                   //enlargeCenterPage: true,
                   autoPlay: false,
-                  height: MediaQuery.of(context).size.height * .35,
+                  height: 400,
                   onPageChanged:
                       (index, reason) => setState(() => activeIndex = index),
                 ),
@@ -63,7 +63,7 @@ class _PropertyHomeImageSliderState extends State<PropertyHomeImageSlider> {
                   return SizedBox(
                     width: double.infinity,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(TSizes.borderRadiusMd),
+                      borderRadius: BorderRadius.circular(12),
                       child: Image.network(imageUrls[index], fit: BoxFit.cover),
                     ),
                   );
@@ -71,7 +71,7 @@ class _PropertyHomeImageSliderState extends State<PropertyHomeImageSlider> {
               ),
             ),
           ),
-          Positioned(bottom: 24, right: 0,left: 0, child: Center(child: buildIndicator())),
+          Positioned(bottom: 24, right: 136, child: buildIndicator()),
           Visibility(
             visible: widget.isHovering && activeIndex != imageUrls.length - 1,
             child: Positioned(

@@ -1,9 +1,6 @@
-import 'package:cwt_ecommerce_admin_panel/common/widgets/cards/property_cards/mobile/widgets/listing_distance.dart';
-import 'package:cwt_ecommerce_admin_panel/common/widgets/cards/property_cards/mobile/widgets/listing_name_and_city.dart';
-import 'package:cwt_ecommerce_admin_panel/common/widgets/cards/property_cards/mobile/widgets/listing_price.dart';
-import 'package:cwt_ecommerce_admin_panel/common/widgets/cards/property_cards/mobile/widgets/listing_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import '../../../../../features/booking/controllers/location_controller.dart';
 import '../../../../../features/booking/controllers/property_controller.dart';
 import '../../../../../features/booking/models/property/listing_model.dart';
@@ -43,43 +40,146 @@ class PropertyCardMobile extends StatelessWidget {
               PropertyHomeImageSlider(property: listing),
 
               /// Favorite Icon Button with hover effect
-              FavoriteIcon(
-                propertyId: listing.listingId!,
-              ),
+              Positioned(
+                  top: 4,
+                  right: 2,
+                  child: FavoriteIcon(
+                    propertyId: listing.listingId!,
+                  )),
             ],
           ),
         ),
         const SizedBox(height: TSizes.spaceBtwItems),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Property Name
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ListingName(listing: listing),
-                if (listing.rating != 0.0) ListingRating(listing: listing),
-              ],
-            ),
-            const SizedBox(height: TSizes.spaceBtwItems / 4),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: Row(
+        SizedBox(
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              /// Property Name and city
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    listing.city,
-                    style: TTypography.body12Regular.copyWith(color: TColorSystem.n400),
+                  RichText(
+                    text: TextSpan(
+                      children: <InlineSpan>[
+                        TextSpan(
+                          text: listing.propertyName,
+                          style: TTypography.body12Bold.copyWith(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 12,
+                            color: TColorSystem.white,
+                          ),
+                        ),
+                        TextSpan(
+                          text: ", ",
+                          style: TTypography.body12Bold.copyWith(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            color: TColorSystem.white,
+                          ),
+                        ),
+                        TextSpan(
+                          text: "${listing.city}.",
+                          style: TTypography.body12Bold.copyWith(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            color: TColorSystem.white,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  ListingDistance(listing: listing),
+
+                  /// Rating
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Visibility(
+                        visible: true,
+                        child: Icon(
+                          Iconsax.star4,
+                          color: TColors.textSecondary,
+                          size: 10,
+                        ),
+                      ),
+                      const SizedBox(width: TSizes.spaceBtwItems / 4),
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: listing.rating.toString(),
+                              style: TTypography.label12Bold.copyWith(
+                                fontSize: 10,
+                                color: TColors.textSecondary,
+                              ),
+                            ),
+                            //   TextSpan(text: property.rating.toString() != 0.0.toString() ? property.rating.toString(): "",style: Theme.of(context).textTheme.labelMedium)
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
-            ),
-            const SizedBox(height: TSizes.spaceBtwItems / 4),
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: ListingPrice(listing: listing),
-            ),
-          ],
+
+              const SizedBox(height: TSizes.spaceBtwItems / 2),
+
+              /// Distance from user
+              if (listing.distanceFromUser != null)
+                Text(
+                  '${listing.distanceFromUser!.round()} Kilometers away',
+                  style: TTypography.body12Regular.copyWith(
+                    fontSize: 10,
+                    color: TColors.textSecondary,
+                  ),
+                ),
+
+              if (listing.distanceFromUser == null)
+                GestureDetector(
+                  onTap: () async {
+                    await locationController.getLocation();
+                    listingsController.searchListings();
+                  },
+                  child: Text(
+                    'See distance',
+                    style: TTypography.body12Regular.copyWith(
+                      fontSize: 10,
+                      color: TColors.textSecondary,
+                    ),
+                  ),
+                ),
+
+              /// Price and Rating
+              RichText(
+                text: TextSpan(
+                  children: <InlineSpan>[
+                    TextSpan(
+                      text: 'Starting at',
+                      style: TTypography.body12Regular.copyWith(
+                        fontSize: 10,
+                        color: TColors.textSecondary,
+                      ),
+                    ),
+                    TextSpan(
+                      text:
+                          ' K${listing.startingRoomPrice.toInt().toString()} ',
+                      style: TTypography.h5.copyWith(
+                        fontSize: 10,
+                        color: TColors.textSecondary,
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'night',
+                      style: TTypography.body12Regular.copyWith(
+                        fontSize: 10,
+                        color: TColors.textSecondary,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );

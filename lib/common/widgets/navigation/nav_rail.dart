@@ -47,7 +47,7 @@ class NavRail extends StatelessWidget {
               Get.toNamed(TRoutes.places);
             }
             if (index == 1) {
-              Get.toNamed(TRoutes.bookings);
+              Get.toNamed(TRoutes.bookingsHistory);
             }
 
             if (index == 2) {

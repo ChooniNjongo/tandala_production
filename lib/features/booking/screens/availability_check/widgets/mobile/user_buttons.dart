@@ -16,8 +16,7 @@ class UserButtons extends StatelessWidget {
     final controller = BookingController.instance;
     return ButtonContainer(
       button1: TTextButton(
-        icon: Icons.cancel_outlined,
-        showIcon: true,
+
         onPressed: () {
           showDialog(
             context: context,
