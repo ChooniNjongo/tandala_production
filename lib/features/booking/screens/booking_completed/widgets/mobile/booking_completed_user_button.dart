@@ -1,29 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../../common/widgets/button_container/button_container.dart';
 import '../../../../../../routes/routes.dart';
-import '../../../../../../utils/constants/sizes.dart';
 import '../../../../models/booking/booking.dart';
+import '../../../../../../common/widgets/containers/rounded_container.dart';
 
-class BookingCompletedUserButtons extends StatelessWidget {
+class BookingCompletedUserBottomNavigationButtons extends StatelessWidget {
   final Booking booking;
 
-  const BookingCompletedUserButtons({super.key, required this.booking});
+  const BookingCompletedUserBottomNavigationButtons({
+    super.key,
+    required this.booking,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return ButtonContainer(
-      button1: const SizedBox(),
-      button2: SizedBox(
-        width: TSizes.buttonWidth,
-        child: ElevatedButton(
-          onPressed: () {
-            Get.toNamed(
-              TRoutes.places,
-            );
-          },
-          child: const Text('See Places'),
-        ),
+    return TRoundedContainer(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 160,
+            child: ElevatedButton(
+              onPressed: () {
+                Get.toNamed(
+                  TRoutes.places,
+                );
+              },
+              child: const Text('See Places'),
+            ),
+          ),
+        ],
       ),
     );
   }

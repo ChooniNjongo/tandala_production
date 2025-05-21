@@ -51,8 +51,8 @@ class PageSectionHeader extends StatelessWidget {
         Text(
           headerLabel,
           style: small
-              ? TTypography.h4.copyWith(color: TColorSystem.n200)
-              : TTypography.h3.copyWith(color: TColorSystem.n200),
+              ? TTypography.h5.copyWith(color: TColorSystem.n400)
+              : TTypography.h5.copyWith(color: TColorSystem.n400),
         ),
         // Conditionally render Icon, Text Button, or Header Action Icon
         if (useIcon)
@@ -88,7 +88,7 @@ class PageSectionHeader extends StatelessWidget {
               ),
               SvgPicture.asset(
                 TImages.chevronRight,
-                color: TColorSystem.n200,
+                color: TColorSystem.n400,
                 height: 20,
               ),
             ],

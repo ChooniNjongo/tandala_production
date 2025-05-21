@@ -1,6 +1,5 @@
 import 'package:cwt_ecommerce_admin_panel/data/repositories/authentication/authentication_repository.dart';
 import 'package:flutter/material.dart';
-import '../../../../../common/pages/action.dart';
 import '../../../models/booking/booking.dart';
 import '../widgets/mobile/cancelled_booking_body.dart';
 import '../widgets/mobile/cancelled_booking_owner_buttons.dart';
@@ -14,12 +13,12 @@ class CancelledBookingMobileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final uid = AuthenticationRepository.instance.authUser!.uid;
-    return ActionPage(
+    return Scaffold(
       body: CancelledBookingBody(booking: booking),
-      buttonContainer:
+      bottomNavigationBar:
           uid == booking.listing.userId
-              ? CancelledBookingOwnerButtons(booking: booking)
-              : CancelledBookingUserButtons(booking: booking),
+              ? CancelledBookingOwnerBottomNavigationButtons(booking: booking)
+              : CancelledBookingUserBottomNavigationButtons(booking: booking),
     );
   }
 }

@@ -48,7 +48,7 @@ class BodySlivers extends StatelessWidget {
             ),
             child: TGridLayout(
               crossAxisCount: isMobile ? 1 : 3,
-              mainAxisExtent: 360,
+              mainAxisExtent: 352,
               itemCount: propertyController.listings.length,
               itemBuilder:
                   (_, index) => PropertyCardMobile(

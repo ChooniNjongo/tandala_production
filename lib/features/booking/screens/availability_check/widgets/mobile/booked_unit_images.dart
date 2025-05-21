@@ -78,11 +78,11 @@ class BookingDetailsItem extends StatelessWidget {
       width: 240,
       child: Row(
         children: [
-          Expanded(child: Text(bookingDetailTitle, style: TTypography.label12Bold.copyWith(color: TColorSystem.n400))),
+          Expanded(child: Text(bookingDetailTitle, style: TTypography.body10Bold.copyWith(color: TColorSystem.n500))),
           Expanded(
               child: Text(
                 bookingDetailInfo,
-            style: TTypography.body12Regular.copyWith(color: TColorSystem.primary500),
+            style: TTypography.body12Regular.copyWith(color: TColorSystem.n400)
           )),
         ],
       ),

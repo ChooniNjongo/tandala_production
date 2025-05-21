@@ -1,22 +1,34 @@
 import 'package:flutter/material.dart';
-import '../../../../../../common/widgets/button_container/button_container.dart';
-import '../../../../../../common/widgets/buttons/t_text_button.dart';
 import '../../../../controllers/booking_controller.dart';
 import '../../../../models/booking/booking.dart';
 
-class OwnerReviewButtons extends StatelessWidget {
+
+import '../../../../../../common/widgets/containers/rounded_container.dart';
+
+class OwnerReviewBottomNavigationButtons extends StatelessWidget {
   final Booking booking;
-  const OwnerReviewButtons({super.key, required this.booking});
+
+  const OwnerReviewBottomNavigationButtons({
+    super.key,
+    required this.booking,
+  });
 
   @override
   Widget build(BuildContext context) {
     final controller = BookingController.instance;
-    return const ButtonContainer(
-      button1: TTextButton(
-        label: 'Report',
-        labelColor: Colors.red,
+    return TRoundedContainer(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          // Discard button
+          OutlinedButton(
+            onPressed: () {
+              // Add functionality to discard changes if needed
+            },
+            child: const Text('Report'),
+          ),
+        ],
       ),
-      button2: SizedBox(),
     );
   }
 }

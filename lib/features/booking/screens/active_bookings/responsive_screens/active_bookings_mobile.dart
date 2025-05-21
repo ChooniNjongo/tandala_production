@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../common/pages/action.dart';
 import '../../bookings_history/widgets/mobile/body.dart';
 
 class ActiveBookingsMobile extends StatelessWidget {
@@ -8,7 +7,7 @@ class ActiveBookingsMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ActionPage(
+    return const Scaffold(
       body: BookingsBody(),
     );
   }

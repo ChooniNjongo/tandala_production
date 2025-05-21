@@ -1,6 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cwt_ecommerce_admin_panel/common/widgets/icons/t_circular_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
+import '../../../../../../common/widgets/containers/rounded_container.dart';
+import '../../../../../../utils/constants/color_system.dart';
+import '../../../../../../utils/constants/colors.dart';
 import '../../../../models/property/listing_model.dart';
 
 class MListingImageCard extends StatefulWidget {
@@ -20,21 +25,20 @@ class _MListingImageCardState extends State<MListingImageCard> {
   @override
   void initState() {
     super.initState();
-    //................ In Final Don't Show all the Images instead select three from aerial ,3 from each room..................
     imageUrls = widget.listing.getAllImages();
   }
 
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.sizeOf(context).height;
-    final double carouselHeight = screenHeight * 0.26;
+    final double carouselHeight = screenHeight * 0.38;
     const double iconSize = 32;
     return Stack(
       children: [
         CarouselSlider.builder(
           carouselController: controller,
           options: CarouselOptions(
-            height: screenHeight * .26,
+            height: 320,
             enableInfiniteScroll: false,
             initialPage: 0,
             viewportFraction: 1,
@@ -94,7 +98,29 @@ class _MListingImageCardState extends State<MListingImageCard> {
                 size: 32,
               )),
         ),
-
+        Positioned(
+            right: 12,
+            bottom: 12,
+            child: TRoundedContainer(
+              radius: 4,
+              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+              backgroundColor: TColors.jetBlack.withOpacity(0.5),
+              child: Text(
+                "${activeIndex + 1} / ${imageUrls.length}",
+                style: const TextStyle(color: Colors.white),
+              ),
+            )),
+        Positioned(
+          top: 24,
+          left: 24,
+          child: IconButton(
+            onPressed: () => Get.back(),
+            icon: const Icon(
+              Iconsax.arrow_left,
+              color: TColorSystem.n100,
+            ),
+          ),
+        ),
       ],
     );
   }

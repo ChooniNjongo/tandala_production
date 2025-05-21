@@ -17,11 +17,14 @@ class TRoomPreviewCard extends StatelessWidget {
     return Stack(
       children: [
         SizedBox(
-          height: MediaQuery.sizeOf(context).width / 2.4 - 32.0,
-          width: MediaQuery.sizeOf(context).width / 2.4,
-          child: Image.network(
-            room.bedAndBashBoardPictures[0],
-            fit: BoxFit.cover,
+          height: MediaQuery.sizeOf(context).width / 2,
+          width: MediaQuery.sizeOf(context).width / 2,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.network(
+              room.bedAndBashBoardPictures[0],
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         Positioned(

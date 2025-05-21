@@ -1,9 +1,12 @@
+import 'package:cwt_ecommerce_admin_panel/common/widgets/texts/section_heading.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
+import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/typography.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../common/widgets/cards/property_cards/mobile/widgets/listing_distance.dart';
+import '../../../../../common/widgets/section_headers/page_section_header.dart';
 import '../../../../../routes/routes.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../models/property/listing_model.dart';
@@ -26,128 +29,112 @@ class ListingViewingMobileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 8,
-              ),
-
-              const SizedBox(
-                height: 8,
-              ),
-              Row(
-
-
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    textAlign:TextAlign.start,
-                    listing.propertyName,
-                    style: TTypography.body16Bold.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: TColorSystem.white,
-                    ),
-                  ),
-
-                  Row(
-                    children: [
-                      const Text("Share",style: TTypography.body10Regular,),
-                      IconButton(onPressed: (){}, icon: const Icon(Icons.share,color: TColorSystem.n100,)),
-                    ],
-                  ),
-
-                ],
-              ),
-
-              /// Listing Image Section with fixed height
-              ListingImageSection(listing: listing, isEditing: isEditing),
-
-              const SizedBox(
-                height: TSizes.spaceBtwSections / 4,
-              ),
-
-              Row(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            /// Listing Image Section with fixed height
+            ListingImageSection(listing: listing, isEditing: isEditing),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 0),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                      child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                  const SizedBox(
+                    height: TSizes.spaceBtwSections / 4,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            textAlign: TextAlign.start,
+                            listing.propertyName + ", ",
+                            style: TTypography.body16Bold.copyWith(
+                              fontWeight: FontWeight.w700,
+                              color: TColorSystem.white,
+                            ),
+                          ),
+                          ListingNameLocation(listing: listing),
+                        ],
+                      ),
 
-                        ListingNameLocation(listing: listing),
-                        const SizedBox(height: TSizes.spaceBtwItems / 2),
-                        ListingDistance(listing: listing),
-                        const SizedBox(height: TSizes.spaceBtwItems / 2),
-                        Text(
-                          listing.summary,
-                          textAlign: TextAlign.start,
-                          style: TTypography.body10Regular.copyWith(color: TColorSystem.n500),
-                        ),
-                        const SizedBox(height: TSizes.spaceBtwSections * 2),
-                        AmenitiesTabSection(isEditing: isEditing,),
-                      ],
-                    ),
-                  )),
-                  Expanded(
-                    child: Padding(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text("Booking options",style: TTypography.body10Regular,),
-                              ],
-                            ),
-                            const SizedBox(height: TSizes.spaceBtwItems,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: List.generate(
-                                listing.rooms.length,
-                                (index) => Padding(
-                                  padding: EdgeInsets.only(
-                                    bottom: index != listing.rooms.length - 1
-                                        ? TSizes.spaceBtwItems - 8
-                                        : 0,
-                                  ),
-                                  child: GestureDetector(
-                                      onTap: (){ Get.toNamed(TRoutes.roomViewing,arguments: listing.rooms[index]);},
-                                      child: TRoomPreviewCard(room: listing.rooms[index])),
-                                ),
-                              ),
-                            ),
-                          ],
+                      Row(
+                        children: [
+                          const Text(
+                            "Share",
+                            style: TTypography.body10Regular,
+                          ),
+                          IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.share,
+                                color: TColorSystem.n100,
+                              )),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwItems / 2),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      ListingDistance(listing: listing),
+                    ],
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwItems / 2),
+                  const SizedBox(height: TSizes.spaceBtwItems / 2),
+                  Text(
+                    listing.summary,
+                    textAlign: TextAlign.start,
+                    style: TTypography.body10Regular
+                        .copyWith(color: TColorSystem.n500),
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwSections  ),
+                  PageSectionHeader(headerLabel: 'Booking options',useFeaturedHeaderSection: true,small: true,),
+                  const SizedBox(height: TSizes.spaceBtwItems/4 ),
+                  Divider(color: TColors.iconBorder,height: 0.4,),
+                  const SizedBox(height: TSizes.spaceBtwSections ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: List.generate(
+                        listing.rooms.length,
+                        (index) => Padding(
+                          padding: EdgeInsets.only(
+                            right: index != listing.rooms.length - 1
+                                ? TSizes.spaceBtwItems
+                                : 0,
+                          ),
+                          child: GestureDetector(
+                            onTap: () {
+                              Get.toNamed(
+                                TRoutes.roomViewing,
+                                arguments: listing.rooms[index],
+                              );
+                            },
+                            child: TRoomPreviewCard(room: listing.rooms[index]),
+                          ),
                         ),
                       ),
                     ),
                   ),
+
+
+
+
+                  /// Mobile Tab View - full bleed (no padding)
+                  const SizedBox(height: TSizes.spaceBtwSections),
+                  MobileTabView(
+                    listing: listing,
+                    isEditing: isEditing,
+                  ),
                 ],
               ),
-
-
-              /// Mobile Tab View - full bleed (no padding)
-              const SizedBox(height: TSizes.spaceBtwSections),
-              MobileTabView(
-                listing: listing,
-                isEditing: isEditing,
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
   }
 }
-
-

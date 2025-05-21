@@ -161,8 +161,7 @@ class BookingController extends TBaseController<Booking> {
         message: 'Congratulations! Booking request submitted',
       );
       fetchUserBookings();
-      SidebarController.instance.activeItem.value = TRoutes.activeBookings;
-      Get.offAllNamed(TRoutes.activeBookings);
+      Get.toNamed(TRoutes.activeBookings);
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     } finally {

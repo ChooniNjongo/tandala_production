@@ -23,7 +23,7 @@ class ListingImageSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.sizeOf(context).height * 0.26,
+      height: MediaQuery.sizeOf(context).height * 0.33,
       child: Stack(
         fit: StackFit.expand,
         children: [

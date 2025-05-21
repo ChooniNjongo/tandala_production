@@ -5,6 +5,7 @@ import '../../../../models/property/listing_model.dart';
 import '../common/reviews_tab.dart';
 import '../desktop/reviews_tab_desktop.dart';
 import 'about_listing.dart';
+import 'amenities_tab_section.dart';
 import 'map_tab_section.dart';
 
 class MobileTabView extends StatelessWidget {
@@ -42,6 +43,7 @@ class MobileTabView extends StatelessWidget {
               tabs: [
                 Tab(text: "About"),
 
+                Tab(text: "Facilities"),
                 Tab(text: "Reviews"),
                 Tab(text: "Map"),
               ],
@@ -53,6 +55,10 @@ class MobileTabView extends StatelessWidget {
             child: TabBarView(
               children: [
                 AboutListing(listing: listing, isEditing: isEditing,),
+
+                AmenitiesTabSection(
+                  isEditing: isEditing,
+                ),
                 isMobile
                     ? ReviewsTab(listing: listing)
                     : ReviewsTabDesktop(listing: listing),

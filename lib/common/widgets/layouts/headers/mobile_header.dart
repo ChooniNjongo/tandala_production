@@ -84,7 +84,7 @@ class MobileHeader extends StatelessWidget  {
             child: SvgPicture.asset(
               color: TColors.primary,
               TImages.tandalaColor,
-              height: 18,
+              height: 15,
               semanticsLabel: 'Logo',
             ),
           ),

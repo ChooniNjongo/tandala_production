@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../../../common/pages/action.dart';
 import '../../../models/property/listing_model.dart';
 import '../widgets/body.dart';
 
@@ -10,7 +9,7 @@ class RoomSelectionMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ActionPage(
+    return Scaffold(
         body: RoomSelectionBody(
           rooms: listing.rooms,
         ));

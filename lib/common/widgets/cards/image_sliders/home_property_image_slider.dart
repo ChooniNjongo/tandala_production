@@ -38,7 +38,7 @@ class _PropertyHomeImageSliderState extends State<PropertyHomeImageSlider> {
       child: Stack(
         children: [
           Container(
-            height: 400,
+            height: 280,
             decoration: BoxDecoration(
               border: Border.all(color: TColors.iconBorder, width: 0.4),
               borderRadius: BorderRadius.circular(16), // Circular border radius
@@ -54,7 +54,7 @@ class _PropertyHomeImageSliderState extends State<PropertyHomeImageSlider> {
                   enlargeStrategy: CenterPageEnlargeStrategy.height,
                   //enlargeCenterPage: true,
                   autoPlay: false,
-                  height: 400,
+                  height: 280,
                   onPageChanged:
                       (index, reason) => setState(() => activeIndex = index),
                 ),
@@ -71,7 +71,7 @@ class _PropertyHomeImageSliderState extends State<PropertyHomeImageSlider> {
               ),
             ),
           ),
-          Positioned(bottom: 24, right: 136, child: buildIndicator()),
+          Positioned(bottom: 32, right: 0,left: 0, child: Center(child: buildIndicator())),
           Visibility(
             visible: widget.isHovering && activeIndex != imageUrls.length - 1,
             child: Positioned(

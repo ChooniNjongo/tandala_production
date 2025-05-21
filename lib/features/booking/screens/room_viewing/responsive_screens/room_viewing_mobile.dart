@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../common/pages/action.dart';
 import '../../../models/property/room.dart';
-import '../widgets/common/room_viewing_button_contianer.dart';
+import '../widgets/common/roomviewing_bottom_navigation_widget.dart';
 import '../widgets/mobile/body.dart';
 
 class RoomViewingMobileScreen extends StatelessWidget {
@@ -12,9 +11,9 @@ class RoomViewingMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ActionPage(
+    return Scaffold(
       body: RoomViewingBody(room: room),
-      buttonContainer: RoomViewingButtonContainer(room: room),
+      bottomNavigationBar: RoomViewingBottomNavigationButtons(room: room),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../../../common/pages/action.dart';
 import '../../../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../models/booking/booking.dart';
 import '../widgets/mobile/body.dart';
@@ -14,12 +13,12 @@ class PaymentMobileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final uid = AuthenticationRepository.instance.authUser!.uid;
 
-    return ActionPage(
+    return Scaffold(
       body:  PaymentBody(booking: booking,),
-      buttonContainer:
+      bottomNavigationBar:
           uid == booking.listing.userId
-              ? PaymentOwnerButtons(booking: booking)
-              : PaymentUserButtons(booking: booking),
+              ? PaymentOwnerBottomNavigationButtons(booking: booking)
+              : PaymentUserBottomNavigationButtons(booking: booking),
     );
   }
 }
