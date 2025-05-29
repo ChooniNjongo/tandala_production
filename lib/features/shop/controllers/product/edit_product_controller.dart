@@ -1,4 +1,4 @@
-import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/category/category_controller.dart';
+import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/category/city_or_town_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -105,7 +105,7 @@ class EditProductController extends GetxController {
     selectedCategoriesLoader.value = true;
     // Product Categories
     final productCategories = await productRepository.getProductCategories(productId);
-    final categoriesController = Get.put(CategoryController());
+    final categoriesController = Get.put(CityOrTownController());
     if (categoriesController.allItems.isEmpty) await categoriesController.fetchItems();
 
     final categoriesIds = productCategories.map((e) => e.categoryId).toList();

@@ -46,7 +46,7 @@ class TSectionInputList extends StatelessWidget {
         InkWell(
           child: Text(
             seeAllLabel,
-            style: TTypography.label12Bold.copyWith(color: TColorSystem.n200),
+            style: TTypography.label12Regular.copyWith(color: TColorSystem.n500),
           ),
         ),
         const SizedBox(height: TSizes.spaceBtwSections),

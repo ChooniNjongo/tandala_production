@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../../common/widgets/containers/rounded_container.dart';
 import '../../../../../../common/widgets/ratings/progress_indicator_and_rating.dart';
-import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/constants/image_strings.dart';
 import '../../../../../../utils/constants/sizes.dart';
 import '../../../../../../utils/constants/typography.dart';
@@ -16,28 +14,20 @@ class RatingStarRatingBars extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        TRoundedContainer(
-          height: 80,
-          width: 80,
-          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 0),
-          showBorder: true,
-          borderColor: TColors.iconBorder,
-          borderWidth: 1,
-          child: Row(
-            children: [
-              SvgPicture.asset(TImages.ratingStar,
-                  height: 24, semanticsLabel: 'Rating Star'),
-              const SizedBox(width: TSizes.spaceBtwItems / 4),
-              Text(
-                listing.rating.toString(),
-                style:
-                    TTypography.h1.copyWith(color: Colors.white, fontSize: 24),
-              ),
-            ],
-          ),
+        Row(
+          children: [
+            SvgPicture.asset(TImages.ratingStar,
+                height: 24, semanticsLabel: 'Rating Star'),
+            const SizedBox(width: TSizes.spaceBtwItems / 4),
+            Text(
+              listing.rating.toString(),
+              style:
+                  TTypography.h1.copyWith(color: Colors.white, fontSize: 24),
+            ),
+          ],
         ),
         const SizedBox(
           height: TSizes.spaceBtwItems,

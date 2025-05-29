@@ -15,6 +15,7 @@ class TExtensibleHugContentButton extends StatelessWidget {
   final String? rightIcon;
   final bool small;
   final bool isDisabled; // New property
+  final double width; // New property
 
   const TExtensibleHugContentButton({
     super.key,
@@ -29,13 +30,14 @@ class TExtensibleHugContentButton extends StatelessWidget {
     this.rightIcon,
     this.buttonLabelColor = Colors.white,
     this.small = false,
-    this.isDisabled = false, // Default to false
+    this.isDisabled = false,
+    this.width = 160, // Default to false
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: small ? 36 : 48,
+      height: width,
       child: ElevatedButton(
         onPressed: isDisabled ? null : onPressed, // Disable if true
         style: ElevatedButton.styleFrom(

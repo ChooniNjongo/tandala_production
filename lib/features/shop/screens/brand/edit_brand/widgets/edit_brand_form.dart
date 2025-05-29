@@ -10,7 +10,7 @@ import '../../../../../../utils/constants/image_strings.dart';
 import '../../../../../../utils/constants/sizes.dart';
 import '../../../../../../utils/validators/validation.dart';
 import '../../../../controllers/brand/edit_brand_controller.dart';
-import '../../../../controllers/category/category_controller.dart';
+import '../../../../controllers/category/city_or_town_controller.dart';
 import '../../../../models/brand_model.dart';
 
 class EditBrandForm extends StatelessWidget {
@@ -48,7 +48,7 @@ class EditBrandForm extends StatelessWidget {
             const SizedBox(height: TSizes.spaceBtwInputFields / 2),
             Obx(() => Wrap(
                   spacing: TSizes.sm,
-                  children: CategoryController.instance.allItems
+                  children: CityOrTownController.instance.allItems
                       .map(
                         (element) => Padding(
                           padding: const EdgeInsets.only(bottom: TSizes.sm),

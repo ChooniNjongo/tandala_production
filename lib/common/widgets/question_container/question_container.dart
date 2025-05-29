@@ -4,7 +4,6 @@ import '../../../utils/constants/color_system.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/typography.dart';
 
-
 class QuestionContainer extends StatelessWidget {
   final String? question;
   final String? body;
@@ -13,7 +12,8 @@ class QuestionContainer extends StatelessWidget {
   const QuestionContainer({
     super.key,
     this.question,
-    this.body,  this.large = false,
+    this.body,
+    this.large = false,
   });
 
   @override
@@ -25,23 +25,31 @@ class QuestionContainer extends StatelessWidget {
           Text(
             question!,
             textAlign: TextAlign.center,
-            style: large? TTypography.h3.copyWith(
-              color: TColorSystem.n100,
-            ):TTypography.h4.copyWith(
-              color: TColorSystem.n100,
-            ),
+            style: large
+                ? TTypography.h3.copyWith(
+                    color: TColorSystem.n100,
+                  )
+                : TTypography.h4.copyWith(
+                    color: TColorSystem.n100,
+                  ),
           ),
-        const SizedBox(height: TSizes.spaceBtwItems,),
+        const SizedBox(
+          height: TSizes.spaceBtwItems/2,
+        ),
+
         /// If large add space
-        if (large) const SizedBox(height: TSizes.spaceBtwItems,),
+        if (large)
+          const SizedBox(
+            height: TSizes.spaceBtwItems,
+          ),
         if (body != null) // Check if body is not null
           Text(
             body!,
             textAlign: TextAlign.center,
-            style:large? TTypography.body16Regular.copyWith(color: TColorSystem.n400):TTypography.body12Regular.copyWith(color: TColorSystem.n400),
+            style: large
+                ? TTypography.body16Regular.copyWith(color: TColorSystem.n400)
+                : TTypography.body12Regular.copyWith(color: TColorSystem.n400),
           ),
-
-
       ],
     );
   }

@@ -1,5 +1,5 @@
 import 'package:cwt_ecommerce_admin_panel/data/repositories/categories/category_repository.dart';
-import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/category/category_controller.dart';
+import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/category/city_or_town_controller.dart';
 import 'package:cwt_ecommerce_admin_panel/features/shop/models/category_model.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/popups/full_screen_loader.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +23,7 @@ class EditCategoryController extends GetxController {
   /// Init Data
   void init(CategoryModel category) {
     if (category.parentId.isNotEmpty) {
-      selectedParent.value = CategoryController.instance.allItems.where((c) => c.id == category.parentId).single;
+      selectedParent.value = CityOrTownController.instance.allItems.where((c) => c.id == category.parentId).single;
     }
     name.text = category.name;
     isFeatured.value = category.isFeatured;
@@ -83,7 +83,7 @@ class EditCategoryController extends GetxController {
       await CategoryRepository.instance.updateCategory(category);
 
       // Update All Data list
-      CategoryController.instance.updateItemFromLists(category);
+      CityOrTownController.instance.updateItemFromLists(category);
 
       // Reset Form
       resetFields();

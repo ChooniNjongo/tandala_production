@@ -14,7 +14,7 @@ class CheckInMobileScreen extends StatelessWidget {
     final uid = AuthenticationRepository.instance.authUser!.uid;
 
     return Scaffold(
-      body: CheckInBody(booking: booking),
+      body: SingleChildScrollView(child: CheckInBody(booking: booking)),
       bottomNavigationBar:
           uid == booking.listing.userId
               ? CheckInOwnerBottomNavigationButtons(booking: booking)

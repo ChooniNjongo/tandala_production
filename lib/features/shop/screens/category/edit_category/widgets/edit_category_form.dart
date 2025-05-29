@@ -8,7 +8,7 @@ import '../../../../../../utils/constants/enums.dart';
 import '../../../../../../utils/constants/image_strings.dart';
 import '../../../../../../utils/constants/sizes.dart';
 import '../../../../../../utils/validators/validation.dart';
-import '../../../../controllers/category/category_controller.dart';
+import '../../../../controllers/category/city_or_town_controller.dart';
 import '../../../../controllers/category/edit_category_controller.dart';
 import '../../../../models/category_model.dart';
 
@@ -21,7 +21,7 @@ class EditCategoryForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final editController = Get.put(EditCategoryController());
     editController.init(category);
-    final categoryController = Get.put(CategoryController());
+    final categoryController = Get.put(CityOrTownController());
     return TRoundedContainer(
       width: 500,
       padding: const EdgeInsets.all(TSizes.defaultSpace),

@@ -4,7 +4,7 @@ import 'package:cwt_ecommerce_admin_panel/common/widgets/loaders/loader_animatio
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../../utils/constants/sizes.dart';
-import '../../../../controllers/category/category_controller.dart';
+import '../../../../controllers/category/city_or_town_controller.dart';
 import '../table/data_table.dart';
 import '../widgets/table_header.dart';
 
@@ -13,7 +13,7 @@ class CategoriesDesktopScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(CategoryController());
+    final controller = Get.put(CityOrTownController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(

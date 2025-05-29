@@ -1,22 +1,22 @@
-import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../features/booking/controllers/search_filter_controller.dart';
 import '../../../utils/constants/color_system.dart';
+import '../../../utils/helpers/helper_functions.dart';
 import '../containers/rounded_container.dart';
 
 class DropDown2SearchableLocation extends StatefulWidget {
   const DropDown2SearchableLocation({super.key});
 
   @override
-  State<DropDown2SearchableLocation> createState() =>
-      _DropDown2SearchableLocationState();
+  State<DropDown2SearchableLocation> createState() => _DropDown2SearchableLocationState();
 }
 
-class _DropDown2SearchableLocationState
-    extends State<DropDown2SearchableLocation> {
+class _DropDown2SearchableLocationState extends State<DropDown2SearchableLocation> {
+
+
   String? selectedValue;
   final TextEditingController textEditingController = TextEditingController();
 
@@ -28,7 +28,8 @@ class _DropDown2SearchableLocationState
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SearchFilterController());
+    final dark = THelperFunctions.isDarkMode(context);
+    final controller= Get.put(SearchFilterController());
     final List<String> items = controller.citiesAndTownsInZambia;
     return Row(
       children: [
@@ -36,6 +37,7 @@ class _DropDown2SearchableLocationState
           padding: EdgeInsets.zero,
           radius: 4,
           borderColor: TColorSystem.n600,
+          showBorder: true,
           showShadow: false,
           child: DropdownButtonHideUnderline(
             child: DropdownButton2<String>(
@@ -50,39 +52,34 @@ class _DropDown2SearchableLocationState
               ),
               items: items
                   .map((item) => DropdownMenuItem(
-                        value: item,
-                        child: Text(
-                          item,
-                          style: const TextStyle(
-                              fontSize: 12, fontWeight: FontWeight.normal),
-                        ),
-                      ))
+                value: item,
+                child: Text(
+                  item,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.normal
+                  ),
+                ),
+              ))
                   .toList(),
               value: selectedValue,
               onChanged: (value) {
+
                 // search the
                 setState(() {
                   selectedValue = value;
                   controller.selectedLocation.value = value!;
-                  if (value.isNotEmpty) {
+                  if(value.isNotEmpty) {
                     controller.searchWithFilters();
                   }
                 });
               },
-
               buttonStyleData: const ButtonStyleData(
-                  decoration: BoxDecoration(
-                      color: TColors.secondaryBackground2
-                  ),
-
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 height: 40,
                 width: 240,
               ),
               dropdownStyleData: const DropdownStyleData(
-                decoration: BoxDecoration(
-                  color: TColors.secondaryBackground2
-                ),
                 maxHeight: 400,
               ),
               menuItemStyleData: const MenuItemStyleData(
@@ -134,9 +131,7 @@ class _DropDown2SearchableLocationState
             ),
           ),
         ),
-        const SizedBox(
-          width: 70,
-        )
+        const SizedBox(width: 70,)
       ],
     );
   }

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '../../features/listing/models/listing_stage.dart';
+
 class THelperFunctions {
   static DateTime getStartOfWeek(DateTime date) {
     final int daysUntilMonday = date.weekday - 1;
@@ -143,5 +145,16 @@ class THelperFunctions {
 
   static String formatDate(DateTime date) {
     return DateFormat('EEEE, MMMM d, y').format(date);
+  }
+
+  /// Safely parse ListingStage from stored string
+  static ListingStage? parseListingStage(dynamic value) {
+    if (value is String) {
+      return ListingStage.values.firstWhere(
+            (e) => e.toString().split('.').last == value,
+        orElse: () => ListingStage.stepOne,
+      );
+    }
+    return ListingStage.stepOne;
   }
 }

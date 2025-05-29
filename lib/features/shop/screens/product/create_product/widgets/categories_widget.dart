@@ -1,4 +1,4 @@
-import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/category/category_controller.dart';
+import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/category/city_or_town_controller.dart';
 import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/product/create_product_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,7 +16,7 @@ class ProductCategories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Get instance of the CategoryController
-    final categoriesController = Get.put(CategoryController());
+    final categoriesController = Get.put(CityOrTownController());
 
     // Fetch categories if the list is empty
     if (categoriesController.allItems.isEmpty) {

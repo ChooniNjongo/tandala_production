@@ -23,7 +23,7 @@ class RoomViewingBottomNavigationButtons extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // Discard button
-          OutlinedButton(
+          TextButton(
             onPressed: () {
               // Add functionality to discard changes if needed
             },

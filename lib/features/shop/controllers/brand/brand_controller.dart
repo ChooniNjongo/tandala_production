@@ -1,4 +1,4 @@
-import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/category/category_controller.dart';
+import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/category/city_or_town_controller.dart';
 import 'package:get/get.dart';
 
 import '../../../../data/abstract/base_data_table_controller.dart';
@@ -9,7 +9,7 @@ class BrandController extends TBaseController<BrandModel> {
   static BrandController get instance => Get.find();
 
   final _brandRepository = Get.put(BrandRepository());
-  final categoryController = Get.put(CategoryController());
+  final categoryController = Get.put(CityOrTownController());
 
   @override
   Future<List<BrandModel>> fetchItems() async {

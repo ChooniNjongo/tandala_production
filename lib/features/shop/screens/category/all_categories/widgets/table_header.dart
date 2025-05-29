@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../../utils/device/device_utility.dart';
-import '../../../../controllers/category/category_controller.dart';
+import '../../../../controllers/category/city_or_town_controller.dart';
 
 class CategoryTableHeader extends StatelessWidget {
   const CategoryTableHeader({
@@ -13,7 +13,7 @@ class CategoryTableHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(CategoryController());
+    final controller = Get.put(CityOrTownController());
     return Row(
       children: [
         Expanded(

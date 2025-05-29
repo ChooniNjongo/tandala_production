@@ -1,4 +1,4 @@
-import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/category/category_controller.dart';
+import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/category/city_or_town_controller.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,7 +11,7 @@ class CategoryTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(CategoryController());
+    final controller = Get.put(CityOrTownController());
     return Obx(
       () {
         // Categories & Selected Rows are Hidden => Just to update the UI => Obx => [ProductRows]

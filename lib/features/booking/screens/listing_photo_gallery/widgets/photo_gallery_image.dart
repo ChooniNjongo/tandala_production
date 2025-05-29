@@ -26,7 +26,7 @@ class _PhotoGalleryImageSliderState extends State<PhotoGalleryImageSlider> {
   @override
   void initState() {
     super.initState();
-    imageUrls = widget.listing.getAllImages() + widget.listing.getAllImages();
+    imageUrls = widget.listing.getAllImages();
   }
 
   @override

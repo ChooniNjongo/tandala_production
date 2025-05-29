@@ -1,4 +1,4 @@
-import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/category/category_controller.dart';
+import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/category/city_or_town_controller.dart';
 import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/product/edit_product_controller.dart';
 import 'package:cwt_ecommerce_admin_panel/features/shop/models/product_model.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/helpers/cloud_helper_functions.dart';
@@ -41,7 +41,7 @@ class ProductCategories extends StatelessWidget {
                   buttonText: const Text("Select Categories"),
                   title: const Text("Categories"),
                   initialValue: List<CategoryModel>.from(productController.selectedCategories),
-                  items: CategoryController.instance.allItems.map((category) => MultiSelectItem(category, category.name)).toList(),
+                  items: CityOrTownController.instance.allItems.map((category) => MultiSelectItem(category, category.name)).toList(),
                   listType: MultiSelectListType.CHIP,
                   onConfirm: (values) {
                     productController.selectedCategories.assignAll(values);

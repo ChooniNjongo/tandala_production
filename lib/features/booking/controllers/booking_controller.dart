@@ -1,4 +1,3 @@
-import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/sidebars/sidebar_controller.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import '../../../../utils/popups/loaders.dart';

@@ -28,7 +28,7 @@ class BookingRequestBottomNavigationButtons extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // Discard button
-          OutlinedButton(
+          TextButton(
             onPressed: () {
               // Add functionality to discard changes if needed
             },
@@ -75,7 +75,7 @@ class BookingRequestBottomNavigationButtons extends StatelessWidget {
 
           // Save Changes button
           SizedBox(
-            width: 160,
+            width: 172,
             child: ElevatedButton(
               onPressed: () {
                 controller.submitBookingRequest(

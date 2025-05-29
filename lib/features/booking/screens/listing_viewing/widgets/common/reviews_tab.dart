@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../../../common/widgets/ratings/rating_progress_indicator.dart';
 import '../../../../../../utils/constants/sizes.dart';
-import '../../../../../../utils/device/device_utility.dart';
 import '../../../../models/property/listing_model.dart';
 
 class ReviewsTab extends StatelessWidget {
@@ -11,12 +10,10 @@ class ReviewsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isMobile = TDeviceUtils.isMobileScreen(context);
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: isMobile ? TSizes.defaultSpace : 0,
-            vertical: TSizes.defaultSpace),
+        padding: const EdgeInsets.all(
+            TSizes.defaultSpace),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

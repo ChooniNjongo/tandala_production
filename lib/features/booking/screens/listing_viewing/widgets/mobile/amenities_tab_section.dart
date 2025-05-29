@@ -17,48 +17,51 @@ class AmenitiesTabSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isMobile = TDeviceUtils.isMobileScreen(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          height:
-              isMobile ? TSizes.spaceBtwItems : TSizes.spaceBtwSections * 4,
-        ),
-        Text(
-          "What this place offers",
-          style: TTypography.body12Regular.copyWith(color: TColorSystem.n500),
-        ),
-        const SizedBox(
-          height: TSizes.spaceBtwItems/ 2,
-        ),
-        const TabAmenityTile(
-            svgIcon: TImages.kitchen, amenityTitle: 'Kitchen'),
-        const TabAmenityTile(
-            svgIcon: TImages.swimming_active,
-            amenityTitle: 'Swimming pool'),
+    return Padding(
+      padding: const EdgeInsets.all( TSizes.defaultSpace),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height:
+                isMobile ? TSizes.spaceBtwItems : TSizes.spaceBtwSections * 4,
+          ),
+          Text(
+            "What this place offers",
+            style: TTypography.body12Regular.copyWith(color: TColorSystem.n500),
+          ),
+          const SizedBox(
+            height: TSizes.spaceBtwItems/ 2,
+          ),
+          const TabAmenityTile(
+              svgIcon: TImages.kitchen, amenityTitle: 'Kitchen'),
+          const TabAmenityTile(
+              svgIcon: TImages.swimming_active,
+              amenityTitle: 'Swimming pool'),
 
-        /// Left side amenities
-        const TabAmenityTile(
-            svgIcon: TImages.parking, amenityTitle: 'Parking space'),
-        const TabAmenityTile(
-            svgIcon: TImages.aircon,
-            amenityTitle: 'Air conditioning'),
+          /// Left side amenities
+          const TabAmenityTile(
+              svgIcon: TImages.parking, amenityTitle: 'Parking space'),
+          const TabAmenityTile(
+              svgIcon: TImages.aircon,
+              amenityTitle: 'Air conditioning'),
 
-        /// Expanded Widget to push them closer
-        Visibility(
-            visible: !isMobile,
-            child: Expanded(flex: 3, child: Container())),
-        const SizedBox(
-          height: TSizes.spaceBtwItems,
-        ),
-        if (isEditing)
-          Edit(
-            label: 'edit amenities',
-            onTap: () {
-              Get.toNamed(TRoutes.amenities);
-            },
-          )
-      ],
+          /// Expanded Widget to push them closer
+          Visibility(
+              visible: !isMobile,
+              child: Expanded(flex: 3, child: Container())),
+          const SizedBox(
+            height: TSizes.spaceBtwItems,
+          ),
+          if (isEditing)
+            Edit(
+              label: 'edit amenities',
+              onTap: () {
+                Get.toNamed(TRoutes.amenities);
+              },
+            )
+        ],
+      ),
     );
   }
 }

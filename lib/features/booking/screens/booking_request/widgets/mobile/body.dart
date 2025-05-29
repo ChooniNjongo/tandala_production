@@ -2,6 +2,7 @@ import 'package:cwt_ecommerce_admin_panel/common/widgets/containers/rounded_cont
 import 'package:cwt_ecommerce_admin_panel/common/widgets/question_container/question_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../../../../../../utils/constants/color_system.dart';
 import '../../../../../../utils/constants/colors.dart';
@@ -33,6 +34,17 @@ class _BookingRequestBodyState extends State<BookingRequestBody> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Row(
+            children: [
+              IconButton(
+                onPressed: () => Get.back(),
+                icon: const Icon(
+                  Iconsax.arrow_left,
+                  color: TColorSystem.n100,
+                ),
+              ),
+            ],
+          ),
           const QuestionContainer(
               question: "Start the booking process",
               body:

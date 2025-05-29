@@ -26,7 +26,7 @@ class _RoomViewingImageCardState extends State<RoomViewingImageCard> {
   @override
   void initState() {
     super.initState();
-    imageUrls = widget.room.bedAndBashBoardPictures;
+    imageUrls = widget.room.getAllImages();
   }
 
   @override

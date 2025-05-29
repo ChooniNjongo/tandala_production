@@ -51,8 +51,8 @@ class PageSectionHeader extends StatelessWidget {
         Text(
           headerLabel,
           style: small
-              ? TTypography.h5.copyWith(color: TColorSystem.n400)
-              : TTypography.h5.copyWith(color: TColorSystem.n400),
+              ?  Theme.of(context).textTheme.bodyMedium
+              :Theme.of(context).textTheme.bodyMedium,
         ),
         // Conditionally render Icon, Text Button, or Header Action Icon
         if (useIcon)

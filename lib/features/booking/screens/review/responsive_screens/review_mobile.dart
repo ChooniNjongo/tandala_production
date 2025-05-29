@@ -14,8 +14,10 @@ class ReviewMobileScreen extends StatelessWidget {
     final uid = AuthenticationRepository.instance.authUser!.uid;
 
     return Scaffold(
-      body: ReviewBody(
-        booking: booking,
+      body: SingleChildScrollView(
+        child: ReviewBody(
+          booking: booking,
+        ),
       ),
       bottomNavigationBar: uid == booking.listing.userId
           ? OwnerReviewBottomNavigationButtons(booking: booking)

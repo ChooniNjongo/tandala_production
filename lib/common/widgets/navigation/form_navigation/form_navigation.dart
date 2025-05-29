@@ -38,7 +38,7 @@ class FormNavigation extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

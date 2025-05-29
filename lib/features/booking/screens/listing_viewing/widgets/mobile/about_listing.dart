@@ -17,8 +17,8 @@ class AboutListing extends StatelessWidget {
   Widget build(BuildContext context) {
     final isMobile = TDeviceUtils.isMobileScreen(context);
     return Padding(
-      padding:  EdgeInsets.symmetric(
-          horizontal:isMobile? TSizes.defaultSpace: 0, vertical: TSizes.spaceBtwSections*2),
+      padding:  const EdgeInsets.all(
+          TSizes.defaultSpace),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

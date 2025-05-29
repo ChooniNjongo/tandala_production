@@ -8,7 +8,7 @@ class ActiveBookingsMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: BookingsBody(),
+      body: SingleChildScrollView(child: BookingsBody()),
     );
   }
 }

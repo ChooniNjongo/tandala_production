@@ -9,10 +9,10 @@ import '../../../../../../common/widgets/images/t_rounded_image.dart';
 import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/constants/enums.dart';
 import '../../../../../../utils/constants/sizes.dart';
-import '../../../../controllers/category/category_controller.dart';
+import '../../../../controllers/category/city_or_town_controller.dart';
 
 class CategoryRows extends DataTableSource {
-  final controller = CategoryController.instance;
+  final controller = CityOrTownController.instance;
 
   @override
   DataRow? getRow(int index) {

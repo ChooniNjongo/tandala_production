@@ -5,7 +5,7 @@ import '../../../../../../common/widgets/breadcrumbs/breadcrumb_with_heading.dar
 import '../../../../../../common/widgets/containers/rounded_container.dart';
 import '../../../../../../common/widgets/loaders/loader_animation.dart';
 import '../../../../../../utils/constants/sizes.dart';
-import '../../../../controllers/category/category_controller.dart';
+import '../../../../controllers/category/city_or_town_controller.dart';
 import '../table/data_table.dart';
 import '../widgets/table_header.dart';
 
@@ -14,7 +14,7 @@ class CategoriesTabletScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(CategoryController());
+    final controller = Get.put(CityOrTownController());
 
     return Scaffold(
       body: SingleChildScrollView(

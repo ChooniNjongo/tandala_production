@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../utils/constants/colors.dart';
-import '../../../../../../utils/constants/typography.dart';
 import '../../../../models/property/room.dart';
 
 class TRoomPreviewCard extends StatelessWidget {
@@ -14,49 +13,61 @@ class TRoomPreviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(
-          height: MediaQuery.sizeOf(context).width / 2,
-          width: MediaQuery.sizeOf(context).width / 2,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.network(
-              room.bedAndBashBoardPictures[0],
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-        Positioned(
-          bottom: 4,
-          right: 4,
-          child: Container(
-            padding: const EdgeInsets.all(8),
-            color: TColors.secondaryBackground2,
-            child: Text(
-              room.roomDescription,
-              style: TTypography.body12Regular.copyWith(
-                fontSize: 10,
-                color: TColors.textPrimary,
+        Stack(
+          children: [
+            SizedBox(
+              height: MediaQuery.sizeOf(context).width / 2 + 40,
+              width: MediaQuery.sizeOf(context).width / 2.2,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.network(
+                  room.bedAndBashBoardPictures[0],
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-        ),
-        Positioned(
-          top: 4,
-          left: 4,
-          child: Container(
-            padding: const EdgeInsets.all(4),
-            color: TColors.primaryBackground,
-            child: Text(
-              "K ${room.price.toInt()}",
-              style: TTypography.body12Regular.copyWith(
-                fontSize: 10,
-                color: TColors.white,
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: Container(
+                height: 56,
+                padding: const EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end:  Alignment.topCenter,
+                    colors: [
+                      TColors.primary.withOpacity(0.9), // lighter at bottom
+                      TColors.primary.withOpacity(0.2), // darker at top
+
+                    ],
+                  ),
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(8),
+                    bottomRight: Radius.circular(8),
+                  ),
+                ),
+                child: Center(
+                  child: Text(
+                    room.roomDescription.toUpperCase(),
+                    style: const TextStyle(
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 12,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
-        )
+            )
+
+          ],
+        ),
+
       ],
     );
   }

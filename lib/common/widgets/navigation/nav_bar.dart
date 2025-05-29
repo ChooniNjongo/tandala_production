@@ -40,10 +40,7 @@ class NavBar extends StatelessWidget {
           }),
         ),
         child: Container(
-          padding: const EdgeInsets.only(left: 8, right: 8, bottom: 4, top: 4),
-          decoration: const BoxDecoration(
-            border: Border(top: BorderSide(color: TColorSystem.n800, width: 1)),
-          ),
+          padding: const EdgeInsets.only(left: 8, right: 8, bottom: 4, top: 12),
           child: NavigationBar(
             selectedIndex: navController.selectedIndex.value,
             height: 56,
@@ -58,7 +55,7 @@ class NavBar extends StatelessWidget {
                   sidebarController.menuOnTap(TRoutes.wishlist);
                   break;
                 case 2:
-                  sidebarController.menuOnTap(TRoutes.createListing);
+                  sidebarController.menuOnTap(TRoutes.listingStage);
                   break;
                 case 3:
                   sidebarController.menuOnTap(TRoutes.activeBookings);

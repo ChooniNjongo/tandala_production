@@ -1,5 +1,5 @@
 import 'package:cwt_ecommerce_admin_panel/data/repositories/categories/category_repository.dart';
-import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/category/category_controller.dart';
+import 'package:cwt_ecommerce_admin_panel/features/shop/controllers/category/city_or_town_controller.dart';
 import 'package:cwt_ecommerce_admin_panel/features/shop/models/category_model.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/popups/full_screen_loader.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +76,7 @@ class CreateCategoryController extends GetxController {
       newRecord.id = await CategoryRepository.instance.createCategory(newRecord);
 
       // Update All Data list
-      CategoryController.instance.addItemToLists(newRecord);
+      CityOrTownController.instance.addItemToLists(newRecord);
 
       // Reset Form
       resetFields();

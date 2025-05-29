@@ -37,12 +37,8 @@ class _PropertyHomeImageSliderState extends State<PropertyHomeImageSlider> {
     return Center(
       child: Stack(
         children: [
-          Container(
+          SizedBox(
             height: 280,
-            decoration: BoxDecoration(
-              border: Border.all(color: TColors.iconBorder, width: 0.4),
-              borderRadius: BorderRadius.circular(16), // Circular border radius
-            ),
             child: SizedBox(
               child: CarouselSlider.builder(
                 carouselController: controller,

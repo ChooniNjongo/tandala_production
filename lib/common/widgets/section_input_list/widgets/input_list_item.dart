@@ -21,7 +21,7 @@ class TInputListItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         /// Name of Input Item
-        Text(inputListName,style: TTypography.body14Regular.copyWith(color: TColorSystem.n500),),
+        Text(inputListName,style: TTypography.body14Regular.copyWith(color: TColorSystem.n600),),
 
         /// Checkbox
         Obx(() => Checkbox(

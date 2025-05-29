@@ -1,17 +1,12 @@
-import 'package:cwt_ecommerce_admin_panel/common/widgets/texts/section_heading.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
-import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/typography.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../../../../common/widgets/cards/property_cards/mobile/widgets/listing_distance.dart';
-import '../../../../../common/widgets/section_headers/page_section_header.dart';
 import '../../../../../routes/routes.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../models/property/listing_model.dart';
-import '../widgets/common/listing_name_location.dart';
-import '../widgets/mobile/amenities_tab_section.dart';
 import '../widgets/mobile/listing_image_section.dart';
 import '../widgets/mobile/mobile_tab_view.dart';
 import '../widgets/mobile/room_preview_card.dart';
@@ -31,70 +26,110 @@ class ListingViewingMobileScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// Listing Image Section with fixed height
             ListingImageSection(listing: listing, isEditing: isEditing),
+            const SizedBox(
+              height: TSizes.spaceBtwItems,
+            ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 0),
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          children: <InlineSpan>[
+                            TextSpan(
+                              text: listing.propertyName,
+                              style:
+                                  TTypography.h4.copyWith(color: Colors.white),
+                            ),
+                            TextSpan(
+                              text: "  ",
+                              style: TTypography.body12Bold.copyWith(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w700,
+                                color: TColorSystem.white,
+                              ),
+                            ),
+                            TextSpan(
+                                text: "${listing.city}.",
+                                style: TTypography.body12Regular
+                                    .copyWith(color: TColorSystem.n400)),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    "34 km away",
+                    style: TTypography.body10Regular
+                        .copyWith(color: TColorSystem.n600),
+                  ),
+                ],
+              ),
+            ),
+
+            /// Listing Image Section with fixed height
+            const SizedBox(
+              height: TSizes.spaceBtwItems,
+            ),
+
+            const SizedBox(height: TSizes.spaceBtwItems),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: TSizes.spaceBtwSections / 4,
-                  ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: [
-                          Text(
-                            textAlign: TextAlign.start,
-                            listing.propertyName + ", ",
-                            style: TTypography.body16Bold.copyWith(
-                              fontWeight: FontWeight.w700,
-                              color: TColorSystem.white,
-                            ),
-                          ),
-                          ListingNameLocation(listing: listing),
-                        ],
+                      GestureDetector(
+                        child: SvgPicture.asset(
+                          "assets/icons/custom_icons/mage_message-round.svg",
+                          height: 24,
+                        ),
                       ),
-
-                      Row(
-                        children: [
-                          const Text(
-                            "Share",
-                            style: TTypography.body10Regular,
-                          ),
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.share,
-                                color: TColorSystem.n100,
-                              )),
-                        ],
+                      const SizedBox(
+                        width: TSizes.spaceBtwItems,
                       ),
+                      GestureDetector(
+                        child: SvgPicture.asset(
+                          "assets/icons/custom_icons/bitcoin-icons_share-outline.svg",
+                          height: 24,
+                        ),
+                      )
                     ],
                   ),
-                  const SizedBox(height: TSizes.spaceBtwItems / 2),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      ListingDistance(listing: listing),
-                    ],
-                  ),
-                  const SizedBox(height: TSizes.spaceBtwItems / 2),
-                  const SizedBox(height: TSizes.spaceBtwItems / 2),
+                  const SizedBox(height: TSizes.spaceBtwItems),
                   Text(
                     listing.summary,
-                    textAlign: TextAlign.start,
-                    style: TTypography.body10Regular
+                    style: TTypography.body12Regular
                         .copyWith(color: TColorSystem.n500),
+                    textAlign: TextAlign.start,
                   ),
-                  const SizedBox(height: TSizes.spaceBtwSections  ),
-                  PageSectionHeader(headerLabel: 'Booking options',useFeaturedHeaderSection: true,small: true,),
-                  const SizedBox(height: TSizes.spaceBtwItems/4 ),
-                  Divider(color: TColors.iconBorder,height: 0.4,),
-                  const SizedBox(height: TSizes.spaceBtwSections ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
+                  const Text(
+                    "Room Options",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Inter',
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems / 4,
+                  ),
+                  Text(
+                    "5 booking options avaialble",
+                    style: TTypography.body10Regular
+                        .copyWith(color: TColorSystem.n400),
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwItems),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -119,7 +154,6 @@ class ListingViewingMobileScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-
 
 
 

@@ -15,7 +15,7 @@ class AvailabilityCheckScreenMobile extends StatelessWidget {
     final uid = AuthenticationRepository.instance.authUser!.uid;
 
     return Scaffold(
-      body: AvailabilityCheckBody(booking: booking),
+      body: SingleChildScrollView(child: AvailabilityCheckBody(booking: booking)),
       bottomNavigationBar: uid == booking.listing.userId
           ? AvailabilityOwnerBottomNavigationButtons(booking: booking)
           : AvailabilityUserBottomNavigationButtons(booking: booking),

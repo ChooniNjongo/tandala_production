@@ -10,7 +10,7 @@ import '../../../../../../common/widgets/images/image_uploader.dart';
 import '../../../../../../utils/constants/enums.dart';
 import '../../../../../../utils/constants/image_strings.dart';
 import '../../../../controllers/brand/create_brand_controller.dart';
-import '../../../../controllers/category/category_controller.dart';
+import '../../../../controllers/category/city_or_town_controller.dart';
 
 class CreateBrandForm extends StatelessWidget {
   const CreateBrandForm({super.key});
@@ -43,7 +43,7 @@ class CreateBrandForm extends StatelessWidget {
             const SizedBox(height: TSizes.spaceBtwInputFields / 2),
             Obx(() => Wrap(
                   spacing: TSizes.sm,
-                  children: CategoryController.instance.allItems
+                  children: CityOrTownController.instance.allItems
                       .map((element) => Padding(
                             padding: const EdgeInsets.only(bottom: TSizes.sm),
                             child: TChoiceChip(

@@ -31,14 +31,14 @@ class _MListingImageCardState extends State<MListingImageCard> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.sizeOf(context).height;
-    final double carouselHeight = screenHeight * 0.38;
+    final double carouselHeight = screenHeight * 0.4;
     const double iconSize = 32;
     return Stack(
       children: [
         CarouselSlider.builder(
           carouselController: controller,
           options: CarouselOptions(
-            height: 320,
+            height: MediaQuery.sizeOf(context).height * 0.4,
             enableInfiniteScroll: false,
             initialPage: 0,
             viewportFraction: 1,

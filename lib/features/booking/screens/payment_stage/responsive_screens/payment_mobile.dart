@@ -14,7 +14,7 @@ class PaymentMobileScreen extends StatelessWidget {
     final uid = AuthenticationRepository.instance.authUser!.uid;
 
     return Scaffold(
-      body:  PaymentBody(booking: booking,),
+      body:  SingleChildScrollView(child: PaymentBody(booking: booking,)),
       bottomNavigationBar:
           uid == booking.listing.userId
               ? PaymentOwnerBottomNavigationButtons(booking: booking)
