@@ -14,7 +14,6 @@ import '../../../data/repositories/user/user_repository.dart';
 import '../../booking/models/property/listing.dart';
 import '../../booking/models/property/room.dart';
 import '../../personalization/controllers/user_controller.dart';
-import '../models/listing_stage.dart';
 
 class ListingSubmissionController extends GetxController {
   static ListingSubmissionController get instance => Get.find();
@@ -135,7 +134,7 @@ class ListingSubmissionController extends GetxController {
     final storage = GetStorage();
 
     // Store the enum as a string (e.g. "unInitiated") if not already stored
-    storage.writeIfNull("listingStage", ListingStage.stepOne.name);
+    //storage.writeIfNull("listingStage", ListingStage.stepOne.name);
 
     final savedListingStage = storage.read("listingStage");
     print("successfully saved listing stage ");

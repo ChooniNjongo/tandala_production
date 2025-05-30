@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../booking/models/property/listing.dart';
-import '../models/listing_stage.dart';
 
 class ChecklistController extends GetxController {
   static ChecklistController get instance => Get.find();
@@ -52,6 +51,5 @@ class ChecklistController extends GetxController {
     }
 
     // Save listing stage
-    storage.write("listingStage", ListingStage.stepTwo.name);
   }
 }

@@ -1,12 +1,10 @@
 import 'dart:core';
 
 import '../../features/booking/models/property/availability.dart';
-import '../../features/booking/models/property/listing_category.dart';
 import '../../features/booking/models/property/listing_model.dart';
-import '../../features/booking/models/property/owner.dart';
 import '../../features/booking/models/property/property_section.dart';
-import '../../features/booking/models/property/property_type.dart';
 import '../../features/booking/models/property/room.dart';
+import '../constants/enums.dart';
 
 class TTestListings {
   static List<Room> listing1Rooms = [

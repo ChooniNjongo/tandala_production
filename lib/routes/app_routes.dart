@@ -36,8 +36,8 @@ import '../features/listing/screens/checklist/checklist.dart';
 import '../features/listing/screens/description/description.dart';
 import '../features/listing/screens/display_cover/display_cover.dart';
 import '../features/listing/screens/done/done.dart';
-import '../features/listing/screens/listing_step/listing_step.dart';
 import '../features/listing/screens/listings/listings.dart';
+import '../features/listing/screens/load_user_draft_listing/load_user_draft_listing.dart';
 import '../features/listing/screens/location/location.dart';
 import '../features/listing/screens/name_and_city/name_and_city.dart';
 import '../features/listing/screens/property_type/property_type.dart';
@@ -185,10 +185,12 @@ class TAppRoute {
         transitionDuration: const Duration(milliseconds: 500),
         page: () => const AmenitiesScreen()),
     GetPage(
-        name: TRoutes.listingStage,
+        name: TRoutes.loadUserDraftListingScreen,
         transition: Transition.rightToLeft, // 👈 Set transition here
         transitionDuration: const Duration(milliseconds: 500),
-        page: () => const ListingStageMobileScreen()),
+        page: () => const LoadUserDraftListingScreen(),
+        middlewares: [TRouteMiddleware()]
+    ),
     GetPage(
         name: TRoutes.checklist,
         transition: Transition.rightToLeft, // 👈 Set transition here
@@ -247,7 +249,7 @@ class TAppRoute {
         transition: Transition.rightToLeft, // 👈 Set transition here
         transitionDuration: const Duration(milliseconds: 500),
         page: () => const CreateProductScreen(),
-        middlewares: [TRouteMiddleware()]),
+        ),
     GetPage(
         name: TRoutes.editProduct,
         page: () => const EditProductScreen(),

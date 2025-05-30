@@ -49,10 +49,11 @@ class LoginController extends GetxController {
 
   /// Handles email and password sign-in process
   Future<void> emailAndPasswordSignIn() async {
+
+    print("****Hiitting Aiuth  ****");
     try {
       // Start Loading
-      TFullScreenLoader.openLoadingDialog(
-          'Logging you in...', TImages.ridingIllustration);
+      TFullScreenLoader.openLoadingDialog('Logging you in...', TImages.ridingIllustration);
 
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -74,8 +75,7 @@ class LoginController extends GetxController {
       }
 
       // Login user using Email & Password Authentication
-      await AuthenticationRepository.instance
-          .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+      await AuthenticationRepository.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 
       // User Information
       final user = await fetchUserInformation();

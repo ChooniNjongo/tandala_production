@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../../../utils/constants/enums.dart';
 import '../../booking/models/property/listing.dart';
-import '../models/listing_stage.dart';
 
 class AmenitiesStepController extends GetxController {
   static AmenitiesStepController get instance => Get.find();
@@ -239,6 +239,6 @@ class AmenitiesStepController extends GetxController {
     }
 
     // Save listing stage
-    storage.write("listingStage", ListingStage.stepSix.name);
+    storage.write("listingStage", ListingStage.StepSix.name);
   }
 }

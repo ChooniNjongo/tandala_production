@@ -5,6 +5,7 @@ import '../../../../../../common/widgets/input_fields/input_field.dart';
 import '../../../../../../common/widgets/navigation/form_navigation/form_navigation.dart';
 import '../../../../../../common/widgets/question_container/question_container.dart';
 import '../../../../../../utils/constants/sizes.dart';
+import '../../../../../../utils/validators/validation.dart';
 import '../../../../controllers/name_and_city_controller.dart';
 
 class NameAndCityBody extends StatelessWidget {
@@ -22,23 +23,27 @@ class NameAndCityBody extends StatelessWidget {
             initialValue: 0.3,
             targetValue: 0.4,
           ),
-          const SizedBox(height: TSizes.spaceBtwSections * 2),
+          const SizedBox(height: TSizes.spaceBtwSections ),
           const QuestionContainer(
-            question: 'What city or town are you located in?',
+            question: 'Where is your property situated ?',
             body: 'Select your city from the list below',
           ),
           const CitySelection(),
-          const SizedBox(height: TSizes.spaceBtwSections * 2),
+          const SizedBox(height: TSizes.spaceBtwSections),
           const QuestionContainer(
-            question: 'What is the name of your place?',
+            question: 'Provide property name',
             body:
                 'This is the name that will appear on the Tandala and also in search results',
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
-          InputField(
-            placeHolder: "Your Hotel Name",
-            controller: controller.propertyNameTextEditingController,
-            onEditingComplete: controller.onEditingComplete,
+          // Product Title Input Field
+          SizedBox(
+            width: 320,
+            child: TextFormField(
+              controller: controller.propertyNameTextEditingController,
+              validator: (value) => TValidator.validateEmptyText('Your Property Name', value),
+              decoration: const InputDecoration(labelText: 'Your Property Name'),
+            ),
           ),
         ],
       ),

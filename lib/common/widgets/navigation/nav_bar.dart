@@ -55,13 +55,13 @@ class NavBar extends StatelessWidget {
                   sidebarController.menuOnTap(TRoutes.wishlist);
                   break;
                 case 2:
-                  sidebarController.menuOnTap(TRoutes.listingStage);
+                  sidebarController.menuOnTap(TRoutes.loadUserDraftListingScreen);
                   break;
                 case 3:
                   sidebarController.menuOnTap(TRoutes.activeBookings);
                   break;
                 case 4:
-                  sidebarController.menuOnTap(TRoutes.messages);
+                  sidebarController.menuOnTap(TRoutes.createProduct);
                   break;
               }
             },

@@ -22,17 +22,22 @@ class PropertyTypeBody extends StatelessWidget {
               initialValue: 0.1,
               targetValue: 0.2,
             ),
-            const SizedBox(height: TSizes.spaceBtwSections * 2),
+            const SizedBox(height: TSizes.spaceBtwSections),
             const QuestionContainer(
-              question: 'What type of property are you listing ?',
+              question: 'Select your property type ?',
               body:
                   'This will help users when searching. Choose from options below',
             ),
-            const SizedBox(height: TSizes.spaceBtwSections * 2),
+            const SizedBox(height: TSizes.spaceBtwSections),
             FullWidthChipLabel(
-              label: 'Lodge or Guest House',
-              isSelected: controller.isLodgeOrGuestHouseSelected.value,
-              onTap: controller.onLodgeOrGuestHouseSelected,
+              label: 'Lodge',
+              isSelected: controller.isLodgeSelected.value,
+              onTap: controller.onLodgeSelected,
+            ),
+            FullWidthChipLabel(
+              label: 'Guest House',
+              isSelected: controller.isGuestHouseSelected.value,
+              onTap: controller.onGuestHouseSelected,
             ),
             FullWidthChipLabel(
               label: 'Hotel',

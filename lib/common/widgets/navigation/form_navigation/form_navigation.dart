@@ -14,7 +14,7 @@ class FormNavigation extends StatelessWidget {
     super.key,
     this.svgImageString = TImages.menuDark,
     required this.step3Text,
-    this.actionText = "Exit",
+    this.actionText = "Finish Later",
     required this.initialValue,
     required this.targetValue,
     this.showLeftIcon = false,
@@ -56,6 +56,7 @@ class FormNavigation extends StatelessWidget {
                               color: TColorSystem.n400,
                             )),
                       ),
+                    if (showLeftIcon)
                     const SizedBox(width: 12),
                     Text(
                       step3Text, // Use passed step3Text

@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,7 +25,7 @@ class NameCityBottomNavigationBar extends StatelessWidget {
             },
             child: Text(
               "Cancel",
-              style: TTypography.h4.copyWith(color: TColorSystem.primary100),
+              style: TTypography.body12Regular.copyWith(color: TColors.warning),
             ),
           ),
 
@@ -36,7 +37,7 @@ class NameCityBottomNavigationBar extends StatelessWidget {
                 controller.addNameAndCityDetails();
                 Get.toNamed(TRoutes.description);
               },
-              child: const Text('Upload main display'),
+              child: const Text('Continue'),
             ),
           ),
         ],

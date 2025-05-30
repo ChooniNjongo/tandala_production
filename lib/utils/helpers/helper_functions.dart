@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-import '../../features/listing/models/listing_stage.dart';
 
 class THelperFunctions {
   static DateTime getStartOfWeek(DateTime date) {
@@ -152,9 +151,9 @@ class THelperFunctions {
     if (value is String) {
       return ListingStage.values.firstWhere(
             (e) => e.toString().split('.').last == value,
-        orElse: () => ListingStage.stepOne,
+        orElse: () => ListingStage.StepOne,
       );
     }
-    return ListingStage.stepOne;
+    return ListingStage.StepOne;
   }
 }

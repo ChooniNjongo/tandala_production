@@ -9,7 +9,6 @@ class PropertyTypeMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(PropertyTypeStepController());
     return const Scaffold(
       body: PropertyTypeBody(),
       bottomNavigationBar: PropertyTypeBottomNavigationBar(),

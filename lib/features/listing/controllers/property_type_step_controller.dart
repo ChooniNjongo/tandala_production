@@ -1,14 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import '../../../utils/constants/enums.dart';
 import '../../booking/models/property/listing.dart';
-import '../../booking/models/property/property_type.dart';
-import '../models/listing_stage.dart';
 
 class PropertyTypeStepController extends GetxController {
   static PropertyTypeStepController get instance => Get.find();
 
-  final isLodgeOrGuestHouseSelected = false.obs;
+  final isGuestHouseSelected = false.obs;
+  final isLodgeSelected = false.obs;
   final isHotelSelected = false.obs;
   final isApartmentSelected = false.obs;
   final isOtherSelected = false.obs;
@@ -20,7 +20,8 @@ class PropertyTypeStepController extends GetxController {
 
     /// Watch each observable and update `hasSelectedAll` accordingly yeah
     everAll([
-      isLodgeOrGuestHouseSelected,
+      isGuestHouseSelected,
+      isLodgeSelected,
       isHotelSelected,
       isApartmentSelected,
       isOtherSelected,
@@ -29,7 +30,8 @@ class PropertyTypeStepController extends GetxController {
 
   void updateHasSelectedAll() {
     stepRequirementsMet.value =
-        isLodgeOrGuestHouseSelected.value ||
+        isGuestHouseSelected.value ||
+            isLodgeSelected.value ||
         isHotelSelected.value ||
         isApartmentSelected.value ||
         isOtherSelected.value;
@@ -37,15 +39,22 @@ class PropertyTypeStepController extends GetxController {
 
   /// Method to reset all to false because user can only choose one
   void resetAll() {
-    isLodgeOrGuestHouseSelected.value = false;
+    isGuestHouseSelected.value = false;
+    isLodgeSelected.value = false;
     isHotelSelected.value = false;
     isApartmentSelected.value = false;
     isOtherSelected.value = false;
   }
 
-  void Function()? onLodgeOrGuestHouseSelected() {
+  void Function()? onGuestHouseSelected() {
     resetAll();
-    isLodgeOrGuestHouseSelected.value = true;
+    isGuestHouseSelected.value = true;
+    return null;
+  }
+
+  void Function()? onLodgeSelected() {
+    resetAll();
+    isLodgeSelected.value = true;
     return null;
   }
 
@@ -71,7 +80,7 @@ class PropertyTypeStepController extends GetxController {
     final storage = GetStorage();
 
     // Save listing stage
-    storage.write("listingStage", ListingStage.stepThree.name);
+   // storage.write("listingStage", ListingStage.stepThree.name);
 
     // Try to read it back
     final json = storage.read("listing");
@@ -84,9 +93,13 @@ class PropertyTypeStepController extends GetxController {
       storedListing.propertyType = PropertyType.Apartment;
     } else if (isHotelSelected.value) {
       storedListing.propertyType = PropertyType.Hotel;
-    } else if (isLodgeOrGuestHouseSelected.value) {
-      storedListing.propertyType = PropertyType.LodgeOrGuestHouse;
-    } else if (isOtherSelected.value) {
+    } else if (isGuestHouseSelected.value) {
+      storedListing.propertyType = PropertyType.GuestHouse;
+    }
+    else if (isLodgeSelected.value) {
+      storedListing.propertyType = PropertyType.Lodge;
+    }
+    else if (isOtherSelected.value) {
       storedListing.propertyType = PropertyType.Other;
     }
 

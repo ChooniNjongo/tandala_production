@@ -36,6 +36,7 @@ class TRoutes {
   static const roomPhotoGallery = '/roomPhotoGallery';
 
   // Listings
+  static const loadUserDraftListingScreen = '/loadUserDraftListingScreen';
   static const searchResults = '/searchResults';
   static const listingViewing = '/listingViewing';
   static const listingPhotoTour = '/photoTour';
@@ -135,6 +136,7 @@ class TRoutes {
     settings,
     profile,
   ];
+
 }
 
 // All App Screens

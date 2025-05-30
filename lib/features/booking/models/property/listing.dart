@@ -1,13 +1,13 @@
-import 'package:cwt_ecommerce_admin_panel/features/booking/models/property/property_type.dart';
 import 'package:cwt_ecommerce_admin_panel/features/booking/models/property/room.dart';
 
-import 'listing_category.dart';
+import '../../../../utils/constants/enums.dart';
 import 'owner.dart';
 
 class Listing {
   String? listingId;
   String propertyName;
   ListingCategory listingCategory;
+  ListingStage listingStage;
   PropertyType propertyType;
   String? hostName;
   String description;
@@ -53,6 +53,7 @@ class Listing {
     this.listingId,
     required this.propertyName,
     required this.listingCategory,
+    required this.listingStage,
     required this.propertyType,
     this.hostName,
     required this.description,
@@ -109,6 +110,7 @@ class Listing {
       listingId: null,
       propertyName: '',
       listingCategory: ListingCategory.values.first,
+      listingStage: ListingStage.values.first,
       propertyType: PropertyType.values.first,
       hostName: null,
       description: '',
@@ -149,6 +151,7 @@ class Listing {
       'listingId': listingId,
       'propertyName': propertyName,
       'listingCategory': listingCategory.toString().split('.').last,
+      'listingStage': listingStage.toString().split('.').last,
       'propertyType': propertyType.toString().split('.').last,
       'hostName': hostName,
       'description': description,
@@ -196,6 +199,8 @@ class Listing {
       propertyName: json['propertyName'],
       listingCategory: ListingCategory.values.firstWhere(
               (e) => e.toString().split('.').last == json['listingCategory']),
+      listingStage: ListingStage.values.firstWhere(
+              (e) => e.toString().split('.').last == json['listingStage']),
       propertyType: PropertyType.values.firstWhere(
               (e) => e.toString().split('.').last == json['propertyType']),
       hostName: json['hostName'],

@@ -1,8 +1,6 @@
-import 'package:cwt_ecommerce_admin_panel/features/booking/models/property/property_type.dart';
 import 'package:cwt_ecommerce_admin_panel/features/booking/models/property/room.dart';
 
-import 'listing_category.dart';
-import 'owner.dart';
+import '../../../../utils/constants/enums.dart';
 
 class ListingModel {
   String? listingId;

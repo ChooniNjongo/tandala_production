@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../booking/models/property/listing.dart';
-import '../models/listing_stage.dart';
 
 class DescriptionStepController extends GetxController {
   static DescriptionStepController get instance => Get.find();
@@ -27,7 +26,7 @@ class DescriptionStepController extends GetxController {
       print(storedListing);
     }
     // Save listing stage
-    storage.write("listingStage", ListingStage.stepFive.name);
+    //storage.write("listingStage", ListingStage.stepFive.name);
   }
 
   void onEditingComplete() {

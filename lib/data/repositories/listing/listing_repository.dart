@@ -343,4 +343,58 @@ class PropertyRepository extends GetxController {
       throw Exception('Failed to load reviews');
     }
   }
+
+
+
+  /// Listing Process
+// Add this method to your PropertyRepository class
+
+  Future<List<Listing>> getUserDraftListings(String userId) async {
+    try {
+      final response = await http.get(
+        Uri.parse('${APIConstants.baseUrl}/listingProcess/get-draft-listings-for-user/$userId'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        // If the server returns a 200 OK response, parse the JSON response
+        final List<dynamic> jsonList =
+        response.body.isNotEmpty ? json.decode(response.body) : [];
+        return jsonList.map((json) => Listing.fromJson(json)).toList();
+      } else {
+        // If the server returns an error response, throw an exception
+        throw Exception('Failed to fetch user draft listings');
+      }
+    } catch (e) {
+      // If an error occurs during the HTTP request, throw an exception
+      throw Exception('Failed to connect to the server: $e');
+    }
+  }
+
+// Optional: Add a method to save draft listings as well
+  Future<Listing> saveDraftListing(Listing listing) async {
+    try {
+      final response = await http.post(
+        Uri.parse('${APIConstants.baseUrl}/listingProcess'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(listing.toJson()),
+      );
+
+      if (response.statusCode == 200) {
+        // If the server returns a 200 OK response, parse the JSON response
+        final Map<String, dynamic> jsonResponse = json.decode(response.body);
+        return Listing.fromJson(jsonResponse);
+      } else {
+        // If the server returns an error response, throw an exception
+        throw Exception('Failed to save draft listing');
+      }
+    } catch (e) {
+      // If an error occurs during the HTTP request, throw an exception
+      throw Exception('Failed to connect to the server: $e');
+    }
+  }
 }

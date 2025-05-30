@@ -9,7 +9,6 @@ class NameAndCityMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(NameAndCityStepController());
     return const Scaffold(
       body: NameAndCityBody(),
       bottomNavigationBar:NameCityBottomNavigationBar(),

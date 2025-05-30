@@ -25,19 +25,19 @@ class AddChecklistBottomNavigationBar extends StatelessWidget {
               () => ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: !controller.hasSelectedAll.value
-                      ? TColorSystem.n500 // or whatever disabled color
-                      : TColors.primary500,
+                      ? TColorSystem.n800 // or whatever disabled color
+                      : TColors.jetBlack,
                 ),
                 onPressed: () {
                   if (!controller.hasSelectedAll.value) {
                     TLoaders.errorSnackBar(
-                        message: "Pleaser select all requirements", title: "Requirements");
+                        message: "Pleaser select all requirements",
+                        title: "Requirements");
                   }
                   if (controller.hasSelectedAll.value) {
                     controller.startListing();
                     Get.toNamed(TRoutes.propertyType);
                   }
-
                 },
                 child: const Text('Continue'),
               ),

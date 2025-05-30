@@ -1,4 +1,0 @@
-enum Owner {
-  Person,
-  Business
-}

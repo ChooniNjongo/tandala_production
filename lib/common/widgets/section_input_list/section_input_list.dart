@@ -41,16 +41,15 @@ class TSectionInputList extends StatelessWidget {
 
         /// List of input list items.
         InputList(listOfListInputItems: listOfListInputItems),
-
+        const SizedBox(height: TSizes.spaceBtwItems),
         /// See All
         InkWell(
           child: Text(
             seeAllLabel,
-            style: TTypography.label12Regular.copyWith(color: TColorSystem.n500),
+            style: TTypography.label12Regular.copyWith(color: TColorSystem.n300),
           ),
         ),
         const SizedBox(height: TSizes.spaceBtwSections),
-        const ExtensibleFullWidthDivider(),
       ],
     );
   }

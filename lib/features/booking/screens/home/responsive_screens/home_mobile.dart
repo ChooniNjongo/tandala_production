@@ -7,6 +7,6 @@ class HomeMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedDrawer(child: const HomeContent());
+    return  const HomeContent();
   }
 }

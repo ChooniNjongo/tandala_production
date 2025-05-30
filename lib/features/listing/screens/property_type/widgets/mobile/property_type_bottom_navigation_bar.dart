@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../../../common/widgets/containers/rounded_container.dart';
 import '../../../../../../routes/routes.dart';
 import '../../../../../../utils/constants/color_system.dart';
+import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/constants/typography.dart';
 import '../../../../controllers/property_type_step_controller.dart';
 
@@ -24,19 +24,26 @@ class PropertyTypeBottomNavigationBar extends StatelessWidget {
             },
             child: Text(
               "Cancel",
-              style: TTypography.h4.copyWith(color: TColorSystem.primary100),
+              style: TTypography.body14Bold.copyWith(color: TColors.warning),
             ),
           ),
 
           // Save Changes button
           SizedBox(
             width: 160,
-            child: ElevatedButton(
-              onPressed: () {
-                controller.selectPropertyType();
-                Get.toNamed(TRoutes.nameAndCity);
-              },
-              child: const Text('Upload main display'),
+            child: Obx(
+              () => ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: !controller.stepRequirementsMet.value
+                      ? TColorSystem.n500 // or whatever disabled color
+                      : TColors.jetBlack,
+                ),
+                onPressed: () {
+                  controller.selectPropertyType();
+                  Get.offNamed(TRoutes.nameAndCity);
+                },
+                child: const Text('Continue'),
+              ),
             ),
           ),
         ],
