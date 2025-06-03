@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../../../routes/routes.dart';
+import '../../../utils/constants/enums.dart';
 import '../../booking/models/property/listing.dart';
 
 class ChecklistController extends GetxController {
@@ -25,18 +27,19 @@ class ChecklistController extends GetxController {
   }
 
   void updateHasSelectedAll() {
-    hasSelectedAll.value =
-        isPropertyDetailsSelected.value &&
+    hasSelectedAll.value = isPropertyDetailsSelected.value &&
         isPropertyPictureSelected.value &&
         isPropertyLocationSelected.value;
   }
 
   void startListing() {
     final storage = GetStorage();
-    final emptyListing = Listing.getEmptyListing();
 
-    // Save the listing
+    /// Create an empty listing that will hold state of the listing details locally
+    final emptyListing = Listing.getEmptyListing();
     storage.write("listing", emptyListing.toJson());
+
+
 
     // Try to read it back and print
     final storedListing = storage.read("listing");
@@ -51,5 +54,8 @@ class ChecklistController extends GetxController {
     }
 
     // Save listing stage
+    storage.write("listingStage", ListingStage.StepTwo.name);
+
+    Get.toNamed(TRoutes.propertyType);
   }
 }

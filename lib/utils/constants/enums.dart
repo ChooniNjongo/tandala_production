@@ -59,6 +59,4 @@ enum ListingStage {
   StepTen,
   StepEleven,
   StepTwelve,
-  Approved,
-  Rejected
 }

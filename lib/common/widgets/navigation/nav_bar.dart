@@ -55,7 +55,7 @@ class NavBar extends StatelessWidget {
                   sidebarController.menuOnTap(TRoutes.wishlist);
                   break;
                 case 2:
-                  sidebarController.menuOnTap(TRoutes.loadUserDraftListingScreen);
+                  sidebarController.menuOnTap(TRoutes.listingStage);
                   break;
                 case 3:
                   sidebarController.menuOnTap(TRoutes.activeBookings);

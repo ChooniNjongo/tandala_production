@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
       useLayout: false,
       desktop: HomeDesktopScreen(),
       tablet:  const HomeTabletScreen(),
-      mobile:  const HomeMobileScreen(),
+      mobile:  const HomeMobile(),
     );
   }
 }

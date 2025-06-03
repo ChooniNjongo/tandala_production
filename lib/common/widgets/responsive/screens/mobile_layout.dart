@@ -11,7 +11,7 @@ class MobileLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: const NavBar(),
+       // bottomNavigationBar: const NavBar(),
         body: Column(children: [
           Expanded(child: body ?? const SizedBox())]),
       ),

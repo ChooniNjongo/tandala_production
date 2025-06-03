@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../../common/widgets/containers/rounded_container.dart';
-import '../../../../../../routes/routes.dart';
 import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/popups/loaders.dart';
 import '../../../../controllers/checklist_controller.dart';
@@ -36,7 +35,6 @@ class AddChecklistBottomNavigationBar extends StatelessWidget {
                   }
                   if (controller.hasSelectedAll.value) {
                     controller.startListing();
-                    Get.toNamed(TRoutes.propertyType);
                   }
                 },
                 child: const Text('Continue'),
