@@ -19,7 +19,7 @@ class HomeContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       controller: navBarController.scrollController, // Add this line
-      slivers: [
+      slivers: const [
         // Top Filter SliverAppBar
         MySliverAppBar(),
         // Property Listings SliverList

@@ -14,14 +14,16 @@ class NameCityBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(NameAndCityStepController());
+
     return TRoundedContainer(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Discard button
+          // Cancel button
           TextButton(
             onPressed: () {
               // Add functionality to discard changes if needed
+              Get.back();
             },
             child: Text(
               "Cancel",
@@ -29,17 +31,18 @@ class NameCityBottomNavigationBar extends StatelessWidget {
             ),
           ),
 
-          // Save Changes button
-          SizedBox(
-            width: 160,
-            child: ElevatedButton(
-              onPressed: () {
-                controller.addNameAndCityDetails();
-                Get.toNamed(TRoutes.description);
-              },
-              child: const Text('Continue'),
-            ),
-          ),
+          // Continue button - disabled when requirements are not met
+          Obx(() {
+            return SizedBox(
+              width: 160,
+              child: ElevatedButton(
+                onPressed: controller.stepRequirementsMet.value
+                    ? () => controller.addNameAndCityDetails()
+                    : null, // null disables the button
+                child: const Text('Continue'),
+              ),
+            );
+          }),
         ],
       ),
     );

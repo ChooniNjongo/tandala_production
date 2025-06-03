@@ -40,7 +40,7 @@ class PropertyTypeBottomNavigationBar extends StatelessWidget {
                 ),
                 onPressed: () {
                   controller.selectPropertyType();
-                  Get.offNamed(TRoutes.nameAndCity);
+
                 },
                 child: const Text('Continue'),
               ),

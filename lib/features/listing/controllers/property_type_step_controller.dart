@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import '../../../routes/routes.dart';
 import '../../../utils/constants/enums.dart';
 import '../../booking/models/property/listing.dart';
 
@@ -108,10 +109,21 @@ class PropertyTypeStepController extends GetxController {
     if (kDebugMode) {
       print("Successfully updated property type");
     }
-    // Deserialize again to confirm it's stored properly
-    final savedListing = Listing.fromJson(storage.read("listing"));
-    if (kDebugMode) {
-      print(savedListing);
+
+    // Try to read it back and print
+    final updatedListing = storage.read("listing");
+    if (updatedListing != null) {
+      if (kDebugMode) {
+        print("Listing saved successfully: $updatedListing");
+      }
+    } else {
+      if (kDebugMode) {
+        print("No listing found in storage.");
+      }
     }
+    // Save listing stage
+    storage.write("listingStage", ListingStage.StepThree.name);
+
+    Get.offNamed(TRoutes.nameAndCity);
   }
 }
