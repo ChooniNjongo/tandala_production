@@ -1,3 +1,5 @@
+import "package:cwt_ecommerce_admin_panel/common/widgets/cards/property_cards/mobile/widgets/listing_distance.dart";
+import "package:cwt_ecommerce_admin_panel/common/widgets/cards/property_cards/mobile/widgets/listing_price.dart";
 import "package:flutter/material.dart";
 import "package:flutter_svg/svg.dart";
 import "../../../../features/booking/models/property/listing_model.dart";
@@ -23,6 +25,16 @@ class ListingCard extends StatelessWidget {
             /// Listing Name and Rating
             ListingNameAndRating(listing: listing),
 
+            /// Listing Distance Widget
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                ListingDistance(listing: listing),
+              ],
+            ),
+
+            /// Listing Price
+            ListingPriceAndViews(listing: listing),
           ],
         );
       },

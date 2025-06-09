@@ -21,22 +21,32 @@ class ListingDistance extends StatelessWidget {
 
     if (listing.distanceFromUser == null) {
       return GestureDetector(
-        onTap: () async {
-          await locationController.getLocation();
-          listingsController.searchListings();
-          Get.toNamed(TRoutes.places);
-        },
-        child: Text(
-          'See distance',
-          style: TTypography.label12Regular.copyWith(
-            color: TColors.accent,
-          ),
-        ),
-      );
+          onTap: () async {
+            await locationController.getLocation();
+            listingsController.searchListings();
+            Get.toNamed(TRoutes.places);
+          },
+          child: const Text(
+            'See distance',
+            style: TextStyle(
+              color: Color(0xFF6D6D6D),
+              fontFamily: 'Inter Display',
+              fontWeight: FontWeight.w400,
+              fontSize: 14,
+              height: 1.4, // line-height of 140%
+              letterSpacing: 0,
+            ),
+          ));
     } else {
       return Text(
         '${listing.distanceFromUser!.round()} Kilometers away',
-        style: TTypography.label12Regular.copyWith(color: TColorSystem.n600
+        style: const TextStyle(
+          color: Color(0xFF6D6D6D),
+          fontFamily: 'Inter Display',
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          height: 1.4, // line-height of 140%
+          letterSpacing: 0,
         ),
       );
     }

@@ -21,8 +21,6 @@ class FavouritesController extends GetxController {
     initFavorites();
   }
 
-
-
   // Method to Initialize favorites by reading from storage
   void initFavorites() {
     final json = TLocalStorage.instance().readData('favorites');
