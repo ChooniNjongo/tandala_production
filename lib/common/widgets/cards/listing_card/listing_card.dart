@@ -22,7 +22,8 @@ class ListingCard extends StatelessWidget {
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min, // Important: don't take up extra space
+          mainAxisSize:
+              MainAxisSize.min, // Important: don't take up extra space
           children: [
             /// Listing Image - Fixed height based on width
             SizedBox(
@@ -33,12 +34,8 @@ class ListingCard extends StatelessWidget {
             const SizedBox(height: 8), // Reduced spacing
 
             /// Listing Name and Rating - Fixed height
-            SizedBox(
-              height: 40,
-              child: ListingNameAndRating(listing: listing),
-            ),
-            const SizedBox(height: 4), // Reduced spacing
-
+            ListingNameAndRating(listing: listing),
+            const SizedBox(height: 4), // Reduced spa
             /// Listing Distance Widget - Fixed height
             SizedBox(
               height: 20,
@@ -51,8 +48,7 @@ class ListingCard extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 4), // Reduced spacing
-
+            const SizedBox(height: 4), //
             /// Listing Price - Fixed height
             SizedBox(
               height: 25,

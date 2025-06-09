@@ -110,7 +110,7 @@ class HomeDesktopScreen extends StatelessWidget {
                   child: TGridLayout(
                     crossAxisCount: crossAxisCount,
                     mainAxisExtent: mainAxisExtent,
-                    mainAxisSpacing: 20,
+                    mainAxisSpacing: 4,
                     itemCount: propertyController.listings.length,
                     itemBuilder: (_, index) => ListingCard(
                       listing: propertyController.listings[index],
