@@ -18,23 +18,11 @@ class ListingPriceAndViews extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-
         RichText(
           text: const TextSpan(
             children: <InlineSpan>[
-               TextSpan(
-               text:  'Starting  ',
-                style: TextStyle(
-                  color: Color(0xFF6D6D6D),
-                  fontFamily: 'InterDisplay', // Custom font
-                  fontWeight: FontWeight.w400, // Regular weight (400)
-                  fontSize: 11, // 14px font size
-                  height: 1.4, // 140% line height
-                  letterSpacing: 0, // 0px letter spacing
-                ),
-              ),
               TextSpan(
-                text: 'K2500',
+                text: 'K2,500',
                 style: TextStyle(
                   color: Colors.white,
                   fontFamily: 'InterDisplay', // Font family: Inter Display
@@ -50,7 +38,7 @@ class ListingPriceAndViews extends StatelessWidget {
                   color: Color(0xFF6D6D6D),
                   fontFamily: 'InterDisplay', // Custom font
                   fontWeight: FontWeight.w400, // Regular weight (400)
-                  fontSize: 14, // 14px font size
+                  fontSize: 16, // 14px font size
                   height: 1.4, // 140% line height
                   letterSpacing: 0, // 0px letter spacing
                 ),
