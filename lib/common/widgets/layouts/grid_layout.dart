@@ -1,5 +1,5 @@
+// grid_layout.dart - Keep mainAxisExtent as primary method
 import 'package:flutter/material.dart';
-
 import '../../../utils/constants/sizes.dart';
 
 class TGridLayout extends StatelessWidget {
@@ -9,8 +9,8 @@ class TGridLayout extends StatelessWidget {
     required this.itemBuilder,
     this.mainAxisExtent = 490,
     this.crossAxisCount = 1,
-    this.mainAxisSpacing =  TSizes.gridViewSpacing,
-    this.crossAxisSpacing=  TSizes.gridViewSpacing,
+    this.mainAxisSpacing = TSizes.gridViewSpacing,
+    this.crossAxisSpacing = TSizes.gridViewSpacing,
   });
 
   final int crossAxisCount;
