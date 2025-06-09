@@ -36,7 +36,7 @@ class AmenitiesTabSection extends StatelessWidget {
           const TabAmenityTile(
               svgIcon: TImages.kitchen, amenityTitle: 'Kitchen'),
           const TabAmenityTile(
-              svgIcon: TImages.swimming_active,
+              svgIcon: TImages.swim,
               amenityTitle: 'Swimming pool'),
 
           /// Left side amenities

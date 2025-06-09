@@ -90,7 +90,7 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
               onTap: ()=> Get.toNamed(TRoutes.places),
               child: SvgPicture.asset(
                 color: TColors.primary,
-                TImages.tandalaColor,
+                TImages.tandalaSvg,
                 height: 18,
                 width: 32,
               ),

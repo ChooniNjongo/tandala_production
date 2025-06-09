@@ -83,7 +83,7 @@ class MobileHeader extends StatelessWidget  {
             onTap: () => Get.toNamed(TRoutes.places),
             child: SvgPicture.asset(
               color: TColors.primary,
-              TImages.tandalaColor,
+              TImages.tandalaSvg,
               height: 15,
               semanticsLabel: 'Logo',
             ),

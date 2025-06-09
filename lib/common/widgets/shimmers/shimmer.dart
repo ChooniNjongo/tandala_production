@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../../utils/constants/color_system.dart';
+import '../../../utils/constants/colors.dart';
 
 class TShimmerEffect extends StatelessWidget {
   const TShimmerEffect({
@@ -23,7 +24,7 @@ class TShimmerEffect extends StatelessWidget {
         width: width,
         height: height,
         decoration: BoxDecoration(
-          color: color ?? (TColorSystem.n600),
+          color: color ?? (TColors.primaryBackground),
           borderRadius: BorderRadius.circular(radius),
         ),
       ),

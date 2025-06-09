@@ -1,4 +1,3 @@
-import 'package:cwt_ecommerce_admin_panel/features/booking/screens/home/widgets/common/quick_filter_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -66,7 +65,7 @@ class _SecondaryFiltersState extends State<SecondaryFilters> {
               ),
             ),
           ),
-          Expanded(
+ /*         Expanded(
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               controller: _scrollController,
@@ -78,8 +77,8 @@ class _SecondaryFiltersState extends State<SecondaryFilters> {
                       onTap: () => controller
                           .onFilterItemTapped(controller.hasSwimmingPool),
                       isActive: controller.hasSwimmingPool.value,
-                      activeIcon: TImages.swimming_active,
-                      inactiveIcon: TImages.swimming_inactive,
+                      activeIcon: TImages.swim,
+                      inactiveIcon: TImages.swim,
                       border: TColors.swimmingActive,
                       filterName: 'Swimming',
                     ),
@@ -178,7 +177,7 @@ class _SecondaryFiltersState extends State<SecondaryFilters> {
               ),
             ),
           ),
-
+*/
           /// Forward Arrow
           Visibility(
             visible: isDesktop,

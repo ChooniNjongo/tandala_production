@@ -10,11 +10,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TSiteTemplate(
-      useLayout: false,
+    return const TSiteTemplate(
+      useLayout: true,
       desktop: HomeDesktopScreen(),
-      tablet:  const HomeTabletScreen(),
-      mobile:  const HomeMobile(),
+      tablet:  HomeTabletScreen(),
+      mobile:  HomeMobile(),
     );
   }
 }

@@ -1,7 +1,5 @@
 import 'package:cwt_ecommerce_admin_panel/features/listing/screens/checklist/widgets/mobile/add_checklist_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../../controllers/checklist_controller.dart';
 import '../widgets/mobile/body.dart';
 
 class ChecklistMobileScreen extends StatelessWidget {

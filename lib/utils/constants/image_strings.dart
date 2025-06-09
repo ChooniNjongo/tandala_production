@@ -2,6 +2,24 @@
 
 /// This class contains all the App Images in String formats.
 class TImages {
+  // Home
+  /// Navbar
+  static const String apartment = "assets/icons/nav_bar/apartment.svg";
+  static const String calendar = "assets/icons/nav_bar/calendar-01.svg";
+  static const String campfire = "assets/icons/nav_bar/campfire.svg";
+  static const String home02 = "assets/icons/nav_bar/home-02.svg";
+  static const String hotel = "assets/icons/nav_bar/hotel.svg";
+  static const String lodge = "assets/icons/nav_bar/hut.svg";
+  static const String plus = "assets/icons/nav_bar/plus.svg";
+  static const String notification = "assets/icons/nav_bar/notification.svg";
+  static const String menu = "assets/icons/nav_bar/menu.svg";
+  static const String union = "assets/icons/nav_bar/Union.svg";
+
+  /// Search Filter Area
+  static const String filters = "assets/icons/search/filters.svg";
+  static const String quickFilter = "assets/icons/search/quick_filter.svg";
+  static const String search = "assets/icons/search/search.svg";
+
   // -- App Logos
   static const String appLogo = "assets/logos/test_logo.png";
   static const String logoPng = "assets/logos/test_logo.png";
@@ -22,7 +40,7 @@ class TImages {
       "assets/logos/download_app/dark/Store=Google Play, Type=Dark, Language=English.svg";
   static const String sideBarLightAppLogo = "assets/logos/sidebar_logo.png";
   static const String tandalaWhite = "assets/logos/tandala_white.svg";
-  static const String tandalaColor = "assets/logos/tandala.svg";
+  static const String tandalaSvg = "assets/logos/tandala.svg";
   static const String mobileFooterLogo = "assets/logos/mobile_footer_logo.svg";
 
   // -- Default Images
@@ -371,50 +389,31 @@ class TImages {
       "assets/icons/custom_icons/icon_family/plus.svg";
 
   // Secondary Filters Icons
-  static const String balconyActive =
-      "assets/icons/custom_icons/header_nav_icons/material-symbols-light_balcony.svg";
-  static const String balconyInactive =
-      "assets/icons/custom_icons/header_nav_icons/material-symbols-light_balcony.svg";
-  static const String breakfastActive =
-      "assets/icons/custom_icons/header_nav_icons/fluent-mdl2_breakfast.svg";
-  static const String breakfastInactive =
-      "assets/icons/custom_icons/header_nav_icons/fluent-mdl2_breakfast.svg";
-  static const String boat_active =
-      "assets/icons/custom_icons/header_nav_icons/clarity_boat-line.svg";
-  static const String boat_inactive =
-      "assets/icons/custom_icons/header_nav_icons/clarity_boat-line.svg";
-  static const String cabin_active =
-      "assets/icons/custom_icons/header_nav_icons/material-symbols-light_cabin-rounded.svg";
-  static const String cabin_inactive =
-      "assets/icons/custom_icons/header_nav_icons/material-symbols-light_cabin-rounded.svg";
-  static const String campingActive =
-      "assets/icons/custom_icons/header_nav_icons/streamline_camping-tent.svg";
-  static const String camping_inactive =
-      "assets/icons/custom_icons/header_nav_icons/streamline_camping-tent.svg";
-  static const String city_active =
-      "assets/icons/custom_icons/active/city_active.svg";
-  static const String city_inactive =
-      "assets/icons/custom_icons/inactive/city_inactive.svg";
-  static const String conference_active =
-      "assets/icons/custom_icons/header_nav_icons/guidance_conference-room.svg";
-  static const String conference_inactive =
-      "assets/icons/custom_icons/header_nav_icons/guidance_conference-room.svg";
-  static const String countryside_active =
-      "assets/icons/custom_icons/header_nav_icons/hugeicons_hut.svg";
-  static const String countryside_inactive =
-      "assets/icons/custom_icons/header_nav_icons/hugeicons_hut.svg";
-  static const String party_active =
-      "assets/icons/custom_icons/header_nav_icons/streamline_party-popper.svg";
-  static const String party_inactive =
-      "assets/icons/custom_icons/header_nav_icons/streamline_party-popper.svg";
-  static const String swimming_active =
-      "assets/icons/custom_icons/header_nav_icons/fluent_swimming-pool-48-regular.svg";
-  static const String swimming_inactive =
-      "assets/icons/custom_icons/header_nav_icons/fluent_swimming-pool-48-regular.svg";
-  static const String waterfrontActive =
-      "assets/icons/custom_icons/header_nav_icons/fluent_water-20-regular.svg";
-  static const String waterfront_inactive =
-      "assets/icons/custom_icons/header_nav_icons/fluent_water-20-regular.svg";
+  static const String balcony = "assets/icons/quick_search/villa.svg";
+  static const String breakfast = "assets/icons/quick_search/breakfast.svg";
+
+  static const String boat = "assets/icons/quick_search/sailboat.svg";
+
+  static const String cabin =
+      "assets/icons/quick_search/cabin.svg";
+
+  static const String camping=
+      "assets/icons/quick_search/campfire.svg";
+
+  static const String city =
+      "assets/icons/quick_search/apartment.svg";
+
+  static const String conference =
+      "assets/icons/quick_search/projector-screen-chart.svg";
+
+  static const String countryside =
+      "assets/icons/quick_search/circus-tent.svg";
+  static const String party =
+      "assets/icons/quick_search/party.svg";
+  static const String swim = "assets/icons/quick_search/swim.svg";
+  static const String beach =
+      "assets/icons/quick_search/beach.svg";
+
 
   // Sidebar menu icons
   static const String close = "assets/icons/custom_icons/close.svg";
@@ -497,7 +496,7 @@ class TImages {
 
   // Ratings
   static const String ratingStar =
-      "assets/icons/custom_icons/material-symbols_star.svg";
+      "assets/icons/cards/Ratings.svg";
   static const String map = "assets/images/map/gis_road-map.svg";
   static const String googleMaps = "assets/images/map/logos_google-maps.svg";
 
@@ -566,7 +565,4 @@ class TImages {
       "assets/images/animations/dashboard.gif";
   static const String tableIllustration = "assets/images/animations/table.gif";
   static const String ratingStory = "assets/images/hero_svg/rating_story.svg";
-
-
-
 }

@@ -12,7 +12,7 @@ class TSiteTemplate extends StatelessWidget {
     this.desktop,
     this.tablet,
     this.mobile,
-    this.useLayout = true,  this.showNavRail = true,  this.showHeader2 = true,
+    this.useLayout = true,
   });
 
   /// Widget for desktop layout
@@ -28,11 +28,7 @@ class TSiteTemplate extends StatelessWidget {
   final bool useLayout;
 
 
-  /// Flag to determine whether to use the layout
-  final bool showHeader2;
 
-  /// Flag to determine if to show Nav Rail
-  final bool showNavRail;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +36,7 @@ class TSiteTemplate extends StatelessWidget {
       backgroundColor: TColors.primaryBackground,
       body: TResponsiveWidget(
         desktop:
-        useLayout ? DesktopLayout(body: desktop, showNavRail: showNavRail,) : desktop ?? Container(),
+        useLayout ? DesktopLayout(body: desktop) : desktop ?? Container(),
         tablet: useLayout
             ? TabletLayout(body: tablet ?? desktop)
             : tablet ?? desktop ?? Container(),

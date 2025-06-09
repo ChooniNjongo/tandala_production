@@ -2,60 +2,51 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../common/widgets/containers/rounded_container.dart';
-import '../../../../../../utils/constants/color_system.dart';
 import '../../../../../../utils/constants/colors.dart';
-import '../../../../../../utils/constants/typography.dart';
-import '../../../../../../utils/device/device_utility.dart';
 
 class SecondaryFilterItem extends StatelessWidget {
-  final Color border;
   final bool isActive;
-  final String activeIcon;
-  final String inactiveIcon;
+  final String icon;
   final String filterName;
   final void Function()? onTap;
 
   const SecondaryFilterItem(
       {super.key,
       required this.isActive,
-      required this.activeIcon,
-      required this.inactiveIcon,
-      required this.border,
       this.onTap,
-      required this.filterName});
+      required this.filterName,
+      required this.icon});
 
   @override
   Widget build(BuildContext context) {
-    final isMobile = TDeviceUtils.isMobileScreen(context);
     return TRoundedContainer(
-
       onTap: onTap,
-      padding: const EdgeInsets.all(4),
+      padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
+      margin: const EdgeInsets.symmetric(horizontal: 8),
       backgroundColor: Colors.transparent,
-      margin: const EdgeInsets.only(left: 4),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           SvgPicture.asset(
-           activeIcon ,
+            icon,
             height: 22,
             semanticsLabel: 'Logo',
-            color: isActive ? TColorSystem.primary500 : TColors.textIconFilterInactive,
+            color: isActive ? TColors.textPrimary : TColors.textSecondary,
           ),
           const SizedBox(
-            height: 2,
+            height: 8,
           ),
           Text(
             filterName,
-            style: TTypography.body12Regular.copyWith(fontSize: 11,
-                fontWeight: isActive ? FontWeight.w500 : FontWeight.w500,
-                color: isActive
-                    ? (TColors.white)
-                    : (TColors.textIconFilterInactive)),
-          ),
-          if(!isMobile)
-           const SizedBox(
-            height: 8,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'InterDisplay',
+              fontWeight: FontWeight.w500,
+              fontSize: 14,
+              height: 1.4, // 140% line-height
+              letterSpacing: 0,
+              color: isActive ? TColors.textPrimary : TColors.textSecondary,
+            ),
           ),
         ],
       ),

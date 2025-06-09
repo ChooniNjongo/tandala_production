@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../navigation/nav_bar.dart';
 
 /// Widget for the desktop layout
 class MobileLayout extends StatelessWidget {

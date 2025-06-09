@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import '../../../utils/constants/color_system.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/typography.dart';
-import '../dividers/extensible_full_width_divider.dart';
 
 /// Widget representing a section input list, referred to as "SECTION" in the Figma file.
 class TSectionInputList extends StatelessWidget {

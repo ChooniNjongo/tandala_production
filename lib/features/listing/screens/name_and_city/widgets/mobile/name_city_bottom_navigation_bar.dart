@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../../common/widgets/containers/rounded_container.dart';
-import '../../../../../../routes/routes.dart';
-import '../../../../../../utils/constants/color_system.dart';
 import '../../../../../../utils/constants/typography.dart';
 import '../../../../controllers/name_and_city_controller.dart';
 

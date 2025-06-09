@@ -34,9 +34,8 @@ class TColors {
   static const Color iconPrimaryLight = Color(0xFFFFFFFF);
 
   // Text colors
-  //static const Color textPrimary = Color(0xFFB7B5AC);
-  static const Color textPrimary = TColorSystem.n400;
-  static Color textSecondary = const Color(0xFF9C9A93);
+  static const Color textPrimary = Color(0xFFE5F7F9);
+  static Color textSecondary = const Color(0xFF5E6464);
   static Color textOnSecondaryBackground2 = const Color(0xFFEAA165);
   static const Color textIconFilterInactive = Color(0xFF808D8E);
 
@@ -50,15 +49,15 @@ class TColors {
 
   // Background colors
 
-  static const Color light = Color(0xFF2C2C2C);
-  static const Color primaryBackground = Color(0xFF202424);
+  static const Color light =Color(0xFF001113);
+  static const Color primaryBackground = Color(0xFF001113);
   static const Color secondaryBackground = Color(0xFF2D3030);
   static const Color secondaryBackground2 = Color(0xFF141413);
   static const Color headerBackground = Color(0xFF030303);
   static const Color popupBackground = Color(0xFF151B23);
 
   // Search Bar
-  static const Color searchFilterDark = Color(0xFF383838);
+  static const Color searchFilterDark = Color(0xFF1A2323);
   static const Color searchFilterLight = Color(0xFFEEEEEE);
   static const Color searchHintTextLight = Color(0xFFEEEEEE);
   static const Color searchHintTextDark = Color(0xFF7A7A7A);

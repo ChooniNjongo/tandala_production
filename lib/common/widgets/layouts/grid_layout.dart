@@ -9,8 +9,8 @@ class TGridLayout extends StatelessWidget {
     required this.itemBuilder,
     this.mainAxisExtent = 490,
     this.crossAxisCount = 1,
-    this.mainAxisSpacing =  TSizes.gridViewSpacing / 2,
-    this.crossAxisSpacing=  TSizes.gridViewSpacing / 2,
+    this.mainAxisSpacing =  TSizes.gridViewSpacing,
+    this.crossAxisSpacing=  TSizes.gridViewSpacing,
   });
 
   final int crossAxisCount;

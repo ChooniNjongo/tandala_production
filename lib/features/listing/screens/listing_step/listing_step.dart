@@ -57,7 +57,7 @@ class ListingStageMobileScreen extends StatelessWidget {
   }
 
   Widget _buildDefaultScreen() {
-    return Center(child: Text("No stage data available"));
+    return const Center(child: Text("No stage data available"));
   }
 
   Widget _buildChecklistScreenWidget() {

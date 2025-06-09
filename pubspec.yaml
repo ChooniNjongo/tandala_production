@@ -96,6 +96,10 @@ flutter:
     - assets/icons/custom_icons/product_card/
     - assets/icons/custom_icons/icon_family/
     - assets/icons/custom_icons/header_nav_icons/
+    - assets/icons/nav_bar/
+    - assets/icons/quick_search/
+    - assets/icons/search/
+    - assets/icons/cards/
 
   #--------------- LOCAL FONTS ------------------#
   fonts:
@@ -184,3 +188,45 @@ flutter:
           weight: 600
         - asset: assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Bold.ttf
           weight: 800
+
+    - family: InterDisplay
+      fonts:
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-Light.ttf
+          weight: 300
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-Black.ttf
+          weight: 900
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-Italic.ttf
+          style: italic
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-BlackItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/inter-display/ttf/InterDisplay-BlackItalic.ttf
+          weight: 900
+          style: italic
+
