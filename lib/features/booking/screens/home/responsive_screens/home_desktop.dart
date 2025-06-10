@@ -1,9 +1,6 @@
-// home_desktop_screen.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../common/widgets/cards/listing_card/listing_card.dart';
 import '../../../../../common/widgets/layouts/grid_layout.dart';
-import '../../../../../common/widgets/shimmers/vertical_product_shimmer.dart';
 import '../../../../../utils/constants/color_system.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/typography.dart';
@@ -66,24 +63,39 @@ class HomeDesktopScreen extends StatelessWidget {
     final mainAxisExtent = _calculateMainAxisExtent(context);
     final screenWidth = MediaQuery.of(context).size.width;
 
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 80, right: 80, top: 20, bottom: 24),
-            child: TSearchAndFilters(),
-          ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              QuickFilters(),
-            ],
-          ),
-          const SizedBox(height: TSizes.spaceBtwSections / 2),
-          HomeListings(propertyController: propertyController, crossAxisCount: crossAxisCount, mainAxisExtent: mainAxisExtent, screenWidth: screenWidth),
-        ],
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Search and Filters Section
+            Container(
+              width: double.infinity,
+              child: const Padding(
+                padding: EdgeInsets.only(left: 80, right: 80, top: 20, bottom: 24),
+                child: TSearchAndFilters(),
+              ),
+            ),
+
+            // Quick Filters Section
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                QuickFilters(),
+              ],
+            ),
+
+            const SizedBox(height: TSizes.spaceBtwSections / 2),
+
+            // Main Content with Listings and Pagination
+            HomeListings(
+              propertyController: propertyController,
+              crossAxisCount: crossAxisCount,
+              mainAxisExtent: mainAxisExtent,
+              screenWidth: screenWidth,
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-

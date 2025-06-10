@@ -6,6 +6,7 @@ import '../../../../features/booking/models/property/listing_model.dart';
 import '../../../../features/booking/models/property/property_review.dart';
 import '../../../../features/booking/models/property/room.dart';
 import '../../../../utils/constants/api_constants.dart';
+import '../../../features/booking/models/booking/pagination_response.dart';
 import '../../../features/booking/models/booking/sorting_order.dart';
 
 class PropertyRepository extends GetxController {
@@ -29,23 +30,20 @@ class PropertyRepository extends GetxController {
       );
 
       if (response.statusCode == 200) {
-        // If the server returns a 200 OK response, parse the JSON response
         List<dynamic> data = json.decode(response.body);
         return data.map((json) => ListingModel.fromJson(json)).toList();
       } else {
-        // If the server returns an error response, throw an exception
         throw Exception('Failed to fetch favourite products');
       }
     } catch (e) {
-      // If an error occurs during the HTTP request, throw an exception
       throw Exception('Failed to connect to the server');
     }
   }
 
   Future<List<ListingModel>> getCheapestProperties(
-    double latitude,
-    double longitude,
-  ) async {
+      double latitude,
+      double longitude,
+      ) async {
     final response = await http.get(
       Uri.parse(
         '${APIConstants.baseUrl}/property/getCheapestProperties?param1=$latitude&param2=$longitude',
@@ -53,21 +51,19 @@ class PropertyRepository extends GetxController {
     );
 
     if (response.statusCode == 200) {
-      // If the server returns a 200 OK response, parse the JSON and return the list of properties
       final List<dynamic> jsonList =
-          response.body.isNotEmpty ? json.decode(response.body) : [];
+      response.body.isNotEmpty ? json.decode(response.body) : [];
       return jsonList.map((json) => ListingModel.fromJson(json)).toList();
     } else {
-      // If the server did not return a 200 OK response, throw an exception.
       throw Exception('Failed to load properties');
     }
   }
 
   Future<List<ListingModel>> getUserListings(
-    double latitude,
-    double longitude,
-    String userId,
-  ) async {
+      double latitude,
+      double longitude,
+      String userId,
+      ) async {
     final Uri uri = Uri.parse(
       '${APIConstants.baseUrl}/property/userListings',
     ).replace(
@@ -80,12 +76,10 @@ class PropertyRepository extends GetxController {
 
     final response = await http.post(uri);
     if (response.statusCode == 200) {
-      // If the server returns a 200 OK response, parse the JSON and return the list of properties
       final List<dynamic> jsonList =
-          response.body.isNotEmpty ? json.decode(response.body) : [];
+      response.body.isNotEmpty ? json.decode(response.body) : [];
       return jsonList.map((json) => ListingModel.fromJson(json)).toList();
     } else {
-      // If the server did not return a 200 OK response, throw an exception.
       throw Exception('Failed to load user properties');
     }
   }
@@ -107,11 +101,9 @@ class PropertyRepository extends GetxController {
 
     final response = await http.get(uri);
     if (response.statusCode == 200) {
-      // If the server returns a 200 OK response, parse the JSON and return the list of properties
       final jsonList = json.decode(response.body);
       return jsonList.map((json) => ListingModel.fromJson(json));
     } else {
-      // If the server did not return a 200 OK response, throw an exception.
       throw Exception('Failed to get listing for booking');
     }
   }
@@ -182,7 +174,8 @@ class PropertyRepository extends GetxController {
     }
   }
 
-  Future<List<ListingModel>> searchListings({
+  // NEW ENHANCED METHOD: Search listings with pagination response
+  Future<PaginatedResponse> searchListingsWithPagination({
     double? latitude,
     double? longitude,
     String? name,
@@ -250,22 +243,15 @@ class PropertyRepository extends GetxController {
       if (hasBalcony != null) 'hasBalcony': hasBalcony.toString(),
       if (hasCabin != null) 'hasCabin': hasCabin.toString(),
       if (hasConference != null) 'hasConference': hasConference.toString(),
-      if (hasSwimmingPool != null)
-        'hasSwimmingPool': hasSwimmingPool.toString(),
+      if (hasSwimmingPool != null) 'hasSwimmingPool': hasSwimmingPool.toString(),
       if (hasWifi != null) 'hasWifi': hasWifi.toString(),
-      if (hasSwimmingPool != null)
-        'hasSwimmingPool': hasSwimmingPool.toString(),
-      if (hasAirConditioning != null)
-        'hasAirConditioning': hasAirConditioning.toString(),
+      if (hasAirConditioning != null) 'hasAirConditioning': hasAirConditioning.toString(),
       if (hasTv != null) 'hasTv': hasTv.toString(),
-      if (providesBreakfast != null)
-        'providesBreakfast': providesBreakfast.toString(),
+      if (providesBreakfast != null) 'providesBreakfast': providesBreakfast.toString(),
       if (hasGym != null) 'hasGym': hasGym.toString(),
       if (smokingAllowed != null) 'smokingAllowed': smokingAllowed.toString(),
-      if (sortingOrder != null)
-        'sortingOrder': sortingOrder.name, // Added sorting order
-      if (freeCancellation != null)
-        'freeCancellation': freeCancellation.toString(),
+      if (sortingOrder != null) 'sortingOrder': sortingOrder.name,
+      if (freeCancellation != null) 'freeCancellation': freeCancellation.toString(),
       'page': page.toString(),
       'size': size.toString(),
     };
@@ -277,11 +263,100 @@ class PropertyRepository extends GetxController {
     try {
       final response = await http.get(uri);
       if (response.statusCode == 200) {
-        final List<dynamic> jsonResponse = jsonDecode(response.body);
-        return jsonResponse.map((json) => ListingModel.fromJson(json)).toList();
+        final Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+        return PaginatedResponse.fromJson(jsonResponse);
       } else {
         throw Exception('Failed to fetch listings');
       }
+    } catch (e) {
+      throw Exception('Error occurred while fetching listings: $e');
+    }
+  }
+
+  // BACKWARD COMPATIBILITY: Keep existing method but use new paginated method internally
+  Future<List<ListingModel>> searchListings({
+    double? latitude,
+    double? longitude,
+    String? name,
+    String? area,
+    String? category,
+    int? bathroomCount,
+    int? bedRoomCount,
+    int? bedCount,
+    int? roomCount,
+    bool? hasPool,
+    bool? petAllowed,
+    double? minPrice,
+    double? maxPrice,
+    String? city,
+    bool? isHotel,
+    bool? isLodge,
+    bool? isGuestHouse,
+    bool? isHouse,
+    bool? isCampingSite,
+    bool? hasWaterfront,
+    bool? hasBoat,
+    bool? hasCountryside,
+    bool? inCity,
+    bool? hasParty,
+    bool? hasBalcony,
+    bool? hasCabin,
+    bool? hasConference,
+    bool? hasSwimmingPool,
+    bool? hasWifi,
+    bool? hasAirConditioning,
+    bool? hasTv,
+    bool? providesBreakfast,
+    bool? hasGym,
+    bool? smokingAllowed,
+    bool? freeCancellation,
+    int page = 0,
+    int size = 24,
+    SortingOrder? sortingOrder,
+  }) async {
+    try {
+      final paginatedResponse = await searchListingsWithPagination(
+        latitude: latitude,
+        longitude: longitude,
+        name: name,
+        area: area,
+        category: category,
+        bathroomCount: bathroomCount,
+        bedRoomCount: bedRoomCount,
+        bedCount: bedCount,
+        roomCount: roomCount,
+        hasPool: hasPool,
+        petAllowed: petAllowed,
+        minPrice: minPrice,
+        maxPrice: maxPrice,
+        city: city,
+        isHotel: isHotel,
+        isLodge: isLodge,
+        isGuestHouse: isGuestHouse,
+        isHouse: isHouse,
+        isCampingSite: isCampingSite,
+        hasWaterfront: hasWaterfront,
+        hasBoat: hasBoat,
+        hasCountryside: hasCountryside,
+        inCity: inCity,
+        hasParty: hasParty,
+        hasBalcony: hasBalcony,
+        hasCabin: hasCabin,
+        hasConference: hasConference,
+        hasSwimmingPool: hasSwimmingPool,
+        hasWifi: hasWifi,
+        hasAirConditioning: hasAirConditioning,
+        hasTv: hasTv,
+        providesBreakfast: providesBreakfast,
+        hasGym: hasGym,
+        smokingAllowed: smokingAllowed,
+        freeCancellation: freeCancellation,
+        page: page,
+        size: size,
+        sortingOrder: sortingOrder,
+      );
+
+      return paginatedResponse.content;
     } catch (e) {
       throw Exception('Error occurred while fetching listings: $e');
     }
@@ -291,14 +366,12 @@ class PropertyRepository extends GetxController {
   submitProperty(Listing property) async {
     final response = await http.post(
       Uri.parse('${APIConstants.baseUrl}/property'),
-      // Replace with your actual API endpoint
       headers: <String, String>{'Content-Type': 'application/json'},
       body: jsonEncode(property.toJson()),
     );
 
     if (response.statusCode == 200) {
     } else {
-      // Request failed
       throw Exception('Failed to submit properties');
     }
   }
@@ -312,7 +385,6 @@ class PropertyRepository extends GetxController {
 
     if (response.statusCode == 200) {
     } else {
-      // Request failed
       throw Exception('Failed to deleteProperty properties');
     }
   }
@@ -330,8 +402,8 @@ class PropertyRepository extends GetxController {
   }
 
   Future<List<PropertyReview>> getPropertyReviewsForListingId(
-    String listingId,
-  ) async {
+      String listingId,
+      ) async {
     final response = await http.get(
       Uri.parse('${APIConstants.baseUrl}/property/property-reviews/$listingId'),
     );
@@ -344,11 +416,7 @@ class PropertyRepository extends GetxController {
     }
   }
 
-
-
   /// Listing Process
-// Add this method to your PropertyRepository class
-
   Future<List<Listing>> getUserDraftListings(String userId) async {
     try {
       final response = await http.get(
@@ -359,21 +427,17 @@ class PropertyRepository extends GetxController {
       );
 
       if (response.statusCode == 200) {
-        // If the server returns a 200 OK response, parse the JSON response
         final List<dynamic> jsonList =
         response.body.isNotEmpty ? json.decode(response.body) : [];
         return jsonList.map((json) => Listing.fromJson(json)).toList();
       } else {
-        // If the server returns an error response, throw an exception
         throw Exception('Failed to fetch user draft listings');
       }
     } catch (e) {
-      // If an error occurs during the HTTP request, throw an exception
       throw Exception('Failed to connect to the server: $e');
     }
   }
 
-// Optional: Add a method to save draft listings as well
   Future<Listing> saveDraftListing(Listing listing) async {
     try {
       final response = await http.post(
@@ -385,15 +449,12 @@ class PropertyRepository extends GetxController {
       );
 
       if (response.statusCode == 200) {
-        // If the server returns a 200 OK response, parse the JSON response
         final Map<String, dynamic> jsonResponse = json.decode(response.body);
         return Listing.fromJson(jsonResponse);
       } else {
-        // If the server returns an error response, throw an exception
         throw Exception('Failed to save draft listing');
       }
     } catch (e) {
-      // If an error occurs during the HTTP request, throw an exception
       throw Exception('Failed to connect to the server: $e');
     }
   }
