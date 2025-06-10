@@ -19,7 +19,7 @@ class ListingNameAndRating extends StatelessWidget {
           style: TextStyle(
             color: Color(0xFF6D6D6D),
             fontFamily: 'InterDisplay',
-            fontSize: 16,
+            fontSize: 14,
             fontStyle: FontStyle.normal,
             fontWeight: FontWeight.w400,
             height: 1.4, // This is the line height (22.4 / 16 = 1.4)
@@ -36,7 +36,7 @@ class ListingNameAndRating extends StatelessWidget {
               style: TextStyle(
                 color: Color(0xFF6D6D6D),
                 fontFamily: 'InterDisplay',
-                fontSize: 14,
+                fontSize: 13,
                 fontStyle: FontStyle.normal,
                 fontWeight: FontWeight.w400,
                 height: 1.4, // 19.6 / 14 = 1.4

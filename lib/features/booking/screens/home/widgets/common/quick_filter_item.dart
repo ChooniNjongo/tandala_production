@@ -42,7 +42,7 @@ class SecondaryFilterItem extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'InterDisplay',
               fontWeight: FontWeight.w500,
-              fontSize: 14,
+              fontSize: 13,
               height: 1.4, // 140% line-height
               letterSpacing: 0,
               color: isActive ? TColors.textPrimary : TColors.textSecondary,

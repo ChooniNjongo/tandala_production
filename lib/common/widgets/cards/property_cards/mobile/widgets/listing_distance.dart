@@ -32,7 +32,7 @@ class ListingDistance extends StatelessWidget {
               color: Color(0xFF6D6D6D),
               fontFamily: 'Inter Display',
               fontWeight: FontWeight.w400,
-              fontSize: 14,
+              fontSize: 13,
               height: 1.4, // line-height of 140%
               letterSpacing: 0,
             ),
@@ -44,7 +44,7 @@ class ListingDistance extends StatelessWidget {
           color: Color(0xFF6D6D6D),
           fontFamily: 'Inter Display',
           fontWeight: FontWeight.w400,
-          fontSize: 14,
+          fontSize: 13,
           height: 1.4, // line-height of 140%
           letterSpacing: 0,
         ),

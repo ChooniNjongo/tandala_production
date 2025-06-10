@@ -17,7 +17,7 @@ class ListingCard extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final cardWidth = constraints.maxWidth;
-        final imageHeight = cardWidth * 0.77; // 4:3 aspect ratio
+        final imageHeight = cardWidth * 0.795; // 4:3 aspect ratio
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,

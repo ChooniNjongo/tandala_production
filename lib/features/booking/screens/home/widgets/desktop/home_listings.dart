@@ -56,7 +56,7 @@ class HomeListings extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: screenWidth > 600 ? 72 : 72,
+              horizontal: screenWidth > 600 ? 64 : 64,
               vertical: 32,
             ),
             child: TGridLayout(

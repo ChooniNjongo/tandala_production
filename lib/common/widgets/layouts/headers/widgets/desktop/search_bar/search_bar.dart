@@ -28,8 +28,8 @@ class TSearchBar extends StatelessWidget {
             color: const Color(
               0xFF888888,
             ),
-            fontSize: 16,
-            fontWeight: FontWeight.w500)),
+            fontSize: 15,
+            fontWeight: FontWeight.w400)),
         // Use the 'backgroundColor' property inside 'SearchBarThemeData'
         backgroundColor: WidgetStateProperty.all(TColors.searchFilterDark),
       ),
