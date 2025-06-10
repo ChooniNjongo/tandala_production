@@ -13,7 +13,7 @@ class LeftFrame extends StatelessWidget {
       children: [
         /// Logo
         SizedBox(
-          width: 134,
+          width: 100,
           height: 24,
           child: SvgPicture.asset(TImages.tandalaSvg),
         ),

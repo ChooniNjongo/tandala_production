@@ -1,5 +1,4 @@
 // home_desktop_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../common/widgets/cards/listing_card/listing_card.dart';
@@ -11,6 +10,7 @@ import '../../../../../utils/constants/typography.dart';
 import '../../../controllers/property_controller.dart';
 import '../widgets/common/search_and_filters.dart';
 import '../widgets/common/quick_filters.dart';
+import '../widgets/desktop/home_listings.dart';
 
 class HomeDesktopScreen extends StatelessWidget {
   const HomeDesktopScreen({super.key});
@@ -33,14 +33,20 @@ class HomeDesktopScreen extends StatelessWidget {
       crossAxisCount = 1;
     }
 
-    final itemWidth = (availableWidth - ((crossAxisCount - 1) * TSizes.gridViewSpacing)) / crossAxisCount;
+    final itemWidth =
+        (availableWidth - ((crossAxisCount - 1) * TSizes.gridViewSpacing)) /
+            crossAxisCount;
     final imageHeight = itemWidth * 0.75;
     const nameAndRatingHeight = 40.0;
     const distanceHeight = 20.0;
     const priceHeight = 25.0;
     const spacingHeight = 20.0;
 
-    final totalHeight = imageHeight + nameAndRatingHeight + distanceHeight + priceHeight + spacingHeight;
+    final totalHeight = imageHeight +
+        nameAndRatingHeight +
+        distanceHeight +
+        priceHeight +
+        spacingHeight;
     return totalHeight;
   }
 
@@ -73,56 +79,11 @@ class HomeDesktopScreen extends StatelessWidget {
               QuickFilters(),
             ],
           ),
-          const SizedBox(height: TSizes.spaceBtwSections),
-
-          Obx(() {
-            if (propertyController.isLoading.value) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 32),
-                child: TGridLayout(
-                  crossAxisCount: crossAxisCount,
-                  mainAxisExtent: mainAxisExtent,
-                  mainAxisSpacing: 24,
-                  itemCount: 12,
-                  itemBuilder: (_, index) => const TVerticalProductShimmer(),
-                ),
-              );
-            }
-
-            if (propertyController.listings.isEmpty) {
-              return Center(
-                child: Text(
-                  'No Properties Found. Try another search criteria',
-                  style: TTypography.body14Regular.apply(
-                    color: TColorSystem.n200,
-                  ),
-                ),
-              );
-            }
-
-            return Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: screenWidth > 600 ? 40 : 20,
-                    vertical: 32,
-                  ),
-                  child: TGridLayout(
-                    crossAxisCount: crossAxisCount,
-                    mainAxisExtent: mainAxisExtent,
-                    mainAxisSpacing: 4,
-                    itemCount: propertyController.listings.length,
-                    itemBuilder: (_, index) => ListingCard(
-                      listing: propertyController.listings[index],
-                    ),
-                  ),
-                ),
-               // _buildPagination(context, propertyController),
-              ],
-            );
-          }),
+          const SizedBox(height: TSizes.spaceBtwSections / 2),
+          HomeListings(propertyController: propertyController, crossAxisCount: crossAxisCount, mainAxisExtent: mainAxisExtent, screenWidth: screenWidth),
         ],
       ),
     );
   }
 }
+

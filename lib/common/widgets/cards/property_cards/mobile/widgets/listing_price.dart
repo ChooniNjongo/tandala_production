@@ -26,7 +26,7 @@ class ListingPriceAndViews extends StatelessWidget {
                 style: TextStyle(
                   color: TColors.textPrimary,
                   fontFamily: 'InterDisplay', // Font family: Inter Display
-                  fontWeight: FontWeight.w500, // Font weight: 500 (Medium)
+                  fontWeight: FontWeight.w400, // Font weight: 500 (Medium)
                   fontSize:20, // Font size: 20px
                   height: 1.4, // Line height: 140%
                   letterSpacing: 0, // Letter spacing: 0px
