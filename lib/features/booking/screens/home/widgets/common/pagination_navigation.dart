@@ -50,8 +50,12 @@ class PaginationNavigation extends StatelessWidget {
         children: [
           // Previous Arrow
           _PaginationButton(
-            onTap: currentPage > 1 ? () => onPageChanged(currentPage - 1) : null,
-            child: SvgPicture.asset("assets/icons/pagination/chevron-left.svg")
+              onTap: currentPage > 1 ? () => onPageChanged(currentPage - 1) : null,
+              child: SizedBox(
+                  width: 16,
+                  height: 16,
+                  child: SvgPicture.asset("assets/icons/pagination/chevron-left.svg")
+              )
           ),
 
           const SizedBox(width: 8),
@@ -90,8 +94,12 @@ class PaginationNavigation extends StatelessWidget {
 
           // Next Arrow
           _PaginationButton(
-            onTap: currentPage < totalPages ? () => onPageChanged(currentPage + 1) : null,
-              child: SvgPicture.asset("assets/icons/pagination/chevron-right.svg",color: TColors.textPrimary,)
+              onTap: currentPage < totalPages ? () => onPageChanged(currentPage + 1) : null,
+              child: SizedBox(
+                  width: 16,
+                  height: 16,
+                  child: SvgPicture.asset("assets/icons/pagination/chevron-right.svg",color: TColors.textPrimary,)
+              )
           ),
         ],
       ),
@@ -100,12 +108,12 @@ class PaginationNavigation extends StatelessWidget {
 
   Widget _buildEllipsis() {
     return Container(
-      width: 40,
-      height: 40,
+      width: 32,
+      height: 32,
       alignment: Alignment.center,
       child: Text(
         '...',
-        style: TTypography.body14Regular.apply(
+        style: TTypography.body12Regular.apply(
           color: TColorSystem.n300,
         ),
       ),
@@ -141,16 +149,10 @@ class _PaginationButtonState extends State<_PaginationButton> {
           borderRadius: BorderRadius.circular(8),
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
-            width: 40,
-            height: 40,
+            width: 32,
+            height: 32,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(
-                color: widget.onTap != null
-                    ? (isHovered ? TColorSystem.primary500 : TColorSystem.n200)
-                    : TColorSystem.n100,
-                width: 1,
-              ),
               color: widget.onTap != null && isHovered
                   ? TColorSystem.primary500.withOpacity(0.1)
                   : Colors.transparent,
@@ -193,27 +195,23 @@ class _PaginationNumberButtonState extends State<_PaginationNumberButton> {
           borderRadius: BorderRadius.circular(8),
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
-            width: 40,
-            height: 40,
+            width: 32,
+            height: 32,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: widget.isSelected
+                  ? BorderRadius.circular(16) // Perfect circle for selected page (32/2 = 16)
+                  : BorderRadius.circular(6), // Smaller rounded rectangle for others
               color: widget.isSelected
                   ? TColorSystem.primary500
                   : (isHovered ? TColorSystem.primary500.withOpacity(0.1) : Colors.transparent),
-              border: Border.all(
-                color: widget.isSelected
-                    ? TColorSystem.primary500
-                    : (isHovered ? TColorSystem.primary500 : TColorSystem.n200),
-                width: 1,
-              ),
             ),
             child: Center(
               child: Text(
                 '${widget.pageNumber}',
-                style: TTypography.body16Regular.apply(
+                style: TTypography.body14Regular.apply(
                   color: widget.isSelected
                       ? Colors.white
-                      : (isHovered ? TColorSystem.primary500 : TColorSystem.n400),
+                      : (isHovered ? TColorSystem.primary500 : TColors.textPrimary),
                 ),
               ),
             ),
