@@ -4,7 +4,6 @@ import "package:cwt_ecommerce_admin_panel/common/widgets/cards/property_cards/mo
 import "package:flutter/material.dart";
 import "package:flutter_svg/svg.dart";
 import "../../../../features/booking/models/property/listing_model.dart";
-import "../../../../utils/constants/image_strings.dart";
 import "listing_image.dart";
 import "listing_name_and_rating.dart";
 
@@ -18,7 +17,7 @@ class ListingCard extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final cardWidth = constraints.maxWidth;
-        final imageHeight = cardWidth * 0.75; // 4:3 aspect ratio
+        final imageHeight = cardWidth * 0.8; // 4:3 aspect ratio
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
