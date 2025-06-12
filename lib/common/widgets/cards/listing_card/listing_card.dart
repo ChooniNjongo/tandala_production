@@ -34,20 +34,21 @@ class ListingCard extends StatelessWidget {
 
             /// Listing Name and Rating - Fixed height
             ListingNameAndRating(listing: listing),
-            const SizedBox(height: 4), // Reduced spa
+            const SizedBox(height: 2), // Reduced spa
+
+
             /// Listing Distance Widget - Fixed height
-            SizedBox(
-              height: 20,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: ListingDistance(listing: listing),
-                  ),
-                ],
+            const Text(
+              'Starting from',
+              style: TextStyle(
+                color: Color(0xFF6D6D6D),
+                fontFamily: 'Inter Display',
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+                height: 1.4, // line-height of 140%
+                letterSpacing: 0,
               ),
             ),
-            const SizedBox(height: 4), //
             /// Listing Price - Fixed height
             SizedBox(
               height: 25,

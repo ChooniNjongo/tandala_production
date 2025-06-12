@@ -76,32 +76,7 @@ class HomeListings extends StatelessWidget {
 
       return Column(
         children: [
-          // Pagination Info
-          if (propertyController.totalElements.value > 0)
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth > 600 ? 64 : 32,
-                vertical: 16,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    propertyController.paginationInfo,
-                    style: TTypography.body14Regular.apply(
-                      color: TColorSystem.n300,
-                    ),
-                  ),
-                  if (propertyController.totalPages.value > 1)
-                    Text(
-                      'Page ${propertyController.currentPage.value + 1} of ${propertyController.totalPages.value}',
-                      style: TTypography.body16Regular.apply(
-                        color: TColorSystem.n400,
-                      ),
-                    ),
-                ],
-              ),
-            ),
+
 
           // Listings Grid
           Padding(

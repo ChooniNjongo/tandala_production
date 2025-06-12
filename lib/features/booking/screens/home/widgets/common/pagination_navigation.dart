@@ -17,7 +17,7 @@ class PaginationNavigation extends StatelessWidget {
     required this.currentPage,
     required this.totalPages,
     required this.onPageChanged,
-    this.maxVisiblePages = 7,
+    this.maxVisiblePages = 5,
   });
 
   List<int> _getVisiblePages() {
@@ -51,10 +51,10 @@ class PaginationNavigation extends StatelessWidget {
           // Previous Arrow
           _PaginationButton(
               onTap: currentPage > 1 ? () => onPageChanged(currentPage - 1) : null,
-              child: SizedBox(
-                  width: 16,
-                  height: 16,
-                  child: SvgPicture.asset("assets/icons/pagination/chevron-left.svg")
+              child: SvgPicture.asset(
+                "assets/icons/pagination/chevron-left.svg",
+                width: 20,
+                height: 20,
               )
           ),
 
@@ -95,10 +95,11 @@ class PaginationNavigation extends StatelessWidget {
           // Next Arrow
           _PaginationButton(
               onTap: currentPage < totalPages ? () => onPageChanged(currentPage + 1) : null,
-              child: SizedBox(
-                  width: 16,
-                  height: 16,
-                  child: SvgPicture.asset("assets/icons/pagination/chevron-right.svg",color: TColors.textPrimary,)
+              child: SvgPicture.asset(
+                  "assets/icons/pagination/chevron-right.svg",
+                  color: TColors.textPrimary,
+                  width: 20,
+                  height: 20
               )
           ),
         ],
@@ -157,7 +158,7 @@ class _PaginationButtonState extends State<_PaginationButton> {
                   ? TColorSystem.primary500.withOpacity(0.1)
                   : Colors.transparent,
             ),
-            child: widget.child,
+            child: Center(child: widget.child),
           ),
         ),
       ),
@@ -192,15 +193,15 @@ class _PaginationNumberButtonState extends State<_PaginationNumberButton> {
         color: Colors.transparent,
         child: InkWell(
           onTap: widget.onTap,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(16), // Perfect circle for all states
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             width: 32,
             height: 32,
             decoration: BoxDecoration(
-              borderRadius: widget.isSelected
-                  ? BorderRadius.circular(16) // Perfect circle for selected page (32/2 = 16)
-                  : BorderRadius.circular(6), // Smaller rounded rectangle for others
+              borderRadius: (widget.isSelected || isHovered)
+                  ? BorderRadius.circular(16) // Perfect circle for selected or hovered
+                  : BorderRadius.circular(6), // Rounded rectangle for default state
               color: widget.isSelected
                   ? TColorSystem.primary500
                   : (isHovered ? TColorSystem.primary500.withOpacity(0.1) : Colors.transparent),
@@ -211,7 +212,7 @@ class _PaginationNumberButtonState extends State<_PaginationNumberButton> {
                 style: TTypography.body14Regular.apply(
                   color: widget.isSelected
                       ? Colors.white
-                      : (isHovered ? TColorSystem.primary500 : TColors.textPrimary),
+                      : (isHovered ? TColorSystem.primary500 : TColors.white),
                 ),
               ),
             ),

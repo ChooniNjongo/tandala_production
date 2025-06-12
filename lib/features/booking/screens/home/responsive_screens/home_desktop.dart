@@ -68,12 +68,10 @@ class HomeDesktopScreen extends StatelessWidget {
         child: Column(
           children: [
             // Search and Filters Section
-            Container(
-              width: double.infinity,
-              child: const Padding(
-                padding: EdgeInsets.only(left: 80, right: 80, top: 20, bottom: 24),
-                child: TSearchAndFilters(),
-              ),
+            const Padding(
+              padding:
+                  EdgeInsets.only(left: 80, right: 80, top: 20, bottom: 24),
+              child: TSearchAndFilters(),
             ),
 
             // Quick Filters Section

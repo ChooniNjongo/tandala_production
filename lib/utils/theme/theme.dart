@@ -15,10 +15,10 @@ class TAppTheme {
 
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
-    fontFamily: 'Inter',
+    fontFamily: 'InterDisplay',
     disabledColor: TColors.grey,
     brightness: Brightness.light,
-    primaryColor: TColors.primary,
+    primaryColor: TColors.primaryBackground,
     textTheme: TTextTheme.lightTextTheme,
     chipTheme: TChipTheme.lightChipTheme,
     appBarTheme: TAppBarTheme.lightAppBarTheme,
@@ -32,10 +32,10 @@ class TAppTheme {
 
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
-    fontFamily: 'Inter',
+    fontFamily: 'InterDisplay',
     disabledColor: TColors.grey,
     brightness: Brightness.dark,
-    primaryColor: TColors.primary,
+    primaryColor: TColors.primaryBackground,
     textTheme: TTextTheme.darkTextTheme,
     chipTheme: TChipTheme.darkChipTheme,
     appBarTheme: TAppBarTheme.darkAppBarTheme,
