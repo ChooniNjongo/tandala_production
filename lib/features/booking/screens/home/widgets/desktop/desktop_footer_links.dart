@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../utils/constants/sizes.dart';
+import '../common/download_app.dart';
+import '../common/legal.dart';
 import '../common/quick_links.dart';
 
 class DesktopFooterLinks extends StatelessWidget {
@@ -8,17 +10,23 @@ class DesktopFooterLinks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Padding(
-      padding: EdgeInsets.symmetric(horizontal:TSizes.defaultSpaceDesktop ,vertical: 24),
-      child: Row(children: [
+    return const Padding(
+      padding: EdgeInsets.symmetric(
+          horizontal: TSizes.defaultSpaceDesktop, vertical: 24),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          /// Quick Links
+          QuickLinks(),
 
-        /// Quick Links
-        QuickLinks()
-        /// Legal
+          /// Legal
+          Legal(),
 
-        /// Download App CTA
-        ///  Email Subscription
-      ],),
+          /// Download App CTA
+          DownloadApp()
+          ///  Email Subscription
+        ],
+      ),
     );
   }
 }
