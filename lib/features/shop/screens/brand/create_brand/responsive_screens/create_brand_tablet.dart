@@ -15,7 +15,7 @@ class CreateBrandTabletScreen extends StatelessWidget {
     return const Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(TSizes.defaultSpace),
+          padding: EdgeInsets.all(TSizes.defaultSpaceDesktop),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

@@ -18,7 +18,7 @@ class AboutListing extends StatelessWidget {
     final isMobile = TDeviceUtils.isMobileScreen(context);
     return Padding(
       padding:  const EdgeInsets.all(
-          TSizes.defaultSpace),
+          TSizes.defaultSpaceDesktop),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

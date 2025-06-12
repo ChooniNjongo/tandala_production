@@ -16,7 +16,7 @@ class EditCategoryMobileScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

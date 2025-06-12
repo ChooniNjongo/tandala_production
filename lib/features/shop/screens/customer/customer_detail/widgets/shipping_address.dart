@@ -25,7 +25,7 @@ class ShippingAddress extends StatelessWidget {
 
 
         return TRoundedContainer(
-          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

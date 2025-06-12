@@ -22,7 +22,7 @@ class EditBannerForm extends StatelessWidget {
     controller.init(banner);
     return TRoundedContainer(
       width: 500,
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
       child: Form(
         key: controller.formKey,
         child: Column(

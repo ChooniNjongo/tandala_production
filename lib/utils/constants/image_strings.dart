@@ -56,11 +56,11 @@ class TImages {
 
   // -- Social Logos
   static const String facebookLight = "assets/icons/social/Facebook.svg";
-  static const String facebookDark = "assets/icons/social/white_facebook.svg";
+  static const String facebookDark = "assets/icons/social_media/ic_outline-facebook.svg";
   static const String instagramLight = "assets/icons/social/instagram.svg";
-  static const String instagramDark = "assets/icons/social/white_intagram.svg";
+  static const String instagramDark = "assets/icons/social_media/ri_instagram-fill.svg";
   static const String twitterLight = "assets/icons/social/X.svg";
-  static const String twitterDark = "assets/icons/social/white_twitter.svg";
+  static const String twitterDark = "assets/icons/social_media/simple-icons_x.svg";
 
   // -- Category Icons
   static const String sportIcon =

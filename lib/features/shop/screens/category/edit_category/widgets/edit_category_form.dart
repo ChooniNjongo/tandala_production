@@ -24,7 +24,7 @@ class EditCategoryForm extends StatelessWidget {
     final categoryController = Get.put(CityOrTownController());
     return TRoundedContainer(
       width: 500,
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
       child: Form(
         key: editController.formKey,
         child: Column(

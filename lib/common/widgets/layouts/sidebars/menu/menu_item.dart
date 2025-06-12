@@ -71,7 +71,7 @@ class TMenuItem extends StatelessWidget {
                   Flexible(
                     child: Row(
                       children: [
-                        const SizedBox(width: TSizes.defaultSpace),
+                        const SizedBox(width: TSizes.defaultSpaceDesktop),
                         Text(
                           itemName,
                           style: TTypography.body12Regular.apply(
@@ -88,7 +88,7 @@ class TMenuItem extends StatelessWidget {
                   Flexible(
                     child: Row(
                       children: [
-                        const SizedBox(width: TSizes.defaultSpace),
+                        const SizedBox(width: TSizes.defaultSpaceDesktop),
                         Text(
                           itemName,
                           style: TTypography.body12Regular.apply(

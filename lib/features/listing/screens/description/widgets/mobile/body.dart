@@ -14,7 +14,7 @@ class DescriptionBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(DescriptionStepController());
     return Padding(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
       child: Column(
         children: [
           const FormNavigation(

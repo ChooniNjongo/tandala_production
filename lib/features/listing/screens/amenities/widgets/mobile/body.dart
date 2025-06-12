@@ -26,7 +26,7 @@ class AmenitiesBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(AmenitiesStepController());
     return Padding(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
       child: Column(
         children: [
           const FormNavigation(

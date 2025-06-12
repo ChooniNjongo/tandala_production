@@ -35,7 +35,7 @@ class EditProductDesktopScreen extends StatelessWidget {
       bottomNavigationBar: ProductBottomNavigationButtons(product: product),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -90,7 +90,7 @@ class EditProductDesktopScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(width: TSizes.defaultSpace),
+                  const SizedBox(width: TSizes.defaultSpaceDesktop),
 
                   // Sidebar
                   Expanded(

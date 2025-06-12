@@ -11,7 +11,7 @@ class LoginScreenMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.all(TSizes.defaultSpace),
+        padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
         child: const SingleChildScrollView(
           child: Column(
             children: [

@@ -18,7 +18,7 @@ class AmenitiesTabSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final isMobile = TDeviceUtils.isMobileScreen(context);
     return Padding(
-      padding: const EdgeInsets.all( TSizes.defaultSpace),
+      padding: const EdgeInsets.all( TSizes.defaultSpaceDesktop),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

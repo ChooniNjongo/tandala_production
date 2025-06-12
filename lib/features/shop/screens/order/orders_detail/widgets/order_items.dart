@@ -21,7 +21,7 @@ class OrderItems extends StatelessWidget {
   Widget build(BuildContext context) {
     final subTotal = order.items.fold(0.0, (previousValue, element) => previousValue + (element.price * element.quantity));
     return TRoundedContainer(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -85,7 +85,7 @@ class OrderItems extends StatelessWidget {
 
           // Items Total
           TRoundedContainer(
-            padding: const EdgeInsets.all(TSizes.defaultSpace),
+            padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
             backgroundColor: TColors.primaryBackground,
             child: Column(
               children: [

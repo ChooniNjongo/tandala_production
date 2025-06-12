@@ -11,7 +11,7 @@ class MobileFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+      padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpaceDesktop),
       child: Column(
         children: [
           Row(

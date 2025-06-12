@@ -25,7 +25,7 @@ class TPageNotFound extends StatelessWidget {
       useLayout: !isFullPage,
       desktop: Center(
         child: Padding(
-          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
           child: Column(
             children: [
               const SizedBox(width: 400, height: 400, child: Image(image: AssetImage(TImages.errorIllustration))),

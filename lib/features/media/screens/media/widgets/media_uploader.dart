@@ -33,7 +33,7 @@ class MediaUploader extends StatelessWidget {
                   showBorder: true,
                   borderColor: TColors.borderPrimary,
                   backgroundColor: TColors.primaryBackground,
-                  padding: const EdgeInsets.all(TSizes.defaultSpace),
+                  padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
                   child: Column(
                     children: [
                       Expanded(

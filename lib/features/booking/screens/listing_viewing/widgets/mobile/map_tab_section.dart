@@ -21,9 +21,9 @@ class MapTabSection extends StatelessWidget {
     return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.symmetric(
-            horizontal: isMobile ? TSizes.defaultSpace : 0,
+            horizontal: isMobile ? TSizes.defaultSpaceDesktop : 0,
             vertical:
-                isMobile ? TSizes.defaultSpace : TSizes.spaceBtwSections * 2),
+                isMobile ? TSizes.defaultSpaceDesktop : TSizes.spaceBtwSections * 2),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

@@ -32,7 +32,7 @@ class BookingStageIndicator extends StatelessWidget {
         children: [
           const SizedBox(height: 10),
           Padding(
-            padding: const EdgeInsets.only(left: TSizes.defaultSpace),
+            padding: const EdgeInsets.only(left: TSizes.defaultSpaceDesktop),
             child: Row(
               children: [
                 IconButton(

@@ -13,7 +13,7 @@ class CheckInBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final uid = AuthenticationRepository.instance.authUser!.uid;
     return Padding(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
       child:
           uid == booking.listing.userId
               ?  CheckInOwnerSection(booking:booking)

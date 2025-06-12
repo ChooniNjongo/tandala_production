@@ -20,7 +20,7 @@ class ResetPasswordDesktopScreen extends StatelessWidget {
     return Scaffold(
       body: TLoginTemplate(
         child: Padding(
-          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
           child: Column(
             children: [
               Row(

@@ -42,7 +42,7 @@ class ListingCard extends StatelessWidget {
               'Starting from',
               style: TextStyle(
                 color: Color(0xFF6D6D6D),
-                fontFamily: 'Inter Display',
+                fontFamily: 'InterDisplay',
                 fontWeight: FontWeight.w400,
                 fontSize: 12,
                 height: 1.4, // line-height of 140%

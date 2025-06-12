@@ -9,7 +9,7 @@ class FullWidthOutlineButton extends StatelessWidget {
     required this.buttonLabel,
     required this.onPressed,
     this.padding = const EdgeInsets.symmetric(
-        horizontal: TSizes.defaultSpace, vertical: 0),
+        horizontal: TSizes.defaultSpaceDesktop, vertical: 0),
     this.backgroundColor = Colors.transparent,
     this.labelColor = TColors.white, // Add labelColor parameter
   });

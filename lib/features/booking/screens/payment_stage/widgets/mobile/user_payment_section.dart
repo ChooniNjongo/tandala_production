@@ -16,7 +16,7 @@ class UserPaymentSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final currentStage = booking.bookingStage;
     return Padding(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
       child: Column(
         children: [
           BookingStageIndicator(

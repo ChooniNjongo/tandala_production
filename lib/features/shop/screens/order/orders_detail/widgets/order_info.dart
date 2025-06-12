@@ -20,7 +20,7 @@ class OrderInfo extends StatelessWidget {
     final controller = Get.put(OrderController());
     controller.orderStatus.value = order.status;
     return TRoundedContainer(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -11,7 +11,7 @@ class AddRoomBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.all(TSizes.defaultSpace),
+      padding: EdgeInsets.all(TSizes.defaultSpaceDesktop),
       child: Column(
         children: [
           FormNavigation(

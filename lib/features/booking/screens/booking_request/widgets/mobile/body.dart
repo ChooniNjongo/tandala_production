@@ -30,7 +30,7 @@ class _BookingRequestBodyState extends State<BookingRequestBody> {
     final controller = Get.put(BookingController());
 
     return Padding(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -51,7 +51,7 @@ class _BookingRequestBodyState extends State<BookingRequestBody> {
                   "Please select both check in and check out dates in that order. You can select by tapping the dates."),
           const SizedBox(height: TSizes.spaceBtwSections),
           TRoundedContainer(
-            padding: const EdgeInsets.all(TSizes.defaultSpace),
+            padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
             showBorder: true,
             borderColor: TColors.iconBorder,
             child: TableCalendar(

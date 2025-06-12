@@ -15,7 +15,7 @@ class BookingsHistoryMobile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(TSizes.defaultSpace),
+              padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
               child: Column(
                 children: [
                   /// Label

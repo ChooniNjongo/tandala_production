@@ -21,7 +21,7 @@ class CustomerOrders extends StatelessWidget {
     final controller = CustomerDetailController.instance;
     controller.getCustomerOrders();
     return TRoundedContainer(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
       child: Obx(
         () {
           if (controller.ordersLoading.value) return const TLoaderAnimation();

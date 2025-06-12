@@ -20,7 +20,7 @@ class AuthenticationPage extends StatelessWidget {
     return SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(TSizes.defaultSpace),
+            padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
             child: Column(
               children: [
                 SvgPicture.asset(

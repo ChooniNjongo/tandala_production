@@ -19,7 +19,7 @@ class ListingViewingDesktopScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: Padding(
         padding:
-            const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace * 2),
+            const EdgeInsets.symmetric(horizontal: TSizes.defaultSpaceDesktop * 2),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

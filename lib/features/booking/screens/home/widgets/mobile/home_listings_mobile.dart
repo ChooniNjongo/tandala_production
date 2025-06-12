@@ -15,7 +15,7 @@ class HomeListingsMobile extends StatelessWidget {
     final controller = Get.put(ListingsController());
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+      padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpaceDesktop),
       child: Obx(() {
         if (controller.isLoading.value) {
           return TGridLayout(

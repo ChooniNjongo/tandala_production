@@ -37,13 +37,13 @@ class TAnimationLoaderWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image(image: AssetImage(animation), height: height ?? 400, width: width), // Display Lottie animation
-          const SizedBox(height: TSizes.defaultSpace),
+          const SizedBox(height: TSizes.defaultSpaceDesktop),
           Text(
             text,
             style: style ?? Theme.of(context).textTheme.bodyMedium,
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: TSizes.defaultSpace),
+          const SizedBox(height: TSizes.defaultSpaceDesktop),
           showAction
               ? SizedBox(
                   width: 250,

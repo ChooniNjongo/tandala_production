@@ -151,7 +151,7 @@ class MediaContent extends StatelessWidget {
 
   Padding loaderToFetchImages() {
     return const Padding(
-      padding: EdgeInsets.symmetric(vertical: TSizes.defaultSpace * 2),
+      padding: EdgeInsets.symmetric(vertical: TSizes.defaultSpaceDesktop * 2),
       child: Column(
         children: [
           TLoaderAnimation(height: 200, width: 200),

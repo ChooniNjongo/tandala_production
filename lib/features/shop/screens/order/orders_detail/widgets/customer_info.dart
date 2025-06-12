@@ -29,7 +29,7 @@ class OrderCustomer extends StatelessWidget {
       children: [
         // Personal Info
         TRoundedContainer(
-          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -72,7 +72,7 @@ class OrderCustomer extends StatelessWidget {
           () => SizedBox(
             width: double.infinity,
             child: TRoundedContainer(
-              padding: const EdgeInsets.all(TSizes.defaultSpace),
+              padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -97,7 +97,7 @@ class OrderCustomer extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: TRoundedContainer(
-            padding: const EdgeInsets.all(TSizes.defaultSpace),
+            padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -116,7 +116,7 @@ class OrderCustomer extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: TRoundedContainer(
-            padding: const EdgeInsets.all(TSizes.defaultSpace),
+            padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

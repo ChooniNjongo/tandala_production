@@ -15,7 +15,7 @@ class MainCoverBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(MediaController());
     return Padding(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

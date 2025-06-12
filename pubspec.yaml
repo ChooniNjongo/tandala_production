@@ -101,6 +101,7 @@ flutter:
     - assets/icons/search/
     - assets/icons/cards/
     - assets/icons/pagination/
+    - assets/icons/social_media/
 
   #--------------- LOCAL FONTS ------------------#
   fonts:

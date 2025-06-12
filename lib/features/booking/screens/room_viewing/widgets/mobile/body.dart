@@ -29,7 +29,7 @@ class RoomViewingBody extends StatelessWidget {
 
           /// Room Name
           Padding(
-            padding: const EdgeInsets.all(TSizes.defaultSpace),
+            padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

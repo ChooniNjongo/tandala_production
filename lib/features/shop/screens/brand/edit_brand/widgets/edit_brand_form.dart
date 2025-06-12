@@ -24,7 +24,7 @@ class EditBrandForm extends StatelessWidget {
     controller.init(brand);
     return TRoundedContainer(
       width: 500,
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
       child: Form(
         key: controller.formKey,
         child: Column(

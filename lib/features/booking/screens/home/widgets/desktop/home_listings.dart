@@ -5,6 +5,7 @@ import '../../../../../../common/widgets/cards/listing_card/listing_card.dart';
 import '../../../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../../../common/widgets/shimmers/vertical_product_shimmer.dart';
 import '../../../../../../utils/constants/color_system.dart';
+import '../../../../../../utils/constants/sizes.dart';
 import '../../../../../../utils/constants/typography.dart';
 import '../../../../controllers/property_controller.dart';
 import '../common/pagination_navigation.dart';
@@ -81,7 +82,7 @@ class HomeListings extends StatelessWidget {
           // Listings Grid
           Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: screenWidth > 600 ? 64 : 32,
+              horizontal: screenWidth > 600 ? TSizes.defaultSpaceDesktop : 32,
               vertical: 16,
             ),
             child: TGridLayout(

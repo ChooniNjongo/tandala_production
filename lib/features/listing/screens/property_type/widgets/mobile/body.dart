@@ -13,7 +13,7 @@ class PropertyTypeBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(PropertyTypeStepController());
     return Padding(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
       child: Obx(
         () => Column(
           children: [

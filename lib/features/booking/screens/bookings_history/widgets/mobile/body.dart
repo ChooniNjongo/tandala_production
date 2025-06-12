@@ -44,7 +44,7 @@ class BookingsBody extends StatelessWidget {
 
         return Obx(
           () => Padding(
-            padding: const EdgeInsets.all(TSizes.defaultSpace),
+            padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

@@ -17,7 +17,7 @@ class NameAndCityBody extends StatelessWidget {
     return Form(
       key: controller.nameAndCityFormKey,
       child: Padding(
-        padding: const EdgeInsets.all(TSizes.defaultSpace),
+        padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
         child: Column(
           children: [
             const FormNavigation(

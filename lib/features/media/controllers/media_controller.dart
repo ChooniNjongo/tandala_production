@@ -341,7 +341,7 @@ class MediaController extends GetxController {
         heightFactor: 1,
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(TSizes.defaultSpace),
+            padding: const EdgeInsets.all(TSizes.defaultSpaceDesktop),
             child: Column(
               children: [
                 const MediaUploader(),

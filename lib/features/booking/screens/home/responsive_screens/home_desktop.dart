@@ -7,6 +7,7 @@ import '../../../../../utils/constants/typography.dart';
 import '../../../controllers/property_controller.dart';
 import '../widgets/common/search_and_filters.dart';
 import '../widgets/common/quick_filters.dart';
+import '../widgets/desktop/desktop_footer.dart';
 import '../widgets/desktop/home_listings.dart';
 
 class HomeDesktopScreen extends StatelessWidget {
@@ -67,14 +68,14 @@ class HomeDesktopScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Search and Filters Section
+            /// Search and Filters Section
             const Padding(
               padding:
-                  EdgeInsets.only(left: 80, right: 80, top: 20, bottom: 24),
+                  EdgeInsets.only(left: TSizes.defaultSpaceDesktop, right: TSizes.defaultSpaceDesktop, top: 20, bottom: 24),
               child: TSearchAndFilters(),
             ),
 
-            // Quick Filters Section
+            /// Quick Filters Section
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -84,13 +85,15 @@ class HomeDesktopScreen extends StatelessWidget {
 
             const SizedBox(height: TSizes.spaceBtwSections / 2),
 
-            // Main Content with Listings and Pagination
+            /// Main Content with Listings and Pagination
             HomeListings(
               propertyController: propertyController,
               crossAxisCount: crossAxisCount,
               mainAxisExtent: mainAxisExtent,
               screenWidth: screenWidth,
             ),
+            /// Footer
+            const DesktopFooter()
           ],
         ),
       ),
