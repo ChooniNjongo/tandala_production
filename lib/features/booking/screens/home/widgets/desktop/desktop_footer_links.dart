@@ -4,6 +4,7 @@ import '../../../../../../utils/constants/sizes.dart';
 import '../common/download_app.dart';
 import '../common/legal.dart';
 import '../common/quick_links.dart';
+import 'email_subscription.dart';
 
 class DesktopFooterLinks extends StatelessWidget {
   const DesktopFooterLinks({super.key});
@@ -12,8 +13,9 @@ class DesktopFooterLinks extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: TSizes.defaultSpaceDesktop, vertical: 24),
+          horizontal: TSizes.defaultSpaceDesktop, vertical: 12),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           /// Quick Links
@@ -23,8 +25,9 @@ class DesktopFooterLinks extends StatelessWidget {
           Legal(),
 
           /// Download App CTA
-          DownloadApp()
+          DownloadApp(),
           ///  Email Subscription
+          EmailSubscription()
         ],
       ),
     );

@@ -7,19 +7,25 @@ import '../../constants/typography.dart';
 class TElevatedButtonTheme {
   TElevatedButtonTheme._(); //To avoid creating instances
 
-
   /* -- Light Theme -- */
-  static final lightElevatedButtonTheme  = ElevatedButtonThemeData(
+  static final lightElevatedButtonTheme = ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      elevation:TSizes.buttonElevation,
+      elevation: TSizes.buttonElevation,
       foregroundColor: TColors.white,
-      backgroundColor: TColors.jetBlack,
+      backgroundColor: TColors.buttonPrimary,
       disabledForegroundColor: TColors.darkGrey,
       disabledBackgroundColor: TColors.buttonDisabled,
-      side: const BorderSide(color: TColors.jetBlack),
+      side: const BorderSide(color: TColors.buttonPrimary),
       padding: const EdgeInsets.symmetric(vertical: TSizes.buttonHeight),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(TSizes.buttonRadius)),
-      textStyle: TTypography.h4.copyWith(fontSize: 16),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(TSizes.buttonRadius)),
+      textStyle: const TextStyle(
+          fontFamily: 'InterDisplay',
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          height: 1.4, // 140% line-height
+          letterSpacing: 0,
+          color: Colors.white),
     ),
   );
 
@@ -28,13 +34,20 @@ class TElevatedButtonTheme {
     style: ElevatedButton.styleFrom(
       elevation: TSizes.buttonElevation,
       foregroundColor: TColors.white,
-      backgroundColor: TColors.jetBlack,
+      backgroundColor: TColors.buttonPrimary,
       disabledForegroundColor: TColors.darkGrey,
       disabledBackgroundColor: TColors.darkerGrey,
-      side: const BorderSide(color: TColors.jetBlack),
+      side: const BorderSide(color: TColors.buttonPrimary),
       padding: const EdgeInsets.symmetric(vertical: TSizes.buttonHeight),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(TSizes.buttonRadius)),
-      textStyle: TTypography.h4.copyWith(fontSize: 16),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(TSizes.buttonRadius)),
+      textStyle: const TextStyle(
+          fontFamily: 'InterDisplay',
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          height: 1.4, // 140% line-height
+          letterSpacing: 0,
+          color: Colors.white),
     ),
   );
 }

@@ -16,7 +16,7 @@ class QuickLinkName extends StatelessWidget {
           color: Colors.white,
           fontFamily: 'InterDisplay',
           fontWeight: FontWeight.w500,
-          fontSize: 19,
+          fontSize: 18,
           height: 1.4, // line-height of 140%
           letterSpacing: 0,
         ),

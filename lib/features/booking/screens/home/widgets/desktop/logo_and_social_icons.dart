@@ -10,7 +10,7 @@ class LogoAndSocialIcons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal:TSizes.defaultSpaceDesktop ,vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal:TSizes.defaultSpaceDesktop ,vertical: 12),
       child: SizedBox(
         width: double.infinity,
         child: Row(
