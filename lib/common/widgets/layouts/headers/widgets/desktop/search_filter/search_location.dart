@@ -1,4 +1,5 @@
 import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
+import 'package:cwt_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class SearchLocation extends StatefulWidget {
@@ -130,14 +131,14 @@ class _SearchLocationState extends State<SearchLocation> {
           showWhenUnlinked: false,
           offset: Offset(0.0, size.height + 5.0),
           child: Material(
+            type: MaterialType.transparency,
             elevation: 4.0,
-            borderRadius: BorderRadius.circular(8.0),
+            borderRadius: BorderRadius.circular(16),
             child: Container(
               constraints: const BoxConstraints(maxHeight: 200),
               decoration: BoxDecoration(
                 color: TColors.primaryBackground,
-                borderRadius: BorderRadius.circular(8.0),
-                border: Border.all(color: Colors.grey.shade300),
+                borderRadius: BorderRadius.circular(16),
               ),
               child: ListView.builder(
                 padding: EdgeInsets.zero,
@@ -153,12 +154,12 @@ class _SearchLocationState extends State<SearchLocation> {
                       ),
                       decoration: BoxDecoration(
                         border: index < _suggestions.length - 1
-                            ? Border(
-                          bottom: BorderSide(
-                            color: Colors.grey.shade200,
-                            width: 1.0,
-                          ),
-                        )
+                            ? const Border(
+                                bottom: BorderSide(
+                                  color: Color(0xFF131B1B),
+                                  width: 0,
+                                ),
+                              )
                             : null,
                       ),
                       child: Row(
@@ -173,8 +174,12 @@ class _SearchLocationState extends State<SearchLocation> {
                             child: Text(
                               _suggestions[index],
                               style: const TextStyle(
-                                fontSize: 14.0,
-                                color: Colors.black87,
+                                fontFamily: 'InterDisplay',
+                                fontWeight: FontWeight.w400,
+                                fontSize: 13,
+                                height: 1.4, // 140% line height
+                                letterSpacing: 0,
+                                color: Color(0xFF888888),
                               ),
                             ),
                           ),
@@ -218,30 +223,34 @@ class _SearchLocationState extends State<SearchLocation> {
           ),
           suffixIcon: _controller.text.isNotEmpty
               ? IconButton(
-            icon: Icon(
-              Icons.clear,
-              color: Colors.grey.shade600,
-              size: 20.0,
-            ),
-            onPressed: () {
-              _controller.clear();
-              _hideOverlay();
-            },
-          )
+                  icon: Icon(
+                    Icons.clear,
+                    color: Colors.grey.shade600,
+                    size: 20.0,
+                  ),
+                  onPressed: () {
+                    _controller.clear();
+                    _hideOverlay();
+                  },
+                )
               : null,
           filled: true,
-          fillColor: Colors.grey.shade50,
+          fillColor: const Color(0xFF001113),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
-            borderSide: BorderSide(color: Colors.grey.shade300),
+            borderRadius: BorderRadius.circular(TSizes.buttonRadius),
+            borderSide: const BorderSide(
+              color: Color(0xFF001113),
+            ),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
-            borderSide: BorderSide(color: Colors.grey.shade300),
+            borderRadius: BorderRadius.circular(TSizes.buttonRadius),
+            borderSide: const BorderSide(
+              color: Color(0xFF001113),
+            ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.0),
-            borderSide: const BorderSide(color: Colors.blue, width: 2.0),
+            borderRadius: BorderRadius.circular(TSizes.buttonRadius),
+            borderSide: const BorderSide(color: TColors.primary, width: 1.0),
           ),
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 16.0,
@@ -249,8 +258,12 @@ class _SearchLocationState extends State<SearchLocation> {
           ),
         ),
         style: const TextStyle(
-          fontSize: 14.0,
-          color: Colors.black87,
+          fontFamily: 'InterDisplay',
+          fontWeight: FontWeight.w400,
+          fontSize: 13,
+          height: 1.4, // 140% line height
+          letterSpacing: 0,
+          color: Color(0xFF888888),
         ),
       ),
     );
