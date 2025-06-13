@@ -1,4 +1,3 @@
-import 'package:cwt_ecommerce_admin_panel/utils/constants/color_system.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,8 +5,6 @@ import '../../../../../../features/booking/controllers/location_controller.dart'
 import '../../../../../../features/booking/controllers/property_controller.dart';
 import '../../../../../../features/booking/models/property/listing_model.dart';
 import '../../../../../../routes/routes.dart';
-import '../../../../../../utils/constants/colors.dart';
-import '../../../../../../utils/constants/typography.dart';
 
 class ListingDistance extends StatelessWidget {
   final ListingModel listing;

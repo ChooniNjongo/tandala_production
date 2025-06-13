@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../common/widgets/layouts/grid_layout.dart';
-import '../../../../../utils/constants/color_system.dart';
 import '../../../../../utils/constants/sizes.dart';
-import '../../../../../utils/constants/typography.dart';
 import '../../../controllers/property_controller.dart';
 import '../widgets/common/search_and_filters.dart';
 import '../widgets/common/quick_filters.dart';

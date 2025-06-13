@@ -2,7 +2,6 @@
 import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 import '../../../../../../utils/constants/color_system.dart';
 import '../../../../../../utils/constants/typography.dart';
 

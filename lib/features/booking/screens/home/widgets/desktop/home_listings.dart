@@ -47,7 +47,7 @@ class HomeListings extends StatelessWidget {
             Center(
               child: Column(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.search_off,
                     size: 64,
                     color: TColorSystem.n200,

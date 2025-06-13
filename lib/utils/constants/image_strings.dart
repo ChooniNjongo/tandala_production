@@ -566,8 +566,11 @@ class TImages {
   static const String tableIllustration = "assets/images/animations/table.gif";
   static const String ratingStory = "assets/images/hero_svg/rating_story.svg";
 
-  /// Download promt
+  /// ***  Designer Assets
+
   static const String appStore = "assets/download_app/App Store.svg";
+  /// Download promt
+  static const String filterCloseSvg = "assets/icons/designer_assets/x-mark.svg";
   static const String googlePlay = "assets/download_app/Google Play.svg";
 
 }

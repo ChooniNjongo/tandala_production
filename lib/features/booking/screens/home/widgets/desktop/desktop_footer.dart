@@ -1,4 +1,3 @@
-import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +33,7 @@ class FooterDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return const Padding(
       padding: EdgeInsets.symmetric(
           horizontal: TSizes.defaultSpaceDesktop, vertical: 24),
       child: Divider(

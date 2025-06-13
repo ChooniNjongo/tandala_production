@@ -6,6 +6,7 @@ import '../../../../../../../features/booking/controllers/search_filter_controll
 import '../../../../../../../features/booking/screens/home/widgets/common/price_range_slider.dart';
 import '../../../../../../../utils/constants/color_system.dart';
 import '../../../../../../../utils/constants/colors.dart';
+import '../../../../../../../utils/constants/image_strings.dart';
 import '../../../../../../../utils/constants/sizes.dart';
 import '../../../../../../../utils/constants/text_strings.dart';
 import '../../../../../../../utils/constants/typography.dart';
@@ -34,10 +35,7 @@ class PriceFilterSection extends StatelessWidget {
           Stack(
             children: [
               TRoundedContainer(
-                child: SvgPicture.asset(
-                    "assets/images/price_filter/price_filter.svg",
-                    height: 44,
-                    semanticsLabel: 'Logo'),
+                  child: SvgPicture.asset(TImages.filterCloseSvg),
               ),
               const Positioned(left: -5, bottom: -5, child: PriceSlider()),
             ],

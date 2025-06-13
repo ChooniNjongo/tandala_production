@@ -19,9 +19,6 @@ class SearchFilter extends StatelessWidget {
       width: 560,
       height: 590,
       child: Column(children: [
-        SearchFilterHeader(
-          title: 'Filters',
-        ),
         Expanded(child: Filters()),
         FilterActionButtons()
       ]),

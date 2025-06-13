@@ -10,7 +10,6 @@ class TSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isMobile = TDeviceUtils.isMobileScreen(context);
     return SizedBox(
       width: 420,
       height: 46,

@@ -103,6 +103,7 @@ flutter:
     - assets/icons/pagination/
     - assets/icons/social_media/
     - assets/download_app/
+    - assets/icons/designer_assets/
 
   #--------------- LOCAL FONTS ------------------#
   fonts:

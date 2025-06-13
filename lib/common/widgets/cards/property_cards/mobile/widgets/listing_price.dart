@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../features/booking/models/property/listing_model.dart';
-import '../../../../../../utils/constants/color_system.dart';
 import '../../../../../../utils/constants/colors.dart';
-import '../../../../../../utils/constants/typography.dart';
 
 class ListingPriceAndViews extends StatelessWidget {
   const ListingPriceAndViews({

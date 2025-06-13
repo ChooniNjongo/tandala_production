@@ -38,7 +38,6 @@ class ListingsController extends GetxController {
   // Location data
   Rx<double> userLatitude = 0.0.obs;
   Rx<double> userLongitude = 0.0.obs;
-  final locationController = Get.put(LocationController());
 
   // Search parameters for re-search when paginating
   String? _lastSearchName;
@@ -173,15 +172,10 @@ class ListingsController extends GetxController {
     }
 
     try {
-      await locationController.getLocation();
 
-      final double? userLat = locationController.currentPosition.value?.latitude;
-      final double? userLng = locationController.currentPosition.value?.longitude;
 
       // Use the new paginated method
       final paginatedResult = await propertyRepository.searchListingsWithPagination(
-        latitude: userLat,
-        longitude: userLng,
         name: name,
         area: area,
         category: category,
