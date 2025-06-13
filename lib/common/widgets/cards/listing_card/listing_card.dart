@@ -36,9 +36,9 @@ class ListingCard extends StatelessWidget {
 
 
             /// Listing Distance Widget - Fixed height
-            const Text(
-              'Starting from',
-              style: TextStyle(
+             Text(
+              listing.city,
+              style: const TextStyle(
                 color: Color(0xFF6D6D6D),
                 fontFamily: 'InterDisplay',
                 fontWeight: FontWeight.w400,

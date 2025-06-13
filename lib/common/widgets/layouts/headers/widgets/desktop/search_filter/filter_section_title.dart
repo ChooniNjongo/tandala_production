@@ -13,7 +13,14 @@ class FilterSectionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: TTypography.h4.copyWith(color: TColors.white),
+      style: const TextStyle(
+        fontFamily: 'InterDisplay',
+        fontWeight: FontWeight.w500,
+        fontSize: 15,
+        height: 1.4, // 140% line height
+        letterSpacing: 0,
+        color: TColors.white,
+      ),
     );
   }
 }
@@ -27,7 +34,14 @@ class FilterSectionSubtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       subTitle,
-      style: TTypography.body12Regular.copyWith(color: TColorSystem.n600),
+      style: const TextStyle(
+        fontFamily: 'InterDisplay',
+        fontWeight: FontWeight.w400,
+        fontSize: 13,
+        height: 1.3, // 130% line height
+        letterSpacing: 0,
+        color: Color(0xFF888888),
+      ),
     );
   }
 }

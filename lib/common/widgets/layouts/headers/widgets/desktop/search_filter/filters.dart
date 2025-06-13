@@ -31,8 +31,6 @@ class _FiltersState extends State<Filters> {
     return TRoundedContainer(
       padding: EdgeInsets.zero,
       radius: 8,
-      width: 560,
-      height: 432,
       child: Scrollbar(
         controller: _scrollController,
         // Attach the scroll controller
@@ -46,13 +44,13 @@ class _FiltersState extends State<Filters> {
         child: SingleChildScrollView(
           controller: _scrollController, // Attach the scroll controller
           child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: EdgeInsets.symmetric(horizontal: 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                LocationFilter(),
-                FilterDivider(),
                 SortBy(),
+                FilterDivider(),
+                LocationFilter(),
                 FilterDivider(),
                 ListingTypeFilter(),
                 FilterDivider(),

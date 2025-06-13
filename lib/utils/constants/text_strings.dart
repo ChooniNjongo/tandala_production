@@ -104,7 +104,7 @@ class TTexts {
 
   // -- Subtitles Location
   static const String locationSubtitle =
-      "Select the city,town or area you want to travel to";
+      "Where are you travelling to?";
 
   // -- Subtitles SortBy
   static const String sortBySubtitle = "Select property display order";

@@ -106,7 +106,7 @@ class _DropDown2SearchableLocationState extends State<DropDown2SearchableLocatio
                         horizontal: 10,
                         vertical: 8,
                       ),
-                      hintText: 'Search for a city...',
+                      hintText: 'Search for a city,town or area..',
                       hintStyle: const TextStyle(
                           fontSize: 12, fontWeight: FontWeight.normal),
                       border: OutlineInputBorder(

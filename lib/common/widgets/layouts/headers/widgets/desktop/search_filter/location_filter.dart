@@ -1,7 +1,6 @@
+import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/headers/widgets/desktop/search_filter/search_location.dart';
 import 'package:flutter/material.dart';
-import '../../../../../../../utils/constants/sizes.dart';
 import '../../../../../../../utils/constants/text_strings.dart';
-import '../../../../../drop_down_button2/drop_down_2_searchable.dart';
 import 'filter_section_title.dart';
 
 class LocationFilter extends StatelessWidget {
@@ -12,12 +11,11 @@ class LocationFilter extends StatelessWidget {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: TSizes.spaceBtwSections,),
         FilterSectionTitle(title: TTexts.location),
-        SizedBox(height: TSizes.spaceBtwItems,),
+        SizedBox(height:8),
         FilterSectionSubtitle(subTitle: TTexts.locationSubtitle),
-        SizedBox(height: TSizes.spaceBtwItems,),
-        DropDown2SearchableLocation(),
+        SizedBox(height: 16,),
+        // Add search location search widhere here
       ],
     );
   }

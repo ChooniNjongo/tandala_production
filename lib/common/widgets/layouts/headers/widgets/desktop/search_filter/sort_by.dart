@@ -18,28 +18,28 @@ class SortBy extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const FilterSectionTitle(title: TTexts.sortBy),
-          const SizedBox(height: TSizes.spaceBtwSections / 2),
+          const SizedBox(height: 8),
           const FilterSectionSubtitle(subTitle: TTexts.sortBySubtitle),
-          const SizedBox(height: TSizes.spaceBtwSections / 2),
+          const SizedBox(height: 16,),
           Wrap(
+            spacing: 12, // Horizontal spacing between chips
+            runSpacing: 12, // Vertical spacing between rows when chips wrap
             children: [
               TPill(
                   title: TTexts.highPriceSorting,
                   isSelected: controller.isPriceHighToLowSelected.value,
                   onTap: controller.onIsPriceHighToLowTapped),
-
+              TPill(
+                  title: TTexts.lowPriceSorting,
+                  isSelected: controller.isPriceLowToHighSelected.value,
+                  onTap: controller.onIsPriceLowToHighTapped),
               TPill(
                   title: TTexts.discountSorting,
                   isSelected: controller.isDiscountSelected.value,
                   onTap: controller.onIsDiscountSelectedTapped),
 
-              TPill(
-                  title: TTexts.lowPriceSorting,
-                  isSelected: controller.isPriceLowToHighSelected.value,
-                  onTap: controller.onIsPriceLowToHighTapped),
             ],
           ),
-
         ],
       ),
     );

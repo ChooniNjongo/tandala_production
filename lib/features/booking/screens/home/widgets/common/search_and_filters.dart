@@ -1,11 +1,8 @@
 import 'dart:ui'; // Add this import for ImageFilter
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 import '../../../../../../common/widgets/layouts/headers/widgets/desktop/search_bar/search_bar.dart';
 import '../../../../../../common/widgets/layouts/headers/widgets/desktop/search_filter/filters.dart';
-import '../../../../../../common/widgets/layouts/headers/widgets/desktop/search_filter/search_filter.dart';
-import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/constants/image_strings.dart';
 
 class TSearchAndFilters extends StatefulWidget {
@@ -41,50 +38,47 @@ class _TSearchAndFiltersState extends State<TSearchAndFilters> {
             child: Material(
               type: MaterialType.transparency,
               child: Container(
+                padding: const EdgeInsets.all(40),
                 constraints: const BoxConstraints(
                   maxWidth: 500,
                   maxHeight: 600,
                 ),
-              //  margin: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: const Color(0xFF1F2A2A),
                     width: 1.5,
                   ),
-                  color: Color(0xFF131B1B),
+                  color: const Color(0xFF131B1B),
                   borderRadius: BorderRadius.circular(16),
-
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     // Close button header
-                    Container(
-                      padding: const EdgeInsets.all(40),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          GestureDetector(
-                            onTap: _hideFilterOverlay,
-                            child: SvgPicture.asset(TImages.filterCloseSvg),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                          onTap: _hideFilterOverlay,
+                          child: SvgPicture.asset(TImages.filterCloseSvg),
+                        ),
+                        const Text(
+                          'Filters',
+                          style: TextStyle(
+                            fontFamily: 'InterDisplay',
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
                           ),
-                          const Text(
-                            'Filters',
-                            style: TextStyle(
-                              fontFamily: 'InterDisplay',
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Icon(
-                            Icons.close,
-                            color: Colors.transparent,
-                            size: 20,
-                          ),
-                        ],
-                      ),
+                        ),
+                        const Icon(
+                          Icons.close,
+                          color: Colors.transparent,
+                          size: 20,
+                        ),
+                      ],
                     ),
+                    const SizedBox(height: 40,),
                     // Filter content
                     const Expanded(
                       child: Filters(),

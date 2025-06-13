@@ -9,16 +9,19 @@ class FilterDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(height: TSizes.spaceBtwSections,),
-        Container(
-          height: 0.4,
-          width: double.infinity,
-          color: const Color(0xFF404747),
-        ),
-        const SizedBox(height: TSizes.spaceBtwSections,),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 24),
+      child: Column(
+        children: [
+          const SizedBox(height: 8,),
+          Container(
+            height: 1,
+            width: double.infinity,
+            color: const Color(0xFF001113),
+          ),
+          const SizedBox(height: 8,),
+        ],
+      ),
     );
   }
 }
