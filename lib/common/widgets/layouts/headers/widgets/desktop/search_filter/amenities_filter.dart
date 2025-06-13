@@ -15,9 +15,8 @@ class AmenitiesFilter extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         FilterSectionTitle(title: TTexts.amenities),
-        SizedBox(height: TSizes.spaceBtwSections),
+        SizedBox(height: TSizes.spaceBtwItems),
         AmenitiesFilterWidget(),
-        SizedBox(height: TSizes.spaceBtwSections),
       ],
     );
   }

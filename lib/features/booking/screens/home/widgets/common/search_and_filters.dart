@@ -2,6 +2,7 @@ import 'dart:ui'; // Add this import for ImageFilter
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../../../common/widgets/layouts/headers/widgets/desktop/search_bar/search_bar.dart';
+import '../../../../../../common/widgets/layouts/headers/widgets/desktop/search_filter/filter_action_button.dart';
 import '../../../../../../common/widgets/layouts/headers/widgets/desktop/search_filter/filters.dart';
 import '../../../../../../utils/constants/image_strings.dart';
 
@@ -83,6 +84,9 @@ class _TSearchAndFiltersState extends State<TSearchAndFilters> {
                     const Expanded(
                       child: Filters(),
                     ),
+                    const FilterActionButtons()
+
+
                   ],
                 ),
               ),

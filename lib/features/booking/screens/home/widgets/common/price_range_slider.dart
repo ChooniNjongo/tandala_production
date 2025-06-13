@@ -32,8 +32,8 @@ class _PriceSliderState extends State<PriceSlider> {
 
           // Thumb (dot) size and appearance
           thumbShape: const RoundSliderThumbShape(
-            enabledThumbRadius: 8.0, // Adjust this for dot size
-            pressedElevation: 8.0,
+            enabledThumbRadius: 3.0, // Adjust this for dot size
+            pressedElevation: 4.0,
             elevation: 4.0,
           ),
 
@@ -57,9 +57,9 @@ class _PriceSliderState extends State<PriceSlider> {
 
           // Range thumb shape for RangeSlider
           rangeThumbShape: const RoundRangeSliderThumbShape(
-            enabledThumbRadius: 12.0, // Same as thumbShape for consistency
-            pressedElevation: 8.0,
-            elevation: 4.0,
+            enabledThumbRadius: 6.0, // Same as thumbShape for consistency
+            pressedElevation: 4.0,
+            elevation: 2.0,
           ),
 
           // Range value indicator

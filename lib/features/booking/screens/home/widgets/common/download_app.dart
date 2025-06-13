@@ -1,3 +1,5 @@
+import 'package:cwt_ecommerce_admin_panel/common/widgets/containers/rounded_container.dart';
+import 'package:cwt_ecommerce_admin_panel/features/booking/screens/home/widgets/common/quick_link_item.dart';
 import 'package:cwt_ecommerce_admin_panel/features/booking/screens/home/widgets/common/quick_link_name.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +15,26 @@ class DownloadApp extends StatelessWidget {
       children: [
         const QuickLinkName(name: "Get Our App"),
         SvgPicture.asset(TImages.appStore),
-        const SizedBox(height: 16,),
+        const SizedBox(
+          height: 16,
+        ),
         SvgPicture.asset(TImages.googlePlay),
+        const SizedBox(
+          height: 24,
+        ),
+        const QuickLinkName(name: "Zambian Tourism"),
+        const QuickLinkItem(
+            item: "Explore the best of Zambia tourism"),
+        TRoundedContainer(
+          padding: EdgeInsets.zero,
+          backgroundColor: Colors.white,
+          radius: 8,
+          child: Image.asset(
+            "assets/images/assets/zta.png",
+            height: 64,
+            width: 120,
+          ),
+        )
       ],
     );
   }

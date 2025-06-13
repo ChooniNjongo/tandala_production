@@ -61,7 +61,6 @@ class _FiltersState extends State<Filters> {
                 AmenitiesFilter(),
                 FilterDivider(),
                 PropertyRulesFilter(),
-                FilterDivider(),
               ],
             ),
           ),

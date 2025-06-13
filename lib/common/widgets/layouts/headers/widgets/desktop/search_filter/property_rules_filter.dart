@@ -18,9 +18,12 @@ class PropertyRulesFilter extends StatelessWidget {
       children: [
         FilterSectionTitle(title: TTexts.placeRules),
         SizedBox(
-          height: TSizes.spaceBtwSections,
+          height: TSizes.spaceBtwItems,
         ),
         PropertyRulesWidget(),
+        SizedBox(
+          height: 24,
+        ),
       ],
     );
   }
@@ -41,8 +44,7 @@ class PropertyRulesWidget extends StatelessWidget {
                   amenityType: 'Allows Pets',
                   value: controller.allowsPets.value,
                   onChanged: (value) {
-                    controller.allowsPets.value =
-                        !controller.allowsPets.value;
+                    controller.allowsPets.value = !controller.allowsPets.value;
                     controller.searchWithFilters();
                   }),
               AmenityTile(
@@ -53,18 +55,15 @@ class PropertyRulesWidget extends StatelessWidget {
                         !controller.smokingAllowed.value;
                     controller.searchWithFilters();
                   }),
-
               AmenityTile(
                   amenityType: 'Partying',
                   value: controller.hasParty.value,
                   onChanged: (value) {
-                    controller.hasParty.value =
-                    !controller.hasParty.value;
+                    controller.hasParty.value = !controller.hasParty.value;
                     controller.searchWithFilters();
                   }),
             ],
           ),
-
         ],
       ),
     );
