@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/common/widgets/chips/pill.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -18,31 +19,27 @@ class PriceFilterSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SearchFilterController());
-    return TRoundedContainer(
+    return const TRoundedContainer(
       padding: EdgeInsets.zero,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const FilterSectionTitle(title: TTexts.priceFilter),
-          const SizedBox(
-            height: TSizes.spaceBtwSections,
+          FilterSectionTitle(title: TTexts.priceFilter),
+          SizedBox(
+            height: TSizes.spaceBtwItems,
           ),
-          Obx(
-            () => Text(
-                "ZMK${controller.currentRange.value.start.round()} - ZMK${controller.currentRange.value.end.round()}",
-                style: TTypography.body12Regular.copyWith(color: TColorSystem.n500)),
+          FilterSectionSubtitle(subTitle: TTexts.priceRangeSubtitle),
+          PriceSlider(),
+          SizedBox(
+            height: TSizes.spaceBtwItems,
           ),
-          Stack(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TRoundedContainer(
-                  child: SvgPicture.asset(TImages.filterCloseSvg),
-              ),
-              const Positioned(left: -5, bottom: -5, child: PriceSlider()),
+              TPill(title: "\$400", isSelected: false),
+              TPill(title: "\$2400", isSelected: false)
             ],
           ),
-          Text("The average amount of money spent is ZMK250",
-              style:
-                  TTypography.body12Regular.copyWith(color: TColors.textPrimary)),
         ],
       ),
     );

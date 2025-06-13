@@ -5,6 +5,7 @@ import '../../../../../../../utils/constants/color_system.dart';
 import '../../../../../../../utils/constants/colors.dart';
 import '../../../../../../../utils/constants/text_strings.dart';
 import '../../../../../../../utils/constants/typography.dart';
+import '../../../../../chips/pill.dart';
 import 'filter_section_title.dart';
 
 class ListingTypeFilter extends StatelessWidget {
@@ -14,64 +15,39 @@ class ListingTypeFilter extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(SearchFilterController());
     return Obx(
-      () => Column(
+          () => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const FilterSectionTitle(title: TTexts.listingTypeCategory),
-          TCheckboxItem(
-            checkboxItem: TTexts.all,
-            value: controller.isAllTypesSelected.value,
-            onChanged: (value) {
-              controller.resetAllListingTypeFilters();
-              controller.isAllTypesSelected.value =
-                  !controller.isAllTypesSelected.value;
-              controller.searchWithFilters();
-            },
-            width: 240,
-          ),
-          TCheckboxItem(
-            checkboxItem: TTexts.hotel,
-            value: controller.isHotelSelected.value,
-            onChanged: (value) {
-              controller.resetAllTypesFilters();
-              controller.isHotelSelected.value =
-                  !controller.isHotelSelected.value;
-              controller.searchWithFilters();
-            },
-            width: 240,
-          ),
-          TCheckboxItem(
-            checkboxItem: TTexts.lodge,
-            value: controller.isLodgeSelected.value,
-            onChanged: (value) {
-              controller.resetAllTypesFilters();
-              controller.isLodgeSelected.value =
-                  !controller.isLodgeSelected.value;
-              controller.searchWithFilters();
-            },
-            width: 240,
-          ),
-          TCheckboxItem(
-            checkboxItem: TTexts.guestHouse,
-            value: controller.isGuestHouseSelected.value,
-            onChanged: (value) {
-              controller.resetAllTypesFilters();
-              controller.isGuestHouseSelected.value =
-                  !controller.isGuestHouseSelected.value;
-              controller.searchWithFilters();
-            },
-            width: 240,
-          ),
-          TCheckboxItem(
-            checkboxItem: TTexts.apartment,
-            value: controller.isApartmentSelected.value,
-            onChanged: (value) {
-              controller.resetAllTypesFilters();
-              controller.isApartmentSelected.value =
-                  !controller.isApartmentSelected.value;
-              controller.searchWithFilters();
-            },
-            width: 240,
+          const SizedBox(height: 16,),
+          const FilterSectionSubtitle( subTitle: TTexts.listingTypeCategory,),
+          const SizedBox(height: 16,),
+          Wrap(
+            spacing: 12, // Horizontal spacing between chips
+            runSpacing: 12, // Vertical spacing between rows when chips wrap
+            children: [
+              TPill(
+                  title: TTexts.all,
+                  isSelected: controller.isPriceHighToLowSelected.value,
+                  onTap: controller.onIsPriceHighToLowTapped,count: 6,),
+              TPill(
+                  title: TTexts.hotel,
+                  isSelected: controller.isPriceLowToHighSelected.value,
+                  onTap: controller.onIsPriceLowToHighTapped,count: 63,),
+              TPill(
+                  title: TTexts.lodge,
+                  isSelected: controller.isDiscountSelected.value,
+                  onTap: controller.onIsDiscountSelectedTapped),
+              TPill(
+                  title: TTexts.guestHouse,
+                  isSelected: controller.isDiscountSelected.value,
+                  onTap: controller.onIsDiscountSelectedTapped,count: 23),
+              TPill(
+                  title: TTexts.apartment,
+                  isSelected: controller.isDiscountSelected.value,
+                  onTap: controller.onIsDiscountSelectedTapped,count: 33),
+
+            ],
           ),
         ],
       ),
@@ -79,7 +55,7 @@ class ListingTypeFilter extends StatelessWidget {
   }
 }
 
-class TCheckboxItem extends StatelessWidget {
+/*class TCheckboxItem extends StatelessWidget {
   final double width;
   final String checkboxItem;
   final bool value;
@@ -114,4 +90,4 @@ class TCheckboxItem extends StatelessWidget {
       ),
     );
   }
-}
+}*/

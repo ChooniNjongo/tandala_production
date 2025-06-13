@@ -107,7 +107,10 @@ class TTexts {
       "Where are you travelling to?";
 
   // -- Subtitles SortBy
+  static const String priceRangeSubtitle = "Select your budget";
+  static const String listingTypeSubtitle = "Select your property type";
   static const String sortBySubtitle = "Select property display order";
+  static const String countsSubtitle = "Show rooms or apartments with ";
   static const String highPriceSorting = "Price: High to Low";
   static const String lowPriceSorting = "Price: Low to High";
   static const String customerReviewSorting = "Customer reviews";

@@ -13,17 +13,18 @@ class ImportantCountsFilterSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         FilterSectionTitle(title: TTexts.counts),
-        SizedBox(height: TSizes.spaceBtwSections,),
-        BathRoomCount(propertyFeature: 'Bathrooms'),
-        SizedBox(height: TSizes.spaceBtwSections),
-        BedRoomCount(propertyFeature: 'Bedrooms'),
-        SizedBox(height: TSizes.spaceBtwSections),
-        BedCount(propertyFeature: 'Beds'),
-        SizedBox(height: TSizes.spaceBtwSections,),
+        SizedBox(
+          height: TSizes.spaceBtwItems,
+        ),
+        BathroomCountWidget(),
+        SizedBox(height: 12),
+        BedRoomCount(),
+        SizedBox(height: 12),
+        BedCount(),
       ],
     );
   }
