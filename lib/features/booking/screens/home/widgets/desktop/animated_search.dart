@@ -186,7 +186,7 @@ class _AnimatedSearchBarWithTypingState
           height: 75.0, // Increased height from 65 to 75
           width: _widthAnimation.value,
           decoration: BoxDecoration(
-            color: const Color(0xFF1A2323).withOpacity(0.4),
+            color: const Color(0xFF1A2323).withOpacity(0.75),
             borderRadius: BorderRadius.circular(
               37.5,
             ), // Adjusted for new height (75/2)
@@ -292,7 +292,7 @@ class _AnimatedSearchBarWithTypingState
                                                 MainAxisAlignment.center,
                                             children: [
                                               Text(
-                                                'Where are you going?',
+                                                'Where to?',
                                                 style: TextStyle(
                                                   fontFamily: 'InterDisplay',
                                                   fontWeight: FontWeight.w400,
@@ -360,7 +360,7 @@ class _AnimatedSearchBarWithTypingState
                                                 MainAxisAlignment.center,
                                             children: [
                                               Text(
-                                                'When are you travelling?',
+                                                'When ?',
                                                 style: TextStyle(
                                                   fontFamily: 'InterDisplay',
                                                   fontWeight: FontWeight.w400,
@@ -428,7 +428,7 @@ class _AnimatedSearchBarWithTypingState
                                                 MainAxisAlignment.center,
                                             children: [
                                               Text(
-                                                'Who are you going with?',
+                                                'With who?',
                                                 style: TextStyle(
                                                   fontFamily: 'InterDisplay',
                                                   fontWeight: FontWeight.w400,

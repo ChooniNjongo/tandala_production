@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -20,7 +21,7 @@ class LogoAndSocialIcons extends StatelessWidget {
             SizedBox(
               width: 100,
               height: 24,
-              child: SvgPicture.asset(TImages.tandalaSvg),
+              child: SvgPicture.asset(TImages.tandalaSvg,color: TColors.primary,),
             ),
 
             // Socials

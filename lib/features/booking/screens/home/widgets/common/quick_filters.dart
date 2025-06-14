@@ -98,8 +98,8 @@ class _QuickFiltersState extends State<QuickFilters>
         ),
         _buildAnimatedFilterItem(
           index: 1,
-          onTap: () => controller.onFilterItemTapped(controller.hasBedNBreakfast),
-          isActive: controller.hasBedNBreakfast,
+          onTap: () => controller.onFilterItemTapped(controller.hasSwimmingPool),
+          isActive: controller.hasSwimmingPool,
           icon: TImages.hotel,
           filterName: 'Hotel',
         ),
@@ -124,13 +124,7 @@ class _QuickFiltersState extends State<QuickFilters>
           icon: TImages.breakfast,
           filterName: 'Bed & Breakfast',
         ),
-        _buildAnimatedFilterItem(
-          index: 5,
-          onTap: () => controller.onFilterItemTapped(controller.hasBoat),
-          isActive: controller.hasBoat,
-          icon: TImages.boat,
-          filterName: 'Boat',
-        ),
+
         _buildAnimatedFilterItem(
           index: 6,
           onTap: () => controller.onFilterItemTapped(controller.hasWaterfront),
@@ -152,13 +146,7 @@ class _QuickFiltersState extends State<QuickFilters>
           icon: TImages.city,
           filterName: 'City',
         ),
-        _buildAnimatedFilterItem(
-          index: 9,
-          onTap: () => controller.onFilterItemTapped(controller.hasBalcony),
-          isActive: controller.hasBalcony,
-          icon: TImages.balcony,
-          filterName: 'Balcony',
-        ),
+
         _buildAnimatedFilterItem(
           index: 10,
           onTap: () => controller.onFilterItemTapped(controller.hasParty),
@@ -166,13 +154,7 @@ class _QuickFiltersState extends State<QuickFilters>
           icon: TImages.party,
           filterName: 'Party',
         ),
-        _buildAnimatedFilterItem(
-          index: 11,
-          onTap: () => controller.onFilterItemTapped(controller.hasCabin),
-          isActive: controller.hasCabin,
-          icon: TImages.cabin,
-          filterName: 'Cabin',
-        ),
+
         _buildAnimatedFilterItem(
           index: 12,
           onTap: () => controller.onFilterItemTapped(controller.hasCamping),

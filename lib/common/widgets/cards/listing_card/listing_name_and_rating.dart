@@ -19,7 +19,7 @@ class ListingNameAndRating extends StatelessWidget {
           child: Text(
             "Sunset Haven Apartments",
             style: TextStyle(
-              color: Color(0xFF6D6D6D),
+              color:Colors.white,
               fontFamily: 'InterDisplay',
               fontSize: 16,
               fontStyle: FontStyle.normal,
