@@ -34,7 +34,7 @@ class RightFrame extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(width: 12),
+        const SizedBox(width: 80),
         SvgPicture.asset(TImages.notification),
         const SizedBox(width: 12),
         SvgPicture.asset(TImages.union),

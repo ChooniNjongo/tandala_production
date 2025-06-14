@@ -11,8 +11,7 @@ class AnimatedSearchBarWithTyping extends StatefulWidget {
 }
 
 class _AnimatedSearchBarWithTypingState
-    extends State<AnimatedSearchBarWithTyping>
-    with TickerProviderStateMixin {
+    extends State<AnimatedSearchBarWithTyping> with TickerProviderStateMixin {
   late AnimationController _expansionController;
   late AnimationController _textWidgetsController;
   late Animation<double> _widthAnimation;
@@ -227,22 +226,22 @@ class _AnimatedSearchBarWithTypingState
                         contentPadding: const EdgeInsets.symmetric(
                           vertical: 10,
                         ), // Center within 40px height
-                        hintStyle:            TextStyle(
+                        hintStyle: const TextStyle(
+                          fontFamily: 'InterDisplay',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          height: 1.4, // 140% line height
+                          letterSpacing: 0,
+                          color: Color(0xFF888888),
+                        ),
+                      ),
+                      style: const TextStyle(
                         fontFamily: 'InterDisplay',
                         fontWeight: FontWeight.w500,
                         fontSize: 16,
                         height: 1.4, // 140% line height
                         letterSpacing: 0,
-                        color:  const Color(0xFF888888),
-                      ),
-                      ),
-                      style: TextStyle(
-                        fontFamily: 'InterDisplay',
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16,
-                        height: 1.4, // 140% line height
-                        letterSpacing: 0,
-                        color:  const Color(0xFF888888),
+                        color: Color(0xFF888888),
                       ),
                     ),
                   ),
@@ -271,45 +270,53 @@ class _AnimatedSearchBarWithTypingState
                                   child: Material(
                                     color: Colors.transparent,
                                     borderRadius: BorderRadius.circular(8),
-                                    child: InkWell(
-                                      onTap: () {
-                                        // Handle Hotels tap
-                                        print('Hotels tapped');
-                                      },
-                                      borderRadius: BorderRadius.circular(8),
-                                      hoverColor: Colors.blue.withOpacity(0.1),
-                                      splashColor: Colors.blue.withOpacity(0.2),
-                                      child: Container(
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        alignment: Alignment.center,
-                                        child: const Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              'Where are you going?',
-                                              style: TextStyle(
-                                                fontFamily: 'InterDisplay',
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 12,
-                                                height: 1.3, // 140% line height
-                                                letterSpacing: 0,
-                                                color: Color(0xFF888888),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(12.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          // Handle Hotels tap
+                                          print('Hotels tapped');
+                                        },
+                                        borderRadius: BorderRadius.circular(8),
+                                        hoverColor:
+                                            TColors.primary.withOpacity(0.1),
+                                        splashColor:
+                                        TColors.primary.withOpacity(0.2),
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                          alignment: Alignment.center,
+                                          child: const Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                'Where are you going?',
+                                                style: TextStyle(
+                                                  fontFamily: 'InterDisplay',
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 12,
+                                                  height:
+                                                      1.3, // 140% line height
+                                                  letterSpacing: 0,
+                                                  color: Color(0xFF888888),
+                                                ),
                                               ),
-                                            ),
-                                            Text(
-                                              'Search destinations',
-                                              style: TextStyle(
-                                                fontFamily: 'InterDisplay',
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 14,
-                                                height: 1.4, // 140% line height
-                                                letterSpacing: 0,
-                                                color:  Colors.white,
+                                              Text(
+                                                'Search destinations',
+                                                style: TextStyle(
+                                                  fontFamily: 'InterDisplay',
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 14,
+                                                  height:
+                                                      1.4, // 140% line height
+                                                  letterSpacing: 0,
+                                                  color: Colors.white,
+                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -319,9 +326,9 @@ class _AnimatedSearchBarWithTypingState
 
                               // First divider
                               Container(
-                                width: 1,
-                                height: 40,
-                                color: Colors.white54,
+                                width: 3.2,
+                                height: 48,
+                                color: const Color(0xFF001113),
                               ),
 
                               // Second text widget
@@ -331,47 +338,54 @@ class _AnimatedSearchBarWithTypingState
                                   child: Material(
                                     color: Colors.transparent,
                                     borderRadius: BorderRadius.circular(8),
-                                    child: InkWell(
-                                      onTap: () {
-                                        // Handle Restaurants tap
-                                        print('Restaurants tapped');
-                                      },
-                                      borderRadius: BorderRadius.circular(8),
-                                      hoverColor: Colors.blue.withOpacity(0.1),
-                                      splashColor: Colors.blue.withOpacity(0.2),
-                                      child: Container(
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        alignment: Alignment.center,
-                                        child: const Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              'When are you travelling?',
-                                              style: TextStyle(
-                                                fontFamily: 'InterDisplay',
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 12,
-                                                height: 1.3, // 140% line height
-                                                letterSpacing: 0,
-                                                color: Color(0xFF888888),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(12.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          // Handle Restaurants tap
+                                          print('Restaurants tapped');
+                                        },
+                                        borderRadius: BorderRadius.circular(8),
+                                        hoverColor:
+                                        TColors.primary.withOpacity(0.1),
+                                        splashColor:
+                                        TColors.primary.withOpacity(0.2),
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                          alignment: Alignment.center,
+                                          child: const Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                'When are you travelling?',
+                                                style: TextStyle(
+                                                  fontFamily: 'InterDisplay',
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 12,
+                                                  height:
+                                                      1.3, // 140% line height
+                                                  letterSpacing: 0,
+                                                  color: Color(0xFF888888),
+                                                ),
                                               ),
-                                            ),
-                                            Text(
-                                              'Add dates',
-                                              style: TextStyle(
-                                                fontFamily: 'InterDisplay',
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 14,
-                                                height: 1.4, // 140% line height
-                                                letterSpacing: 0,
-                                                color:  Colors.white,
+                                              Text(
+                                                'Add dates',
+                                                style: TextStyle(
+                                                  fontFamily: 'InterDisplay',
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 14,
+                                                  height:
+                                                      1.4, // 140% line height
+                                                  letterSpacing: 0,
+                                                  color: Colors.white,
+                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-
                                       ),
                                     ),
                                   ),
@@ -380,9 +394,9 @@ class _AnimatedSearchBarWithTypingState
 
                               // Second divider
                               Container(
-                                width: 1,
-                                height: 40,
-                                color: Colors.white54,
+                                width: 3.2,
+                                height: 48,
+                                color: const Color(0xFF001113),
                               ),
 
                               // Third text widget
@@ -392,45 +406,53 @@ class _AnimatedSearchBarWithTypingState
                                   child: Material(
                                     color: Colors.transparent,
                                     borderRadius: BorderRadius.circular(8),
-                                    child: InkWell(
-                                      onTap: () {
-                                        // Handle Activities tap
-                                        print('Activities tapped');
-                                      },
-                                      borderRadius: BorderRadius.circular(8),
-                                      hoverColor: Colors.blue.withOpacity(0.1),
-                                      splashColor: Colors.blue.withOpacity(0.2),
-                                      child: Container(
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        alignment: Alignment.center,
-                                        child: const Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              'Who are you going with?',
-                                              style: TextStyle(
-                                                fontFamily: 'InterDisplay',
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 12,
-                                                height: 1.3, // 140% line height
-                                                letterSpacing: 0,
-                                                color:  Color(0xFF888888),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(12.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          // Handle Activities tap
+                                          print('Activities tapped');
+                                        },
+                                        borderRadius: BorderRadius.circular(8),
+                                        hoverColor:
+                                        TColors.primary.withOpacity(0.1),
+                                        splashColor:
+                                        TColors.primary.withOpacity(0.2),
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                          alignment: Alignment.center,
+                                          child: const Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                'Who are you going with?',
+                                                style: TextStyle(
+                                                  fontFamily: 'InterDisplay',
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 12,
+                                                  height:
+                                                      1.3, // 140% line height
+                                                  letterSpacing: 0,
+                                                  color: Color(0xFF888888),
+                                                ),
                                               ),
-                                            ),
-                                            Text(
-                                              'Add guests',
-                                              style: TextStyle(
-                                                fontFamily: 'InterDisplay',
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 14,
-                                                height: 1.4, // 140% line height
-                                                letterSpacing: 0,
-                                                color:  Colors.white,
+                                              Text(
+                                                'Add guests',
+                                                style: TextStyle(
+                                                  fontFamily: 'InterDisplay',
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 14,
+                                                  height:
+                                                      1.4, // 140% line height
+                                                  letterSpacing: 0,
+                                                  color: Colors.white,
+                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),

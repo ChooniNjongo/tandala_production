@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_svg/svg.dart";
 
 import "../../../../features/booking/models/property/listing_model.dart";
+import "../../../../utils/constants/colors.dart";
 import "../../../../utils/constants/image_strings.dart";
 
 class ListingNameAndRating extends StatelessWidget {
@@ -18,7 +19,7 @@ class ListingNameAndRating extends StatelessWidget {
           child: Text(
             "Sunset Haven Apartments",
             style: TextStyle(
-              color: Colors.white,
+              color: Color(0xFF6D6D6D),
               fontFamily: 'InterDisplay',
               fontSize: 16,
               fontStyle: FontStyle.normal,
