@@ -20,7 +20,7 @@ class LeftFrame extends StatelessWidget {
         const SizedBox(width: 24,),
 
         ///  Nav Bar
-        const DesktopNavbar()
+      //  const DesktopNavbar()
       ],
     );
   }

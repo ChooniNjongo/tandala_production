@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../controllers/property_controller.dart';
-import '../widgets/common/search_and_filters.dart';
 import '../widgets/common/quick_filters.dart';
+import '../widgets/desktop/animated_search.dart';
 import '../widgets/desktop/desktop_footer.dart';
 import '../widgets/desktop/home_listings.dart';
 
@@ -66,12 +66,8 @@ class HomeDesktopScreen extends StatelessWidget {
         child: Column(
           children: [
             /// Search and Filters Section
-            const Padding(
-              padding:
-                  EdgeInsets.only(left: TSizes.defaultSpaceDesktop, right: TSizes.defaultSpaceDesktop, top: 20, bottom: 24),
-              child: TSearchAndFilters(),
-            ),
-
+            const AnimatedSearchBarWithTyping(),
+            const SizedBox(height: TSizes.spaceBtwSections),
             /// Quick Filters Section
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -89,6 +85,7 @@ class HomeDesktopScreen extends StatelessWidget {
               mainAxisExtent: mainAxisExtent,
               screenWidth: screenWidth,
             ),
+
             /// Footer
             const DesktopFooter()
           ],

@@ -14,6 +14,28 @@ class QuickFilters extends StatelessWidget {
     final controller = Get.put(SecondaryFilterController());
     return Row(
       children: [
+
+        SecondaryFilterItem(
+          onTap: () =>
+              controller.onFilterItemTapped(controller.hasSwimmingPool),
+          isActive: controller.hasSwimmingPool.value,
+          icon: TImages.apartment,
+          filterName: 'Apartments',
+        ),
+        SecondaryFilterItem(
+          onTap: () =>
+              controller.onFilterItemTapped(controller.hasBedNBreakfast),
+          isActive: controller.hasBedNBreakfast.value,
+          icon: TImages.hotel,
+          filterName: 'Hotel',
+        ),
+        SecondaryFilterItem(
+          onTap: () =>
+              controller.onFilterItemTapped(controller.hasSwimmingPool),
+          isActive: controller.hasSwimmingPool.value,
+          icon: TImages.lodge,
+          filterName: 'Lodges',
+        ),
         SecondaryFilterItem(
           onTap: () =>
               controller.onFilterItemTapped(controller.hasSwimmingPool),

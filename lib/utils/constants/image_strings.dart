@@ -411,6 +411,7 @@ class TImages {
   static const String party =
       "assets/icons/quick_search/party.svg";
   static const String swim = "assets/icons/quick_search/swim.svg";
+
   static const String beach =
       "assets/icons/quick_search/beach.svg";
 

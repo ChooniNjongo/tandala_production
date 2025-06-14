@@ -63,7 +63,8 @@ class _PriceSliderState extends State<PriceSlider> {
           ),
 
           // Range value indicator
-          rangeValueIndicatorShape: const PaddleRangeSliderValueIndicatorShape(),
+          rangeValueIndicatorShape:
+              const PaddleRangeSliderValueIndicatorShape(),
 
           // Tick marks (if you enable divisions)
           tickMarkShape: const RoundSliderTickMarkShape(

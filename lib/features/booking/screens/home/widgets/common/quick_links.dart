@@ -2,6 +2,7 @@ import 'package:cwt_ecommerce_admin_panel/features/booking/screens/home/widgets/
 import 'package:cwt_ecommerce_admin_panel/features/booking/screens/home/widgets/common/quick_link_name.dart';
 import 'package:flutter/material.dart';
 
+
 class QuickLinks extends StatelessWidget {
   const QuickLinks({super.key});
 
@@ -14,6 +15,8 @@ class QuickLinks extends StatelessWidget {
         QuickLinkItem(item: "List your properties"),
         QuickLinkItem(item: "How Tandala works"),
         QuickLinkItem(item: "How to report a listing"),
+        QuickLinkItem(item: "Explore Zambia tourism"),
+
 
       ],
     );

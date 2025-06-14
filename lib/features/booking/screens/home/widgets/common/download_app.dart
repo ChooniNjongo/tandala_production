@@ -22,19 +22,8 @@ class DownloadApp extends StatelessWidget {
         const SizedBox(
           height: 24,
         ),
-        const QuickLinkName(name: "Zambian Tourism"),
-        const QuickLinkItem(
-            item: "Explore the best of Zambia tourism"),
-        TRoundedContainer(
-          padding: EdgeInsets.zero,
-          backgroundColor: Colors.white,
-          radius: 8,
-          child: Image.asset(
-            "assets/images/assets/zta.png",
-            height: 64,
-            width: 120,
-          ),
-        )
+
+
       ],
     );
   }
