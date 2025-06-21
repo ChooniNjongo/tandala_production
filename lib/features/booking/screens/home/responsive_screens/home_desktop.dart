@@ -3,11 +3,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../controllers/property_controller.dart';
-import '../widgets/common/quick_filters.dart';
 import '../widgets/common/search_and_filters.dart';
 import '../widgets/desktop/animated_search.dart';
 import '../widgets/desktop/desktop_footer.dart';
 import '../widgets/desktop/home_listings.dart';
+import '../widgets/desktop/quick_filters.dart';
 
 class HomeDesktopScreen extends StatelessWidget {
   const HomeDesktopScreen({super.key});

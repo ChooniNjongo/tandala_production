@@ -570,6 +570,9 @@ class TImages {
   /// ***  Designer Assets
 
   static const String appStore = "assets/download_app/App Store.svg";
+  static const String menuBars = "assets/icons/designer_assets/bars.svg";
+  static const String bell = "assets/icons/designer_assets/bell-01.svg";
+  static const String chevron_right = "assets/icons/designer_assets/chevron-right.svg";
   /// Download promt
   static const String filterCloseSvg = "assets/icons/designer_assets/x-mark.svg";
   static const String googlePlay = "assets/download_app/Google Play.svg";

@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -19,6 +20,7 @@ class SecondaryFilterItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = TDeviceUtils.isMobileScreen(context);
     return TRoundedContainer(
       onTap: onTap,
       padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
@@ -29,7 +31,7 @@ class SecondaryFilterItem extends StatelessWidget {
         children: [
           SvgPicture.asset(
             icon,
-            height: 17,
+            height: 22,
             semanticsLabel: 'Logo',
             color: isActive ? TColors.textPrimary : TColors.textSecondary,
           ),
@@ -42,7 +44,7 @@ class SecondaryFilterItem extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'InterDisplay',
               fontWeight: FontWeight.w500,
-              fontSize: 11.4,
+              fontSize: 12,
               height: 1.4, // 140% line-height
               letterSpacing: 0,
               color: isActive ? TColors.textPrimary : TColors.textSecondary,
