@@ -18,8 +18,8 @@ class TShimmerEffect extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: TColorSystem.n900,
-      highlightColor: TColorSystem.n800,
+      baseColor: TColors.secondaryBackground,
+      highlightColor:TColors.primaryBackground,
       child: Container(
         width: width,
         height: height,

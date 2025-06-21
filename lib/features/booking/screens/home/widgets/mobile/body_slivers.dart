@@ -20,10 +20,13 @@ class BodySlivers extends StatelessWidget {
         return Obx(() {
           if (propertyController.isLoading.value) {
             return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 32),
+              padding: EdgeInsets.symmetric(
+                horizontal: isMobile ? 12 : 40,
+                vertical: 32,
+              ),
               child: TGridLayout(
                 crossAxisCount: isMobile ? 1 : 3,
-                mainAxisExtent: 340,
+                mainAxisExtent: 352,
                 itemCount: 12,
                 itemBuilder: (_, index) => const TVerticalProductShimmer(),
               ),

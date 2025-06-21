@@ -458,8 +458,8 @@ class TImages {
   // Navigation Icons
   static const String bookingInactive =
       "assets/icons/custom_icons/nav_icons/bx_hotel.svg";
-  static const String bookingActive =
-      "assets/icons/custom_icons/nav_icons/bxs_hotel.svg";
+  static const String bookings =
+      "assets/icons/nav_bar/calendar-01.svg";
   static const String favoritesInactive =
       "assets/icons/custom_icons/nav_icons/f7_square-favorites-alt.svg";
   static const String favoritesActive =

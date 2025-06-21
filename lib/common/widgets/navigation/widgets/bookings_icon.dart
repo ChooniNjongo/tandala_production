@@ -13,7 +13,7 @@ class BookingsIcon extends StatelessWidget {
     return TSvg(
       height: 24,
       isSelected: isSelected,
-      activeImage: TImages.bookingActive,
+      activeImage: TImages.bookings,
       inActiveImage: TImages.bookingInactive,
     );
 

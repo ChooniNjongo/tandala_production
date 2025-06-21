@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../controllers/property_controller.dart';
 import '../widgets/common/quick_filters.dart';
+import '../widgets/common/search_and_filters.dart';
 import '../widgets/desktop/animated_search.dart';
 import '../widgets/desktop/desktop_footer.dart';
 import '../widgets/desktop/home_listings.dart';
@@ -65,9 +67,26 @@ class HomeDesktopScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            /// Search and Filters Section
-            const AnimatedSearchBarWithTyping(),
             const SizedBox(height: TSizes.spaceBtwSections),
+
+            /// Search and Filters Section
+            Row(
+              children: [
+                const AnimatedSearchBarWithTyping(),
+                const TSearchAndFilters(),
+                const SizedBox(width: TSizes.spaceBtwItems,),
+
+                //
+                Container(
+                    padding: const EdgeInsets.all(13),
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: const Color(0xFFE5F7F9).withOpacity(0.1)),
+                    child: SvgPicture.asset("assets/icons/search/filters.svg"))
+              ],
+            ),
+            const SizedBox(height: TSizes.spaceBtwSections),
+
             /// Quick Filters Section
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
