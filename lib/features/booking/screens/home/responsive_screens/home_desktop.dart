@@ -70,21 +70,7 @@ class HomeDesktopScreen extends StatelessWidget {
             const SizedBox(height: TSizes.spaceBtwSections),
 
             /// Search and Filters Section
-            Row(
-              children: [
-                const AnimatedSearchBarWithTyping(),
-                const TSearchAndFilters(),
-                const SizedBox(width: TSizes.spaceBtwItems,),
-
-                //
-                Container(
-                    padding: const EdgeInsets.all(13),
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: const Color(0xFFE5F7F9).withOpacity(0.1)),
-                    child: SvgPicture.asset("assets/icons/search/filters.svg"))
-              ],
-            ),
+            const TSearchAndFilters(),
             const SizedBox(height: TSizes.spaceBtwSections),
 
             /// Quick Filters Section

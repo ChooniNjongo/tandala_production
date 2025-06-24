@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -43,8 +44,6 @@ class DesktopNavbar extends StatelessWidget {
           icon: TImages.hotel,
           onPressed: () {},
         ),
-
-
       ],
     );
   }
@@ -69,36 +68,30 @@ class NavbarItem extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        padding: const EdgeInsets.fromLTRB(2, 12, 4, 12),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              color: isSelected ? const Color(0xFF00AFC1) : Colors.transparent,
-              width: 1.5,
-            ),
-          ),
+          color: isSelected ? TColors.textPrimary.withOpacity(0.1) : Colors.transparent,
+          borderRadius: BorderRadius.circular(24), // Rounded chip shape
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             SvgPicture.asset(
               icon,
-              width: 16, // optional: adjust size
+              width: 16,
               height: 16,
-              color: isSelected ? const Color(0xFF00AFC1) : const Color(0xFFE5F7F9),
+              color: isSelected ? Colors.white : const Color(0xFFE5F7F9),
             ),
-            const SizedBox(width: 8), // gap
+            const SizedBox(width: 8),
             Text(
               name,
               style: TextStyle(
                 fontFamily: 'InterDisplay',
                 fontSize: 14,
-                height: 1.4, // 140% line height
+                height: 1.4,
                 letterSpacing: 0,
                 fontWeight: FontWeight.w500,
-                color: isSelected
-                    ? const Color(0xFF00AFC1)
-                    : const Color(0xFFE5F7F9),
+                color: isSelected ? Colors.white : const Color(0xFFE5F7F9),
               ),
             ),
           ],

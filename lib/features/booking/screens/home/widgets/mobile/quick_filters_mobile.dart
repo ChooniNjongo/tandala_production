@@ -2,8 +2,6 @@ import 'package:cwt_ecommerce_admin_panel/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 import '../../../../../../common/widgets/containers/rounded_container.dart';
 import '../../../../../../utils/constants/colors.dart';
 import '../../../../controllers/secondary_filter_controller.dart';
@@ -64,7 +62,7 @@ class _QuickFiltersMobileState extends State<QuickFiltersMobile> {
             scrollDirection: Axis.horizontal,
             controller: _scrollController,
             child: Obx(
-              () => Row(
+                  () => Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SecondaryFilterItem(
@@ -161,13 +159,13 @@ class _QuickFiltersMobileState extends State<QuickFiltersMobile> {
           ),
 
           // Chevron arrow overlay with gradient
-          if (_showChevron)
+          if (false)
             Positioned(
               right: 0,
               top: 0,
               bottom: 0,
               child: Container(
-                width: 60,
+                width: 64, // Increased width to push arrow further right
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.centerLeft,
@@ -176,28 +174,32 @@ class _QuickFiltersMobileState extends State<QuickFiltersMobile> {
                       Colors.transparent,
                       Theme.of(context)
                           .scaffoldBackgroundColor
-                          .withOpacity(0.8),
+                          .withOpacity(0.1),
                       Theme.of(context).scaffoldBackgroundColor,
                     ],
                     stops: const [0.0, 0.3, 1.0],
                   ),
                 ),
-                child: Center(
-                  child: Container(
-                    width: 32,
-                    height: 32,
-                    decoration: BoxDecoration(
-                      color: TColors.primaryBackground,
-                      borderRadius: BorderRadius.circular(16),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          blurRadius: 8,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
+                child: Align(
+                  alignment: Alignment.centerRight, // Align to the right edge
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 8.0), // Small padding from edge
+                    child: Container(
+                      width: 24,
+                      height: 24,
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: [
+                          BoxShadow(
+                            color: TColors.primaryBackground.withOpacity(0.1),
+                            blurRadius: 4,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: SvgPicture.asset(TImages.chevron_right,height: 16,width: 16,),
                     ),
-                    child: SvgPicture.asset(TImages.chevron_right,height: 20,width: 20,),
                   ),
                 ),
               ),

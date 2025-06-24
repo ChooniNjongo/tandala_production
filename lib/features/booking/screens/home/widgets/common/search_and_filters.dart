@@ -1,4 +1,6 @@
 import 'dart:ui'; // Add this import for ImageFilter
+import 'package:cwt_ecommerce_admin_panel/features/booking/screens/home/widgets/desktop/animated_search.dart';
+import 'package:cwt_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../../../common/widgets/layouts/headers/widgets/desktop/search_bar/search_bar.dart';
@@ -79,14 +81,14 @@ class _TSearchAndFiltersState extends State<TSearchAndFilters> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 40,),
+                    const SizedBox(
+                      height: 40,
+                    ),
                     // Filter content
                     const Expanded(
                       child: Filters(),
                     ),
                     const FilterActionButtons()
-
-
                   ],
                 ),
               ),
@@ -113,23 +115,12 @@ class _TSearchAndFiltersState extends State<TSearchAndFilters> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const TSearchBar(),
         Row(
           children: [
-            const SizedBox(width: 8),
-            Container(
-              width: 46,
-              height: 46,
-              padding: const EdgeInsets.all(13),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(32),
-                color: const Color(0xFF1A2323),
-              ),
-              child: SvgPicture.asset(TImages.quickFilter),
-            ),
-            const SizedBox(width: 8),
+            const SimpleSearchBar(),
+            const SizedBox(width: TSizes.spaceBtwItems),
             GestureDetector(
               onTap: _showFilterOverlay,
               child: Container(

@@ -16,22 +16,35 @@ class LeftFrame extends StatelessWidget {
       children: [
         /// Logo
         SizedBox(
-          width: 100,
+          width: 134,
           height: 24,
           child: SvgPicture.asset(
             TImages.tandalaSvg,
-            color: TColors.primary,
           ),
         ),
 
         const SizedBox(
-          width: TSizes.defaultSpaceDesktop * 2,
+          width: TSizes.spaceBtwSections,
+        ),
+
+        NavbarItem(
+          isSelected: true,
+          name: 'Apartments',
+          icon: TImages.apartment,
+          onPressed: () {},
         ),
 
         NavbarItem(
           isSelected: false,
-          name: 'Bookings',
-          icon: TImages.bookings,
+          name: 'Hotels',
+          icon: TImages.hotel,
+          onPressed: () {},
+        ),
+
+        NavbarItem(
+          isSelected: false,
+          name: 'Lodges',
+          icon: TImages.lodge,
           onPressed: () {},
         )
 

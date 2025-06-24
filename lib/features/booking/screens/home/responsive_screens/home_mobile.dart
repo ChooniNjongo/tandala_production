@@ -14,7 +14,7 @@ class HomeMobile extends StatelessWidget {
     return Scaffold(
       body: HomeContent(navBarController: navBarController),
       bottomNavigationBar: Obx(() => AnimatedContainer(
-        duration: const Duration(milliseconds: 100),
+        duration: const Duration(milliseconds: 320),
         height: navBarController.isNavBarVisible.value ? 80 : 0, // Adjust height as needed
         child: navBarController.isNavBarVisible.value
             ? const NavBar() // Replace with your actual NavBar widget

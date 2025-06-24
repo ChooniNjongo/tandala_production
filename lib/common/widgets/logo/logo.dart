@@ -22,7 +22,6 @@ class TandalaLogo extends StatelessWidget {
     return InkWell(
       onTap: () => Get.toNamed(TRoutes.places),
       child: SvgPicture.asset(
-        color: TColors.primary,
         TImages.tandalaSvg,
         height: height,
         width: width,

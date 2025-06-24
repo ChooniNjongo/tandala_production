@@ -31,7 +31,7 @@ class SecondaryFilterItem extends StatelessWidget {
         children: [
           SvgPicture.asset(
             icon,
-            height: 22,
+            height: isMobile ? 22 : 18,
             semanticsLabel: 'Logo',
             color: isActive ? TColors.textPrimary : TColors.textSecondary,
           ),
@@ -44,7 +44,7 @@ class SecondaryFilterItem extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'InterDisplay',
               fontWeight: FontWeight.w500,
-              fontSize: 12,
+              fontSize: 11,
               height: 1.4, // 140% line-height
               letterSpacing: 0,
               color: isActive ? TColors.textPrimary : TColors.textSecondary,

@@ -2,6 +2,7 @@ import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../../../features/booking/screens/home/widgets/desktop/notification_count.dart';
 import '../../../../../../utils/constants/image_strings.dart';
 
 class RightFrame extends StatelessWidget {
@@ -13,7 +14,7 @@ class RightFrame extends StatelessWidget {
       children: [
         /// List your property link
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           child: Row(
             children: [
               // Plus icon
@@ -34,7 +35,32 @@ class RightFrame extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(width: 80),
+
+        /// Bookings Icon and count
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 12,
+          ),
+          child: Row(
+            children: [
+              // Bookings Icon
+              SvgPicture.asset(TImages.bookings),
+              const SizedBox(width: 8),
+              const Text(
+                "Bookings",
+                style: TextStyle(
+                  fontFamily: 'InterDisplay',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                  color: TColors.textPrimary,
+                ),
+              ),
+              const SizedBox(width: 3),
+              const NotificationCountWidget(count: 2,)
+            ],
+          ),
+        ),
         SvgPicture.asset(TImages.notification),
         const SizedBox(width: 12),
         SvgPicture.asset(TImages.union),
@@ -54,7 +80,6 @@ class RightFrame extends StatelessWidget {
         ),
         const SizedBox(width: 24),
         SvgPicture.asset(TImages.menu),
-
       ],
     );
   }
