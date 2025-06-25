@@ -13,15 +13,19 @@ class DesktopHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 96,
-      padding: const EdgeInsets.symmetric(horizontal:TSizes.defaultSpaceDesktop, vertical:  24), // left, top, right, bottom
+      padding: const EdgeInsets.symmetric(
+          horizontal: TSizes.defaultSpaceDesktop,
+          vertical: 24), // left, top, right, bottom
       child: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-        /// Left Frame
-        LeftFrame(),
-        /// Right Frame
-        RightFrame(),
-      ],),
+          /// Left Frame
+          LeftFrame(),
+
+          /// Right Frame
+          RightFrame(),
+        ],
+      ),
     );
   }
 }

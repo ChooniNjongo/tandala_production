@@ -1,5 +1,4 @@
 import 'dart:ui'; // Add this import for ImageFilter
-import 'package:cwt_ecommerce_admin_panel/features/booking/screens/home/widgets/desktop/animated_search.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,6 +6,7 @@ import '../../../../../../common/widgets/layouts/headers/widgets/desktop/search_
 import '../../../../../../common/widgets/layouts/headers/widgets/desktop/search_filter/filter_action_button.dart';
 import '../../../../../../common/widgets/layouts/headers/widgets/desktop/search_filter/filters.dart';
 import '../../../../../../utils/constants/image_strings.dart';
+import '../desktop/start_search.dart';
 
 class TSearchAndFilters extends StatefulWidget {
   const TSearchAndFilters({super.key});
@@ -119,7 +119,7 @@ class _TSearchAndFiltersState extends State<TSearchAndFilters> {
       children: [
         Row(
           children: [
-            const SimpleSearchBar(),
+            const StartSearch(),
             const SizedBox(width: TSizes.spaceBtwItems),
             GestureDetector(
               onTap: _showFilterOverlay,

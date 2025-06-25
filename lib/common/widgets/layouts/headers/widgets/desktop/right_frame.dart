@@ -13,57 +13,91 @@ class RightFrame extends StatelessWidget {
     return Row(
       children: [
         /// List your property link
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          child: Row(
-            children: [
-              // Plus icon
-              SvgPicture.asset(TImages.plus),
-              const SizedBox(width: 8),
-              // Listing text
-              const Text(
-                "List Your Property",
-                style: TextStyle(
-                  color: TColors.textPrimary,
-                  fontFamily: 'InterDisplay',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                  height: 1.4,
-                  letterSpacing: 0.0,
-                ),
+        GestureDetector(
+          onTap: () {
+            // Handle tap action here
+            print("List Your Property clicked");
+            // Add your navigation or action logic
+          },
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              child: Row(
+                children: [
+                  // Plus icon
+                  SvgPicture.asset(TImages.plus),
+                  const SizedBox(width: 8),
+                  // Listing text
+                  const Text(
+                    "List Your Property",
+                    style: TextStyle(
+                      color: TColors.textPrimary,
+                      fontFamily: 'InterDisplay',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
+                      height: 1.4,
+                      letterSpacing: 0.0,
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
 
         /// Bookings Icon and count
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 12,
-          ),
-          child: Row(
-            children: [
-              // Bookings Icon
-              SvgPicture.asset(TImages.bookings),
-              const SizedBox(width: 8),
-              const Text(
-                "Bookings",
-                style: TextStyle(
-                  fontFamily: 'InterDisplay',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                  color: TColors.textPrimary,
-                ),
+        GestureDetector(
+          onTap: () {
+            // Handle tap action here
+            print("Bookings clicked");
+            // Add your navigation or action logic
+          },
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 12,
               ),
-              const SizedBox(width: 3),
-              const NotificationCountWidget(count: 2,)
-            ],
+              child: Row(
+                children: [
+                  // Bookings Icon
+                  SvgPicture.asset(TImages.bookings),
+                  const SizedBox(width: 8),
+                  const Text(
+                    "Bookings",
+                    style: TextStyle(
+                      fontFamily: 'InterDisplay',
+                      fontWeight: FontWeight.w500,
+                      height: 1.4,
+                      letterSpacing: 0.0,
+                      fontSize: 14,
+                      color: TColors.textPrimary,
+                    ),
+                  ),
+                  const SizedBox(width: 3),
+                  const NotificationCountWidget(
+                    count: 2,
+                  )
+                ],
+              ),
+            ),
           ),
         ),
-        SvgPicture.asset(TImages.notification),
+        const TNotificationIcon(),
         const SizedBox(width: 12),
-        SvgPicture.asset(TImages.union),
+        GestureDetector(
+          onTap: () {
+            // Handle union icon tap action here
+            print("Union icon clicked");
+            // Add your navigation or action logic
+          },
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: SvgPicture.asset(TImages.union),
+          ),
+        ),
         const SizedBox(width: 12),
         // Circular profile image with radius 48
         Container(
@@ -79,8 +113,58 @@ class RightFrame extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 24),
-        SvgPicture.asset(TImages.menu),
+        GestureDetector(
+          onTap: () {
+            // Handle menu icon tap action here
+            print("Menu icon clicked");
+            // Add your navigation or action logic
+          },
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: SvgPicture.asset(TImages.menu),
+          ),
+        ),
       ],
+    );
+  }
+}
+
+class TNotificationIcon extends StatelessWidget {
+  const TNotificationIcon({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        // Handle tap action here
+        print("Notification clicked");
+        // Add your navigation or action logic
+      },
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 2),
+              child: SvgPicture.asset(TImages.notification),
+            ),
+            Positioned(
+              right: 0,
+              top: 0,
+              child: Container(
+                width: 8,
+                height: 8,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xFFDC3545),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

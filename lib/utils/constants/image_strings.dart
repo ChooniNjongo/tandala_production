@@ -573,6 +573,7 @@ class TImages {
   static const String menuBars = "assets/icons/designer_assets/bars.svg";
   static const String bell = "assets/icons/designer_assets/bell-01.svg";
   static const String chevron_right = "assets/icons/designer_assets/chevron-right.svg";
+  static const String searchStart = "assets/icons/designer_assets/search.svg";
   /// Download promt
   static const String filterCloseSvg = "assets/icons/designer_assets/x-mark.svg";
   static const String googlePlay = "assets/download_app/Google Play.svg";

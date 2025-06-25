@@ -33,23 +33,20 @@ class LeftFrame extends StatelessWidget {
           icon: TImages.apartment,
           onPressed: () {},
         ),
-
+        const SizedBox(width: 4),
         NavbarItem(
           isSelected: false,
           name: 'Hotels',
           icon: TImages.hotel,
           onPressed: () {},
         ),
-
+        const SizedBox(width: 4),
         NavbarItem(
           isSelected: false,
           name: 'Lodges',
           icon: TImages.lodge,
           onPressed: () {},
         )
-
-        ///  Nav Bar
-        //const DesktopNavbar()
       ],
     );
   }

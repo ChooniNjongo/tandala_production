@@ -10,13 +10,13 @@ class NotificationCountWidget extends StatelessWidget {
   final double? height;
 
   const NotificationCountWidget({
-    Key? key,
+    super.key,
     required this.count,
     this.backgroundColor,
     this.textColor,
     this.width,
     this.height,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +26,10 @@ class NotificationCountWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor ?? const Color(0xFFDC3545),
         borderRadius: BorderRadius.circular(32),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
-            color: const Color(0x26E5F7F9),
-            offset: const Offset(0, 0),
+            color: Color(0x26E5F7F9),
+            offset: Offset(0, 0),
             blurRadius: 12,
             spreadRadius: 2,
           ),
