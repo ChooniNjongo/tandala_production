@@ -35,7 +35,7 @@ class _LocationFilterState extends State<LocationFilter> {
 
         // Search location widget
         SearchLocation(
-          hintText: 'Search for a destination...',
+          hintText: 'Search destination',
           onLocationSelected: _onLocationSelected,
           initialValue: selectedLocation,
         ),

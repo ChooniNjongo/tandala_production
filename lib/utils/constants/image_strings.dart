@@ -578,4 +578,14 @@ class TImages {
   static const String filterCloseSvg = "assets/icons/designer_assets/x-mark.svg";
   static const String googlePlay = "assets/download_app/Google Play.svg";
 
+
+  /// Menu Pop up
+  static const String menuPopHome = "assets/icons/pop_up_menu/home.svg";
+  static const String menuPopBookings = "assets/icons/pop_up_menu/calendar-01.svg";
+  static const String menuPopAccount = "assets/icons/pop_up_menu/user.svg";
+  static const String menuPopListings = "assets/icons/pop_up_menu/list-bullet.svg";
+  static const String menuPopFavorites = "assets/icons/pop_up_menu/Union.svg";
+  static const String menuPopReviews = "assets/icons/pop_up_menu/star.svg";
+  static const String menuPopListingReports = "assets/icons/pop_up_menu/alert-hexagon.svg";
+
 }
