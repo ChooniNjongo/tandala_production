@@ -70,7 +70,7 @@ class MySliverAppBar extends StatelessWidget {
               ),
               const SizedBox(width: 12),
 
-              // ✅ Builder provides a safe context for showModalBottomSheet
+              // ✅ Updated Builder with animated bottom sheet
               Builder(
                 builder: (innerContext) => GestureDetector(
                   onTap: () {
@@ -78,19 +78,21 @@ class MySliverAppBar extends StatelessWidget {
                       showModalBottomSheet(
                         context: innerContext,
                         useSafeArea: true,
-                        barrierColor: TColors.lightGrey.withOpacity(0.1),
-                        backgroundColor: TColors.primaryBackground,
+                        barrierColor: TColors.secondaryBackground,
+                        backgroundColor: Colors.transparent, // Make transparent for custom animation
                         isScrollControlled: true,
+                        isDismissible: true,
+                        enableDrag: true,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(16),
                             topRight: Radius.circular(16),
-                              bottomLeft: Radius.circular(0),
-                              bottomRight: Radius.circular(0),
+                            bottomLeft: Radius.circular(0),
+                            bottomRight: Radius.circular(0),
                           ),
                         ),
                         builder: (BuildContext context) {
-                          return const MobileFilters(); // ✅ replace with your widget
+                          return const AnimatedMobileFilters(); // ✅ Use animated version
                         },
                       );
                     });
