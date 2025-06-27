@@ -48,7 +48,7 @@ class FilterActionButtons extends StatelessWidget {
                       child: MySpinKitLoadingIndicator(),
                     )
                   : Text(
-                      'Show 8000 offers',
+                      'Show  ${controller.listings.length} offers',
                       style: const TextStyle(
                         fontFamily: 'InterDisplay',
                         fontWeight: FontWeight.w500,
