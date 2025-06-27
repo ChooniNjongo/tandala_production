@@ -26,7 +26,7 @@ class AmenityTile extends StatelessWidget {
           if(isSelected)
             SvgPicture.asset("assets/icons/designer_assets/check-square.svg"),
           if(!isSelected)
-            SvgPicture.asset("assets/icons/designer_assets/check-square_minus.svg"),
+            SvgPicture.asset("assets/icons/designer_assets/check-square_minus.svg",color: const Color(0xFF888888), ),
 
           const SizedBox(
             width: 12,

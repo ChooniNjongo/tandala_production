@@ -14,62 +14,54 @@ class FilterActionButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SearchFilterController());
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 12),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          TextButton(
-            onPressed: controller.clearFilter,
-            child: const Text(
-              "Clear all",
-              style: TextStyle(
-                fontFamily: 'InterDisplay',
-                fontWeight: FontWeight.w500,
-                fontSize: 13,
-                height: 1.4, // 140% line height
-                letterSpacing: 0,
-                color: Color(0xFF888888),
-              ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        TextButton(
+          onPressed: controller.clearFilter,
+          child: const Text(
+            "Clear all",
+            style: TextStyle(
+              fontFamily: 'InterDisplay',
+              fontWeight: FontWeight.w500,
+              fontSize: 14,
+              height: 1.4, // 140% line height
+              letterSpacing: 0,
+              color: Color(0xFF888888),
             ),
           ),
-          SizedBox(
-            width: 160,
-            height: 44,
-            child: ElevatedButton(
-              onPressed: () {
-                Get.offAllNamed(TRoutes.searchResults);
-              }, //Take us to search results screen,
+        ),
+        SizedBox(
+          width: 160,
+          height: 44,
+          child: ElevatedButton(
+            onPressed: () {
+              Get.offAllNamed(TRoutes.searchResults);
+            }, //Take us to search results screen,
 
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: TSizes.spaceBtwItems,
-                ),
-                child: Obx(
-                  () => controller.isLoading.value
-                      ? const Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: TSizes.spaceBtwItems,
-                          ),
-                          child: MySpinKitLoadingIndicator(),
-                        )
-                      : Text(
-                          'Show  ${controller.listings.length} offers',
-                          style: const TextStyle(
-                            fontFamily: 'InterDisplay',
-                            fontWeight: FontWeight.w500,
-                            fontSize: 13,
-                            height: 1.4, // 140% line height
-                            letterSpacing: 0,
-                            color: TColors.white,
-                          ),
-                        ),
-                ),
-              ),
+            child: Obx(
+              () => controller.isLoading.value
+                  ? const Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: TSizes.spaceBtwItems,
+                      ),
+                      child: MySpinKitLoadingIndicator(),
+                    )
+                  : Text(
+                      'Show 8000 offers',
+                      style: const TextStyle(
+                        fontFamily: 'InterDisplay',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        height: 1.4, // 140% line height
+                        letterSpacing: 0,
+                        color: TColors.white,
+                      ),
+                    ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

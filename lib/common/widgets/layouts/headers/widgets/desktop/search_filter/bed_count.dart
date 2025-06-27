@@ -2,9 +2,11 @@ import 'package:cwt_ecommerce_admin_panel/common/widgets/containers/rounded_cont
 import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/headers/widgets/desktop/search_filter/filter_section_title.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../../../../features/booking/controllers/base_counter_controller.dart';
 import '../../../../../../../features/booking/controllers/search_filter_controller.dart';
 import '../../../../../../../utils/constants/sizes.dart';
 import '../../../../../chips/pill.dart';
+import '../../../../../counter/counter.dart';
 import 'filter_item.dart';
 
 class BedCount extends StatelessWidget {
@@ -12,44 +14,17 @@ class BedCount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SearchFilterController());
+    final controller = Get.put(DefaultCounterController());
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const TRoundedContainer(
             padding: EdgeInsets.only(right:16,top: 16,bottom: 16),
             child: FilterSectionSubtitle(subTitle: "Bed(s):")),
-        const SizedBox(
-          height: 16,
-        ),
-        Obx(
-          () => Wrap(
-            spacing: 12,
-            runSpacing: 12,
-            children: [
-              TPill(
-                title: 'Any',
-                isSelected: controller.anyBedCountSelected.value,
-                onTap: controller.onAnyBedCountSelected,
-              ),
-              TPill(
-                title: '1',
-                isSelected: controller.oneBedCountSelected.value,
-                onTap: controller.onOneBedCountSelected,
-              ),
-              TPill(
-                title: '2',
-                isSelected: controller.twoBedCountSelected.value,
-                onTap: controller.onTwoBedCountSelected,
-              ),
-              TPill(
-                title: '3 or More',
-                isSelected: controller.threeBedCountSelected.value,
-                onTap: controller.onThreeBedCountSelected,
-              ),
-            ],
-          ),
-        ),
+        CounterWidget(
+          controller: controller,
+        )
       ],
     );
   }
