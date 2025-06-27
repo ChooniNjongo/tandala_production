@@ -10,18 +10,22 @@ class RouteObservers extends GetObserver {
   void didPop(Route<dynamic>? route, Route<dynamic>? previousRoute) {
     final sidebarController = Get.put(SidebarController());
 
-    if (previousRoute != null) {
-      // Check the route name and update the active item in the sidebar accordingly
-      sidebarController.activeItem.value = previousRoute.settings.name!;
+    if (previousRoute?.settings.name != null) {
+      sidebarController.activeItem.value = previousRoute!.settings.name!;
+    } else {
+      sidebarController.activeItem.value = 'unknown';
     }
   }
 
+  /// Called when a route is pushed onto the navigation stack.
   @override
   void didPush(Route<dynamic>? route, Route<dynamic>? previousRoute) {
     final sidebarController = Get.put(SidebarController());
 
-    if (route != null) {
-      sidebarController.activeItem.value = route.settings.name!;
+    if (route?.settings.name != null) {
+      sidebarController.activeItem.value = route!.settings.name!;
+    } else {
+      sidebarController.activeItem.value = 'unknown';
     }
   }
 }

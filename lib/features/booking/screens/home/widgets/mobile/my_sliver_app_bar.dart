@@ -1,65 +1,36 @@
 import 'package:cwt_ecommerce_admin_panel/common/widgets/containers/rounded_container.dart';
-import 'package:cwt_ecommerce_admin_panel/common/widgets/layouts/headers/widgets/desktop/search_bar/search_bar.dart';
 import 'package:cwt_ecommerce_admin_panel/features/booking/controllers/nav_bar_controller.dart';
-import 'package:cwt_ecommerce_admin_panel/features/booking/screens/home/widgets/mobile/quick_filters_mobile.dart';
 import 'package:cwt_ecommerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:visibility_detector/visibility_detector.dart';
+
 import '../../../../../../common/widgets/layouts/headers/mobile_header.dart';
+import '../../../../../../common/widgets/layouts/headers/widgets/desktop/search_filter/search_filter.dart';
+import '../../../../../../common/widgets/layouts/headers/widgets/mobile/mobile_filters.dart';
 import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/constants/image_strings.dart';
 import '../../../../controllers/secondary_filter_controller.dart';
-import '../common/filter_button.dart';
-import '../common/filter_overlay_service.dart';
-// Import the FilterButton and FilterOverlayService
 
-class MySliverAppBar extends StatefulWidget {
+class MySliverAppBar extends StatelessWidget {
   const MySliverAppBar({super.key});
-
-  @override
-  State<MySliverAppBar> createState() => _MySliverAppBarState();
-}
-
-class _MySliverAppBarState extends State<MySliverAppBar> {
-  late final FilterOverlayService _filterOverlayService;
-
-  @override
-  void initState() {
-    super.initState();
-    _filterOverlayService = FilterOverlayService();
-  }
-
-  @override
-  void dispose() {
-    _filterOverlayService.dispose();
-    super.dispose();
-  }
-
-  void _onFilterButtonPressed() {
-    _filterOverlayService.showFilterOverlay(context);
-  }
 
   @override
   Widget build(BuildContext context) {
     final filterController = Get.put(SecondaryFilterController());
-    final menuController = Get.put(
-      NavBarController(),
-    ); // GetX MenuController
+    final menuController = Get.put(NavBarController());
+
     return SliverAppBar(
       title: VisibilityDetector(
         key: const Key('mobile-header-key'),
         onVisibilityChanged: (VisibilityInfo info) {
-          // Update menu icon visibility based on header visibility
           menuController.isNavBarVisible.value = info.visibleFraction > 0.0;
         },
         child: const MobileHeader(),
       ),
       automaticallyImplyLeading: false,
-      // Remove back arrow
       leading: null,
-      // Explicitly set leading to null
       expandedHeight: 160.0,
       titleSpacing: 0,
       floating: true,
@@ -69,6 +40,7 @@ class _MySliverAppBarState extends State<MySliverAppBar> {
         expandedTitleScale: 1.1,
         title: Container(
           color: TColors.primaryBackground,
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
           child: Row(
             children: [
               Expanded(
@@ -78,32 +50,62 @@ class _MySliverAppBarState extends State<MySliverAppBar> {
                   backgroundColor: const Color(0xFFE5F7F9).withOpacity(0.1),
                   radius: 32,
                   padding: const EdgeInsets.all(12),
-                  margin: const EdgeInsets.only(left: 24, right: 12, top: 24, bottom: 24),
+                  width: double.infinity,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(
-                        children: [
-                          SvgPicture.asset(TImages.search),
-                          const SizedBox(width: TSizes.spaceBtwItems / 2),
-                          Text(
-                            "Start a search",
-                            style: TextStyle(
-                              fontFamily: 'InterDisplay',
-                              fontWeight: FontWeight.w400,
-                              color: const Color(0xFFE5F7F9).withOpacity(0.5),
-                            ),
-                          ),
-                        ],
-                      )
+                      SvgPicture.asset(TImages.search),
+                      const SizedBox(width: TSizes.spaceBtwItems / 2),
+                      Text(
+                        "Start a search",
+                        style: TextStyle(
+                          fontFamily: 'InterDisplay',
+                          fontWeight: FontWeight.w400,
+                          color: const Color(0xFFE5F7F9).withOpacity(0.5),
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ),
-              // Filter Button
-              Container(
-                margin: const EdgeInsets.only(right: 24, top: 24, bottom: 24),
-                child: FilterButton(onPressed: _onFilterButtonPressed),
+              const SizedBox(width: 12),
+
+              // ✅ Builder provides a safe context for showModalBottomSheet
+              Builder(
+                builder: (innerContext) => GestureDetector(
+                  onTap: () {
+                    Future.microtask(() {
+                      showModalBottomSheet(
+                        context: innerContext,
+                        useSafeArea: true,
+                        barrierColor: TColors.lightGrey.withOpacity(0.1),
+                        backgroundColor: TColors.primaryBackground,
+                        isScrollControlled: true,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(16),
+                            topRight: Radius.circular(16),
+                              bottomLeft: Radius.circular(0),
+                              bottomRight: Radius.circular(0),
+                          ),
+                        ),
+                        builder: (BuildContext context) {
+                          return const MobileFilters(); // ✅ replace with your widget
+                        },
+                      );
+                    });
+                  },
+                  child: Container(
+                    width: 48,
+                    height: 48,
+                    padding: const EdgeInsets.all(13),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: TColors.filterButtonBackground,
+                    ),
+                    child: SvgPicture.asset(TImages.filters),
+                  ),
+                ),
               ),
             ],
           ),

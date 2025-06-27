@@ -17,7 +17,7 @@ class SearchFilter extends StatelessWidget {
       padding: EdgeInsets.zero,
       radius: 8,
       width: 560,
-      height: 590,
+      height: 600,
       child: Column(children: [
         Expanded(child: Filters()),
         FilterActionButtons()
