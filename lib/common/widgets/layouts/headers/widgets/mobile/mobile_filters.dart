@@ -5,90 +5,54 @@ import '../../../../../../utils/constants/colors.dart';
 import '../desktop/search_filter/filter_action_button.dart';
 import '../desktop/search_filter/filters.dart';
 
-class AnimatedMobileFilters extends StatefulWidget {
-  const AnimatedMobileFilters({super.key});
+import 'package:flutter/material.dart';
 
-  @override
-  State<AnimatedMobileFilters> createState() => _AnimatedMobileFiltersState();
-}
+import '../../../../../../features/booking/screens/home/widgets/common/filter_overlay_header.dart';
+import '../../../../../../utils/constants/colors.dart';
+import '../desktop/search_filter/filter_action_button.dart';
+import '../desktop/search_filter/filters.dart';
 
-class _AnimatedMobileFiltersState extends State<AnimatedMobileFilters>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
-  late Animation<Offset> _slideAnimation;
-  late Animation<double> _fadeAnimation;
+class MobileFilters extends StatelessWidget {
+  const MobileFilters({super.key});
 
-  @override
-  void initState() {
-    super.initState();
-    _animationController = AnimationController(
-      duration: const Duration(milliseconds: 400), // Slow animation duration
-      vsync: this,
-    );
-
-    // Slide animation from bottom to top
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 1), // Start from bottom (completely hidden)
-      end: Offset.zero, // End at original position
-    ).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeOutCubic, // Smooth easing curve
-    ));
-
-    // Fade animation for smooth appearance
-    _fadeAnimation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeInOut,
-    ));
-
-    // Start animation when widget is built
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _animationController.forward();
-    });
-  }
-
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
-  }
-
-  Future<void> _closeWithAnimation() async {
-    await _animationController.reverse();
-    if (mounted) {
-      Navigator.of(context).pop();
-    }
+  void _close(BuildContext context) {
+    Navigator.of(context).pop();
   }
 
   @override
   Widget build(BuildContext context) {
-    return SlideTransition(
-      position: _slideAnimation,
-      child: FadeTransition(
-        opacity: _fadeAnimation,
-        child: Container(
-          padding: const EdgeInsets.all(24),
-          height: MediaQuery.of(context).size.height,
-          decoration: const BoxDecoration(
-            color: TColors.primaryBackground,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(16),
-              topRight: Radius.circular(16),
-              bottomLeft: Radius.circular(0),
-              bottomRight: Radius.circular(0),
-            ),
-          ),
-          child:  Column(
-            children: [
-              FilterOverlayHeader(onClose: _closeWithAnimation),
-              const Expanded(child: Filters()),
-              const FilterActionButtons(),
-            ],
-          ),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(16),
+          topRight: Radius.circular(16),
+          bottomLeft: Radius.circular(0),
+          bottomRight: Radius.circular(0),
         ),
+        border: Border.all(
+          color: const Color(0xFF2F3D3D).withOpacity(0.50),
+          width: 2,
+        ),
+        color: const Color(0xFF131B1B),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF979FB7).withOpacity(0.10),
+            offset: const Offset(0, 4),
+            blurRadius: 120,
+            spreadRadius: 0,
+          ),
+        ],
+      ),
+      padding: const EdgeInsets.all(24),
+      height: MediaQuery.of(context).size.height,
+
+      child: Column(
+        children: [
+          FilterOverlayHeader(onClose: () => _close(context)),
+          const SizedBox(height: 24,),
+          const Expanded(child: Filters()),
+          const FilterActionButtons(),
+        ],
       ),
     );
   }

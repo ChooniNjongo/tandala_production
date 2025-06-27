@@ -92,7 +92,7 @@ class MySliverAppBar extends StatelessWidget {
                           ),
                         ),
                         builder: (BuildContext context) {
-                          return const AnimatedMobileFilters(); // ✅ Use animated version
+                          return const MobileFilters(); // ✅ Use animated version
                         },
                       );
                     });

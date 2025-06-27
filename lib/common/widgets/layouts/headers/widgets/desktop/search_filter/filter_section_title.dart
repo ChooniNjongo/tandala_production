@@ -16,7 +16,7 @@ class FilterSectionTitle extends StatelessWidget {
       style: const TextStyle(
         fontFamily: 'InterDisplay',
         fontWeight: FontWeight.w500,
-        fontSize: 15,
+        fontSize: 16,
         height: 1.4, // 140% line height
         letterSpacing: 0,
         color: TColors.white,
@@ -37,7 +37,7 @@ class FilterSectionSubtitle extends StatelessWidget {
       style: const TextStyle(
         fontFamily: 'InterDisplay',
         fontWeight: FontWeight.w400,
-        fontSize: 13,
+        fontSize: 14,
         height: 1.3, // 130% line height
         letterSpacing: 0,
         color: Color(0xFF888888),

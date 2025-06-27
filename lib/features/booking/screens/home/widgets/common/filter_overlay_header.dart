@@ -27,9 +27,11 @@ class FilterOverlayHeader extends StatelessWidget {
           'Filters',
           style: TextStyle(
             fontFamily: 'InterDisplay',
-            fontSize: 20,
+            fontSize: 24,
             fontWeight: FontWeight.w600,
-            color: TColors.textPrimary,
+            color: TColors.white,
+            height: 1.4, // 140% line height
+            letterSpacing: 0,
           )
         ),
         const Icon(

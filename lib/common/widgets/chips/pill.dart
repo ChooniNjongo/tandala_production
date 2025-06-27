@@ -22,10 +22,10 @@ class TPill extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TRoundedContainer(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         onTap: onTap,
         backgroundColor:
-            isSelected ? TColors.primary500 : const Color(0xFF001113),
+            isSelected ? const Color(0xFF00AFC1) : const Color(0xFF001113),
         radius: 32,
         child: Row(
           mainAxisSize:MainAxisSize.min,
