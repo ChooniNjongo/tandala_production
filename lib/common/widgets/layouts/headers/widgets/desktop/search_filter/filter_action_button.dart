@@ -35,6 +35,7 @@ class FilterActionButtons extends StatelessWidget {
           ),
           SizedBox(
             width: 160,
+            height: 44,
             child: ElevatedButton(
               onPressed: () {
                 Get.offAllNamed(TRoutes.searchResults);

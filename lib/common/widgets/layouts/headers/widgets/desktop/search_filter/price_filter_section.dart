@@ -21,26 +21,28 @@ class PriceFilterSection extends StatelessWidget {
     final controller = Get.put(SearchFilterController());
     return const TRoundedContainer(
       padding: EdgeInsets.zero,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          FilterSectionTitle(title: TTexts.priceFilter),
-          SizedBox(
-            height: TSizes.spaceBtwItems,
-          ),
-          FilterSectionSubtitle(subTitle: TTexts.priceRangeSubtitle),
-          PriceSlider(),
-          SizedBox(
-            height: TSizes.spaceBtwItems,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TPill(title: "\$400", isSelected: false),
-              TPill(title: "\$2400", isSelected: false)
-            ],
-          ),
-        ],
+      child: SizedBox(
+        width: double.infinity, // Ensure full width
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            FilterSectionTitle(title: TTexts.priceFilter),
+            SizedBox(height: TSizes.spaceBtwItems),
+            // Wrap PriceSlider in SizedBox to ensure it gets proper width constraints
+            SizedBox(
+              width: double.infinity,
+              child: PriceSlider(),
+            ),
+            SizedBox(height: TSizes.spaceBtwItems),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TPill(title: "\$400", isSelected: false),
+                TPill(title: "\$2400", isSelected: false)
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

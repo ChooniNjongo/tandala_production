@@ -39,8 +39,10 @@ class PropertyRulesWidget extends StatelessWidget {
       () => Column(
         children: [
           Wrap(
+            runSpacing: 12,
             children: [
               AmenityTile(
+                  isSelected:true,
                   amenityType: 'Allows Pets',
                   value: controller.allowsPets.value,
                   onChanged: (value) {
@@ -48,6 +50,7 @@ class PropertyRulesWidget extends StatelessWidget {
                     controller.searchWithFilters();
                   }),
               AmenityTile(
+                  isSelected:true,
                   amenityType: 'Smoking',
                   value: controller.smokingAllowed.value,
                   onChanged: (value) {
@@ -56,6 +59,7 @@ class PropertyRulesWidget extends StatelessWidget {
                     controller.searchWithFilters();
                   }),
               AmenityTile(
+                  isSelected:false,
                   amenityType: 'Partying',
                   value: controller.hasParty.value,
                   onChanged: (value) {

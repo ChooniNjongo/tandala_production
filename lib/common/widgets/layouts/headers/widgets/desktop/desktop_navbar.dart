@@ -136,7 +136,7 @@ class _NavbarItemState extends State<NavbarItem>
     if (_isHovered) {
       return const Color(0xFFE5F7F9).withOpacity(0.3);
     }
-    return Colors.transparent;
+    return   const Color(0xFFE5F7F9).withOpacity(0.4);
   }
 
   Color _getIconColor() {

@@ -11,9 +11,35 @@ import '../../../../../../common/widgets/layouts/headers/mobile_header.dart';
 import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/constants/image_strings.dart';
 import '../../../../controllers/secondary_filter_controller.dart';
+import '../common/filter_button.dart';
+import '../common/filter_overlay_service.dart';
+// Import the FilterButton and FilterOverlayService
 
-class MySliverAppBar extends StatelessWidget {
+class MySliverAppBar extends StatefulWidget {
   const MySliverAppBar({super.key});
+
+  @override
+  State<MySliverAppBar> createState() => _MySliverAppBarState();
+}
+
+class _MySliverAppBarState extends State<MySliverAppBar> {
+  late final FilterOverlayService _filterOverlayService;
+
+  @override
+  void initState() {
+    super.initState();
+    _filterOverlayService = FilterOverlayService();
+  }
+
+  @override
+  void dispose() {
+    _filterOverlayService.dispose();
+    super.dispose();
+  }
+
+  void _onFilterButtonPressed() {
+    _filterOverlayService.showFilterOverlay(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,33 +69,43 @@ class MySliverAppBar extends StatelessWidget {
         expandedTitleScale: 1.1,
         title: Container(
           color: TColors.primaryBackground,
-          child: TRoundedContainer(
-            showShadow: true,
-            height: 48,
-            backgroundColor: const Color(0xFFE5F7F9).withOpacity(0.1),
-            radius: 32,
-            padding: const EdgeInsets.all(12),
-            margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-            width: double.infinity,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  children: [
-                    SvgPicture.asset(TImages.search),
-                    const SizedBox(width: TSizes.spaceBtwItems / 2),
-                     Text(
-                      "Start a search",
-                      style: TextStyle(
-                        fontFamily: 'InterDisplay',
-                        fontWeight: FontWeight.w400,
-                        color:  const Color(0xFFE5F7F9).withOpacity(0.5),
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
+          child: Row(
+            children: [
+              Expanded(
+                child: TRoundedContainer(
+                  showShadow: true,
+                  height: 48,
+                  backgroundColor: const Color(0xFFE5F7F9).withOpacity(0.1),
+                  radius: 32,
+                  padding: const EdgeInsets.all(12),
+                  margin: const EdgeInsets.only(left: 24, right: 12, top: 24, bottom: 24),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: [
+                          SvgPicture.asset(TImages.search),
+                          const SizedBox(width: TSizes.spaceBtwItems / 2),
+                          Text(
+                            "Start a search",
+                            style: TextStyle(
+                              fontFamily: 'InterDisplay',
+                              fontWeight: FontWeight.w400,
+                              color: const Color(0xFFE5F7F9).withOpacity(0.5),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              // Filter Button
+              Container(
+                margin: const EdgeInsets.only(right: 24, top: 24, bottom: 24),
+                child: FilterButton(onPressed: _onFilterButtonPressed),
+              ),
+            ],
           ),
         ),
       ),

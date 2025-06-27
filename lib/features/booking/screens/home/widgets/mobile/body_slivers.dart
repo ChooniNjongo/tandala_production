@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../../common/widgets/cards/listing_card/listing_card.dart'; // Updated import
 import '../../../../../../common/widgets/layouts/grid_layout.dart';
+import '../../../../../../common/widgets/layouts/headers/widgets/desktop/desktop_navbar.dart';
 import '../../../../../../common/widgets/shimmers/vertical_product_shimmer.dart';
 import '../../../../../../utils/constants/color_system.dart';
+import '../../../../../../utils/constants/image_strings.dart';
 import '../../../../../../utils/constants/sizes.dart';
 import '../../../../../../utils/constants/typography.dart';
 import '../../../../../../utils/device/device_utility.dart';
@@ -108,6 +110,33 @@ class BodySlivers extends StatelessWidget {
 
           return Column(
             children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+
+                NavbarItem(
+                  isSelected: false,
+                  name: 'Apartments',
+                  icon: TImages.apartment,
+                  onPressed: () {},
+                ),
+                NavbarItem(
+                  isSelected: true,
+                  name: 'Hotels',
+                  icon: TImages.hotel,
+                  onPressed: () {},
+                ),
+                NavbarItem(
+                  isSelected: false,
+                  name: 'Lodges',
+                  icon: TImages.lodge,
+                  onPressed: () {},
+                )
+              ],
+                        ),
+            ),
               /// How do i stack a svg chevron right arrow at the end of the scrollable row,and dim the item of the filters thats right behind the arrow
               const SizedBox(width: double.infinity,child: QuickFiltersMobile()),
               const SizedBox(height: TSizes.spaceBtwSections / 2),

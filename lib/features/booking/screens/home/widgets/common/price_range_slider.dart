@@ -25,7 +25,9 @@ class _PriceSliderState extends State<PriceSlider> {
           trackHeight: 2.0, // Adjust this value for track thickness
 
           // Active track color
-          activeTrackColor: TColors.primary500,
+          activeTrackColor: const Color(
+            0xFF00AFC1,
+          ),
 
           // Inactive track color
           inactiveTrackColor: const Color(0xFFE3E8EF),
@@ -38,13 +40,17 @@ class _PriceSliderState extends State<PriceSlider> {
           ),
 
           // Thumb color
-          thumbColor: TColors.primary500,
+          thumbColor: const Color(
+            0xFF00AFC1,
+          ),
 
           // Overlay (the circle that appears when pressed)
           overlayShape: const RoundSliderOverlayShape(
             overlayRadius: 20.0, // Adjust for press effect size
           ),
-          overlayColor: TColors.primary500.withOpacity(0.2),
+          overlayColor: const Color(
+            0xFF00AFC1,
+          ).withOpacity(0.2),
 
           // Value indicator (the popup showing values)
           valueIndicatorShape: const PaddleSliderValueIndicatorShape(),

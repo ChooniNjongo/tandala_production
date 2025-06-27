@@ -121,4 +121,10 @@ class TColors {
   // Icon colors
   static const Color iconPrimary = Color(0xFF8D8D8D);
   static const Color beautifulPurple = Color(0xFF5D4791);
+
+  // Filter related colors
+  static const Color filterButtonBackground = Color(0xFF1A2323);
+  static const Color overlayBackground = Color(0xFF001113);
+  static const Color filterPopupBackground = Color(0xFF131B1B);
+  static const Color filterPopupBorder = Color(0xFF1F2A2A);
 }

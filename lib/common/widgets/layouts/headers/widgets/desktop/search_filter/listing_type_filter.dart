@@ -20,8 +20,6 @@ class ListingTypeFilter extends StatelessWidget {
         children: [
           const FilterSectionTitle(title: TTexts.listingTypeCategory),
           const SizedBox(height: 16,),
-          const FilterSectionSubtitle( subTitle: TTexts.listingTypeCategory,),
-          const SizedBox(height: 16,),
           Wrap(
             spacing: 12, // Horizontal spacing between chips
             runSpacing: 12, // Vertical spacing between rows when chips wrap
@@ -37,7 +35,7 @@ class ListingTypeFilter extends StatelessWidget {
               TPill(
                   title: TTexts.lodge,
                   isSelected: controller.isDiscountSelected.value,
-                  onTap: controller.onIsDiscountSelectedTapped),
+                  onTap: controller.onIsDiscountSelectedTapped,count: 6),
               TPill(
                   title: TTexts.guestHouse,
                   isSelected: controller.isDiscountSelected.value,
