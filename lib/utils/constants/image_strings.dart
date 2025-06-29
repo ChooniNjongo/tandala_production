@@ -588,4 +588,20 @@ class TImages {
   static const String menuPopReviews = "assets/icons/pop_up_menu/star.svg";
   static const String menuPopListingReports = "assets/icons/pop_up_menu/alert-hexagon.svg";
 
+
+  ///Mobile Bottom Nab Bar
+  static const String bottomNavbarBookings = "assets/icons/bottom_navbar/calendar-01.svg";
+  static const String bottomNavbarWishlist = "assets/icons/bottom_navbar/heart.svg";
+  static const String bottomNavbarPlaces = "assets/icons/bottom_navbar/home-02.svg";
+  static const String bottomNavbarAccount = "assets/icons/pop_up_menu/user.svg";
+
+
+  /// Product Screen
+
+  static const String verify = "assets/icons/designer_assets/verify.svg";
+  static const String bathtub = "assets/icons/designer_assets/bathtub.svg";
+  static const String bed = "assets/icons/designer_assets/bed.svg";
+  static const String arrows = "assets/icons/designer_assets/arrows-pointing-out-square.svg";
+
+
 }

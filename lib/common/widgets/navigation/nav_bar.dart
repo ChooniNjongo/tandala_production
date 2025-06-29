@@ -23,27 +23,26 @@ class NavBar extends StatelessWidget {
           labelTextStyle: WidgetStateProperty.resolveWith((states) {
             if (states.contains(WidgetState.selected)) {
               return const TextStyle(
-                fontFamily: "Inter",
+                fontFamily: "InterDisplay",
                 fontSize: 10,
-                fontWeight: FontWeight.w500,
-                color: TColorSystem.primary500,
-                height: 13 / 10,
+                fontWeight: FontWeight.w400,
+                color: Color(0xFF00AFC1),
+                height: 1.2,
               );
             }
             return const TextStyle(
-              fontFamily: "Inter",
+              fontFamily: "InterDisplay",
               fontSize: 10,
-              fontWeight: FontWeight.w500,
-              color: TColorSystem.n700,
-              height: 13 / 10,
+              fontWeight: FontWeight.w400,
+              color: TColors.textPrimary ,
+              height: 1.2,
             );
           }),
         ),
         child: Container(
-          padding: const EdgeInsets.only(left: 8, right: 8, bottom: 4, top: 12),
+          padding: const EdgeInsets.only(left: 8, right: 8, bottom: 24, top: 24),
           child: NavigationBar(
             selectedIndex: navController.selectedIndex.value,
-            height: 56,
             elevation: 0,
             onDestinationSelected: (index) {
               navController.selectedIndex.value = index;
@@ -60,9 +59,6 @@ class NavBar extends StatelessWidget {
                 case 3:
                   sidebarController.menuOnTap(TRoutes.activeBookings);
                   break;
-                case 4:
-                  sidebarController.menuOnTap(TRoutes.createProduct);
-                  break;
               }
             },
             backgroundColor: TColors.primaryBackground,
@@ -70,60 +66,40 @@ class NavBar extends StatelessWidget {
             destinations: [
               NavigationDestination(
                 icon: SvgNavIcon(
-                  navIcon: TImages.home,
+                  navIcon: TImages.bottomNavbarPlaces,
                   isSelected: sidebarController.activeItem.value == TRoutes.places,
                 ),
                 label: "Home",
               ),
               NavigationDestination(
                 icon: SvgNavIcon(
-                  navIcon: TImages.heart,
-                  isSelected: sidebarController.activeItem.value == TRoutes.wishlist,
+                  navIcon: TImages.bottomNavbarBookings,
+                  isSelected: sidebarController.activeItem.value == TRoutes.activeBookings,
                 ),
-                label: "Wishlist",
+                label: "Bookings",
               ),
 
-              NavigationDestination(
-                icon: Container(
-                  width: 40, // Make sure width and height are equal to ensure a perfect circle
-                  height: 40,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color:  sidebarController.activeItem.value == TRoutes.createListing? TColors.primary: TColorSystem.n700, // Change to your preferred color
-                      width: 0.8, // Change to your preferred border width
-                    ),
-                  ),
-                  child: Center( // Center the icon inside the circle
-                    child: SvgNavIcon(
-                      navIcon: TImages.plusCircle,
-                      isSelected: sidebarController.activeItem.value == TRoutes.createListing,
-                    ),
-                  ),
-                ),
-                label: "",
-              ),
 
 
               NavigationDestination(
                 icon: SvgNavIcon(
                   notificationCount:
-                      bookingController.numberOfUnCompletedBookings.value,
+                      0,
                   notificationColor: TColors.success,
                   count: true,
-                  navIcon: TImages.shoppingBag,
+                  navIcon: TImages.bottomNavbarWishlist,
                   isSelected: sidebarController.activeItem.value == TRoutes.bookingsHistory,
                 ),
-                label: "Bookings",
+                label: "Wishlist",
               ),
               NavigationDestination(
                 icon: SvgNavIcon(
                   notificationCount: 0,
                   count: true,
-                  navIcon: TImages.messageCircle,
+                  navIcon: TImages.bottomNavbarAccount,
                   isSelected: sidebarController.activeItem.value == TRoutes.messages,
                 ),
-                label: "Messages",
+                label: "Account",
               ),
             ],
           ),

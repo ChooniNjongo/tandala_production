@@ -1,12 +1,15 @@
 // listing_card.dart - Optimized for compact layout
 import "package:cwt_ecommerce_admin_panel/common/widgets/cards/property_cards/mobile/widgets/listing_price.dart";
 import "package:flutter/material.dart";
+import "package:get/get.dart";
+import "package:get/get_core/src/get_main.dart";
 import "../../../../features/booking/models/property/listing_model.dart";
+import "../../../../routes/routes.dart";
 import "listing_image.dart";
 import "listing_name_and_rating.dart";
 
 class ListingCard extends StatelessWidget {
-  const ListingCard({super.key, required this.listing});
+  const  ListingCard({super.key, required this.listing});
 
   final ListingModel listing;
 
@@ -23,10 +26,18 @@ class ListingCard extends StatelessWidget {
               MainAxisSize.min, // Important: don't take up extra space
           children: [
             /// Listing Image - Fixed height based on width
-            SizedBox(
-              height: imageHeight,
-              width: double.infinity,
-              child: ListingImage(listing: listing),
+            GestureDetector(
+              onTap: () {
+                Get.toNamed(TRoutes.listingViewing, arguments: {
+                  'listing': listing,
+                  'isEditing': false // Or true, depending on your use case
+                });
+              },
+              child: SizedBox(
+                height: imageHeight,
+                width: double.infinity,
+                child: ListingImage(listing: listing),
+              ),
             ),
             const SizedBox(height: 8), // Reduced spacing
 

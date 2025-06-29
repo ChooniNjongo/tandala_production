@@ -106,6 +106,7 @@ flutter:
     - assets/icons/designer_assets/
     - assets/images/assets/
     - assets/icons/pop_up_menu/
+    - assets/icons/bottom_navbar/
 
   #--------------- LOCAL FONTS ------------------#
   fonts:

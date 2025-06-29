@@ -19,17 +19,20 @@ class ListingViewingDesktopScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: Padding(
         padding:
-            const EdgeInsets.symmetric(horizontal: TSizes.defaultSpaceDesktop * 2),
+            const EdgeInsets.symmetric(horizontal: 80),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// Image Cascade
-            PropertyGeneralPictures(listing: TTestListings.properties[0]),
+            /// Listing Header
+            const SizedBox(height: TSizes.spaceBtwSections),
+            ListingHeader(listing: listing!),
             const SizedBox(height: TSizes.spaceBtwSections),
 
-            /// Listing Header
-            ListingHeader(listing: TTestListings.properties[0]),
+
+            /// Image Cascade
+         //   PropertyGeneralPictures(listing: listing!),
             const SizedBox(height: TSizes.spaceBtwSections),
+
 
             ///  Action Buttons
             const SizedBox(height: 7),
@@ -40,7 +43,7 @@ class ListingViewingDesktopScreen extends StatelessWidget {
 
             /// TabBar and TabView
             MobileTabView(
-              listing: TTestListings.properties[0],
+              listing:  listing!,
               isEditing: isEditing,
             )
           ],

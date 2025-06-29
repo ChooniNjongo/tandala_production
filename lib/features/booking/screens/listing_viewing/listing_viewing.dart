@@ -19,7 +19,7 @@ class ListingViewingScreen extends StatelessWidget {
     final ListingModel listing = args['listing'];
 
     return TSiteTemplate(
-      useLayout: false,
+      useLayout: true,
       desktop: ListingViewingDesktopScreen(
         isEditing: isEditing,
         listing: listing,

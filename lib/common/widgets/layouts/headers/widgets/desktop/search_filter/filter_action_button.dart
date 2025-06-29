@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../../../features/booking/controllers/search_filter_controller.dart';
 import '../../../../../../../routes/routes.dart';
-import '../../../../../../../utils/constants/color_system.dart';
 import '../../../../../../../utils/constants/colors.dart';
 import '../../../../../../../utils/constants/sizes.dart';
-import '../../../../../../../utils/constants/typography.dart';
 import '../../../../../loaders/MySpinKitLoadingIndicator.dart';
 
 class FilterActionButtons extends StatelessWidget {

@@ -1,3 +1,4 @@
+import 'package:cwt_ecommerce_admin_panel/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -25,9 +26,9 @@ class SvgNavIcon extends StatelessWidget {
       children: [
         SvgPicture.asset(
           navIcon,
-          color: isSelected ? TColorSystem.primary500 : TColorSystem.n700,
-          height: 20,
-          width: 20,
+          color: isSelected ? const Color(0xFF00AFC1) : TColors.textPrimary,
+          height: 24,
+          width: 24,
         ),
         Visibility(
           visible: notificationCount!>0,
